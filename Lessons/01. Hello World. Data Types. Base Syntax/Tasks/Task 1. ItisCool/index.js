@@ -1,6 +1,6 @@
 const itisCool = (begin, end) => {
     // Начало
-    for (let begin = 11; end <= 20; i++) {
+    for (let i = begin; i <= end; i++) {
         if (i % 3 === 0 && i % 5 === 0) {
             console.log("ItisCool")
         }
@@ -16,5 +16,4 @@ const itisCool = (begin, end) => {
     }
     // Конец
 };
-
 export default itisCool;
