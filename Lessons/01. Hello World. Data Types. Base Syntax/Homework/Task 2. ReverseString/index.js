@@ -1,6 +1,7 @@
 const reverseString = (str) => {
     // Начало
 
+
     // Конец
 };
 
