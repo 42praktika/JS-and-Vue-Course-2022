@@ -1,7 +1,7 @@
 const helloWorld = () => {
-    // Начало
-
-    // Конец
+     console.log('Hello World!')
 };
+helloWorld()
 
 export default helloWorld;
+
