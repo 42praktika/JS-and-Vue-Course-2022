@@ -1,12 +1,9 @@
 const reverseString = (str) => {
-    let answer=""
-    if (str.length<=1) {
+    if (str.length<2){
         return str;
+    } else {
+        return reverseString(str.substring(1))+str.charAt(0);
     }
-    for (let i=str.length-1;i>=0;i--) {
-        answer+=str[i];
-    }
-    return answer
 };
 
 export default reverseString;
