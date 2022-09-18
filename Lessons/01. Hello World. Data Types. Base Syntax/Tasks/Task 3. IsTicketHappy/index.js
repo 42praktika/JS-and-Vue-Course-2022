@@ -1,7 +1,6 @@
 const isTicketHappy = (number) => {
   let a=0;
   let b=0;
-     
        for(let i=0;i < (number.length)/2;i++){
           a+= Number(number[i]);
        }
@@ -12,7 +11,4 @@ const isTicketHappy = (number) => {
   }
   return Boolean(a==b);
 }
-
-
-
 export default isTicketHappy;

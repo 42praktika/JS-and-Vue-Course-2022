@@ -17,6 +17,4 @@ const itisCool = (begin, end) => {
   }
 }
 }
-    // Конец
-
 export default itisCool;
