@@ -13,5 +13,4 @@ const sumSquareDifference = (num) => {
     return b-a;
     // Конец
 };
-
 export default sumSquareDifference;

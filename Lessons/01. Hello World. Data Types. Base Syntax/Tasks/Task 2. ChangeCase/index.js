@@ -1,7 +1,6 @@
 const changeCase = (str) => {
     // Начало
  let str2 = '';
-
     for (let i = 0; i < str.length; i++) {
         if (str.charAt(i) === str.charAt(i).toLowerCase()) {
             str2 += str.charAt(i).toUpperCase();
@@ -14,5 +13,4 @@ const changeCase = (str) => {
     return(str2);
     // Конец
 };
-
 export default changeCase;

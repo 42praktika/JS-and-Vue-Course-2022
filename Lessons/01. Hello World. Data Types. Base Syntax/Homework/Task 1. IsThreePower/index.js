@@ -9,6 +9,4 @@ const isThreePower = (num) => {
     } else return false;
     // Конец
 };
-    
-
 export default isThreePower;

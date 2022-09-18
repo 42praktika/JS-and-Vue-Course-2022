@@ -3,5 +3,4 @@ const helloWorld = () => {
         console.log("Hello World!");
     // Конец
 };
-
 export default helloWorld;

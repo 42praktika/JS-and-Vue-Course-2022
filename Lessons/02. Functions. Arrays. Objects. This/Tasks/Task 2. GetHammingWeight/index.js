@@ -10,5 +10,4 @@ const getHammingWeight = (num) => {
   return a;
     // Конец
 };
-
 export default getHammingWeight;

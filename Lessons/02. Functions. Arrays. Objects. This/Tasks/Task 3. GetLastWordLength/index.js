@@ -5,5 +5,4 @@ const getLastWordLength = (str) => {
   return str.length;
     // Конец
 };
-
 export default getLastWordLength;

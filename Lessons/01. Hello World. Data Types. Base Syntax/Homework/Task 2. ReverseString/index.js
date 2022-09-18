@@ -7,5 +7,4 @@ const reverseString = (str) => {
     return str2;
     // Конец
 };
-
 export default reverseString;
