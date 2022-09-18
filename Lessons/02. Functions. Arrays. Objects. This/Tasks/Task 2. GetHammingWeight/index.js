@@ -1,4 +1,5 @@
 const getHammingWeight = (num) => {
+    // Начало
   let num2 = num.toString(2);
   let a=0;
   for(let i=0; i<num2.length; i++){
@@ -7,5 +8,7 @@ const getHammingWeight = (num) => {
     }
   }
   return a;
+    // Конец
 };
+
 export default getHammingWeight;

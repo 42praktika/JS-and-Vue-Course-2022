@@ -1,4 +1,5 @@
 const sumSquareDifference = (num) => {
+    // Начало
     let a =0;
     let b =0;
     for( let i = 1; i <= num; i++){
@@ -10,6 +11,7 @@ const sumSquareDifference = (num) => {
     }
     b=b**2;
     return b-a;
+    // Конец
 };
 
 export default sumSquareDifference;

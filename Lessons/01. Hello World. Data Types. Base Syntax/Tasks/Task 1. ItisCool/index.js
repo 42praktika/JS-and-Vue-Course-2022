@@ -1,4 +1,5 @@
 const itisCool = (begin, end) => {
+    // Начало
   for (let i = begin; i <=end; i++){
        if (begin > end) {
     return;
@@ -16,5 +17,6 @@ const itisCool = (begin, end) => {
     
   }
 }
-}
+   // Конец
+};
 export default itisCool;

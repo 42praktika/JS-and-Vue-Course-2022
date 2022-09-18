@@ -1,4 +1,5 @@
 const roundAndRootNumber = (num) => {
+    // Начало
      if(num==0){
     return '0';
   }
@@ -13,5 +14,6 @@ const roundAndRootNumber = (num) => {
       else {
         return 'error';
     }
+    // Конец
 };
 export default roundAndRootNumber;
