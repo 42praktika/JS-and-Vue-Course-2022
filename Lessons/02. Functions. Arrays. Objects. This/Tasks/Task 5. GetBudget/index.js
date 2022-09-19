@@ -1,7 +1,7 @@
 const getBudget = (people) => {
-    // Начало
-
-    // Конец
+    return people.reduce((acc, p) => {
+        return acc + p.budget;
+    }, 0);
 };
 
 export default getBudget;
