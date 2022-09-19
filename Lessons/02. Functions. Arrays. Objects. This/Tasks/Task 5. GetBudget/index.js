@@ -1,7 +1,9 @@
 const getBudget = (people) => {
-    // Начало
-
-    // Конец
+    let b = 0;
+    people.map((obj) => {
+        b += obj.budget;
+    })
+    return b;
 };
 
 export default getBudget;

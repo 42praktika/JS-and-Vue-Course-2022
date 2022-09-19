@@ -5,9 +5,9 @@ const getCopy = (el) => JSON.parse(JSON.stringify(el));
 const onlyUnique = (array) => [ ...new Set(array) ];
 
 const generateDifference = (objOne, objTwo) => {
-    // Начало
+    const first = JSON.parse() getCopy(onlyUnique(objOne));
+    const second = getCopy(onlyUnique(objTwo));
 
-    // Конец
 };
 
 export default generateDifference;
