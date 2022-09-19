@@ -10,5 +10,4 @@ const isSequenceContinuous = (numbers) => {
     }
     return res
 };
-console.log(isSequenceContinuous([]))
-// export default isSequenceContinuous;
+export default isSequenceContinuous;
