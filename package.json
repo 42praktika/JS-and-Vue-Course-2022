@@ -7,7 +7,8 @@
         "test-i": "jest -o",
         "test-watch": "jest --watch",
         "watch": "webpack -w --mode development",
-        "build": "webpack --mode production"
+        "build": "webpack --mode production",
+        "update": "git fetch origin main && git merge origin/main"
     },
     "devDependencies": {
         "@babel/plugin-transform-modules-commonjs": "^7.15.4",
