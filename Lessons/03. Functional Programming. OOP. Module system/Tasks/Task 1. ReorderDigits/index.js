@@ -1,7 +1,7 @@
 const reorderDigits = () => {
-    // Начало
+        // Начало
 
-    // Конец
+        // Конец
+
 };
-
 export default reorderDigits;
