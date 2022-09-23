@@ -1,13 +1,13 @@
 const isSequenceContinuous = (numbers) => {
-    let res = false
-    for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i+1] - numbers[i] === 1 && numbers[i+1] > numbers[i]) {
-            res = true
-        }
-        else{
-            res = false
+    if (numbers.length < 2) {
+        return false
+    }
+    for (let i = 0; i < numbers.length - 1; i++) {
+        if (Math.abs(numbers[i] - numbers[i+1]) !== 1) {
+            return false
         }
     }
-    return res
-};
+    return true
+}
+
 export default isSequenceContinuous;
