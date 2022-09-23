@@ -1,7 +1,9 @@
 const reverseString = (str) => {
-    // Начало
-
-    // Конец
+    if (str.length<2){
+        return str;
+    } else {
+        return reverseString(str.substring(1))+str.charAt(0);
+    }
 };
 
 export default reverseString;
