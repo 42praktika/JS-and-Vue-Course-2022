@@ -1,7 +1,6 @@
 const isSequenceContinuous = (numbers) => {
     // Начало
-
-    if (numbers.length === 0 || numbers.length === 1) {
+ if (numbers.length === 0 || numbers.length === 1) {
         return false;
     }
    else{
@@ -14,6 +13,7 @@ const isSequenceContinuous = (numbers) => {
 }
     // Конец
 };
+
 
 
 export default isSequenceContinuous;
