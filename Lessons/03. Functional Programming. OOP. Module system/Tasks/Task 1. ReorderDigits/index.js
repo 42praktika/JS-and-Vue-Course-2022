@@ -1,4 +1,4 @@
-// const reorderDigits = () => {
+// const reorderDigits = (type, ...numbers) => {
 //     // Начало
 //     let nums =[]
 //     return howSorting(str)=>{
