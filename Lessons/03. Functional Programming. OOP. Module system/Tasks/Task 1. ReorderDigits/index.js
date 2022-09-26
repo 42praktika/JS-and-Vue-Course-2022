@@ -1,6 +1,5 @@
-const reorderDigits = () => {
+const reorderDigits = (num) => {
     // Начало
-
     // Конец
 };
 
