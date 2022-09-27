@@ -3,7 +3,7 @@ body {
 }
 
 .tic-tac-toe {
-    height: 100vh;
+    height: 640px;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -29,14 +29,10 @@ body {
     background-size: 80%;
 }
 
-.br-left-top {
-    border-top: 2px solid black;
-    border-left: 2px solid black;
-}
-
-.br-right-bottom {
-    border-bottom: 2px solid black;
-    border-right: 2px solid black;
+.br {
+    border: solid;
+    border-width: 2px;
+    border-color: white;
 }
 
 .tac {

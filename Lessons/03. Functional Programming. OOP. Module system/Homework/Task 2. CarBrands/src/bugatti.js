@@ -1,9 +1,15 @@
 import CarBrand from './carBrand';
 
 class BugattiBrand extends CarBrand {
-    // Начало
-    constructor() {
-        super();
+    constructor(brand, power, acceleration, cost) {
+        super(brand, power, acceleration);
+        this.brand = 'Bugatti ' + brand;
+        this.power = power;
+        this.acceleration = acceleration;
+        this.cost = cost;
+    }
+    getIsExpensive() {
+        return this.cost > 1;
     }
 
     // Конец
