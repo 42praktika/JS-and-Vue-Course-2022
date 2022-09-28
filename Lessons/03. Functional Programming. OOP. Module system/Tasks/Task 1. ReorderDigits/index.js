@@ -1,18 +1,21 @@
-const reorderDigits = (str) => {
-    const array = []
-    console.log(str)
-    for (let i = 0; i < arguments.length; i++) {
-        console.log(arguments)
-        if (str === "asc") {
-            array.push(str[i])
-            return array.sort()
-        }
-        else if (str === "desc") {
-            array.push(str[i])
-            return array.sort().reverse()
+const reorderDigits = (str, ...array) => {
+    const func = (p) => {
+        return (a, b) => {
+            if (p >= 1) {
+                return a > b ? 1 : b > a ? -1 : 0;
+            }
+            else {
+                return a > b ? -1 : b > a ? 1 : 0;
+            }
         }
     }
-};
 
-console.log(reorderDigits('asc', 10, 322, 100, 2414, 3))
-// export default reorderDigits;
+    if (str === 'asc') {
+        return array.sort(func(1))
+    }
+    else {
+        return array.sort(func(-1))
+    }
+}
+
+export default reorderDigits;
