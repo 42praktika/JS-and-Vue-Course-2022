@@ -11,4 +11,3 @@ const addECMAInfo = () => {
 
 export default addECMAInfo;
 export { javaScriptData };
-//console.log(addECMAInfo())
