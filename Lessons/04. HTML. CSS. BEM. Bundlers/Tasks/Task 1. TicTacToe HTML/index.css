@@ -1,3 +1,21 @@
 .tic-tac-toe {
-
+    background-color: #e7dee0;
+}
+.tic-tac-toe_table{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.tr_table{
+    border: 5px solid #a97f7f;
+    border-right: white;
+    border-left: white;
+    border-top: white;
+    text-align: center;
+}
+.left_border{
+    border-left: 5px solid #a97f7f;
+}
+.bottom_line{
+    border-bottom: white;
 }
