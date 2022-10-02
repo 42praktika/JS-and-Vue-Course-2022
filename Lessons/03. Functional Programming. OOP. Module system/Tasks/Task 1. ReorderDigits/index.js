@@ -1,10 +1,10 @@
-const reorderDigits = () => {
+const reorderDigits = (type, ...numbers) => {
 
-    let arr = Array.prototype.slice.call(arguments);
+    let arr = Array.prototype.slice.call(numbers);
 
     const bubbleSort = (arr) => {
         for (let i = 0; i < arr.length; i++) {
-            for (let j = 0; j < arr.length() - i; j++) {
+            for (let j = 0; j < arr.length - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     let x = arr[j];
                     arr[j] = arr[j + 1];
@@ -15,8 +15,8 @@ const reorderDigits = () => {
         return arr;
     }
 
-    if (arguments[0] === 'asc') return bubbleSort(arr.slice(1, arr.length));
-    if (arguments[0] === 'desc') return bubbleSort(arr.slice(1, arr.length)).reverse();
+    if (type === 'asc') return bubbleSort(arr.slice(0, arr.length));
+    if (type === 'desc') return bubbleSort(arr.slice(0, arr.length)).reverse();
 };
 
 export default reorderDigits;
