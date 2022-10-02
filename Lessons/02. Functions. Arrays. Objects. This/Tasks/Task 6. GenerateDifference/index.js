@@ -5,20 +5,17 @@ const getCopy = (el) => JSON.parse(JSON.stringify(el));
 const onlyUnique = (array) => [ ...new Set(array) ];
 
 const generateDifference = (objOne, objTwo) => {
-    let ansObj = {...objOne, ...objTwo};
-    for (let key in ansObj) {
-        if (objOne.hasOwnProperty(key))
+    let resultDifference = {...objOne, ...objTwo};
+    for (let key in resultDifference) {
+        if (objOne.hasOwnProperty(key) && objTwo.hasOwnProperty(key))
         {
-            if (objTwo.hasOwnProperty(key))
-            {
-                if (objOne[key] === ansObj[key]) ansObj[key] = "unchanged";
-                else ansObj[key] = "changed";
-            }
-            else ansObj[key] = 'deleted';
+            if (objOne[key] === resultDifference[key]) resultDifference[key] = "unchanged";
+            else resultDifference[key] = "changed";
         }
-        else ansObj[key] = "added";
+        else if (objOne.hasOwnProperty(key) && !objTwo.hasOwnProperty(key)) resultDifference[key] = 'deleted';
+        else if (!objOne.hasOwnProperty(key)) resultDifference[key] = "added";
     }
-    return ansObj;
+    return resultDifference;
 };
 
 export default generateDifference;
