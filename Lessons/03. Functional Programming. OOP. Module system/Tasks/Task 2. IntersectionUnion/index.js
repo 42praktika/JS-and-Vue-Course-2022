@@ -1,7 +1,5 @@
 const getIntersectionUnion = (arrOne, arrTwo) => {
-    // Начало
-
-    // Конец
+    return {intersection : arrOne.filter(x => arrTwo.includes(x)), union : [...new Set([...arrOne, ...arrTwo])]};
 };
 
 export default getIntersectionUnion;
