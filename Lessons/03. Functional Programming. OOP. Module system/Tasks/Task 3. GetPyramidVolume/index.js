@@ -1,19 +1,13 @@
 class Pyramid {
     // Начало
-    constructor(height){
+    constructor(height, s1, s2){
         this.height = height;
-    }
-    //V = 1 3 H ⋅ S 1 + S 1 ⋅ S 2 + S 2
-    constructor(s1){
+        this.s2 = s2;
         this.s1 = s1;
     }
 
-    constructor(s2){
-        this.s2 = s2;
-    }
-
     getVolume() {
-        return (this.height * this.s1)/3 + this.s1 * this.s2 + this.s2;
+        return this.height/3*(this.s1 + this.s2 + Math.sqrt(this.s1*this.s2));
     }
     // Конец
 }
