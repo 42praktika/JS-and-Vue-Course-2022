@@ -11,11 +11,19 @@ class BugattiBrand extends CarBrand {
     }
 
     getIsExpensive() {
-        if (this.price >= 1000000) return true;
+        if (this.price > 1) return true;
         else return false;
     }
 
-    // Конец
+    runDrag(time) {
+        return "Bugatti " + super.runDrag(time);
+    }
+
+    getWhoIsFaster(car) {
+        return "Bugatti " + super.getWhoIsFaster(car);
+    }
+
+// Конец
 }
 
 export default BugattiBrand;

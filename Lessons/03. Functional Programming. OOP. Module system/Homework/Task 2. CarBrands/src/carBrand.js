@@ -5,7 +5,7 @@ class CarBrand {
     }
     getWhoIsFaster(car) {
         let x = Math.abs(car.time - this.time);
-        if (car.time > this.time) {
+        if (car.time < this.time) {
             return car.model + " is faster for " + x + " seconds";
         } else {
             return this.model + " is faster for " + x + " seconds";

@@ -11,10 +11,19 @@ class LadaBrand extends CarBrand {
     }
 
     getLocation() {
-        return this.model + " is located in " + this.location;
+        return "Lada " + this.model + " is located in " + this.location;
     }
 
-    // Конец
+    runDrag(time) {
+        return "Lada " + super.runDrag(time);
+    }
+
+
+    getWhoIsFaster(car) {
+        return "Lada " + super.getWhoIsFaster(car);
+    }
+
+// Конец
 }
 
 export default LadaBrand;
