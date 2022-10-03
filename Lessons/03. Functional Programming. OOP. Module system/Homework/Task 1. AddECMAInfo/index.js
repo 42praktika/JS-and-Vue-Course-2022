@@ -7,7 +7,11 @@ const javaScriptData = {
 
 const addECMAInfo = () => {
     // Начало
-
+    const ECMAInfo = {
+        currentECMA: 2023
+    };
+    const new_data = Object.assign({}, javaScriptData, ECMAInfo);
+    return new_data;
     // Конец
 };
 
