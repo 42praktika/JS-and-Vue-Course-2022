@@ -1,0 +1,19 @@
+.tic-tac-toe {
+    background-image: url("https://coolsen.ru/wp-content/uploads/2021/12/NO-20211223_142634-5.jpg");
+    text-align: center;
+}
+.table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.table__tr {
+    border: 2px solid white;
+}
+.border {
+    border-left: 2px solid white;
+}
+.img {
+    width: 100px;
+    height: 100px;
+}

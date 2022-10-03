@@ -1,0 +1,94 @@
+.resume {
+    padding: 20px;
+    margin: 20px;
+    font-family: Verdana, Tahoma, sans-serif;
+    background: #ffeed6;
+    border-radius: 30px;
+}
+.contact__vk {
+    position: relative;
+    left: 150px;
+    bottom: 40px;
+}
+.contact__telegram {
+    position: relative;
+    right: 50px;
+    bottom: 85px;
+}
+.contact__github {
+    position: relative;
+    left: 50px;
+
+}
+.information__description {
+    font-weight: 500;
+}
+.information__value {
+    font-weight: bold;
+}
+.information {
+    font-size: x-large;
+    position: relative;
+    text-align: center;
+    right: 270px;
+    bottom: 200px;
+}
+.contacts {
+    position: relative;
+    right: 60px;
+    top: 30px;
+
+}
+.imgMe {
+    position: relative;
+    width: 300px;
+    height: 250px;
+    left: 770px;
+    top: 50px;
+}
+.aboutMe {
+    position: relative;
+    bottom: 150px;
+}
+.boardingLine {
+    position: relative;
+    bottom: 80px;
+    margin: 20px 0;
+    padding: 0;
+    height: 6px;
+    border: none;
+    background: linear-gradient(45deg, #333, #ddd);
+}
+.information__main {
+    position: relative;
+    bottom: 70px;
+}
+.information__main--aboutMe {
+    position: relative;
+    bottom: 140px;
+}
+.information__main--workExperience{
+    position: relative;
+    bottom: 140px;
+}
+.information__main--language {
+    position: relative;
+    bottom: 140px;
+}
+.information__main--education {
+    position: relative;
+    bottom: 140px;
+}
+.information__main--hobbies {
+    position: relative;
+    bottom: 140px;
+}
+.signature {
+    width: 100px;
+    height: 100px;
+}
+.footer {
+    position: relative;
+    bottom: 150px;
+    text-align: center
+}
