@@ -1,0 +1,44 @@
+.traffic {
+    padding: 30px;
+    margin: 40px;
+    font-family: Verdana, Tahoma, sans-serif;
+    background: #f1f1f1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    width: 300px;
+}
+
+.traffic__lights-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #9a9a9a;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 40px;
+    background: #cecece;
+}
+
+.traffic__lights-container span {
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 1px solid #888888;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.red-light {
+    background-color: #ff4a4a !important;
+}
+
+.yellow-light {
+    background-color: yellow !important;
+}
+
+.green-light {
+    background-color: #00b000 !important;
+}
