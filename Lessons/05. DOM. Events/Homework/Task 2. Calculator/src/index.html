@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Task 2 Homework. Calculator</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="./index.css"
+        >
+    </head>
+    <body>
+        <div class="calc">
+            <div class="calc__header">
+                <h2>Мой первый калькулятор на js</h2>
+            </div>
+            <div class="calc__main"></div>
+            <div class="calc__buttons"></div>
+            <div class="calc__result"></div>
+        </div>
+    </body>
+    <script type="module" src="../index.js"></script>
+    <script type="module">
+        import setCalculator from '../index.js';
+        setCalculator();
+    </script>
+</html>
