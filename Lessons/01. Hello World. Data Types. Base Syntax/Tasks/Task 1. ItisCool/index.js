@@ -20,6 +20,5 @@ const itisCool = (begin, end) => {
     }
 }
 
-itisCool(19, 11)
 itisCool(1,100)
 export default itisCool
