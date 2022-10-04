@@ -1,19 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="./index.css"
-        >
-    </head>
-    <body>
-        <div class="resume">
-            <!-- Начало -->
-            Здесь могло бы быть Ваше резюме...
-            <!-- Конец -->
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Резюме</title>
+    <link href="index.css"
+          rel="stylesheet"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="Info">
+
+        <img src="https://www.neizvestniy-geniy.ru/images/works/photo/2016/11/1692895_1.jpg" alt="Тут моё фото" class="Photo">
+        <div class="Info-text">
+            <h1>Саляхов Аскар Ирекович </h1>
+            <h2>Fullstack-программист</h2>
+            <h4>Мои социальные сети:</h4>
+            <a href="https://github.com/AskarSaliakhov" target="_blank">Github</a> |
+            <a href="https://vk.com/jddjufk" target="_blank">Вк</a> |
+            <a href="https://www.youtube.com/channel/UC8Yo2n5vsq_zRcmUq6LDjFQ" target="_blank">Ютуб</a>
         </div>
-    </body>
+
+    </div>
+
+    <div class="card bg-yellow">
+
+        <h2>Мои Знания:</h2>
+        <ul class="list">
+            <li>JavaScript-базовые знания
+            <li>Vue-базовые знания
+            <li>HTML-базовые знания
+            <li>CSS-базовые знания
+            <li>SQL-базовые знания
+            <li>Java-базовые знания
+        </ul>
+    </div>
+
+    <div class="card bg-green">
+
+        <h2> Образование</h2>
+        <table class="table">
+
+            <tr>
+                <td>Лицей имени Н.И.Лобачевского КФУ</td>
+                <td>2016-2021</td>
+            </tr>
+            <td>КФУ:Институт информационных технологий и интеллектуальных систем</td>
+            <td>2021-настоящее время</td>
+        </table>
+
+    </div>
+
+    <div class="card bg-red">
+        <h2>Мои хобби:</h2>
+        <ol>
+            <li>Книги</li>
+            <li>Кино</li>
+            <li>Игры</li>
+            <li>Хоккей</li>
+        </ol>
+
+    </div>
+    <div class="contact">
+        <div class="card">
+            <h2>Связаться со мной:</h2>
+            <form action="/">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="name">Ваше Имя: </label>
+                        <input type="text" id="name" placeholder="Введите Имя...">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Ваш Email: </label>
+                        <input type="text" id="Email" placeholder="Введите Email...">
+                    </div>
+                    <div class="form-group">
+                        <label for="text"> Ваше Сообщение:</label>
+                        <textarea id="text" rows="1" cols="1" placeholder="Введите Ваше Сообщение..."></textarea>
+                    </div>
+
+                </div>
+                <input class="btn" type="submit" value="Связаться" >
+            </form>
+        </div>
+    </div>
+</div>
+</body>
 </html>
