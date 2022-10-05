@@ -2,6 +2,138 @@
     padding: 10px;
     margin: 20px;
     font-family: Verdana, Tahoma, sans-serif;
-    background: #ffeed6;
+    background: white;
     border-radius: 10px;
+    height: auto;
 }
+
+.information {
+    text-align: center;
+}
+.information #img {
+    margin-right: 11px;
+    width: 315px;
+    height: 370px;
+
+}
+
+.information #link1 {
+    color: #82523c;
+    bottom: 400px;
+    display: inline-block;
+    transform: translate(-2em, 2em);
+    text-align: center;
+}
+
+.information #link2 {
+    color: #82523c;
+    bottom: 400px;
+    display: inline-block;
+    transform: translate(-2em, 2em);
+    text-align: center;
+}
+
+.information #link3 {
+    position: relative;
+    color: #82523c;
+    top: 35px;
+    display: inline-block;
+
+    text-align: center;
+}
+
+.information #text{
+    color: #82523c;
+}
+.information #text2 {
+    color: black;
+}
+
+.About_me {
+    color: #82523c;
+    border-bottom: 3px solid black;
+}
+
+.About_me #Me {
+    color: black;
+    font-size: 17px;
+    text-align: center;
+}
+
+.Education {
+   color: #82523c;
+    border-bottom: 3px solid black;
+}
+
+.Education #text1 {
+    color: black;
+    font-size: 17px;
+    text-align: center;
+}
+
+.Education #text2 {
+    color: black;
+    font-size: 17px;
+    text-align: center;
+}
+
+.Work {
+    color: #82523c;
+    border-bottom: 3px solid black;
+}
+
+.Work #text {
+    color: black;
+    font-size: 17px;
+    text-align: center;
+}
+
+.Language {
+    color: #82523c;
+    border-bottom: 3px solid black;
+}
+
+.Language #text {
+    color: black;
+    font-size: 17px;
+    text-align: center;
+}
+
+.Hobby {
+    color: #82523c;
+    border-bottom: 3px solid black;
+}
+
+.Hobby #text {
+    color: black;
+    font-size: 17px;
+    text-align: center;
+}
+
+.info {
+    color: #82523c;
+}
+
+.info #text {
+    color: black;
+    font-size: 17px;
+    text-align: center;
+
+}
+.links {
+    position: relative;
+    top: 400px;
+    font-size: 20px;
+}
+.information #link2 {
+    position: relative;
+    left: 14px;
+    bottom: 5px;
+}
+
+.information #link1 {
+    position: relative;
+    left: 14px;
+    bottom: 5px;
+}
+
