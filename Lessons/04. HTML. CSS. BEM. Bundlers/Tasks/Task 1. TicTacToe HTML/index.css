@@ -1,3 +1,23 @@
 .tic-tac-toe {
-
+}
+.tic-tac-toe__container {
+    margin: 2px;
+    display: grid;
+    grid-template-columns: 90px 90px 90px;
+    grid-template-rows: 90px 90px 90px;
+}
+.tic-tac-toe__container__tile {
+    border: 2px solid black;
+    min-width: 87px;
+    min-height: 87px;
+}
+div {
+    display: flex;
+    justify-content: center;
+}
+img {
+    margin: auto;
+    display: block;
+    height: 50px;
+    width: 50px;
 }
