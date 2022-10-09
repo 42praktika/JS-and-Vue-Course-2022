@@ -1,0 +1,22 @@
+{
+  "name": "project-1.-native-js",
+  "version": "1.0.0",
+  "description": "Что из себя представляет Ваше приложение",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve",
+    "build-dev": "webpack",
+    "build-prod": "webpack --node-env=production",
+    "clear": "rd /s /q dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
