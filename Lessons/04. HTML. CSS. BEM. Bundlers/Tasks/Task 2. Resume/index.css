@@ -1,7 +1,41 @@
 .resume {
-    padding: 10px;
-    margin: 20px;
+    padding: 20px;
+    margin: 20px 60px;
     font-family: Verdana, Tahoma, sans-serif;
-    background: #ffeed6;
+    background: #dcf7e2;
     border-radius: 10px;
+    border: 5px double #bec2cf;
+}
+
+header{
+    display: flex;
+}
+
+h1,
+h2{
+    font-weight: 500;
+}
+
+#info{
+    margin-top: 50px;
+    width: 900px;
+    text-align: center;
+}
+
+img{
+    margin:30px 50px auto auto;
+}
+
+.block{
+    margin-bottom: 50px;
+}
+
+.line{
+    list-style-type: none;
+    border-bottom: 1px solid #767982;
+    margin: 0 0 15px 0;
+}
+
+.footerText{
+    text-align: center;
 }
