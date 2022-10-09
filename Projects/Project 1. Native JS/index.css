@@ -1,0 +1,10 @@
+body{
+    background: #40E0D0
+}
+.someText{
+    margin: auto;
+    text-align: center;
+    padding: 100px;
+    width: 50%;
+    background-color: aliceblue;
+}

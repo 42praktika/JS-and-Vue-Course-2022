@@ -2,6 +2,75 @@
     padding: 10px;
     margin: 20px;
     font-family: Verdana, Tahoma, sans-serif;
+    text-align: center;
     background: #ffeed6;
-    border-radius: 10px;
+    border-radius: 5px;
+}
+
+.resume-text{
+    border-style: solid;
+    border-radius: 7px;
+    background-color: hsla(0,0%,100%,.85);
+    padding: 10px 16px;
+}
+
+.block{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin: 40px;
+}
+
+.header-name{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.links{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap:wrap;
+}
+
+.link-button{
+    border-style: solid;
+    border-radius: 7px;
+    border-color: rgb(211, 188, 141);
+    background-color: black;
+    padding: 20px 16px;
+    color: hsla(0,0%,100%,.85);
+    font-family: Microsoft YaHei,sans-serif;
+}
+
+.link-button-white{
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color:  hsla(0,0%,100%,.85);;
+    color: black;
+}
+
+.text{
+    border-style: solid;
+    border-radius: 7px ;
+    padding: 10px 16px;
+    border-color: hsla(0,0%,100%,.85);
+    background-color: hsla(0,0%,100%,.85);
+}
+
+.about-myself{
+    align-items: flex-start;
+    font-family: Microsoft YaHei,sans-serif;
+    margin: 40px;
+}
+
+table, td, th {
+    padding: 15px;
+}
+
+.hobbies-and-exp-text{
+    margin: auto;
+    position: relative;
 }

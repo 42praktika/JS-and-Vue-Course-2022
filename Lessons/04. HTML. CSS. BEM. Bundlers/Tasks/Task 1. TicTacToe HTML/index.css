@@ -1,32 +1,39 @@
-.tic-tac-toe {
-
-}
-
 .main-table{
-    position: absolute;
+    margin: auto;
+    top: 50%;
+    bottom: 50%;
     left: 50%;
     right: 50%;
-    top: 50%;
-    width: 300px;
+    width: 200px;
 }
-tr{
-    border: 2px solid grey;
-}
+
 th {
     width: 33.33%;
     position: relative;
 }
+
 th:after {
     content: '';
     display: block;
     margin-top: 100%;
 }
+
 th .content {
     position: absolute;
+    margin-top: 200%;
+    padding: 50%;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: white;
     border: 2px solid grey;
+}
+
+img{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
