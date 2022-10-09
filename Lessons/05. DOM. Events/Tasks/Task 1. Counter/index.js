@@ -7,12 +7,12 @@ const setCounter = () => {
     el.appendChild(button);
 
     let count = 0;
-    button.addEventListener('click', function (){
+    button.addEventListener('click', function () {
         count++;
-        return button.innerHTML = 'Количество нажатий: ' + count;
-    });
+        return button.textContent = 'Количество нажатий: ' + count;
+    })
 
-    button.innerHTML = 'Количество нажатий: ' + count;
+    button.textContent = 'Количество нажатий: ' + count;
 
     // Конец
 };

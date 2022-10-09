@@ -31,33 +31,31 @@ const setTrafficLight = () => {
     const greenSpan = document.createElement('span');
 
 
-    div.append(redSpan);
-    div.append(yellowSpan);
-    div.append(greenSpan);
+    div.append(redSpan, yellowSpan, greenSpan);
 
 
 
     const selectEl = document.querySelector('.traffic__lights-select');
     const select = document.createElement('select');
 
-// select.className= "form-select";
+
     selectEl.appendChild(select);
 
     const redOption = document.createElement('option');
     redOption.value = 'red';
-    redOption.innerHTML = 'Красный'
+    redOption.textContent = 'Красный'
 
     select.appendChild(redOption);
 
     const yellowOption = document.createElement('option');
     yellowOption.value = 'yellow';
-    yellowOption.innerHTML = 'Желтый';
+    yellowOption.textContent = 'Желтый';
 
     select.appendChild(yellowOption);
 
     const greenOption = document.createElement('option');
     greenOption.value = 'green';
-    greenOption.innerHTML='Зеленый';
+    greenOption.textContent='Зеленый';
 
     select.appendChild(greenOption);
 
