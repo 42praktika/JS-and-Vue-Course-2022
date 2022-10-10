@@ -1,18 +1,11 @@
-.tic-tac-toe {
-    width: 60vw;
-    color: antiquewhite;
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 100px;
-    margin-top: 40px;
+.table {
+    margin:0 auto;
 }
 
-.box {
-    height: 20vw;
-    width: 20vw;
-    color: aquamarine;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
+.header {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 50px;
+    margin-bottom: 33px;
 }
