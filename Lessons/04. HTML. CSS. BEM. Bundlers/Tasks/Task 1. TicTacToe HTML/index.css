@@ -1,3 +1,22 @@
-.tic-tac-toe {
-
+body{
+    background-color: #ECCDB1;
 }
+
+.tic-tac-toe {
+    background-color: #A96946;
+}
+
+.border{
+    border-left: 7px solid #000;
+}
+
+.table{
+    border: 7px solid #000;
+    text-align: center;
+}
+
+.ttt-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
