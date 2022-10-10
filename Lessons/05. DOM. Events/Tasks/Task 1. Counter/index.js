@@ -1,7 +1,7 @@
 const setCounter = () => {
-    // Начало
-
-    // Конец
+    let count = 0
+    count += 1
+    ge
 };
 
 export default setCounter;
