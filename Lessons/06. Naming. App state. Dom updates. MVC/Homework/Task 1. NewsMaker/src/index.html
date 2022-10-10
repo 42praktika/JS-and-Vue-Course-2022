@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Task 1. NewsMaker</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="./index.css"
+        >
+    </head>
+    <body>
+        <div class="main news">
+            <div class="news__header">
+                <h2>Редактор новостей</h2>
+            </div>
+            <div class="news__form">
+                <input
+                    class="form-control"
+                    placeholder="Наберите текст новости"
+                />
+                <button class="btn btn-primary">
+                    Создать
+                </button>
+            </div>
+            <h3 class="news__container-header">
+                Текущие новости
+            </h3>
+            <div class="news__container"></div>
+        </div>
+    </body>
+    <script
+        type="module"
+        src="../index.js"
+    ></script>
+    <script type="module">
+        import setNewsMaker from '../index.js';
+
+        setNewsMaker();
+    </script>
+</html>
