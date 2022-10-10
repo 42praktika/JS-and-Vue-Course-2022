@@ -1,0 +1,14 @@
+.main {
+    padding: 30px;
+    margin: 40px;
+    font-family: Verdana, Tahoma, sans-serif;
+    background: #f1f1f1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    width: 350px;
+}
+
+.description span {
+    margin-left: 25px;
+}
