@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Task 1. ProgressBar</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="./index.css"
+        >
+    </head>
+    <body>
+        <div class="main">
+            <div class="progress">
+                <div
+                    class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                    role="progressbar"
+                    style="width: 0"
+                ></div>
+            </div>
+            <button class="button-increase btn btn-success">
+                Увеличить
+            </button>
+            <button class="button-decrease btn btn-danger">
+                Уменьшить
+            </button>
+        </div>
+    </body>
+    <script type="module" src="../index.js"></script>
+    <script type="module">
+        import updateProgress from '../index.js';
+        updateProgress(5, 10);
+    </script>
+</html>
