@@ -1,3 +1,2 @@
 
-import './index.html';
-console.log("Работает!!!");
+console.log("Работает111!!!");

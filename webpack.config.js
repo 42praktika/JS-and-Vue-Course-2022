@@ -43,7 +43,7 @@ module.exports = (env, options) => {
         },
         plugins: [
             new VueLoaderPlugin(),
-            new EncodingPlugin({ encoding: 'utf-8' }),
+            new EncodingPlugin({ encoding: 'cp-1251' }),
             new MomentLocalesPlugin({ localesToKeep: [ 'ru' ] }),
         ],
         devtool: developmentMode ? 'eval-source-map' : 'cheap-source-map',
