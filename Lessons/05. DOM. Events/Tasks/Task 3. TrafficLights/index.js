@@ -59,7 +59,7 @@ const setTrafficLight = () => {
 
     select.appendChild(greenOption);
 
-    select.addEventListener('change',function () {
+    select.addEventListener('change',() => {
         let getValue = select.value;
         switch (getValue) {
             case('red'):

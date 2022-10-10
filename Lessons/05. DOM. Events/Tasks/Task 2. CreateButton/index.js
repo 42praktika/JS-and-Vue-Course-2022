@@ -8,7 +8,7 @@ const createButton = () => {
 
     const changedEl = document.querySelector('.description');
     const span = document.createElement('span');
-    button.addEventListener('click', function (){
+    button.addEventListener('click', () => {
         span.textContent='Текст вставлен!';
         changedEl.appendChild(span);
     });
