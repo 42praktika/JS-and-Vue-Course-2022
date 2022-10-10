@@ -1,0 +1,1 @@
+{"version":3,"file":"core.bundle.js","mappings":";;;;;AAAA","sources":["webpack://Project 1. Native JS/./js/index.js"],"sourcesContent":["alert('Вроде работает. УРА!');"],"names":[],"sourceRoot":""}
