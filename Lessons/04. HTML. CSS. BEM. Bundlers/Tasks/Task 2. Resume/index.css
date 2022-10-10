@@ -1,14 +1,58 @@
 .resume {
-    padding: 10px;
-    margin: 20px;
+    /*padding: 10px;*/
+    /*margin: 20px;*/
     font-family: Verdana, Tahoma, sans-serif;
-    background: #ffeed6;
-    border-radius: 10px;
+    background: #ffe4d6;
+    border-radius: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
-h1 {
 
+.name-header {
+    margin-top: 50px;
+    margin-bottom: 15px;
+    margin-left: 140px;
+    margin-right: 10px;
+    font-size: 60px;
 }
 
 .info-header {
+    font-size: 40px;
+    margin-left: 70px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+.links {
+    font-size: 27px;
+    margin-left: 100px;
+    /*margin-bottom: 150px;*/
+}
+
+.photo {
+    border-image-width: 5px;
+    width: 70px;
+    height: 70px;
+    margin-top: 61px;
 
 }
+
+.text {
+    font-size: 32px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+.text-contacts {
+    margin-left: 80px;
+    font-size: 25px;
+
+}
+.span_1 {
+    display: flex;
+}
+
