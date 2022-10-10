@@ -1,3 +1,29 @@
 .tic-tac-toe {
+    width: 350px;
+    height: 350px;
+}
 
+.tic-tac-toe__string {
+    display: flex;
+}
+
+.string__div {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #808080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.string__div:not(:last-child) {
+    border-right: none;
+}
+
+.tic-tac-toe__string:not(:last-child) > .string__div {
+    border-bottom: none;
+}
+
+img {
+    width: 60%;
 }
