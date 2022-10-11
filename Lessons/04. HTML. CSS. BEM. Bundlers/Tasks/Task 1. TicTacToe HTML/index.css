@@ -1,3 +1,21 @@
 .tic-tac-toe {
 
 }
+.table-tic-tac {
+    width: 180px;
+    border: 2px solid #808080;
+    margin: auto;
+    border-collapse: collapse;
+}
+.table-of-contents {
+    text-align: center;
+}
+td, tr {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #808080;
+}
+img {
+    width: 50px;
+    height: 50px;
+}

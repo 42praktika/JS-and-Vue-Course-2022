@@ -1,7 +1,36 @@
-.resume {
+body {
     padding: 10px;
     margin: 20px;
-    font-family: Verdana, Tahoma, sans-serif;
-    background: #ffeed6;
-    border-radius: 10px;
+    width: 1000px;
+}
+.container-for-information {
+    text-align: center;
+    font-family: Verdana, sans-serif;
+}
+.social-nets {
+    word-spacing: 40px;
+    text-align: center;
+}
+.Photo {
+    width: 100px;
+}
+.about-me h2 {
+    font-family: Verdana, sans-serif;
+}
+.experience-of-working h2 {
+    font-family: Verdana, sans-serif;
+}
+.education h2 {
+    font-family: Verdana, sans-serif;
+}
+.hobbies h2 {
+    font-family: Verdana, sans-serif;
+}
+.footer {
+    text-align: center;
+}
+hr {
+    border: none;
+    height: 1px;
+    background-color: black;
 }
