@@ -1,5 +1,6 @@
 ## Курс `Native JavaScript + Vue.js`
 
+
 ### Структура репозитория
 
 #### Wiki
