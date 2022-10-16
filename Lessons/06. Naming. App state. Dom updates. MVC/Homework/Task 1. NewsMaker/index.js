@@ -4,7 +4,7 @@ const { watch } = WatchJS;
 
 const watchState = (state) => {
     const newsContainer = document.querySelector('.news__container');
-    watch(state, 'date', () => {
+    watch(state, 'count', () => {
         const newsElement = document.createElement('div');
         newsElement.className = 'news__news-element';
         newsContainer.prepend(newsElement)
@@ -23,12 +23,14 @@ const app = () => {
     const state = {
         date: 0,
         text: 0,
+        count: 0,
     }
     const formControl = document.querySelector('.form-control');
     const button = document.querySelector('.btn-primary');
     button.addEventListener('click', () => {
         state.date = new Date().toLocaleString();
         state.text = formControl.value;
+        state.count ++;
     });
     watchState(state);
 }
