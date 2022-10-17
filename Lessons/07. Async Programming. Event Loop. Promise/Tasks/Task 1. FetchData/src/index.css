@@ -1,0 +1,9 @@
+.main {
+    background: #E5E5E5;
+    display: block;
+    padding: 30px;
+    margin: 40px;
+    font-family: Verdana, Tahoma, sans-serif;
+    border-radius: 8px;
+    align-items: center;
+}
