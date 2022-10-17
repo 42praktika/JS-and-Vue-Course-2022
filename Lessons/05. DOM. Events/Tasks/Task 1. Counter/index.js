@@ -1,9 +1,11 @@
 const setCounter = () => {
-    const button = document.createElement('button');
-    let count = 0;
-    button.textContent = `Количество нажатий: ${count}`;
-    const main = document.getElementsByTagName('div');
-    document.body.main.append(button);
+    const main = document.querySelector('.main');
+    const button = document.createElement('button')
+    main.append(button)
+    button.className = 'btn btn-warning';
+    button.textContent = `Количество нажатий: 0`;
+    button.addEventListener('click', (event) => {button.textContent = 'Количество нажатий: ' + (Number(button.textContent.split(': ')[1]) + 1);
+    });
 };
 
 export default setCounter;

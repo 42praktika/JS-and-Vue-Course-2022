@@ -4,9 +4,7 @@ const transformFortyTwo = (numbers) => {
         if (num % 42 == 0) {
             return 'forty two!';
         }
-        else {
-            return num;
-        }
+        return num;
     });
 
     // Конец
