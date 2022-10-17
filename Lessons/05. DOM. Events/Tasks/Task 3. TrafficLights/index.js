@@ -16,6 +16,17 @@ const LIGHTS = {
 const setTrafficLight = () => {
     // Начало
 
+    const trafficLights = document.querySelector('.traffic__lights');
+    const colorContainer = document.createElement('div');
+    colorContainer.classList.add('traffic__lights-container');
+
+
+    trafficLights.append(colorContainer);
+
+
+
+
+
     // Конец
 };
 
