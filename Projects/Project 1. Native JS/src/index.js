@@ -1,2 +1,2 @@
-
-console.log("Работает111!!!");
+import "./index.css";
+console.log("Работает1145451!!!");
