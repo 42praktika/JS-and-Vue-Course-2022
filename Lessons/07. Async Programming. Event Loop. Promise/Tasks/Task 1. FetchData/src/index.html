@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Task 1. FetchData</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="./index.css"
+        >
+    </head>
+    <body>
+        <div class="main">
+            <input
+                class="form-control"
+                placeholder="Я хочу найти..."
+            />
+        </div>
+    </body>
+    <script
+        type="module"
+        src="../index.js"
+    ></script>
+    <script type="module">
+        import fetchData from '../index.js';
+
+        fetchData();
+    </script>
+</html>
