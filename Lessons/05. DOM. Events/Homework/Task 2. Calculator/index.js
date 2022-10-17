@@ -5,8 +5,7 @@ const TYPES = {
     RESET: 'reset',
 };
 
-const ADDITIONAL_BUTTONS = [
-    {
+const ADDITIONAL_BUTTONS = [{
         text: '+',
         type: TYPES.PLUS,
     },
@@ -22,7 +21,7 @@ const ADDITIONAL_BUTTONS = [
 
 const setCalculator = () => {
     // Начало
-
+  
     // Конец
 };
 
