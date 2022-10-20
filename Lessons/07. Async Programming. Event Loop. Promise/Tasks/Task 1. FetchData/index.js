@@ -1,7 +1,14 @@
 const fetchData = () => {
-    // Начало
+    let timerId = null;
+    const input = document.querySelector('input.form-control');
+    input.addEventListener('input', (event) => {
+        clearTimeout(timerId);
+        timerId = setTimeout(alertFind, 1000);
+    })
 
-    // Конец
+    const alertFind = () => {
+        alert(`Ищем: ${input.value}`);
+    }
 };
 
 export default fetchData;

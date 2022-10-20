@@ -7,9 +7,12 @@ const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
 // const currentPath = getPath('/one.txt');
 
 const writeSumSync = (pathToFileOne, pathToFileTwo, pathToResultFile) => {
-    // Начало
+    let totalSum = 0;
 
-    // Конец
+    fs.readFileSync(pathToFileOne, 'utf-8').split(', ').forEach(num => {totalSum += Number(num)});
+    fs.readFileSync(pathToFileTwo, 'utf-8').split(', ').forEach(num => {totalSum += Number(num)});
+
+    fs.writeFileSync(pathToResultFile, String(totalSum));
 };
 
 export default writeSumSync;
