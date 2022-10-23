@@ -2,6 +2,7 @@ const path = require('path');
 const EncodingPlugin = require('webpack-encoding-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
+let developmentMode;
 module.exports = {
     // тип сборки - для разработки или в продакшн
     mode: process.env.NODE_ENV || 'development',
@@ -40,7 +41,8 @@ module.exports = {
     // Подключаем плагины для работы с языками, кодировками и т.д.
     plugins: [
         new EncodingPlugin({
-            encoding: 'cp-1251'
+            //encoding: 'cp-1251'
+            encoding: 'utf-8'
         }),
         new MomentLocalesPlugin({
             localesToKeep: ['ru'],

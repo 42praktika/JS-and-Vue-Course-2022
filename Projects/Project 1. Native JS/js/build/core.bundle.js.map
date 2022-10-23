@@ -1,0 +1,1 @@
+{"version":3,"file":"core.bundle.js","mappings":";;;;;AAAA","sources":["webpack:///./js/index.js"],"sourcesContent":["alert('Привет!');"],"names":[],"sourceRoot":""}
