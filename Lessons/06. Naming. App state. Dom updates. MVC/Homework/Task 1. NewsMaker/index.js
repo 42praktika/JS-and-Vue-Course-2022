@@ -1,10 +1,9 @@
-import WatchJS from '../../helpers/melanke-watchjs.js';
+import app from './app.js';
 
-const { watch } = WatchJS;
 
 const setNewsMaker = () => {
     // Начало
-
+    app();
     // Конец
 };
 
