@@ -7,9 +7,10 @@ const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
 // const currentPath = getPath('/one.txt');
 
 const writeSum = (pathToFileOne, pathToFileTwo, pathToResultFile) => {
-    // Начало
+    const myPromise = new Promise((resolveCallback, rejectCallback) => {
+        // Аргументами функции являются функции resolveCallback и rejectCallback
 
-    // Конец
+    })
 };
 
 export default writeSum;

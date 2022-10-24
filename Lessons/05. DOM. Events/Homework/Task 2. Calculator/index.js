@@ -45,6 +45,7 @@ const setCalculator = () => {
             }
             if (i === 1) {
                 const resString = calcMain.textContent.split('+');
+                result = 0;
                 for (let i = 0; i < resString.length; i++) {
                     result += Number(resString[i]);
                 }
