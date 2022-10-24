@@ -16,8 +16,25 @@ const updateImage = (imageData) => {
 const getRandomIndex = () => Math.floor(100 * Math.random());
 
 const giveMeMeme = () => {
-    // Начало
-    // Конец
+    const main = document.querySelector('.main');
+
+    const giveMemeButton = document.createElement('button');
+    giveMemeButton.className = "btn btn-warning";
+    giveMemeButton.textContent = "ДАЙ МНЕ МЕМ!";
+    const memeContainer = document.createElement('div');
+    memeContainer.className = 'main__image-container';
+
+    main.append(memeContainer, giveMemeButton);
+
+    giveMemeButton.addEventListener('click', async () => {
+        try {
+           const response = await fetch(BASE_URL);
+           const responseData = await response.json();
+           updateImage(responseData.data.memes[getRandomIndex()]);
+        } catch (error) {
+            throw error;
+        }
+    })
 };
 
 export default giveMeMeme;
