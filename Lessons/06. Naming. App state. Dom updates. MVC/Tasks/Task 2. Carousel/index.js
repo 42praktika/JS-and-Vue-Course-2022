@@ -1,31 +1,48 @@
 const setCarousel = (imageUrls) => {
-    let position = 0;
+    init(imageUrls);
+    app(imageUrls.length);
+};
 
-    const btnNext = document.querySelector(".carousel-control-next");
-    const btnPrev = document.querySelector('.carousel-control-prev');
+const init = (imageUrls) => {     // инициализация
     const carouselInner = document.querySelector('.carousel-inner');
-
-    for(let i = 0; i < imageUrls.length; i++) {
+    imageUrls.forEach(image => {
         const carouselItem = document.createElement('div');
         carouselItem.className = 'carousel-item';
         carouselInner.append(carouselItem);
-        const image = document.createElement('img');
-        image.className = "d-block w-100";
-        carouselItem.append(image);
-        image.src = imageUrls[i];
+        const imgElement = document.createElement('img');
+        imgElement.className = "d-block w-100";
+        carouselItem.append(imgElement);
+        imgElement.src = image;
+    })
+}
+
+const app = (imageCount) => {  // контроллер
+    let positions = {
+        position: 0,
+        prevPosition: 0
     }
 
-    carouselInner.firstElementChild.classList.add('active');
+    render(positions)
+    const btnNext = document.querySelector(".carousel-control-next");
+    const btnPrev = document.querySelector('.carousel-control-prev');
     btnNext.addEventListener('click', event => {
-        carouselInner.children[position].classList.remove('active');
-        position = (position + 1) % 3;
-        carouselInner.children[position].classList.add('active');
+        positions.prevPosition = positions.position;
+        positions.position = (positions.position + 1) % imageCount;
+        render(positions);
     })
     btnPrev.addEventListener('click', event => {
-        carouselInner.children[position].classList.remove('active');
-        position = (position - 1 + 3) % 3;
-        carouselInner.children[position].classList.add('active');
+        positions.prevPosition = positions.position;
+        positions.position = (positions.position - 1 + imageCount) % imageCount;
+        render(positions)
     })
-};
+}
+
+const render = (positions) => {   // рендер
+    const carouselInner = document.querySelector('.carousel-inner');
+    if (carouselInner.children[positions.prevPosition].classList.contains('active')) {
+        carouselInner.children[positions.prevPosition].classList.remove('active');
+    }
+    carouselInner.children[positions.position].classList.add('active');
+}
 
 export default setCarousel;
