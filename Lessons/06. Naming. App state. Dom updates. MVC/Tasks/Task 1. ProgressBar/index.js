@@ -3,13 +3,23 @@ const updateProgress = (defaultNumber, delta) => {
     const increase_button = document.querySelector('.button-increase')
     const decrease_button = document.querySelector('.button-decrease')
 
-    let status = defaultNumber
+    let state = defaultNumber
     const render = () => {
-        progress_bar.style.width = `${status}%`
+        progress_bar.style.width = `${state}%`
     }
     render(progress_bar)
 
-    const validate = (num) => {
+    increase_button.addEventListener('click', () => {
+        state = check(state + delta)
+        render()
+    })
+
+    decrease_button.addEventListener('click', () => {
+        state = check(state - delta)
+        render()
+    })
+
+    const check = (num) => {
         if (num > 100) {
             return 100
         }
@@ -20,16 +30,6 @@ const updateProgress = (defaultNumber, delta) => {
             return num
         }
     }
-
-    increase_button.addEventListener('click', () => {
-        status = validate(status + delta)
-        render()
-    })
-
-    decrease_button.addEventListener('click', () => {
-        status = validate(status - delta)
-        render()
-    })
 };
 
 export default updateProgress;

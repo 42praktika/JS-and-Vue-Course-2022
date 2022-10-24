@@ -2,13 +2,15 @@ const setCarousel = (imageUrls) => {
     const carousel = document.querySelector(".carousel-inner")
 
     const render = (status) => {
-        const items = document.querySelectorAll('.carousel-item')
+        const carousel_item = document.querySelectorAll('.carousel-item')
         let carousel_active = document.querySelector('.active')
         carousel_active.classList.remove('active')
-        items[status.current_img].classList.add('active')
+        carousel_item[status.current_img].classList.add('active')
     }
+
     const state = {
         current_img : 0,
+        array_image : imageUrls,
     }
 
     imageUrls.forEach((image) => {
@@ -22,27 +24,32 @@ const setCarousel = (imageUrls) => {
         div.append(img)
         carousel.append(div)
     })
-    document.querySelector('.carousel-item').classList.add('active');
-    const next_img = document.querySelector('.carousel-control-next');
+
+    document.querySelector('.carousel-item').classList.add('active')
+
+    const next_img = document.querySelector('.carousel-control-next')
 
     next_img.addEventListener('click', () => {
-        if (state.current_img < imageUrls.length - 1) {
-            state.current_img += 1
-        }
-        else {
+        if (state.current_img === state.array_image.length - 1) {
             state.current_img = 0
         }
+        else {
+            state.current_img += 1
+        }
+
         render(state)
     })
 
-    const prev_img = document.querySelector('.carousel-control-prev');
+    const prev_img = document.querySelector('.carousel-control-prev')
+
     prev_img.addEventListener('click', () => {
         if (state.current_img === 0) {
-            state.current_img = imageUrls.length - 1
+            state.current_img = state.array_image.length - 1
         }
         else {
             state.current_img -= 1
         }
+
         render(state)
     })
 };
