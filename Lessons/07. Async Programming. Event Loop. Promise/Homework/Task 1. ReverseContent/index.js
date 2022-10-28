@@ -8,7 +8,7 @@ const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
 
 const reverseContent = (filepath) => {
     // Начало
-    fs.readFile(filepath, 'utf-8')
+    return fs.readFile(filepath, 'utf-8')
         .then((data) => data.split('\n').reverse().join('\n'))
         .then((data) => fs.writeFile(filepath, data));
     // Конец
