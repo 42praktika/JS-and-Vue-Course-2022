@@ -2,8 +2,36 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <title>JS. Project 1. Native JS</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <div class="buttons">
+        <button class="button" data-type="ANIME">Anime</button>
+        <button class="button" data-type="ART-AND-DESIGN">Art and design</button>
+        <button class="button" data-type="CALENDAR">Calendar</button>
+    </div>
+
+    <div class="modal modal-anime">
+        Later here will be an anime
+        <a href="#" class="close-modal">Close</a>
+        <a href="#" class="prev-modal" data-type="CALENDAR">Previous</a>
+        <a href="#" class="next-modal" data-type="ART-AND-DESIGN">Next</a>
+    </div>
+
+    <div class="modal modal-art-and-design">
+        Later here will be a info about Art and Design
+        <a href="#" class="close-modal">Close</a>
+        <a href="#" class="prev-modal" data-type="ANIME">Previous</a>
+        <a href="#" class="next-modal" data-type="CALENDAR">Next</a>
+    </div>
+
+    <div class="modal modal-calendar">
+        Later here will be a calendar
+        <a href="#" class="close-modal">Close</a>
+        <a href="#" class="prev-modal" data-type="ART-AND-DESIGN">Previous</a>
+        <a href="#" class="next-modal" data-type="ANIME">Next</a>
+    </div>
 
     <script src="js/build/core.bundle.js"></script>
 </body>
