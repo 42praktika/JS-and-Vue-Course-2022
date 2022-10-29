@@ -2,13 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WebPack</title>
+    <title>AnimeFun: Gifs & Pictures</title>
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="./index.css"
+    >
 </head>
 <body>
-    <header class="header__article">
-        <h1 class="header__article-h1">
-            Hello World!
-        </h1>
-    </header>
+    <div class="main">
+        <div class="button__container">
+            <!-- first --->
+            <button data-modal-target="#modal1" class="btn">First</button>
+            <div class="modal" id="modal1">
+                <div class="modal-header">
+                    <div class="title">First Modal Window</div>
+                    <button data-close-button class="close-button">X</button>
+                    <button data-next-button class="next-button">></button>
+                </div>
+                <div class="modal-body">
+                    Аделечка чудо-юдо. Уже 14 месяцев прогает и каждый раз в любой среде разработки у нее какие-то траблы, которые я чиню.
+                </div>
+            </div>
+            <div id="overlay"></div>
+            <!-- second --->
+            <button data-modal-target="#modal2" class="btn">Second</button>
+            <div class="modal" id="modal2">
+                <div class="modal-header">
+                    <div class="title">Second Modal Window</div>
+                    <button data-close-button class="close-button">X</button>
+                    <button data-next-button class="next-button">></button>
+                </div>
+                <div class="modal-body">
+                    Нет, правда. У нее всегда траблы с этим. В IntelijIdea - проблемы с конфигуратором. В AndroidStudo - проблемы с эмулятором.
+                    В WebStorm - просто опять какие-то проблемы. В понедельник буду снова разбираться. А еще с БД и его конфигуратором. Ухх, Боже, дай мне сил.
+                </div>
+            </div>
+            <div id="overlay"></div>
+            <!-- third --->
+            <button data-modal-target="#modal3" class="btn">Third</button>
+            <div class="modal" id="modal3">
+                <div class="modal-header">
+                    <div class="title">Third Modal Window</div>
+                    <button data-close-button class="close-button">X</button>
+                    <button data-next-button class="next-button">></button>
+                </div>
+                <div class="modal-body">
+                    Но в этом учебном году она - умничка. Учится теперь лучше меня, не лениться (ну почти). Жалко, что из-за учебы страдают наши прогулки и пр. Эх..
+                </div>
+            </div>
+            <div id="overlay"></div>
+        </div>
+    </div>
+    <script type="module" src="index.js"></script>
 </body>
 </html>
