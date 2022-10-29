@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>App</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+<div class="app">
+<div class="buttons">
+    <button class="btn" id="firstButton" data-modal="firstModal">Первая кнопочка</button>
+    <button class="btn" id="secondButton" data-modal="secondModal">Вторая кнопочка</button>
+    <button class="btn" id="thirdButton" data-modal="thirdModal">Третья кнопочка</button>
+</div>
+    <div class="modal" id="firstModal" style="display: none">
+        <a href="#" class="close-button" data-modal="firstModal">×</a>
+        <a href="#" class="next-button">></a>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Шапка модального окна</h2>
+            </div>
+            <div class="modal-body">
+                <p>что-то важное из первой кнопки</p>
+            </div>
+            <div class="modal-footer">
+                <h3>Футер</h3>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="secondModal" style="display: none">
+        <a href="#" class="close-button" data-modal="secondModal">×</a>
+        <a href="#" class="next-button">></a>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Шапка модального окна</h2>
+            </div>
+            <div class="modal-body">
+                <p>что-то важное из второй кнопки</p>
+            </div>
+            <div class="modal-footer">
+                <h3>Футер</h3>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="thirdModal" style="display: none">
+        <a href="#" class="close-button" data-modal="thirdModal">×</a>
+        <a href="#" class="next-button">></a>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Шапка модального окна</h2>
+            </div>
+            <div class="modal-body">
+                <p>что-то важное из третьей кнопки</p>
+            </div>
+            <div class="modal-footer">
+                <h3>Футер</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/index.js"></script>
+</body>
+</html>

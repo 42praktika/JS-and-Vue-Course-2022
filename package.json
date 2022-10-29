@@ -60,5 +60,8 @@
             "^.+\\.vue$": "@vue/vue2-jest",
             "^.+\\.js$": "babel-jest"
         }
-    }
+    },
+    "main": "index.js",
+    "repository": "https://github.com/42praktika/JS-and-Vue-Course-2022.git",
+    "author": "LenaGavrilova <lena.gavrilova2408@mail.ru>"
 }
