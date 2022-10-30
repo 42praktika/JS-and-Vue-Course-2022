@@ -1,5 +1,5 @@
 import { promises as fs } from 'fs';
-import path from 'path';
+import path, { resolve } from 'path';
 
 
 // Метод для отладки. В итоговом решении использоваться не должен
@@ -10,7 +10,15 @@ const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
 
 const reverseContent = (filepath) => {
     // Начало
-
+    return new Promise((resolve, reject) => {
+        fs.readFile(filepath)
+        .then((textfile) => {
+            resolve(fs.writeFile(filepath, textfile.toString().split('\n').reverse().join('\n')));
+        })
+        .catch(() => {
+            reject(new Error('Не удалось считать файл'));
+        })
+    })
     // Конец
 };
 
