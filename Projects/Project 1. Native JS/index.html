@@ -9,9 +9,48 @@
             type="text/css"
             href="./index.css"
         >
+        <style>
+            .carousel-inner > .item > img,
+            .carousel-inner > .item > a > img {
+              width: 70%;
+              margin: auto;
+            }
+        </style>
     </head>
     <body>
+        <div class="placeholder">
+            <div class="buttons">
+                <button class="main-page-button" id="btn-one" >button 1</button>
+                <button class="main-page-button" id="btn-two">button 2</button>
+                <button class="main-page-button" id="btn-three">button 3</button>
+            </div>
+
+            <div class="modal-window">
+                <div class="modal" style="display:inline-flex; flex-direction: column;">
+
+                    <div class="carousel" style="display: inline-flex; flex-direction: row; justify-content: center;">
+
+                        <button class="carousel-control-prev" type="button" style="left: auto; margin: 36px;" data-bs-slide="prev">
+                            <p>prev</p>
+                        </button>
+                        <div class="element-in-carousel"></div>
+                        <button class="carousel-control-next" type="button" style="right: auto; margin: 36px;" data-bs-slide="next">
+                            <p>next</p>
+                        </button>
+                    </div>
+
+                    <button class="close" style="margin-top: 36px; width: 150px; margin: auto;">close</button>
+
+                </div>
+            </div>
+        </div>
+
         <script src="./dist/bundle.js"></script>
-        <div class="someText">Wow, it works</div>
+        <script type="module" src="/Projects/Project 1. Native JS/src/index.js"></script>
+        <script type="module">
+            import module from '/Projects/Project 1. Native JS/src/index.js';
+            module();
+
+        </script>
     </body>
 </html>

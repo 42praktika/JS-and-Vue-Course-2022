@@ -1,10 +1,68 @@
+*{
+    box-sizing: border-box;
+}
+
 body{
     background: #40E0D0
 }
-.someText{
+
+.placeholder{
     margin: auto;
+    margin-top: 20%;
     text-align: center;
-    padding: 100px;
+    padding: 30px;
     width: 50%;
     background-color: aliceblue;
 }
+
+.buttons{
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.buttons .main-page-button, .close, .carousel-control-prev, .carousel-control-next{
+    margin: 6px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 20px;
+    font-size: 35 px;
+    padding: 10px 20px;
+    background-color: aquamarine;
+}
+
+.modal-window{
+    background-color:rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    align-items: center;
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+.modal-window.show{
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal{
+    background-color: #fff;
+    text-align: center;
+    width: 600px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 50px 20px;
+}
+
+.carousel-control-prev, .carousel-control-next{
+    display: flex;
+    background-color: #40E0D0;
+}
+
+
+
