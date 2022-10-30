@@ -8,13 +8,16 @@ const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
 
 const writeSumSync = (pathToFileOne, pathToFileTwo, pathToResultFile) => {
     // Начало
-    fs.readFile('./__fixtures__/one', 'utf-8', (errorOne, dataOne) => {
-        fs.readFile('./__fixtures__/two', 'utf-8', (errorTwo, dataTwo) => {
-            fs.readFile('./__fixtures__/three', 'utf-8', (errorThree, dataThree) => {
-                alert(`${dataOne}${dataTwo}${dataThree}`);
-            })
+    const firstFile = fs.readFileSync(pathToFileOne);
+    const secondFile = fs.readFileSync(pathToFileTwo);
+
+    const sum = (num) => {
+        return num.toString().split(',').reduce((previousValue, currentValue) => {
+            return Number(previousValue) + Number(currentValue);
         })
-    })
+    }
+
+    fs.writeFileSync(pathToResultFile, (sum(firstFile) + sum(secondFile)).toString())
     // Конец
 };
 
