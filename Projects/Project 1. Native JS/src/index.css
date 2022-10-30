@@ -1,3 +1,76 @@
 body{
-    background-color: #c7b6b6;
+    background-image: url(photo.jpg)
+}
+.MainButtons {
+    width: 200px;
+    height: 100px;
+
+    background-color: black;
+    cursor: pointer;
+    margin-left: 20px;
+    color: yellow;
+    border-radius: 25%;
+    font-size: 30px;
+}
+
+.buttons {
+    padding: 250px;
+    text-align: center;
+}
+.modal-container {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1000;
+}
+.modal-container .modal-Hockey {
+    background-color: #f1f1f1;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    z-index: 99999;
+}
+.modal-container .modal-Serials {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    z-index: 99999;
+}
+.modal-container .modal-Food {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    z-index: 99999;
+}
+
+
+.close_modal_window{
+
+    cursor: pointer;
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.ButtonNext{
+    color: green;
+    cursor: pointer;
+    float: right;
+}
+.ButtonBehind{
+    color: red;
+    cursor: pointer;
+}
+.p{
+    font-style: inherit;
 }
