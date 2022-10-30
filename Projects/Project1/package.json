@@ -1,0 +1,17 @@
+{
+  "name": "Project1",
+  "version": "1.0.0",
+  "main": "js/build/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.74.0"
+  },
+  "dependencies": {
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "scripts": {
+    "watch": "webpack -w --mode development",
+    "build": "webpack --mode production"
+  }
+}
