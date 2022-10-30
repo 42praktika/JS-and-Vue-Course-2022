@@ -1,0 +1,72 @@
+.wholePage{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    background-image: url("./background.jpg");
+    background-size: cover;
+}
+p{
+    color: #8a4545;
+    font-size: 20px;
+    line-height: 1.5;
+    font-family: Times, Times New Roman, serif;
+}
+.buttons{
+    display: flex;
+}
+.btnWidget{
+    padding: 10px 60px 10px 40px;
+    margin: 30px 30px 30px 30px;
+    border-radius: 10px 5px 10px 5px;
+    border: 2px solid #8a4545;
+    background-color: #f8f1f1;
+}
+.btnWidget:hover{
+    background-color: #a97f7f;
+    transform: scale(1.25);
+    cursor: pointer;
+}
+.widget{
+    position: absolute;
+    min-width: 600px;
+    min-height: 400px;
+    width: calc(100% - 800px);
+    height: calc(100% - 400px);
+    background-color: #eccfcf;
+    border-radius: 10px 5px 10px 5px;
+    border: 2px solid #8a4545;
+}
+.exitButton{
+    background-color: #e8bcbc;
+    border: #eccfcf ;
+    border-radius: 20px;
+    position: absolute;
+    right: 60px;
+    top: 30px;
+    width: 30px;
+    height: 30px;
+}
+.exitButton:hover{
+    background-color: #a97f7f;
+    cursor: pointer;
+}
+.iconButton{
+    color: #852f2f;
+}
+.nextButton{
+    background-color: #e8bcbc;
+    border: #eccfcf ;
+    border-radius: 20px;
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    width: 30px;
+    height: 30px;
+}
+.nextButton:hover{
+    background-color: #a97f7f;
+    cursor: pointer;
+}
+
