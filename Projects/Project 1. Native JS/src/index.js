@@ -1,4 +1,12 @@
 import './index.html';
 import './style.css';
-console.log('Невероятно, оно работает!')
-prompt('Hello! How old are you?');
+import {openModal} from "../js/app";
+import {closeModal} from "../js/app";
+import {state} from "../js/app";
+import {nextModal} from "../js/app";
+
+
+openModal(state);
+closeModal(state);
+nextModal(state);
+
