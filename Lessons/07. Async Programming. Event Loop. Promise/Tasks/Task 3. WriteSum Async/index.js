@@ -9,8 +9,8 @@ const writeSum = (pathToFileOne, pathToFileTwo) => {
             summa += sumFile(dataOne)
         })
             .then(() => fs.readFile(pathToFileTwo, "utf-8"))
-            .then((dateTwo) => {
-                summa += sumFile(dateTwo);
+            .then((dataTwo) => {
+                summa += sumFile(dataTwo);
                 resolve(summa);
             })
             .catch(() => {
