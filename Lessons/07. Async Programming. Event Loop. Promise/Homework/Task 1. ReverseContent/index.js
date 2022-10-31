@@ -9,9 +9,12 @@ const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
 
 
 const reverseContent = (filepath) => {
-    // Начало
-
-    // Конец
+    return fs.readFile(filepath, 'utf-8')
+        .then(txt => {
+            return fs.writeFile(filepath, txt.split('\n')
+                .reverse()
+                .join('\n'))
+        });
 };
 
 export default reverseContent;
