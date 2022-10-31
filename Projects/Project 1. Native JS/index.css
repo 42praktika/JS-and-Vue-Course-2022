@@ -1,0 +1,98 @@
+body {
+    /*radial-gradient(rgba(24, 26, 33, 0) 0%, #181A21 100%) fixed no-repeat;*/
+    margin: 0;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.buttons {
+    display: flex;
+    height: 10vh;
+    width: 80vh;
+    border-radius: 50px;
+    border: 2px solid black;
+    padding: 30px;
+    /*background-image: linear-gradient(to bottom, #4B22A0, #8645BF);*/
+}
+
+.main-button {
+    flex-grow: 1;
+    border-radius: 50px;
+    margin: 10px;
+    opacity: 0.6;
+    box-shadow: 0px 0px 5px 4px black;
+    transition: opacity 0.4s;
+    background-color: #00b000;
+    cursor: pointer;
+    align-items: center;
+    font-size: 20px;
+
+}
+
+.main-button:hover {
+    opacity: 1;
+    transition: opacity 0.4s;
+}
+
+.modal {
+    height: 500px;
+    width: 1000px;
+    border: 2px solid black;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.modal-info1 {
+    display: none;
+}
+
+.modal-info2 {
+    display: none;
+}
+
+.modal-info3 {
+    display: none;
+}
+
+.change-bar {
+    display: flex;
+    height: 50px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.button-prev {
+    height: 50px;
+    width: 75px;
+    rotate: 180deg;
+    background: url("images/arrow.png");
+    background-size: 100% 100%;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.button-next {
+    height: 50px;
+    width: 75px;
+    background: url("images/arrow.png");
+    background-size: 100% 100%;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.button-close {
+    height: 50px;
+    width: 50px;
+    background: url("images/close.png") no-repeat;
+    background-size: 100% 100%;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
