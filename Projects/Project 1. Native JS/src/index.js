@@ -1,2 +1,2 @@
-require('./js/test');
-require('./css/test.css');
+require('./css/style.css');
+require('./js/main.js');

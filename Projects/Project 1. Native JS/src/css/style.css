@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.app {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://wallpapersmug.com/download/2880x1800/f0932e/landscape-minimal-stars-cold-5k.jpg');
+    background-size: 100%;
+    background-position: 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.button-widget {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    border-radius: 20px;
+    padding: 16px 24px;
+    cursor: pointer;
+    border: 2px solid #c4c4c4;
+    outline: none;
+}
+
+.button-widget:not(:last-child) {
+    margin-right: 16px;
+}
+
+.button-widget:hover {
+    background: #e3e3e3;
+}
+
+.modal {
+    width: 70vw;
+    height: 70vh;
+    background-color: #fff;
+    border-radius: 10px;
+    position: absolute;
+    padding: 20px;
+}
+
+.close-button {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0,0,0,0);
+    position: relative;
+    opacity: 0.3;
+    cursor: pointer;
+    float: right;
+    margin-right: 20px;
+}
+
+.close-button:hover {
+    opacity: 0.7;
+}
+
+.close-button::before, .close-button::after {
+    content: '';
+    background-color: #000;
+    width: 40px;
+    height: 2px;
+    position: absolute;
+    left: 0;
+}
+
+.close-button::before {
+    transform: rotate(45deg);
+}
+
+.close-button::after {
+    transform: rotate(-45deg);
+}
+
+.next-button {
+    width: 20px;
+    height: 40px;
+    background-color: rgba(0,0,0,0);
+    position: relative;
+    opacity: 0.3;
+    cursor: pointer;
+    float: right;
+}
+
+.next-button:hover {
+    opacity: 0.7;
+}
+
+.next-button::before, .next-button::after {
+    content: '';
+    background-color: #000;
+    width: 20px;
+    height: 2px;
+    position: absolute;
+    left: 0;
+}
+
+.next-button::before {
+    transform: rotate(45deg);
+    top: 13px;
+}
+
+.next-button::after {
+    transform: rotate(-45deg);
+    bottom: 12px;
+}
+
+.modal-container {
+    display: none;
+    width: 100%;
+    height: 100%;
+}

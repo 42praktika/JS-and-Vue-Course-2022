@@ -12,5 +12,6 @@ module.exports = {
             { test: /\.(js)$/, use: 'babel-loader' }
         ]
     },
-    mode: 'development'
+    mode: 'development',
+    devtool: false
 }
