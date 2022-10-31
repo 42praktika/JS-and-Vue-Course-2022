@@ -8,7 +8,17 @@
 
 const setCatGallery = () => {
     // Начало
+    const NUM_OF_CATS = 10;
+    const promises = [];
 
+    for (let i = 0; i < NUM_OF_CATS; i += 1) {
+        promises.push(axios.get(searchUrl));
+    }
+
+    return Promise.all(promises).then((responses) => {
+        responses.forEach(({ data }) => renderPhoto(data[0].url));
+        return 'cat gallery is ready!';
+    });
     // Конец
 };
 

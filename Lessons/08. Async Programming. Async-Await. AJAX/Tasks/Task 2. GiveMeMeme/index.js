@@ -17,6 +17,7 @@ const getRandomIndex = () => Math.floor(100 * Math.random());
 
 const giveMeMeme = () => {
     // Начало
+    
     // Конец
 };
 
