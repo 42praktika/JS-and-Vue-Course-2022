@@ -87,8 +87,6 @@ import "./index.html"
         document.querySelectorAll(".modal-Serials").forEach(e => e.remove());
         document.querySelectorAll(".modal-Hockey").forEach(e => e.remove());
         modal.style.display = "block";
-        buttonNext.addEventListener('click', () => {
-        });
     });
 
     spanClose.addEventListener('click', () => {
