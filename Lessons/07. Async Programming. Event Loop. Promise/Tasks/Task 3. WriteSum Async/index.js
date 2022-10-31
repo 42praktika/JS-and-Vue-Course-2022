@@ -1,5 +1,5 @@
 import { promises as fs } from 'fs';
-import path from 'path';
+import path from "path";
 
 // Метод для отладки. В итоговом решении использоваться не должен
 const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
@@ -7,10 +7,14 @@ const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
 // const currentPath = getPath('/one.txt');
 
 const writeSum = (pathToFileOne, pathToFileTwo, pathToResultFile) => {
-    const myPromise = new Promise((resolveCallback, rejectCallback) => {
-        // Аргументами функции являются функции resolveCallback и rejectCallback
-
-    })
+    let filesSum = 0;
+    return fs.readFile(pathToFileOne, 'utf-8')
+        .then(x => x.split(', ').forEach(x => filesSum += Number(x)))
+        .catch((error) => console.error("Такого файла нет"))
+        .then(x => fs.readFile(pathToFileTwo, 'utf-8')
+            .then(x => x.split(', ').forEach(x => filesSum += Number(x)))
+            .catch((error) => console.error("Такого файла нет")))
+        .then(() => filesSum)
 };
 
 export default writeSum;

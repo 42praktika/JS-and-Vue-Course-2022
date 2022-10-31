@@ -7,11 +7,9 @@ const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
 // Пример использования метода
 // const currentPath = getPath('/one.txt');
 
-
 const reverseContent = (filepath) => {
-    // Начало
-
-    // Конец
+    return fs.readFile(filepath, 'utf-8')
+        .then(x => {return fs.writeFile(filepath, x.split('\n').reverse().join('\n'))});
 };
 
 export default reverseContent;

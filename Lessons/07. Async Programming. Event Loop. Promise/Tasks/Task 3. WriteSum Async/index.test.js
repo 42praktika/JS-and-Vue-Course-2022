@@ -1,6 +1,6 @@
 import fs from 'fs';
-import path from 'path';
 import writeSum from './index';
+import path from "path";
 
 const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
 
