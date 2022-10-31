@@ -4,7 +4,6 @@ const { watch } = WatchJS;
 
 const setNewsMaker = () => {
     // Начало
-
     // Конец
 };
 

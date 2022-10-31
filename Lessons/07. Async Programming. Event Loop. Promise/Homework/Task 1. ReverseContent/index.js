@@ -10,7 +10,16 @@ const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
 
 const reverseContent = (filepath) => {
     // Начало
-
+    const promise = new Promise((resolve, reject) => {
+        fs.readFile(filepath)
+            .then(dataOne => {
+                resolve(fs.writeFile(filepath, dataOne.toString().split('\n').reverse().join('\n')));
+            })
+            .catch(() => {
+                reject(new Error('Такого файла нет'))
+            })
+    })
+    return promise;
     // Конец
 };
 
