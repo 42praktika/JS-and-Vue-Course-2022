@@ -1,15 +1,13 @@
-import fs from 'fs';
-import path from 'path';
-
-// Метод для отладки. В итоговом решении использоваться не должен
-const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
-// Пример использования функции
-// const currentPath = getPath('/one.txt');
-
+const fs = require("fs");
+const path=require("path")
 const writeSumSync = (pathToFileOne, pathToFileTwo, pathToResultFile) => {
-    // Начало
+    const fileOne = fs.readFileSync(pathToFileOne ,'utf8');
+    const fileSecond = fs.readFileSync(pathToFileTwo,'utf8' );
 
-    // Конец
+    let sum=fileOne.split(', ').reduce((previousValue,currentValue)=>previousValue+parseInt(currentValue),0);
+    let sum2=fileSecond.split(', ').reduce((previousValue,currentValue)=>previousValue+parseInt(currentValue),0);
+
+    const Result=sum+sum2;
+    fs.writeFileSync(pathToResultFile,String(Result));
 };
-
 export default writeSumSync;
