@@ -18,6 +18,11 @@ module.exports = (env, options) => {
                     exclude: path.resolve(__dirname, './node_modules/'),
                 },
                 {
+                    test: /\.html$/i,
+                    loader: "html-loader",
+                },
+
+                {
                     test: /\.css$/,
                     use: [
                         'style-loader',

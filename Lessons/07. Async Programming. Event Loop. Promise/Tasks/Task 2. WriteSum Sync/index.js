@@ -1,4 +1,4 @@
-import fs from 'fs';
+import {readFileSync, writeFileSync} from 'fs';
 import path from 'path';
 
 // Метод для отладки. В итоговом решении использоваться не должен
@@ -7,21 +7,19 @@ const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
 // const currentPath = getPath('/one.txt');;
 
 
-
 const writeSumSync = (pathToFileOne, pathToFileTwo, pathToResultFile) => {
-    let sumNumber = 0
-    pathToFileOne = fs.readFile('./__fixtures__/one.txt', 'utf-8', (errorOne, dataOne))
-    pathToFileTwo = fs.readFile('./__fixtures__/two.txt', 'utf-8', (errorTwo, dataTwo))
-    pathToResultFile = fs.readFile('./__fixtures__/result.txt', 'utf-8', (errorThree , dataThree))
-    for (let i = 0; i < pathToFileOne.length; i++) {
-        for (let j = 0; j < pathToFileTwo.length; i++) {
-            sumNumber += pathToFileOne[i] + pathToFileTwo[j]
-        }
-    }
-    console.log(sumNumber)
+    const firstFile = readFileSync(pathToFileOne)
+    const secondFile = readFileSync(pathToFileTwo)
+
+    const firstFileSum = sumFile(firstFile)
+    const secondFileSum = sumFile(secondFile)
+
+    const result = (firstFileSum + secondFileSum).toString()
+
+    writeFileSync(pathToResultFile, result)
 };
-
-
-
-
+const sumFile = (file) => {
+    const fileText =  file.toString().split(", ")
+    return fileText.reduce((firstFileValue, secondFileValue) => parseInt(firstFileValue) + parseInt(secondFileValue))
+}
 export default writeSumSync;
