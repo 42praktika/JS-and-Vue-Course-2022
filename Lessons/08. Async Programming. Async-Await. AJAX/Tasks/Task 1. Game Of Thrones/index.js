@@ -1,7 +1,8 @@
 const getCharacterData = (characterId, key) => {
-    // Начало
+    return fetch("https://www.anapioficeandfire.com/api/characters/" + characterId.toString(), {
+    }).then(x => x.json())
+        .then(x => x["name"] + ", " + `${key}` + ": " + x[key]);
 
-    // Конец
 };
 
 export default getCharacterData;
