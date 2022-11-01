@@ -1,0 +1,10 @@
+{
+  "name": "Project 1. Native JS",
+  "version": "1.0.0",
+  "dependencies": {
+  },
+  "scripts": {
+    "watch": "webpack -w --mode development",
+    "build": "webpack -p --mode production"
+  }
+}
