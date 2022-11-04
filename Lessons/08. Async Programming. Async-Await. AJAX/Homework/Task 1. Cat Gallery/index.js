@@ -6,10 +6,21 @@
 
 // import axios from 'axios';
 
-const setCatGallery = () => {
-    // Начало
+import axios from "axios";
 
-    // Конец
+const setCatGallery = () => {
+    const countOfImg = 10;
+    const container = document.querySelector('.main__container');
+
+    const addCats = async () => {
+        for (let i = 0; i < countOfImg; i++) {
+            const img = document.createElement('img');
+            let url = await axios.get("https://api.thecatapi.com/v1/images/search");
+            img.src = await url.data[0].url;
+            container.appendChild(img);
+        }
+    }
+    return addCats().then(() => "cat gallery is ready!");
 };
 
 export default setCatGallery;
