@@ -20,65 +20,95 @@ const ADDITIONAL_BUTTONS = [
     },
 ];
 
+const CALC_BUTTONS = [
+    {
+        text: '0',
+        type: TYPES.DIGIT,
+    },
+    {
+        text: '1',
+        type: TYPES.DIGIT,
+    },
+    {
+        text: '2',
+        type: TYPES.DIGIT,
+    },
+    {
+        text: '3',
+        type: TYPES.DIGIT,
+    },
+    {
+        text: '4',
+        type: TYPES.DIGIT,
+    },
+    {
+        text: '5',
+        type: TYPES.DIGIT,
+    },
+    {
+        text: '6',
+        type: TYPES.DIGIT,
+    },
+    {
+        text: '7',
+        type: TYPES.DIGIT,
+    },
+    {
+        text: '8',
+        type: TYPES.DIGIT,
+    },
+    {
+        text: '9',
+        type: TYPES.DIGIT,
+    },
+        ...ADDITIONAL_BUTTONS,
+]
+
+const getSum = (text) => {
+    return text
+        .split('+')
+        .filter((e) => !!e)
+        .reduce((cur, curr) => cur + parseInt(curr, 10), 0);
+}
+
 const setCalculator = () => {
     // Начало
     const calcButtons = document.querySelector('.calc__buttons');
     const calcResult = document.querySelector('.calc__result');
     const calcMain = document.querySelector('.calc__main');
-    for (let i = 0; i < 10; i++) {
-        calcButtons.append(document.createElement('button'));
-    }
 
-    const digits = document.querySelectorAll('button');
+    const resultSpan = document.createElement('span');
+    resultSpan.textContent = 'Результат:';
 
-    let counter = 0;
-    for (let i = 0; i < digits.length; i++) {
-        digits[i].className = 'btn btn-dark';
-        digits[i].dataset.type = "digit";
-        digits[i].textContent = '' + counter;
-        counter++;
-        digits[i].addEventListener('click', (event) => {
-            calcMain.textContent = calcMain.textContent + digits[i].textContent;
+    const resultNumber = document.createElement('span');
+    resultNumber.textContent = '0';
+    resultNumber.classList.add('calc__result-number');
+
+    calcResult.append(resultSpan, resultNumber);
+
+    CALC_BUTTONS.forEach((item) => {
+        const button = document.createElement('button');
+        button.textContent = item.text;
+        button.classList.add('btn', 'btn-dark');
+        button.dataset.type = item.type;
+        calcButtons.append(button);
+
         })
-    }
-    const buttonPlus = document.createElement('button');
-    buttonPlus.textContent = '+';
-    buttonPlus.className = 'btn btn-dark';
-    buttonPlus.dataset.type = "plus";
-    buttonPlus.addEventListener('click', (event) => {
-        calcMain.textContent = calcMain.textContent + buttonPlus.textContent;
-    });
-
-    const buttonEqual = document.createElement('button');
-    buttonEqual.textContent = '=';
-    buttonEqual.className = 'btn btn-dark';
-    buttonEqual.dataset.type = "result";
-    buttonEqual.addEventListener('click', () => {
-        let splitNumbers = (calcMain.textContent).split("+");
-        spanDefaultValue.textContent = splitNumbers.reduce((previousValue, currentValue) => {
-            return Number(previousValue) + Number(currentValue);
-        });
+    calcButtons.addEventListener('click', (event) => {
+        const target = event.target;
+        switch (target.dataset.type) {
+            case TYPES.DIGIT:
+            case TYPES.PLUS:
+                calcMain.textContent = calcMain.textContent + target.textContent;
+                break;
+            case TYPES.RESET:
+                calcMain.textContent = ''
+                resultNumber.textContent = '0';
+                break;
+            case TYPES.RESULT:
+                resultNumber.textContent = getSum(calcMain.textContent);
+        }
     })
-
-    const buttonReset = document.createElement('button');
-    buttonReset.textContent = 'Сбросить';
-    buttonReset.className = 'btn btn-dark';
-    buttonReset.dataset.type = "reset";
-    buttonReset.addEventListener('click', (event)=> {
-        calcMain.textContent = '';
-        spanDefaultValue.textContent = '0';
-    });
-
-    const spanResult = document.createElement('span');
-    spanResult.textContent = 'Результат: ';
-
-
-    const spanDefaultValue = document.createElement('span');
-    spanDefaultValue.classList.add('calc__result-number');
-    spanDefaultValue.textContent = '0';
-
-    calcResult.append(spanResult, spanDefaultValue);
-    calcButtons.append(buttonPlus, buttonEqual, buttonReset);
     // Конец
 };
 
