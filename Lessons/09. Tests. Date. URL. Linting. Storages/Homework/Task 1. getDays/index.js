@@ -1,7 +1,20 @@
-const getDaysAmount = (month, year) => {
-    // Начало
+const MONTHS = {
+    'January': 1,
+    'February': 2,
+    'March': 3,
+    'April': 4,
+    'May': 5,
+    'June': 6,
+    'July': 7,
+    'August': 8,
+    'September': 9,
+    'October': 10,
+    'November': 11,
+    'December': 12
+}
 
-    // Конец
+const getDaysAmount = (month, year) => {
+    return Object.hasOwn(MONTHS, month) ? new Date(year, MONTHS[month], 0).getDate() : 'error';
 };
 
 export default getDaysAmount;

@@ -15,10 +15,8 @@ const setRotations = () => {
 };
 
 const runClocks = () => {
-    // Начало
     setRotations();
     setInterval(setRotations, 1000);
-    // Конец
 };
 
 export default runClocks;
