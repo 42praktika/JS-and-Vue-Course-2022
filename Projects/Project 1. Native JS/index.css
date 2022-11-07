@@ -12,11 +12,10 @@ body {
 
 .buttons {
     display: flex;
-    height: 10vh;
     width: 80vh;
     border-radius: 50px;
     border: 2px solid black;
-    padding: 30px;
+    padding: 10px;
     justify-content: space-evenly;
     /*background-image: linear-gradient(to bottom, #4B22A0, #8645BF);*/
 }
@@ -43,6 +42,7 @@ body {
     border: 2px solid black;
     border-radius: 50px;
     background-color: white;
+    flex-direction: column;
 }
 
 .modal-info1 {
@@ -59,9 +59,21 @@ body {
 
 .change-bar {
     display: flex;
-    height: 50px;
-    margin-top: 10px;
-    justify-content: center;
+    height: 75px;
+    margin-bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.button-of-module-nav {
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.button-of-module-nav:hover {
+    transition: border-radius 1s;
+    border-radius: 50px;
 }
 
 .button-prev {
@@ -70,9 +82,6 @@ body {
     rotate: 180deg;
     background: url("images/arrow.png");
     background-size: 100% 100%;
-    border: none;
-    cursor: pointer;
-    margin: 10px;
 }
 
 .button-next {
@@ -80,17 +89,16 @@ body {
     width: 75px;
     background: url("images/arrow.png");
     background-size: 100% 100%;
-    border: none;
-    cursor: pointer;
-    margin: 10px;
 }
 
 .button-close {
     height: 50px;
     width: 50px;
-    background: url("images/close.png") no-repeat;
+    background: url("images/close.png");
     background-size: 100% 100%;
-    border: none;
-    cursor: pointer;
-    margin: 10px;
+}
+
+.modal-main {
+    display: flex;
+    flex: 1;
 }
