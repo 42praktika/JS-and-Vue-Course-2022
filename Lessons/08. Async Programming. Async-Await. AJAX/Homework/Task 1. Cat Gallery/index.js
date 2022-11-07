@@ -7,7 +7,7 @@ const setCatGallery = () => {
     const addCats = async () => {
         for (let i = 0; i < COUNT_OF_PICTURES; i++) {
             const img = document.createElement('img');
-            let url = await axios.get(URL);
+            const url = await axios.get(URL);
             img.setAttribute('src', url.data[0].url);
             mainContainer.append(img);
         }
