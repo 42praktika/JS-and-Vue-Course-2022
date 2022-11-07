@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Task 2. Carousel Vue</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <script src="../../../../vue/build/vue-core.js"></script>
+    </head>
+    <body>
+        <div id="container"></div>
+    </body>
+    <script type="text/javascript">
+        window.appendVueComponent('#container', 'CarouselComponent', [
+            './assets/carousel-1.jpg',
+            './assets/carousel-2.jpg',
+            './assets/carousel-3.jpg',
+        ]);
+    </script>
+</html>
