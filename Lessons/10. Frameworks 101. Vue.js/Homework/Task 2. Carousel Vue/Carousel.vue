@@ -1,6 +1,30 @@
 <template>
     <!--Начало-->
-
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div>
+                v-for="(image, index) in images"
+                :class="['carousel-item', activeIndex === index && 'active']"
+            
+                <img
+                    class="d-block w-100"
+                    :src="image"
+                />
+            </div>
+        </div>
+        <button
+            class="carousel-control-prev"
+            @click="onPrevClick"
+        >
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button
+            class="carousel-control-next"
+            @click="onNextClick"
+        >
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
     <!--Конец-->
 </template>
 
@@ -15,7 +39,18 @@ export default {
         };
     },
     // Начало
-
+    methods: {
+        onPrevClick() {
+            this.activeIndex = this.activeIndex - 1 < 0
+                ? this.images.length - 1
+                : this.activeIndex - 1;
+        },
+        onNextClick() {
+            this.activeIndex = this.activeIndex + 1 >= this.images.length
+                ? 0
+                : this.activeIndex + 1;
+        },
+    },
     // Конец
 };
 </script>
