@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Task 1. Card</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <script src="../../../../vue/build/vue-core.js"></script>
+    </head>
+    <body>
+        <div id="container"></div>
+    </body>
+    <script type="text/javascript">
+        window.appendVueComponent('#container', 'CardsComponent', [
+            {
+                id: 0,
+                src: './assets/iphone10.jpg',
+                description: 'Packed with Innovative Features Including a Super Retina Display, TrueDepth Camera System, Face ID and A11 Bionic Chip with Neural Engine',
+                head: 'Iphone X 64GB',
+                price: '800$',
+                number: 0,
+                max: 4,
+            },
+            {
+                id: 1,
+                src: './assets/galaxys21.jpg',
+                description: 'Introducing Galaxy S21 Ultra 5G. Designed with a unique contour-cut camera to create a revolution in photography — letting you capture cinematic 8K video and snap epic stills, all in one go.',
+                head: 'Samsung Galaxy S21 128GB',
+                price: '1000$',
+                number: 0,
+                max: 10,
+            },
+            {
+                id: 2,
+                src: './assets/nokia2600.jpg',
+                description: 'Give me back my 2007',
+                head: 'Nokia 2600',
+                price: 'Priceless',
+                number: 0,
+                max: 1,
+            },
+        ]);
+    </script>
+</html>
