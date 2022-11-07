@@ -3,11 +3,9 @@ const path = require('path');
 module.exports = (env, options) => {
     const developmentMode = options.mode !== 'production';
     return {
-        entry: {
-            'core': './src/index.js',
-        },
+        entry: './src/index.js',
         output: {
-            path: path.resolve(__dirname, 'dist'),
+            path: path.resolve(__dirname, './dist'),
             filename: 'main.js',
         },
         module: {

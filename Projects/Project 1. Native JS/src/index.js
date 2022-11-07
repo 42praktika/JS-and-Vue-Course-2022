@@ -1,7 +1,7 @@
-
+import "./index.css"
 import {buttons, modals, modalType} from "./js/const";
 import state from "./js/state";
-
+import "./js/watchers"
 
 
 const closeModal = () => {
@@ -85,7 +85,6 @@ const renderModals = () => {
 
 document.addEventListener('click', closeModal)
 
-console.log("я тупая")
 
 renderButtons()
 renderModals()

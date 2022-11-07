@@ -2,7 +2,9 @@ body {
     background-image: url("image.jpg");
 }
 
-.buttons {
+
+
+.button-container {
     position: relative;
     text-align: center;
     text-decoration: none;
@@ -13,7 +15,7 @@ body {
     margin: 350px;
 }
 
-.button {
+button {
     border-color: blue;
     border-width: 15px;
     border-radius: 10px;
@@ -28,7 +30,9 @@ body {
     justify-content: center;
 }
 
-.button:active {
+
+
+button:active {
     transform: translateY(4px);
 }
 

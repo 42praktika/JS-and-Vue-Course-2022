@@ -2,7 +2,6 @@
   "name": "project-1.-native-js",
   "version": "1.0.0",
   "description": "Что из себя представляет Ваше приложение",
-  "main": "index.js",
   "scripts": {
     "watch": "webpack -w --mode development",
     "build": "webpack --mode production",
