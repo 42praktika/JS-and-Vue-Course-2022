@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <title>V-if</title>
+    </head>
+    <body>
+        <div id="app">
+            <!-- v-if -->
+            <div v-if="name">
+                {{ name }}
+            </div>
+            <div v-else-if="number">
+                {{ number }}
+            </div>
+            <div v-else>
+                Нет данных
+            </div>
+
+            <!-- v-show -->
+            <div v-show="name">
+                {{ name }}
+            </div>
+        </div>
+
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        name: 'Kimi',
+                        number: 42,
+                    };
+                },
+            });
+        </script>
+    </body>
+</html>
