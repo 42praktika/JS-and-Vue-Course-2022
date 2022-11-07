@@ -1032,7 +1032,7 @@ html-entities@^2.3.2:
   resolved "https://registry.npmjs.org/html-entities/-/html-entities-2.3.3.tgz"
   integrity sha512-DV5Ln36z34NNTDgnz0EWGBLZENelNAtkiFA4kyNOG2tDI6Mz1uSWiq1wAKdyjnJwyDiDO7Fa2SO1CTxPXL8VxA==
 
-html-loader@^5.5.0:
+html-loader@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/html-loader/-/html-loader-4.2.0.tgz#20f69f9ec69244860c250ae6ee0046c8c5c4d348"
   integrity sha512-OxCHD3yt+qwqng2vvcaPApCEvbx+nXWu+v69TYHx1FO8bffHn/JjHtE3TTQZmHjwvnJe4xxzuecetDVBrQR1Zg==
@@ -1296,6 +1296,11 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.npmjs.org/media-typer/-/media-typer-0.3.0.tgz"
   integrity sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==
+
+melanke-watchjs@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/melanke-watchjs/-/melanke-watchjs-1.5.2.tgz#acc1c85fc04f3832bb9366896c844143ac686787"
+  integrity sha512-yNo8NiKkZd4K0Y/SNhbeW5PAmylfaClrOPpNTRibybRTe93Ozv1/emTanP6xwxi9TO0FS9b9F94/JQedJ1/j9g==
 
 memfs@^3.4.3:
   version "3.4.7"

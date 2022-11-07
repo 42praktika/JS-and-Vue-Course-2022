@@ -17,7 +17,8 @@
   },
   "dependencies": {
     "css-loader": "^6.7.1",
-    "style-loader": "^3.3.1",
-    "html-loader": "^4.2.0"
+    "html-loader": "^4.2.0",
+    "melanke-watchjs": "^1.5.2",
+    "style-loader": "^3.3.1"
   }
 }
