@@ -1,0 +1,26 @@
+div.main {
+    background: #e5e5e5;
+    display: block;
+    padding: 30px;
+    margin: 40px;
+    font-family: Verdana, Tahoma, sans-serif;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.main img {
+    height: 180px;
+    border-radius: 5px;
+    margin: 10px 0 0 10px;
+}
+
+.main h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.main__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
