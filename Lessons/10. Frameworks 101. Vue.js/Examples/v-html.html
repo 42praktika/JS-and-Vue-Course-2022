@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <title>V-html</title>
+    </head>
+    <body>
+        <div id="app">
+            <div v-html="innerHTML"></div>
+        </div>
+
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        innerHTML: '<span>внутренний текст в спане<span>',
+                    };
+                },
+            });
+        </script>
+    </body>
+</html>
