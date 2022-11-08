@@ -1,39 +1,37 @@
-
-
-export const modalType = {
+export const MODALS_TYPES = {
     NONE: 'none',
     FIRST: 'first',
     SECOND: 'second',
     THIRD: 'third',
 };
 
-export const buttons = [
+export const BUTTONS  = [
     {
         text: 'Первая кнопка',
-        type: modalType.FIRST,
+        type: MODALS_TYPES.FIRST,
     },
     {
         text: 'Вторая кнопка',
-        type: modalType.SECOND,
+        type: MODALS_TYPES.SECOND,
     },
     {
         text: 'Третья кнопка',
-        type: modalType.THIRD,
+        type: MODALS_TYPES.THIRD,
     },
 ];
 
-export const modals = [
+export const MODALS = [
     {
         text: 'Первое окно',
-        type: modalType.FIRST,
+        type: MODALS_TYPES.FIRST,
     },
     {
         text: 'Второе окно',
-        type: modalType.SECOND,
+        type: MODALS_TYPES.SECOND,
     },
     {
         text: 'Третье окно',
-        type: modalType.THIRD,
+        type: MODALS_TYPES.THIRD,
     },
 ]
 

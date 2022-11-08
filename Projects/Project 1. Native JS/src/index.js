@@ -1,17 +1,17 @@
 import "./index.css"
-import {buttons, modals, modalType} from "./js/const";
+import {BUTTONS, MODALS, MODALS_TYPES} from "./js/const";
 import state from "./js/state";
 import "./js/watchers"
 
 
 const closeModal = () => {
-    state.openedModalType = modalType.NONE;
+    state.openedModalType = MODALS_TYPES.NONE;
 }
 
 const renderButtons = () => {
     const buttonsContainer = document.querySelector('.buttons-container');
 
-    buttons.forEach((item) => {
+    BUTTONS.forEach((item) => {
         const button = document.createElement('button');
 
         button.textContent = item.text
@@ -30,13 +30,13 @@ const renderButtons = () => {
 const renderModals = () => {
     const app = document.querySelector('.app');
 
-    modals.forEach((item) => {
+    MODALS.forEach((item) => {
         const modal = document.createElement('div');
         const prevButton = document.createElement('button');
         const nextButton = document.createElement('button');
         const closeButton = document.createElement('button');
 
-        prevButton.textContent = 'Назад';
+        prevButton.textContent = '<';
         prevButton.addEventListener('click', (event) => {
             const currentOpenedModalIndex = modals
                 .findIndex((item) => item.type === state.openedModalType);
@@ -50,21 +50,21 @@ const renderModals = () => {
             event.stopPropagation()
         });
 
-        nextButton.textContent = 'Вперед';
+        nextButton.textContent = '>';
         nextButton.addEventListener('click', (event) => {
-            const currentOpenedModalIndex = modals
+            const currentOpenedModalIndex = MODALS
                 .findIndex((item) => item.type === state.openedModalType);
 
-            if (currentOpenedModalIndex === modals.length - 1) {
-                state.openedModalType = modals[0].type
+            if (currentOpenedModalIndex === MODALS.length - 1) {
+                state.openedModalType = MODALS[0].type
             } else {
-                state.openedModalType = modals[currentOpenedModalIndex + 1].type
+                state.openedModalType = MODALS[currentOpenedModalIndex + 1].type
             }
 
             event.stopPropagation();
         });
 
-        closeButton.textContent = 'Закрыть';
+        closeButton.textContent = 'X';
         closeButton.addEventListener('click', (event) => {
             closeModal()
 

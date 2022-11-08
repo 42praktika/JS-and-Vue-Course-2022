@@ -4,48 +4,48 @@ body {
 
 
 
-.button-container {
+.buttons-container {
     position: relative;
     text-align: center;
     text-decoration: none;
     display: flex;
     font-size: 16px;
     justify-content: center;
-    padding: 20px 40px 20px 40px;
-    margin: 350px;
+    margin-top: 400px
+
 }
 
 button {
-    border-color: blue;
-    border-width: 15px;
+    background: #9D81BA;
+    border-width: 1px;
     border-radius: 10px;
     position: relative;
-    padding: 20px 30px;
+    padding: 20px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin-left: 30px;
-    right: 30px;
     justify-content: center;
+
 }
 
-
-
 button:active {
-    transform: translateY(4px);
+    transform: translateY(8px);
 }
 
 
 .modal {
     position: absolute;
+    background: white;
     transform: translate3d(-50%, -50%, 0);
     top: 50%;
     left: 50%;
-    width: 500px;
-    height: 300px;
-    border: 1px solid #000;
+    width: 50%;
+    height: 50%;
+    border: 2px solid #000;
     display: none;
+
 }
 
 

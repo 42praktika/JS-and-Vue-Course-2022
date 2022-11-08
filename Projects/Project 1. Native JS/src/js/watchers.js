@@ -1,5 +1,5 @@
 import WatchJS from 'melanke-watchjs'
-import { modalType } from "./const"
+import { MODALS_TYPES } from "./const"
 import state from "./state";
 
 
@@ -12,7 +12,7 @@ watch(state, 'openedModalType', () => {
         item.style.display = 'none';
     });
 
-    if (state.openedModalType !== modalType.NONE) {
+    if (state.openedModalType !== MODALS_TYPES.NONE) {
         const modal = document.querySelector(`.modal[data-type="${state.openedModalType}"]`);
 
         modal.style.display = 'block';

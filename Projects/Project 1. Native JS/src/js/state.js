@@ -1,6 +1,6 @@
-import { modalType } from "./const";
+import { MODALS_TYPES } from "./const";
 
 
 export default {
-    openedModalType: modalType.NONE,
+    openedModalType: MODALS_TYPES.NONE,
 }
