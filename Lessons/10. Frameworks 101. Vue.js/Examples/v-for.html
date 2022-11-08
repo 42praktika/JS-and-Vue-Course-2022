@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <title>V-for</title>
+    </head>
+    <body>
+        <div id="app">
+            <div
+                v-for="(option, index) in options"
+                :key="option.id"
+            >
+                {{ option.name }}
+            </div>
+        </div>
+
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        name: 'Kimi',
+                        number: 42,
+                        options: [
+                            { name: 'js', id: 0 },
+                            { name: 'java', id: 1 },
+                            { name: 'php', id: 2 },
+                            { name: 'golang', id: 3 },
+                            { name: 'dart', id: 4 },
+                        ],
+                    };
+                },
+            });
+        </script>
+    </body>
+</html>
