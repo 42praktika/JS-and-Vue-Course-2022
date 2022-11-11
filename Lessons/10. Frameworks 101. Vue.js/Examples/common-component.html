@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <title>V-bind</title>
+    </head>
+    <body>
+        <div id="app">
+            <button-counter></button-counter>
+        </div>
+
+        <script>
+            Vue.component('button-counter', {
+                data() {
+                    return {
+                        count: 0,
+                    };
+                },
+                template: '<button @click="count++">Нажато — {{ count }}</button>',
+            });
+
+            new Vue({ el: '#app' });
+        </script>
+    </body>
+</html>
