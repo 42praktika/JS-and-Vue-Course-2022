@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <title>V-on</title>
+    </head>
+    <body>
+        <div id="app">
+            <button v-on:click="alert('no way...');">
+                Кнопка
+            </button>
+            <a
+                href="#"
+                @click.prevent="doSomething"
+            >
+                doSomething
+            </a>
+        </div>
+
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        name: 'Kimi',
+                        number: 42,
+                    };
+                },
+                methods: {
+                    doSomething() {
+                        alert('doSomething');
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>

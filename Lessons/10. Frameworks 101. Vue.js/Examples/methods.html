@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <title>Methods</title>
+    </head>
+    <body>
+        <div id="app">
+            <button @click="logName">
+                Кнопка
+            </button>
+            <button @click="logNumber">
+                Кнопка
+            </button>
+        </div>
+
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        name: 'Kimi',
+                        number: 42,
+                    };
+                },
+                methods: {
+                    logName() {
+                        alert(this.name);
+                    },
+                    logNumber() {
+                        this.logName();
+                        alert(this.number);
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
