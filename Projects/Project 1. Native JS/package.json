@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "html-webpack-plugin": "^5.5.0",
+    "melanke-watchjs": "^1.5.2",
     "mini-css-extract-plugin": "^2.6.1",
     "sass-loader": "^13.1.0"
   }

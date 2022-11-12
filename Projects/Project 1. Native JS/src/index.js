@@ -1,12 +1,11 @@
 import './index.html';
-import './style.css';
-import {openModal} from "../js/app";
-import {closeModal} from "../js/app";
-import {state} from "../js/app";
-import {nextModal} from "../js/app";
+import '../styles/style.css';
+import {renderButtons, renderModals} from "../js/initDom/initDomElements";
 
 
-openModal(state);
-closeModal(state);
-nextModal(state);
+renderButtons();
+renderModals()
+
+
+
 
