@@ -16,7 +16,6 @@ const getTextFromUrl = (url) => {
     for(let word in dictionary){
          urlToText = urlToText.replaceAll(word, dictionary[word]);
     }
-
     return urlToText;
     // Конец
 };
