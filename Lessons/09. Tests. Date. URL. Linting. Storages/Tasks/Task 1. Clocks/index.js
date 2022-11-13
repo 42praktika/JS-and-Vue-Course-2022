@@ -17,7 +17,7 @@ const setRotations = () => {
 const runClocks = () => {
     // Начало
     setRotations();
-    setInterval(setRotations, 1000);
+    setInterval(setRotations, 100);
     // Конец
 };
 
