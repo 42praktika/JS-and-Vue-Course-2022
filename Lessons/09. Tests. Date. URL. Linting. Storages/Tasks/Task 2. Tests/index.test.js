@@ -67,6 +67,5 @@ describe('09.c.2 getIsFirstArrayCooler', () => {
         expect(getIsFirstArrayCooler(arrayNumsOne,arrayNumsTwo)).toBe(false);
     });
 
-
     // Конец
 });
