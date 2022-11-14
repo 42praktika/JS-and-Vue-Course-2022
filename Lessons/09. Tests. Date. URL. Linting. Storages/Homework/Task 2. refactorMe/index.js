@@ -1,19 +1,22 @@
+const applyFunctions=(string)=>{
+    return string.replaceAll('text=', ' ')
+        .replaceAll('coma', ',')
+        .replaceAll('dot', '.')
+        .replaceAll('space', ' ')
+        .replaceAll('semicolon', ';')
+        .replaceAll('apostrophe', "'")
+        .replaceAll('&', '')
+        .replaceAll('=', '')
+        .replaceAll("' ", "'");
+}
+
+
+
 const getTextFromUrl = (url) => {
-    // Начало
-    const o = new URL(url);
-    var par = o.searchParams;
-    var str = par.toString();
-    let rep_text = str.replaceAll('text=', ' ');
-    let rep_c = rep_text.replaceAll('coma', ',');
-    let rep_d = rep_c.replaceAll('dot', '.');
-    let space = rep_d.replaceAll('space', ' ');
-    let sc = space.replaceAll('semicolon', ';');
-    var apth = sc.replaceAll('apostrophe', "'");
-    var ampRepl = apth.replaceAll('&', '');
-    var ravno = ampRepl.replaceAll('=', '');
-    var deleteProbel = ravno.replaceAll("' ", "'");
-    return deleteProbel;
-    // Конец
+    const urlString=new URL(url).searchParams.toString()
+    return applyFunctions(urlString)
 };
+
+
 
 export default getTextFromUrl;
