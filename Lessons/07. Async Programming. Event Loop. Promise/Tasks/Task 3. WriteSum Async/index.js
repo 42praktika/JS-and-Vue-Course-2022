@@ -1,15 +1,27 @@
-import { promises as fs } from 'fs';
+import {promises, promises as fs} from 'fs';
 import path from 'path';
 
-// Метод для отладки. В итоговом решении использоваться не должен
-const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
-// Пример использования функции
-// const currentPath = getPath('/one.txt');
 
-const writeSum = (pathToFileOne, pathToFileTwo, pathToResultFile) => {
-    // Начало
+const writeSum = (pathToFileOne, pathToFileTwo) => {
+    let summa = 0;
+    return new Promise((resolve, reject) => {
+        fs.readFile(pathToFileOne, "utf-8").then((dataOne) => {
+            summa += sumFile(dataOne)
+        })
+            .then(() => fs.readFile(pathToFileTwo, "utf-8"))
+            .then((dataTwo) => {
+                summa += sumFile(dataTwo);
+                resolve(summa);
+            })
+            .catch(() => {
+                reject(new Error('Такого файла нет'));
+            })
+    })
+}
 
-    // Конец
-};
-
+const sumFile = (file) => {
+    return file.toString()
+        .split(", ")
+        .reduce((previousValue, currentValue) => previousValue + parseInt(currentValue), 0);
+}
 export default writeSum;

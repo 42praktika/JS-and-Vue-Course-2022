@@ -1,17 +1,16 @@
-import { promises as fs } from 'fs';
+import {promises as fs} from 'fs';
 import path from 'path';
 
 
-// Метод для отладки. В итоговом решении использоваться не должен
-const getPath = (fileName) => path.join(__dirname, './__fixtures__', fileName);
-// Пример использования метода
-// const currentPath = getPath('/one.txt');
-
-
 const reverseContent = (filepath) => {
-    // Начало
-
-    // Конец
+    return new Promise((resolve, reject) => {
+        fs.readFile(filepath).then(data => {
+            resolve(fs.writeFile(filepath, data.toString().split('\n').reverse().join('\n')));
+        })
+            .catch(() => {
+                reject(new Error('Такого файла нет'));
+            })
+    });
 };
 
 export default reverseContent;
