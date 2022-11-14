@@ -1,18 +1,36 @@
+import * as constants from "constants";
+
 const getTextFromUrl = (url) => {
     // Начало
-    const o = new URL(url);
-    var par = o.searchParams;
-    var str = par.toString();
-    let rep_text = str.replaceAll('text=', ' ');
-    let rep_c = rep_text.replaceAll('coma', ',');
-    let rep_d = rep_c.replaceAll('dot', '.');
-    let space = rep_d.replaceAll('space', ' ');
-    let sc = space.replaceAll('semicolon', ';');
-    var apth = sc.replaceAll('apostrophe', "'");
-    var ampRepl = apth.replaceAll('&', '');
-    var ravno = ampRepl.replaceAll('=', '');
-    var deleteProbel = ravno.replaceAll("' ", "'");
-    return deleteProbel;
+    const newURL = new URL(url);
+    const searchURL = newURL.searchParams.toString();
+    const arrayURL = searchURL.split('&');
+    let returnedStringUrl = ' ';
+
+    for (let i = 0; i < arrayURL.length; i++) {
+        if (arrayURL[i].includes('text=')) {
+            arrayURL[i] = arrayURL[i].replace('text=', '');
+        }
+        if (arrayURL[i].includes('coma=')) {
+            arrayURL[i] = arrayURL[i].replace('coma=', ',');
+        }
+        if (arrayURL[i].includes('dot=')) {
+            arrayURL[i] = arrayURL[i].replace('dot=', '.');
+        }
+        if (arrayURL[i].includes('apostrophe=')) {
+            arrayURL[i] = arrayURL[i].replace('apostrophe=', '\'');
+        }
+    }
+
+    for (let i = 0; i < arrayURL.length; i++) {
+        if (arrayURL[i + 1] === '\'' || arrayURL[i + 1] === ',' || arrayURL[i + 1] === '.' || (i + 1) === arrayURL.length) {
+            returnedStringUrl = returnedStringUrl + arrayURL[i];
+        } else if (arrayURL[i] === '\'') {
+            returnedStringUrl = returnedStringUrl + arrayURL[i];
+        } else returnedStringUrl = returnedStringUrl + arrayURL[i] + ' ';
+    }
+
+    return returnedStringUrl;
     // Конец
 };
 
