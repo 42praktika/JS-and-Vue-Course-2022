@@ -8,7 +8,8 @@ describe('09.c.2 getIsFirstArrayCooler', () => {
     const arrayFive = [1, 2, 3, 7, 8, 9]
     const arraySix = [1.1, 2.2, 3.3]
     const arraySeven = [4.4, 5.5, 6.6]
-    const arrayWithStrings = [1, 2, 4, 'fjfjfjf', 5]
+    const arrayWithStringsOne = [1, 2, 4, 'zxc', 5]
+    const arrayWithStringsTwo=[4,5,6,'qwerty',7]
 
     it('c.9.2.1 false if different length', () => {
         expect(getIsFirstArrayCooler(arrayTwo, arrayThree)).toBe(false)
@@ -40,8 +41,12 @@ describe('09.c.2 getIsFirstArrayCooler', () => {
     it('c.9.2.7 true if first array cooler than second array but all digits are not - integers', () => {
         expect(getIsFirstArrayCooler(arraySeven, arraySix)).toBe(true)
     });
-    it('c.9.2.8 array with strings', () => {
-        expect(getIsFirstArrayCooler(arrayWithStrings, arraySeven)).toThrowError()
+
+    it('c.9.2.8 array with strings and array with numbers', () => {
+        expect(getIsFirstArrayCooler(arrayWithStringsOne, arraySeven)).toBe('error')
+    });
+    it('c.9.2.9 arrays with strings ', () => {
+        expect(getIsFirstArrayCooler(arrayWithStringsOne, arrayWithStringsTwo)).toBe('error')
     });
     //Это логично,что если будут строки,то ошибка,а не false
 });
