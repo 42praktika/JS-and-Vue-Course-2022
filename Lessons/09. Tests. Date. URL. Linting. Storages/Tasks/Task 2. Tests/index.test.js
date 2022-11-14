@@ -68,9 +68,10 @@ describe('09.c.2 getIsFirstArrayCooler', () => {
         expect(getIsFirstArrayCooler(array1, array2)).toBe(true);
     });
 
-    // it('is working with not numbers', () => {
-    //     array1 = [[15, 12], [2, 5], [4, 3]];
-    //     array2 = [[1], [2], [3, 4]];
-    //     expect(getIsFirstArrayCooler(array1, array2)).toBe(true);
-    // });
+    // В тз не написано, что должна делать ф-я при получении не чисел, но обработать хоть как-то надо бы
+    it('throw error with not numbers', () => {
+        array1 = ['15.12', 7.7, true];
+        array2 = [6.3, 'abcdefg', 5];
+        expect(getIsFirstArrayCooler(array1, array2)).toThrowError();
+    });
 });
