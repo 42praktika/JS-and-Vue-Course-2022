@@ -4,14 +4,24 @@
   "main": "js/build/index.js",
   "license": "MIT",
   "devDependencies": {
-    "webpack": "^5.74.0"
+    "webpack": "^5.74.0",
+    "css-loader": "^6.7.1",
+    "style-loader": "^3.3.1",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1",
+    "type": "module"
   },
   "dependencies": {
-    "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.11.1"
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "melanke-watchjs": "^1.5.2"
+
   },
   "scripts": {
     "watch": "webpack -w --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "eslint src/js",
+    "fix": "eslint src/js --fix"
   }
 }
