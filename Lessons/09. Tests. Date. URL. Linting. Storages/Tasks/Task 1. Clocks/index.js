@@ -21,4 +21,4 @@ const runClocks = () => {
     // Конец
 };
 
-export default runClocks;
+export default runClocks
