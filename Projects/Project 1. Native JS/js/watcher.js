@@ -1,4 +1,4 @@
-import WatchJS from './../helpers/melanke-watchjs';
+import WatchJS from "../helpers/melanke-watchjs";
 
 const { watch } = WatchJS;
 
