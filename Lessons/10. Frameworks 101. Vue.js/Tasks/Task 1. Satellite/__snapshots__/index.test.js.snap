@@ -10,6 +10,15 @@ exports[` 1`] = `
     <span>
       Радиус орбиты спутника:
     </span>
+     
+    <input
+      class="form-control"
+      type="text"
+    />
+     
+    <span>
+      км
+    </span>
   </div>
    
   <div
@@ -18,6 +27,12 @@ exports[` 1`] = `
     <h3>
       Требуемая скорость спутника:
     </h3>
+     
+    <div>
+      
+            Infinity м/c
+        
+    </div>
      
     <img
       src="https://mediasat.info/wp-content/uploads/2015/06/sat-orbit.jpg"
