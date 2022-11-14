@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <style>
+            #app {
+                margin: 30px;
+            }
+
+            .btn {
+                margin: 10px;
+                font-weight: bold;
+            }
+        </style>
+        <title>Data-function</title>
+    </head>
+    <body>
+        <div id="app">
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+        </div>
+
+        <script>
+            Vue.component('button-counter', {
+                data: {
+                    count: 0,
+                },
+                template: '<button class="btn btn-primary" @click="count++">Нажато — {{ count }}</button>',
+            });
+
+            new Vue({ el: '#app' });
+        </script>
+    </body>
+</html>
