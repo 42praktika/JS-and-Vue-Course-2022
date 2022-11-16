@@ -1,7 +1,14 @@
 import getIsFirstArrayCooler from './index';
 
 describe('09.c.2 getIsFirstArrayCooler', () => {
-    it('09.c.2.1 arrays of different length', () => {
+    it('09.c.2.1 first array is longer', () => {
+        const arrOne = [ 1, 2, 3, 4 ];
+        const arrTwo = [ 1, 2, 3 ];
+        const isFirstArrayCooler = getIsFirstArrayCooler(arrOne, arrTwo);
+        expect(isFirstArrayCooler).toBeFalsy();
+    });
+
+    it('09.c.2.1 second array is longer', () => {
         const arrOne = [ 1, 2, 3 ];
         const arrTwo = [ 1, 2, 3, 4 ];
         const isFirstArrayCooler = getIsFirstArrayCooler(arrOne, arrTwo);
