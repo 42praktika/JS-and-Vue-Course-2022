@@ -2,6 +2,46 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./js/catfacts.js":
+/*!************************!*\
+  !*** ./js/catfacts.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "catfacts": () => (/* binding */ catfacts)
+/* harmony export */ });
+/* harmony import */ var _state_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./state.js */ "./js/state.js");
+
+const catfacts = () => {
+  const modal = document.querySelector('.modal-content');
+  const list = document.createElement('div');
+  list.classList = 'facts-list';
+  modal.append(list);
+  const button = document.createElement('button');
+  button.classList = 'btn';
+  button.textContent = 'Get fact!';
+  modal.append(button);
+  button.addEventListener('click', () => {
+    fetch('https://meowfacts.herokuapp.com/?lang=rus').then(response => response.json()).then(facts => _state_js__WEBPACK_IMPORTED_MODULE_0__.factState.facts = _state_js__WEBPACK_IMPORTED_MODULE_0__.factState.facts.concat(facts)).catch(err => console.error(err));
+    factList(_state_js__WEBPACK_IMPORTED_MODULE_0__.factState.facts);
+  });
+};
+
+const createFact = fact => '<div class="fact"><p>' + fact.data + '</p></div>';
+
+const factList = facts => {
+  const list = document.querySelector('.facts-list');
+  list.innerHTML = ' ';
+
+  if (facts.length) {
+    facts.forEach(fact => list.innerHTML = createFact(fact));
+  }
+};
+
+/***/ }),
+
 /***/ "./js/const.js":
 /*!*********************!*\
   !*** ./js/const.js ***!
@@ -16,30 +56,88 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 const MODALS_TYPES = {
   NONE: 'none',
-  FIRST: 'firstModal',
-  SECOND: 'secondModal',
-  THIRD: 'thirdModal'
+  FIRST: 'CatFacts',
+  SECOND: 'Holidays',
+  THIRD: 'Currency'
 };
 const BUTTONS = [{
-  text: 'Первая кнопка',
+  text: 'Facts about cats',
   type: MODALS_TYPES.FIRST
 }, {
-  text: 'Вторая кнопка',
+  text: 'Holidays',
   type: MODALS_TYPES.SECOND
 }, {
-  text: 'Третья кнопка',
+  text: 'Exchange rate',
   type: MODALS_TYPES.THIRD
 }];
 const MODALS = [{
-  text: 'Первое окно',
+  text: 'Interesting facts about cats',
   type: MODALS_TYPES.FIRST
 }, {
-  text: 'Второе окно',
+  text: 'Information about holidays',
   type: MODALS_TYPES.SECOND
 }, {
-  text: 'Третье окно',
+  text: 'Exchange rate on the selected date',
   type: MODALS_TYPES.THIRD
 }];
+
+/***/ }),
+
+/***/ "./js/currency.js":
+/*!************************!*\
+  !*** ./js/currency.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "currency": () => (/* binding */ currency)
+/* harmony export */ });
+const currency = () => {
+  const content = document.querySelectorAll('.modal-content');
+  const currencyAll = document.createElement('div');
+  currencyAll.classList = 'currency-data';
+  content[2].append(currencyAll);
+  const dateSelect = document.createElement('input');
+  dateSelect.type = 'date';
+  dateSelect.classList = 'date';
+  currencyAll.append(dateSelect);
+
+  const getTodayDate = () => {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
+    let yyyy = today.getFullYear();
+    return yyyy + '-' + mm + '-' + dd;
+  };
+
+  dateSelect.max = getTodayDate();
+  const table = document.createElement('table');
+  table.classList = 'table';
+  dateSelect.addEventListener('input', () => {
+    let dataSelected = dateSelect.value;
+    const table = document.createElement('table');
+    table.classList = 'table';
+    fetch('https://api.currencyscoop.com/v1/historical?date=' + dataSelected + '?&base=RUB&api_key=22bc0fa553204ae1886329841e130441').then(response => response.json()).then(currency => {
+      let obj = Object.entries(currency.response.rates);
+
+      for (let i = 0; i < obj.length; i++) {
+        const cell = document.createElement('th');
+        cell.classList = 'cell2';
+        const line = document.createElement('tr');
+        line.classList = 'line';
+        cell.textContent = 'Currency name , rate : ' + Object.values(obj[i]);
+        line.append(cell);
+        table.append(line);
+        currencyAll.append(table);
+      }
+    }).catch(err => console.error(err));
+    const th = document.querySelectorAll('.cell2');
+    th.forEach(t => {
+      t.remove();
+    });
+  });
+};
 
 /***/ }),
 
@@ -858,6 +956,64 @@ WatchJS.onChange = trackChange; // track changes made to object or  it's propert
 
 /***/ }),
 
+/***/ "./js/holidays.js":
+/*!************************!*\
+  !*** ./js/holidays.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "holidays": () => (/* binding */ holidays)
+/* harmony export */ });
+const holidays = () => {
+  const content = document.querySelectorAll('.modal-content');
+  const country = document.createElement('div');
+  country.classList = 'country-holidays';
+  const countrySelect = document.createElement('select');
+  countrySelect.classList = 'country-select';
+  countrySelect.textContent = 'Choose country : ';
+  const countryName = ['Andorra', 'Albania', 'Argentina', 'Austria', 'Australia', '?land Islands', 'Bosnia and Herzegovina', 'Barbados', 'Belgium', 'Bulgaria', 'Benin', 'Bolivia', 'Brazil', 'Bahamas', 'Botswana', 'Belarus', 'Belize', 'Canada', 'Switzerland', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Cuba', 'Cyprus', 'Czechia', 'Germany', 'Denmark', 'Dominican Republic', 'Ecuador', 'Estonia', 'Egypt', 'Spain', 'Finland', 'Faroe Islands', 'France', 'Gabon', 'United Kingdom', 'Grenada', 'Guernsey', 'Gibraltar', 'Greenland', 'Gambia', 'Greece', 'Guatemala', 'Guyana', 'Honduras', 'Croatia', 'Haiti', 'Hungary', 'Indonesia', 'Ireland', 'Isle of Man', 'Iceland', 'Italy', 'Jersey', 'Jamaica', 'Japan', 'South Korea', 'Liechtenstein', 'Lesotho', 'Lithuania', 'Luxembourg', 'Latvia', 'Morocco', 'Monaco', 'Moldova', 'Montenegro', 'Madagascar', 'North Macedonia', 'Mongolia', 'Montserrat', 'Malta', 'Mexico', 'Mozambique', 'Namibia', 'Niger', 'Nigeria', 'Nicaragua', 'Netherlands', 'Norway', 'New Zealand', 'Panama', 'Peru', 'Papua New Guinea', 'Poland', 'Puerto Rico', 'Portugal', 'Paraguay', 'Romania', 'Serbia', 'Russia', 'Sweden', 'Singapore', 'Slovenia', 'Svalbard and Jan Mayen', 'Slovakia', 'San Marino', 'Suriname', 'El Salvador', 'Tunisia', 'Turkey', 'Ukraine', 'United States', 'Uruguay', 'Vatican City', 'Venezuela', 'Vietnam', 'South Africa', 'Zimbabwe'];
+  const countryCode = ['AD', 'AL', 'AR', 'AT', 'AU', 'AX', 'BA', 'BB', 'BE', 'BG', 'BJ', 'BO', 'BR', 'BS', 'BW', 'BY', 'BZ', 'CA', 'CH', 'CL', 'CN', 'CO', 'CR', 'CU', 'CY', 'CZ', 'DE', 'DK', 'DO', 'EC', 'EE', 'EG', 'ES', 'FI', 'FO', 'FR', 'GA', 'GB', 'GD', 'GG', 'GI', 'GL', 'GM', 'GR', 'GT', 'GY', 'HN', 'HR', 'HT', 'HU', 'ID', 'IE', 'IM', 'IS', 'IT', 'JE', 'JM', 'JP', 'KR', 'LI', 'LS', 'LT', 'LU', 'LV', 'MA', 'MC', 'MD', 'ME', 'MG', 'MK', 'MN', 'MS', 'MT', 'MX', 'MZ', 'NA', 'NE', 'NG', 'NI', 'NL', 'NO', 'NZ', 'PA', 'PE', 'PG', 'PL', 'PR', 'PT', 'PY', 'RO', 'RS', 'RU', 'SE', 'SG', 'SI', 'SJ', 'SK', 'SM', 'SR', 'SV', 'TN', 'TR', 'UA', 'US', 'UY', 'VA', 'VE', 'VN', 'ZA', 'ZW'];
+  let i = 0;
+  countryCode.forEach(code => {
+    const option = document.createElement('option');
+    option.value = code;
+    option.textContent = countryName[i];
+    countrySelect.append(option);
+    i++;
+  });
+  country.append(countrySelect);
+  content[1].prepend(country);
+  const info = document.createElement('div');
+  info.classList = 'info-holidays';
+  countrySelect.addEventListener('change', () => {
+    const table = document.createElement('table');
+    table.classList = 'table';
+    let index = countrySelect.selectedIndex;
+    let countrySelected = countrySelect[index].value;
+    fetch('https://date.nager.at/api/v3/publicholidays/2017/' + countrySelected).then(response => response.json()).then(data => {
+      data.forEach(d => {
+        const cell = document.createElement('th');
+        cell.classList = 'cell';
+        const line = document.createElement('tr');
+        line.classList = 'line';
+        cell.append("Date: " + d.date + ". Local name :  " + d.localName + ". Name : " + d.name);
+        line.append(cell);
+        table.append(line);
+        info.append(table);
+        country.append(info);
+      });
+    }).catch(err => console.error(err));
+    const th = document.querySelectorAll('.cell');
+    th.forEach(t => {
+      t.remove();
+    });
+  });
+};
+
+/***/ }),
+
 /***/ "./js/state.js":
 /*!*********************!*\
   !*** ./js/state.js ***!
@@ -866,13 +1022,17 @@ WatchJS.onChange = trackChange; // track changes made to object or  it's propert
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "factState": () => (/* binding */ factState)
 /* harmony export */ });
 /* harmony import */ var _const_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./const.js */ "./js/const.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   openedModalType: _const_js__WEBPACK_IMPORTED_MODULE_0__.MODALS_TYPES.NONE
 });
+const factState = {
+  facts: []
+};
 
 /***/ }),
 
@@ -970,6 +1130,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _const_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./const.js */ "./js/const.js");
 /* harmony import */ var _state_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./state.js */ "./js/state.js");
 /* harmony import */ var _watchers_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./watchers.js */ "./js/watchers.js");
+/* harmony import */ var _catfacts_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./catfacts.js */ "./js/catfacts.js");
+/* harmony import */ var _holidays_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./holidays.js */ "./js/holidays.js");
+/* harmony import */ var _currency_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./currency.js */ "./js/currency.js");
+
+
+
 
 
 
@@ -1000,7 +1166,9 @@ const renderModals = () => {
     const prevButton = document.createElement('button');
     const nextButton = document.createElement('button');
     const closeButton = document.createElement('button');
-    prevButton.textContent = 'Назад';
+    const content = document.createElement('div');
+    content.classList = 'modal-content';
+    prevButton.textContent = 'Prev';
     prevButton.classList = 'prev';
     prevButton.addEventListener('click', event => {
       const currentOpenedModalIndex = _const_js__WEBPACK_IMPORTED_MODULE_0__.MODALS.findIndex(item => item.type === _state_js__WEBPACK_IMPORTED_MODULE_1__["default"].openedModalType);
@@ -1013,7 +1181,7 @@ const renderModals = () => {
 
       event.stopPropagation();
     });
-    nextButton.textContent = 'Вперед';
+    nextButton.textContent = 'Next';
     nextButton.classList = 'next';
     nextButton.addEventListener('click', event => {
       const currentOpenedModalIndex = _const_js__WEBPACK_IMPORTED_MODULE_0__.MODALS.findIndex(item => item.type === _state_js__WEBPACK_IMPORTED_MODULE_1__["default"].openedModalType);
@@ -1026,7 +1194,7 @@ const renderModals = () => {
 
       event.stopPropagation();
     });
-    closeButton.textContent = 'Закрыть';
+    closeButton.textContent = 'Close';
     closeButton.classList = 'close';
     closeButton.addEventListener('click', event => {
       closeModal();
@@ -1034,17 +1202,23 @@ const renderModals = () => {
     });
     modal.dataset.type = item.type;
     modal.classList.add('modal');
-    modal.textContent = item.text;
+    const header = document.createElement('div');
+    header.classList = 'header';
+    header.textContent = item.text;
+    modal.append(header);
     modal.append(prevButton);
     modal.append(nextButton);
     modal.append(closeButton);
+    modal.append(content);
     app.append(modal);
   });
 };
 
-document.addEventListener('click', closeModal);
-renderButtons();
 renderModals();
+renderButtons();
+(0,_catfacts_js__WEBPACK_IMPORTED_MODULE_3__.catfacts)();
+(0,_holidays_js__WEBPACK_IMPORTED_MODULE_4__.holidays)();
+(0,_currency_js__WEBPACK_IMPORTED_MODULE_5__.currency)();
 })();
 
 /******/ })()

@@ -1,6 +1,9 @@
 import {BUTTONS,MODALS,MODALS_TYPES} from "./const.js";
 import state from './state.js';
-import './watchers.js'
+import './watchers.js';
+import {catfacts} from "./catfacts.js";
+import {holidays} from "./holidays.js";
+import {currency} from "./currency.js";
 
 const closeModal = () => {
     state.openedModalType = MODALS_TYPES.NONE;
@@ -11,7 +14,6 @@ const renderButtons = () => {
 
     BUTTONS.forEach((item) => {
         const button = document.createElement('button');
-
         button.textContent = item.text;
         button.dataset.type = item.type;
         button.classList = 'btn';
@@ -20,7 +22,6 @@ const renderButtons = () => {
 
             event.stopPropagation();
         });
-
         buttonsContainer.append(button);
     })
 };
@@ -33,9 +34,12 @@ const renderModals = () => {
         const prevButton = document.createElement('button');
         const nextButton = document.createElement('button');
         const closeButton = document.createElement('button');
+        const content = document.createElement('div');
 
-        prevButton.textContent = 'Назад';
-        prevButton.classList='prev'
+        content.classList='modal-content';
+
+        prevButton.textContent = 'Prev';
+        prevButton.classList='prev';
         prevButton.addEventListener('click', (event) => {
             const currentOpenedModalIndex = MODALS
                 .findIndex((item) => item.type === state.openedModalType);
@@ -49,7 +53,7 @@ const renderModals = () => {
             event.stopPropagation();
         });
 
-        nextButton.textContent = 'Вперед';
+        nextButton.textContent = 'Next';
         nextButton.classList='next';
         nextButton.addEventListener('click', (event) => {
             const currentOpenedModalIndex = MODALS
@@ -64,27 +68,30 @@ const renderModals = () => {
             event.stopPropagation();
         });
 
-        closeButton.textContent = 'Закрыть';
-        closeButton.classList = 'close'
+        closeButton.textContent = 'Close';
+        closeButton.classList = 'close';
         closeButton.addEventListener('click', (event) => {
             closeModal();
 
             event.stopPropagation();
         });
-
         modal.dataset.type = item.type;
         modal.classList.add('modal');
-        modal.textContent = item.text;
-
+        const header = document.createElement('div');
+        header.classList='header';
+        header.textContent=item.text;
+        modal.append(header);
         modal.append(prevButton);
         modal.append(nextButton);
         modal.append(closeButton);
-
+        modal.append(content)
         app.append(modal);
     });
+
+
 };
-
-document.addEventListener('click', closeModal);
-
-renderButtons();
 renderModals();
+renderButtons();
+catfacts();
+holidays();
+currency();

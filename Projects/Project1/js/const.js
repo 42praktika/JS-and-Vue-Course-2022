@@ -1,36 +1,36 @@
 export const MODALS_TYPES = {
     NONE: 'none',
-    FIRST: 'firstModal',
-    SECOND: 'secondModal',
-    THIRD: 'thirdModal',
+    FIRST: 'CatFacts',
+    SECOND: 'Holidays',
+    THIRD: 'Currency',
 };
 
 export const BUTTONS = [
     {
-        text: 'Первая кнопка',
+        text: 'Facts about cats',
         type: MODALS_TYPES.FIRST,
     },
     {
-        text: 'Вторая кнопка',
+        text: 'Holidays',
         type: MODALS_TYPES.SECOND,
     },
     {
-        text: 'Третья кнопка',
+        text: 'Exchange rate',
         type: MODALS_TYPES.THIRD,
     },
 ];
 
 export const MODALS = [
     {
-        text: 'Первое окно',
+        text: 'Interesting facts about cats',
         type: MODALS_TYPES.FIRST,
     },
     {
-        text: 'Второе окно',
+        text: 'Information about holidays',
         type: MODALS_TYPES.SECOND,
     },
     {
-        text: 'Третье окно',
+        text: 'Exchange rate on the selected date',
         type: MODALS_TYPES.THIRD,
     },
 ];
