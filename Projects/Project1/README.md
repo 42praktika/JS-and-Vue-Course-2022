@@ -6,7 +6,10 @@
 
 ### Технологии
 
-mvc, fetch
+JavaScript
+Webpack
+Fetch 
+MVC частично
 
 ### Как запустить приложение
 
