@@ -1,6 +1,22 @@
 <template>
     <!--Начало-->
-
+  <tbody>
+  <div class="card-container" v-for="c of cards" >
+<div class="card">
+  <img :src="c.src"/>
+  <div class="card-body">
+    <h5 class="card-title">{{c.head}} </h5>
+    <h4 class="card-title"> {{c.price}}</h4>
+    <p class="card-text"> {{c.description}}</p>
+    <div class="card__buttons">
+      <button class="btn btn-primary button-plus" @click="increase(c.id)"> + </button>
+      <button class="btn btn-primary button-minus" @click="decrease(c.id)"> - </button>
+      <div > {{c.number}} шт. </div>
+    </div>
+  </div>
+</div>
+  </div>
+  </tbody>
     <!--Конец-->
 </template>
 
@@ -14,8 +30,26 @@ export default {
             cards,
         };
     },
-    // Начало
 
+    // Начало
+methods: {
+
+      increase(id){
+        if (this.cards[id].number < this.cards[id].max) {
+          return this.cards[id].innerHTML = this.cards[id].number++
+        }
+        if(this.cards[id].number >= this.cards[id].max) {
+          let dom = document.querySelector('.card__buttons');
+          return dom.innerHTML='<div> <div class="card__alert alert alert-danger">Данного товара доступно только "${this.cards[id].max}" шт. </div> </div>';
+
+        }
+      },
+      decrease(id){
+        while (this.cards[id].number >0){
+          return this.cards[id].innerHTML = this.cards[id].number--;
+        }
+      }
+}
     // Конец
 };
 </script>
@@ -56,3 +90,4 @@ export default {
     margin-top: 10px;
 }
 </style>
+
