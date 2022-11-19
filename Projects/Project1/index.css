@@ -1,31 +1,34 @@
-body{
+body {
     background-image: url("./img/background.jpg");
     background-repeat: repeat;
     font-family: Bahnschrift, serif;
 }
+
 .buttons {
     position: relative;
     text-align: center;
     top: 450px;
 }
-.btn{
+
+.btn {
     background-color: #ffffff;
     font-size: 25px;
     border-radius: 12px;
     border: 4px solid #bcd9f5;
 }
+
 .btn:hover {
     background-color: #bcd9f5;
     color: white;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.52), 0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.52), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-.modal{
+.modal {
     background-color: rgb(255, 255, 255);
     border: 4px solid #bcd9f5;
     border-radius: 12px;
     overflow: auto;
-    width:900px ;
+    width: 900px;
     height: 700px;
     position: fixed;
     top: 50%;
@@ -41,72 +44,83 @@ body{
     animation-name: animate;
     animation-duration: 0.5s;
     position: relative;
-    top:200px;
+    top: 200px;
     text-align: center;
 }
+
 @keyframes animate {
-    from {top:-320px; opacity:0}
-    to {top:0; opacity:1}
+    from {
+        top: -320px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
 }
 
-.close{
+.close {
     background-color: #ffffff;
     font-size: 15px;
     border-radius: 12px;
     border: 4px solid #f4d3de;
     position: relative;
-    top:10px;
-    left:350px;
+    top: 10px;
+    left: 350px;
 }
+
 .close:hover {
     background-color: #f4d3de;
     color: white;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.52), 0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.52), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-.next{
+.next {
     background-color: #ffffff;
     font-size: 15px;
     border-radius: 12px;
     border: 4px solid #f4d3de;
     position: relative;
-    top:100px;
-    left:405px;
+    top: 100px;
+    left: 405px;
 }
+
 .next:hover {
     background-color: #f4d3de;
     color: white;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.52), 0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.52), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
-.prev{
+
+.prev {
     background-color: #ffffff;
     font-size: 15px;
     border-radius: 12px;
     border: 4px solid #f4d3de;
     position: relative;
-    top:99px;
+    top: 99px;
     right: 355px;
 }
+
 .prev:hover {
     background-color: #f4d3de;
     color: white;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.52), 0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.52), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-.header{
+.header {
     text-align: center;
     position: relative;
-    top:80px;
+    top: 80px;
     font-size: 30px;
 }
 
-.fact{
+.fact {
     text-align: center;
-   font-size: 20px;
+    font-size: 20px;
     font-weight: normal;
 }
 
-.country-select{
+.country-select {
     background-color: #ffffff;
     font-size: 25px;
     border-radius: 12px;
@@ -115,23 +129,26 @@ body{
     top: -70px;
 }
 
-.info-holidays{
+.info-holidays {
     text-align: center;
     font-size: 15px;
 }
-.table{
+
+.table {
     position: relative;
-    left:100px;
+    left: 100px;
 
 }
-.cell , .cell2{
+
+.cell, .cell2 {
     border: 2px solid #f4d3de;
     border-radius: 12px;
     font-weight: normal;
     width: 700px;
     height: 40px;
 }
-.date{
+
+.date {
     background-color: #ffffff;
     font-size: 25px;
     border-radius: 12px;

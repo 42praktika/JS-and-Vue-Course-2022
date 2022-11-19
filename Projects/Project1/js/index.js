@@ -1,4 +1,4 @@
-import {BUTTONS,MODALS,MODALS_TYPES} from "./const.js";
+import {BUTTONS, MODALS, MODALS_TYPES} from "./const.js";
 import state from './state.js';
 import './watchers.js';
 import {catfacts} from "./catfacts.js";
@@ -36,10 +36,10 @@ const renderModals = () => {
         const closeButton = document.createElement('button');
         const content = document.createElement('div');
 
-        content.classList='modal-content';
+        content.classList = 'modal-content';
 
         prevButton.textContent = 'Prev';
-        prevButton.classList='prev';
+        prevButton.classList = 'prev';
         prevButton.addEventListener('click', (event) => {
             const currentOpenedModalIndex = MODALS
                 .findIndex((item) => item.type === state.openedModalType);
@@ -54,7 +54,7 @@ const renderModals = () => {
         });
 
         nextButton.textContent = 'Next';
-        nextButton.classList='next';
+        nextButton.classList = 'next';
         nextButton.addEventListener('click', (event) => {
             const currentOpenedModalIndex = MODALS
                 .findIndex((item) => item.type === state.openedModalType);
@@ -78,8 +78,8 @@ const renderModals = () => {
         modal.dataset.type = item.type;
         modal.classList.add('modal');
         const header = document.createElement('div');
-        header.classList='header';
-        header.textContent=item.text;
+        header.classList = 'header';
+        header.textContent = item.text;
         modal.append(header);
         modal.append(prevButton);
         modal.append(nextButton);

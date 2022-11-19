@@ -16,7 +16,6 @@
     "eslint-config-airbnb-base": "14.2.1",
     "eslint-plugin-import": "^2.24.2",
     "melanke-watchjs": "^1.5.2"
-
   },
   "scripts": {
     "watch": "webpack -w --mode development",

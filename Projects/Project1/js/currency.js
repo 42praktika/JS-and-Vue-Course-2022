@@ -21,7 +21,7 @@ export const currency = () => {
     const table = document.createElement('table');
     table.classList = 'table'
 
-       dateSelect.addEventListener('input', () => {
+    dateSelect.addEventListener('input', () => {
         let dataSelected = dateSelect.value;
         const table = document.createElement('table');
         table.classList = 'table'

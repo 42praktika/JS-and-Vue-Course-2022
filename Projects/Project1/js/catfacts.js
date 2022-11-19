@@ -6,26 +6,26 @@ export const catfacts = () => {
     list.classList = 'facts-list';
     modal.append(list);
     const button = document.createElement('button')
-    button.classList='btn'
-    button.textContent='Get fact!'
+    button.classList = 'btn'
+    button.textContent = 'Get fact!'
     modal.append(button)
-    button.addEventListener('click', () =>{
+    button.addEventListener('click', () => {
         fetch('https://meowfacts.herokuapp.com/?lang=rus')
             .then(response => response.json())
-            .then(facts =>(factState.facts = factState.facts.concat(facts)))
+            .then(facts => (factState.facts = factState.facts.concat(facts)))
             .catch(err => console.error(err));
         factList(factState.facts)
     })
 }
 
 const createFact = (fact) =>
-  '<div class="fact"><p>'+fact.data+'</p></div>'
+    '<div class="fact"><p>' + fact.data + '</p></div>'
 
 const factList = (facts) => {
     const list = document.querySelector('.facts-list')
-    list.innerHTML=' ';
-    if (facts.length){
-        facts.forEach((fact) => list.innerHTML=createFact(fact))
+    list.innerHTML = ' ';
+    if (facts.length) {
+        facts.forEach((fact) => list.innerHTML = createFact(fact))
     }
 }
 
