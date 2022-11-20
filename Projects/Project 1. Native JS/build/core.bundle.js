@@ -10,16 +10,141 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getCat": () => (/* binding */ getCat)
+/* harmony export */   "getCatPromise": () => (/* binding */ getCatPromise)
 /* harmony export */ });
 const url = 'http://aws.random.cat/meow';
-const getCat = async () => {
+const getCatPromise = async () => {
   try {
     const response = await fetch(url);
-    return await response.json();
+    const data = await response.json();
+    return data.file;
   } catch (error) {
-    console.log(error); // TODO надо наверное как-то обработать, хотя хз
+    console.log(error);
   }
+};
+
+/***/ }),
+
+/***/ "./src/js/api/mealApi.js":
+/*!*******************************!*\
+  !*** ./src/js/api/mealApi.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getMealPromise": () => (/* binding */ getMealPromise)
+/* harmony export */ });
+const url = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=';
+const getMealPromise = async category => {
+  try {
+    const response = await fetch(url + category);
+    return (await response.json())['meals'];
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+/***/ }),
+
+/***/ "./src/js/api/numbersApi.js":
+/*!**********************************!*\
+  !*** ./src/js/api/numbersApi.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getFactPromise": () => (/* binding */ getFactPromise)
+/* harmony export */ });
+const url = 'http://numbersapi.com/';
+const getFactPromise = async number => {
+  try {
+    const response = await fetch(url + number);
+    return await response.text();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+/***/ }),
+
+/***/ "./src/js/carousel/main.js":
+/*!*********************************!*\
+  !*** ./src/js/carousel/main.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "openCarousel": () => (/* binding */ openCarousel)
+/* harmony export */ });
+const openCarousel = (arrayOfMeal, carouselContainer) => {
+  carouselContainer.innerHTML = '';
+  const imageUrls = arrayOfMeal.map(meal => meal['strMealThumb']);
+  const imageTitles = arrayOfMeal.map(meal => meal['strMeal']);
+
+  const initializationDOM = () => {
+    for (let i = 0; i < imageUrls.length; i++) {
+      const carouselItem = document.createElement('div');
+      carouselItem.className = 'carousel-item';
+      const image = document.createElement('img');
+      image.setAttribute('src', imageUrls[i]);
+      const title = document.createElement('h1');
+      title.textContent = imageTitles[i];
+      carouselItem.append(title);
+      carouselItem.append(image);
+      carouselContainer.append(carouselItem);
+    }
+  };
+
+  const render = state => {
+    state.previous.className = 'carousel-item';
+    state.active.className = 'carousel-item active';
+  };
+
+  const watchState = () => {
+    buttonPrev.addEventListener('click', () => {
+      state.previous = state.active;
+
+      if (state.active === firstImg) {
+        state.active = lastImg;
+      } else {
+        state.active = state.active.previousSibling;
+      }
+
+      render(state);
+    });
+    buttonNext.addEventListener('click', () => {
+      state.previous = state.active;
+
+      if (state.active === lastImg) {
+        state.active = firstImg;
+      } else {
+        state.active = state.active.nextSibling;
+      }
+
+      render(state);
+    });
+  };
+
+  initializationDOM();
+  const buttonPrev = document.createElement('div');
+  buttonPrev.textContent = 'Previous image';
+  buttonPrev.className = 'carousel-control-prev';
+  const buttonNext = document.createElement('div');
+  buttonNext.textContent = 'Next image';
+  buttonNext.className = 'carousel-control-next';
+  const firstImg = carouselContainer.firstChild;
+  const lastImg = carouselContainer.lastChild;
+  const state = {
+    active: firstImg,
+    previous: lastImg
+  };
+  watchState();
+  render(state);
+  carouselContainer.append(buttonPrev);
+  carouselContainer.append(buttonNext);
 };
 
 /***/ }),
@@ -39,8 +164,8 @@ __webpack_require__.r(__webpack_exports__);
 const MODALS_TYPES = {
   NONE: 'none',
   CATS: 'cats',
-  MEAL: 'meal',
-  NUMBERS_FACTS: 'numbers-facts'
+  NUMBERS_FACTS: 'numbers-facts',
+  MEAL: 'meal'
 };
 const BUTTONS = [{
   text: 'CATS',
@@ -55,9 +180,9 @@ const BUTTONS = [{
 const MODALS = [{
   type: MODALS_TYPES.CATS
 }, {
-  type: MODALS_TYPES.MEAL
-}, {
   type: MODALS_TYPES.NUMBERS_FACTS
+}, {
+  type: MODALS_TYPES.MEAL
 }];
 
 /***/ }),
@@ -124,7 +249,15 @@ const renderModalWindows = () => {
     const prevButton = document.createElement('a');
     const nextButton = document.createElement('a');
     const closeButton = document.createElement('a');
+    const loader = document.createElement('div');
     const modalWindow = document.createElement('div');
+    controlButtons.append(prevButton);
+    controlButtons.append(closeButton);
+    controlButtons.append(nextButton);
+    modalWindow.append(controlButtons);
+    modalWindow.append(loader);
+    app.append(modalWindow);
+    loader.className = 'loader';
     controlButtons.className = 'control-buttons';
     modalWindow.className = 'modal-window';
     modalWindow.dataset.type = item.type;
@@ -162,19 +295,57 @@ const renderModalWindows = () => {
       }
 
       event.stopPropagation();
-    }); // switch (item.type) {
-    //     case MODALS_TYPES.CATS:
-    //         const img = document.createElement('img');
-    //         img.alt = 'Cat';
-    //         img.src = '../../img/cat_default.jpg';
-    //         modalWindow.append(img);
-    // }
+    });
 
-    controlButtons.append(prevButton);
-    controlButtons.append(closeButton);
-    controlButtons.append(nextButton);
-    modalWindow.append(controlButtons);
-    app.append(modalWindow);
+    switch (item.type) {
+      case _const__WEBPACK_IMPORTED_MODULE_0__.MODALS_TYPES.CATS:
+        const img = document.createElement('img');
+        img.className = 'modal-window__cat-img';
+        img.alt = 'Cat';
+        img.src = 'img/cat_default.jpg';
+        modalWindow.append(img);
+        break;
+
+      case _const__WEBPACK_IMPORTED_MODULE_0__.MODALS_TYPES.NUMBERS_FACTS:
+        const factContainer = document.createElement('div');
+        factContainer.className = 'modal-window__text-container__fact';
+        const fact = document.createElement('p');
+        fact.className = 'fact';
+        fact.textContent = '42 is the answer to the Ultimate Question of Life, the Universe, and Everything.';
+        const catInputField = document.createElement('input');
+        catInputField.className = 'modal-window__input';
+        catInputField.type = 'text';
+        catInputField.placeholder = 'Enter your number';
+        const button = document.createElement('button');
+        button.className = 'modal-window__show-button';
+        button.textContent = 'Show the fact';
+        factContainer.append(fact);
+        modalWindow.append(factContainer);
+        modalWindow.append(catInputField);
+        modalWindow.append(button);
+        break;
+
+      case _const__WEBPACK_IMPORTED_MODULE_0__.MODALS_TYPES.MEAL:
+        const instructionContainer = document.createElement('div');
+        instructionContainer.className = 'modal-window__text-container__meal';
+        const instruction = document.createElement('p');
+        instruction.className = 'food-instruction';
+        instruction.textContent = 'Enter a food category (e.g. Chicken, Vegetarian, Seafood, Breakfast, Dessert, etc.)';
+        const mealInputField = document.createElement('input');
+        mealInputField.className = 'modal-window__input';
+        mealInputField.type = 'text';
+        mealInputField.placeholder = 'Enter your category';
+        const mealButton = document.createElement('button');
+        mealButton.className = 'modal-window__show-button';
+        mealButton.textContent = 'Show the meal';
+        const carousel = document.createElement('div');
+        carousel.className = 'carousel-container';
+        instructionContainer.append(instruction);
+        modalWindow.append(instructionContainer);
+        modalWindow.append(mealInputField);
+        modalWindow.append(mealButton);
+        modalWindow.append(carousel);
+    }
   });
 };
 
@@ -210,6 +381,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../state */ "./src/js/state/index.js");
 /* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../const */ "./src/js/const/index.js");
 /* harmony import */ var _api_catsApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../api/catsApi */ "./src/js/api/catsApi.js");
+/* harmony import */ var _api_numbersApi__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../api/numbersApi */ "./src/js/api/numbersApi.js");
+/* harmony import */ var _api_mealApi__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../api/mealApi */ "./src/js/api/mealApi.js");
+/* harmony import */ var _carousel_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../carousel/main */ "./src/js/carousel/main.js");
+
+
+
 
 
 
@@ -224,12 +401,70 @@ watch(_state__WEBPACK_IMPORTED_MODULE_1__["default"], 'openedModal', () => {
   if (_state__WEBPACK_IMPORTED_MODULE_1__["default"].openedModal !== _const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.NONE) {
     const openedModalWindow = document.querySelector(`.modal-window[data-type="${_state__WEBPACK_IMPORTED_MODULE_1__["default"].openedModal}"]`);
     openedModalWindow.style.display = 'block';
-  } // if (state.openedModal === MODALS_TYPES.CATS) {
-  //     const catsModalWindow = document.querySelector(`.modal-window[data-type="${MODALS_TYPES.CATS}"]`);
-  //     const img = document.querySelector('img');
-  //     img.src = getCat();
-  // }
+  }
 
+  switch (_state__WEBPACK_IMPORTED_MODULE_1__["default"].openedModal) {
+    case _const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.CATS:
+      const img = document.querySelector('.modal-window__cat-img');
+      const loader = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.CATS}"] .loader`);
+      img.addEventListener('click', () => {
+        img.style.display = 'none';
+        loader.style.display = 'block';
+        (0,_api_catsApi__WEBPACK_IMPORTED_MODULE_3__.getCatPromise)().then(response => {
+          img.src = response;
+        });
+
+        img.onload = () => {
+          loader.style.display = 'none';
+          img.style.display = 'block';
+        };
+      });
+      break;
+
+    case _const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.NUMBERS_FACTS:
+      const showButton = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.NUMBERS_FACTS}"] .modal-window__show-button`);
+      const fact = document.querySelector('.fact');
+      const inputField = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.NUMBERS_FACTS}"] .modal-window__input`);
+      const factLoader = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.NUMBERS_FACTS}"] .loader`);
+      showButton.addEventListener('click', () => {
+        fact.style.display = 'none';
+        showButton.style.display = 'none';
+        inputField.style.display = 'none';
+        factLoader.style.display = 'block';
+        const number = inputField.value !== '' ? inputField.value : '42';
+        (0,_api_numbersApi__WEBPACK_IMPORTED_MODULE_4__.getFactPromise)(number).then(response => {
+          fact.textContent = response;
+        });
+        factLoader.style.display = 'none';
+        fact.style.display = 'block';
+        showButton.style.display = 'block';
+        inputField.style.display = 'block';
+      });
+      break;
+
+    case _const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.MEAL:
+      let carousel = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.MEAL}"] .carousel-container`);
+      const mealInputField = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.MEAL}"] .modal-window__input`);
+      const mealLoader = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.MEAL}"] .loader`);
+      const mealShowButton = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.MEAL}"] .modal-window__show-button`);
+      const instruction = document.querySelector('.food-instruction');
+      mealShowButton.addEventListener('click', () => {
+        if (mealInputField.value !== '') {
+          mealShowButton.style.display = 'none';
+          mealInputField.style.display = 'none';
+          instruction.style.display = 'none';
+          mealLoader.style.display = 'block';
+          (0,_api_mealApi__WEBPACK_IMPORTED_MODULE_5__.getMealPromise)(mealInputField.value).then(arrayOfMeal => {
+            (0,_carousel_main__WEBPACK_IMPORTED_MODULE_6__.openCarousel)(arrayOfMeal, carousel);
+          });
+          mealLoader.style.display = 'none';
+          instruction.style.display = 'block';
+          mealShowButton.style.display = 'block';
+          mealInputField.style.display = 'block';
+        }
+      });
+      break;
+  }
 });
 
 /***/ }),

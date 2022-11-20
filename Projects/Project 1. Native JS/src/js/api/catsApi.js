@@ -1,10 +1,10 @@
 const url = 'http://aws.random.cat/meow';
-
-export const getCat = async () => {
+export const getCatPromise = async () => {
     try {
         const response = await fetch(url);
-        return await response.json();
+        const data = await response.json();
+        return data.file;
     } catch (error) {
-        console.log(error) // TODO надо наверное как-то обработать, хотя хз
+        console.log(error)
     }
 }

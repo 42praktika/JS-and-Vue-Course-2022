@@ -30,8 +30,18 @@ export const renderModalWindows = () => {
         const prevButton = document.createElement('a');
         const nextButton = document.createElement('a');
         const closeButton = document.createElement('a');
+        const loader = document.createElement('div');
 
         const modalWindow = document.createElement('div');
+
+        controlButtons.append(prevButton);
+        controlButtons.append(closeButton);
+        controlButtons.append(nextButton);
+        modalWindow.append(controlButtons);
+        modalWindow.append(loader);
+        app.append(modalWindow);
+
+        loader.className = 'loader';
 
         controlButtons.className = 'control-buttons';
 
@@ -77,20 +87,56 @@ export const renderModalWindows = () => {
             event.stopPropagation();
         });
 
-        // switch (item.type) {
-        //     case MODALS_TYPES.CATS:
-        //         const img = document.createElement('img');
-        //         img.alt = 'Cat';
-        //         img.src = '../../img/cat_default.jpg';
-        //         modalWindow.append(img);
-        // }
+        switch (item.type) {
+            case MODALS_TYPES.CATS:
+                const img = document.createElement('img');
+                img.className = 'modal-window__cat-img';
+                img.alt = 'Cat';
+                img.src = 'img/cat_default.jpg';
+                modalWindow.append(img);
+                break;
 
-        controlButtons.append(prevButton);
-        controlButtons.append(closeButton);
-        controlButtons.append(nextButton);
+            case MODALS_TYPES.NUMBERS_FACTS:
+                const factContainer = document.createElement('div');
+                factContainer.className = 'modal-window__text-container__fact';
+                const fact = document.createElement('p');
+                fact.className = 'fact';
+                fact.textContent = '42 is the answer to the Ultimate Question of Life, the Universe, and Everything.';
+                const catInputField = document.createElement('input');
+                catInputField.className = 'modal-window__input';
+                catInputField.type = 'text';
+                catInputField.placeholder = 'Enter your number';
+                const button = document.createElement('button');
+                button.className = 'modal-window__show-button';
+                button.textContent = 'Show the fact';
 
-        modalWindow.append(controlButtons)
+                factContainer.append(fact);
+                modalWindow.append(factContainer);
+                modalWindow.append(catInputField);
+                modalWindow.append(button);
+                break;
 
-        app.append(modalWindow);
+            case MODALS_TYPES.MEAL:
+                const instructionContainer = document.createElement('div');
+                instructionContainer.className = 'modal-window__text-container__meal';
+                const instruction = document.createElement('p');
+                instruction.className = 'food-instruction';
+                instruction.textContent = 'Enter a food category (e.g. Chicken, Vegetarian, Seafood, Breakfast, Dessert, etc.)'
+                const mealInputField = document.createElement('input');
+                mealInputField.className = 'modal-window__input';
+                mealInputField.type = 'text';
+                mealInputField.placeholder = 'Enter your category';
+                const mealButton = document.createElement('button');
+                mealButton.className = 'modal-window__show-button';
+                mealButton.textContent = 'Show the meal';
+                const carousel = document.createElement('div');
+                carousel.className = 'carousel-container';
+
+                instructionContainer.append(instruction);
+                modalWindow.append(instructionContainer);
+                modalWindow.append(mealInputField);
+                modalWindow.append(mealButton);
+                modalWindow.append(carousel);
+        }
     });
 }

@@ -1,8 +1,8 @@
 export const MODALS_TYPES = {
     NONE: 'none',
     CATS: 'cats',
-    MEAL: 'meal',
     NUMBERS_FACTS: 'numbers-facts',
+    MEAL: 'meal',
 };
 
 export const BUTTONS = [
@@ -25,9 +25,9 @@ export const MODALS = [
         type: MODALS_TYPES.CATS,
     },
     {
-        type: MODALS_TYPES.MEAL,
+        type: MODALS_TYPES.NUMBERS_FACTS,
     },
     {
-        type: MODALS_TYPES.NUMBERS_FACTS,
+        type: MODALS_TYPES.MEAL,
     },
 ];
