@@ -4,6 +4,8 @@
   "description": "Native Js",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack server",
     "build-dev": "webpack",
@@ -19,13 +21,22 @@
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^6.7.1",
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-html": "^7.1.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "prettier": "^2.7.1",
     "style-loader": "^3.3.1",
     "webpack": "^5.74.0",
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "melanke-watchjs": "^1.5.2",
     "webpack-cli": "^4.10.0"
   }
 }
