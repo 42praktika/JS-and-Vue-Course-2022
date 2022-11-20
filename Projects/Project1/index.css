@@ -12,6 +12,7 @@ p{
     font-size: 20px;
     line-height: 1.5;
     font-family: Times, Times New Roman, serif;
+    text-align: center;
 }
 .buttons{
     display: flex;
@@ -30,13 +31,15 @@ p{
 }
 .widget{
     position: absolute;
-    min-width: 600px;
+    width: 80%;
     min-height: 400px;
-    width: calc(100% - 800px);
-    height: calc(100% - 400px);
+    height: 80%;
     background-color: #eccfcf;
     border-radius: 10px 5px 10px 5px;
     border: 2px solid #8a4545;
+    display: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 .exitButton{
     background-color: #e8bcbc;
@@ -68,5 +71,111 @@ p{
 .nextButton:hover{
     background-color: #a97f7f;
     cursor: pointer;
+}
+.prevButton{
+    background-color: #e8bcbc;
+    border: #eccfcf ;
+    border-radius: 20px;
+    position: absolute;
+    right: 100px;
+    top: 30px;
+    width: 30px;
+    height: 30px;
+}
+.prevButton:hover{
+    background-color: #a97f7f;
+    cursor: pointer;
+}
+
+.searchButton{
+    background-color: #f5ead4;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.searchButton:hover{
+    cursor: pointer;
+    background-color: #ccaaaa;
+}
+
+.widgetContent{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input{
+    margin-left: 20px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border-color: black;
+    background-color: #fff6f6;
+}
+
+.films{
+    border: 3px solid #692f2f;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: #fce6e6;
+    width: 270px;
+}
+
+.site{
+    margin: 20px;
+    text-align: center;
+}
+
+.siteURL{
+    color: #692f2f;
+    text-decoration: none;
+}
+.siteURL:hover{
+    cursor: pointer;
+    color: black;
+}
+
+.images{
+    text-align: center;
+}
+
+.image {
+    height: 300px;
+    padding: 5px
+}
+
+.selectDog{
+    text-align: center;
+    margin-bottom: 20px;
+}
+select{
+    border-radius: 5px;
+    border-color: black;
+    background-color: #f5e1e6;
+}
+
+.dogImage{
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+.dogImg{
+    border: 3px solid #692f2f;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: #fce6e6;
+    height: 500px;
+    padding: 5px;
+}
+
+.selectors{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.productCard{
+    border: 3px solid #692f2f;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: #fce6e6;
+    padding: 5px;
 }
 

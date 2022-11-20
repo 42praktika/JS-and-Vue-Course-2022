@@ -10,5 +10,8 @@
   "scripts": {
     "watch": "webpack -w --mode development",
     "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "melanke-watchjs": "^1.5.2"
   }
 }
