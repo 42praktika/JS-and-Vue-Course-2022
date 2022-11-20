@@ -9,7 +9,6 @@ div.main {
     width: 1000px;
 }
 
-
 .carousel-item {
     min-height: 325px;
 }
@@ -17,4 +16,3 @@ div.main {
 .carousel-item.active {
     display: flex;
 }
-

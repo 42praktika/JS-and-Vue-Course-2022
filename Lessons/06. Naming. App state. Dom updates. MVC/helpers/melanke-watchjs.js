@@ -167,9 +167,9 @@ var watchAll = function (obj, watcher, level, addNRemove) {
     }
 
     if (isArray(obj)) {
-        defineWatcher(obj, "__watchall__", watcher, level); // watch all changes on the array
+        defineWatcher(obj, "__watchall__", watcher, level); // watchers all changes on the array
         if (level === undefined || level > 0) {
-            for (var prop = 0; prop < obj.length; prop++) { // watch objects in array
+            for (var prop = 0; prop < obj.length; prop++) { // watchers objects in array
                 watchAll(obj[prop], watcher, level, addNRemove);
             }
         }
@@ -184,7 +184,7 @@ var watchAll = function (obj, watcher, level, addNRemove) {
                 props.push(prop); //put in the props
             }
         }
-        watchMany(obj, props, watcher, level, addNRemove); //watch all items of the props
+        watchMany(obj, props, watcher, level, addNRemove); //watchers all items of the props
     }
 
 
@@ -200,7 +200,7 @@ var watchMany = function (obj, props, watcher, level, addNRemove) {
         return;
     }
 
-    for (var i = 0; i < props.length; i++) { //watch each property
+    for (var i = 0; i < props.length; i++) { //watchers each property
         var prop = props[i];
         watchOne(obj, prop, watcher, level, addNRemove);
     }
@@ -212,12 +212,12 @@ var watchOne = function (obj, prop, watcher, level, addNRemove) {
         return;
     }
 
-    if (isFunction(obj[prop])) { //dont watch if it is a function
+    if (isFunction(obj[prop])) { //dont watchers if it is a function
         return;
     }
     if (obj[prop] != null && (level === undefined || level > 0)) {
         watchAll(obj[prop], watcher, level !== undefined ? level - 1 : level); //recursively
-                                                                               // watch all
+                                                                               // watchers all
                                                                                // attributes of
                                                                                // this
     }
@@ -253,7 +253,7 @@ var unwatchAll = function (obj, watcher) {
         for (var prop = 0; prop < obj.length; prop++) { //for each item if obj is an array
             props.push(prop); //put in the props
         }
-        unwatchMany(obj, props, watcher); //watch all itens of the props
+        unwatchMany(obj, props, watcher); //watchers all itens of the props
     } else {
         var unwatchPropsInObject = function (obj2) {
             var props = [];
@@ -275,7 +275,7 @@ var unwatchAll = function (obj, watcher) {
 
 var unwatchMany = function (obj, props, watcher) {
 
-    for (var prop2 in props) { //watch each attribute of "props" if is an object
+    for (var prop2 in props) { //watchers each attribute of "props" if is an object
         if (props.hasOwnProperty(prop2)) {
             unwatchOne(obj, props[prop2], watcher);
         }
@@ -389,7 +389,7 @@ var defineWatcher = function (obj, prop, watcher, level) {
     if (!obj.watchers) {
         defineProp(obj, "watchers", {});
         if (isArr) {
-            // watch array functions
+            // watchers array functions
             watchFunctions(obj, function (index, action, newValue, oldValue) {
                 addPendingChange(obj, index, action, newValue, oldValue);
                 if (level !== 0 && newValue && (isObject(newValue) || isArray(newValue))) {
@@ -402,7 +402,7 @@ var defineWatcher = function (obj, prop, watcher, level) {
                         if (action !== 'splice') {
                             watchAll(newValue, watchList[i], (level === undefined) ? level : level - 1);
                         } else {
-                            // watch spliced values
+                            // watchers spliced values
                             for (n = 0; n < newValue.length; n++) {
                                 watchAll(newValue[n], watchList[i], (level === undefined) ? level : level - 1);
                             }
@@ -438,7 +438,7 @@ var defineWatcher = function (obj, prop, watcher, level) {
             if (level !== 0
                 && obj[prop] && (isObject(obj[prop]) || isArray(obj[prop]))
                 && !obj[prop].watchers) {
-                // watch sub properties
+                // watchers sub properties
                 var i, ln = obj.watchers[prop].length;
                 for (i = 0; i < ln; i++) {
                     watchAll(obj[prop], obj.watchers[prop][i], (level === undefined) ? level : level - 1);

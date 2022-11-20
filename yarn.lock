@@ -5276,6 +5276,11 @@ mdn-data@2.0.28:
   resolved "https://registry.npmjs.org/mdn-data/-/mdn-data-2.0.28.tgz"
   integrity sha512-aylIc7Z9y4yzHYAJNuESG3hfhC+0Ibp/MAMiaOZgNv4pmEdFyfZhhhny4MNiAfWdBQ1RQ2mfDWmM1x8SvGyp8g==
 
+melanke-watchjs@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/melanke-watchjs/-/melanke-watchjs-1.5.2.tgz#acc1c85fc04f3832bb9366896c844143ac686787"
+  integrity sha512-yNo8NiKkZd4K0Y/SNhbeW5PAmylfaClrOPpNTRibybRTe93Ozv1/emTanP6xwxi9TO0FS9b9F94/JQedJ1/j9g==
+
 memory-fs@^0.4.1:
   version "0.4.1"
   resolved "https://registry.npmjs.org/memory-fs/-/memory-fs-0.4.1.tgz"
