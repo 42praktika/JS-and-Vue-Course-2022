@@ -1,8 +1,9 @@
 
 body{
-  background-color: aquamarine;
+  background-image:url(https://oir.mobi/uploads/posts/2021-01/1611947019_16-p-krasivii-igrovoi-fon-dlya-fotoshopa-16.jpg);
+  
 }
-.sajda{
+.currency-converter{
     background-color: #4CAF50;
   color: white;
   padding: 15px 32px;
@@ -15,7 +16,7 @@ body{
   border-color: #7A97B2;
  
 }
-.clash{
+.weather{
     background-color: #4CAF50;
   border: none;
   color: white;
@@ -27,7 +28,7 @@ body{
   margin: 4px 2px;
   cursor: pointer;
 }
-.redactor{
+.search{
   background-color: #4CAF50;
   border: none;
   color: white;
