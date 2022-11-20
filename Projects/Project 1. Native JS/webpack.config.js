@@ -9,12 +9,12 @@ module.exports = {
 
     // "точка входа" в приложение. Это коренвой js-файл функционала, к нему подключаются остальные файлы
     entry: {
-        'core': './js/index.js'
+        'core': './src/index.js'
     },
 
     // директория, в которой будет лежать build (наша сборка)
     output: {
-        path: path.resolve(__dirname, './js/build/'),
+        path: path.resolve(__dirname, './build/'),
         filename: '[name].bundle.js',
     },
 

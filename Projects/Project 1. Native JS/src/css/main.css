@@ -59,15 +59,63 @@ body {
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    background-image: url("../img/body_background_first.jpg");
+    background-image: url("../img/body_background.jpg");
     background-size: cover;
 }
 
-.modal {
+.modal-window {
     display: none;
     position: absolute;
     width: 500px;
     height: 500px;
-    border: 2px black solid;
-    background-color: #eee;
+    transform: translate3d(-50%, -50%, 0);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    background-color: #cecece;
+    box-shadow: 0 0 10px black;
+}
+
+.modal-button {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 15px;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    background-color: #008CBA;
+}
+
+.modal-button:hover {
+    transition-duration: 0.4s;
+    background-color: #ababab;
+    color: black;
+    font-size: 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.control-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.control-buttons a {
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: #888888;
+    color: white;
+}
+
+.control-buttons a:hover {
+    color: black;
+    background-color: white;
+    transition-duration: 0.4s;
 }
