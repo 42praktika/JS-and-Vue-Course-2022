@@ -3,13 +3,16 @@
         <div class="satellite__radius">
             <span>Радиус орбиты спутника:</span>
             <!--Начало-->
-
+            <input type="text" class="form-control" v-model="radius">
+            <span>км</span>
             <!--Конец-->
         </div>
         <div class="satellite__speed">
             <h3>Требуемая скорость спутника:</h3>
             <!--Начало-->
-
+            <div>
+                {{ getSpeed }} м/c
+            </div>
             <!--Конец-->
             <img src="https://mediasat.info/wp-content/uploads/2015/06/sat-orbit.jpg"/>
         </div>
@@ -20,7 +23,18 @@
 export default {
     name: 'Satellite',
     // Начало
-
+    data() {
+      return {
+        radius: 0,
+      };
+    },
+    computed: {
+      getSpeed() {
+        const earthMass = 6 * 10**24;
+        const gravityConst = 6.67 * 10**(-11);
+        return Math.round((earthMass * gravityConst / (this.radius * 1000)) ** 0.5);
+      },
+    },
     // Конец
 };
 </script>
