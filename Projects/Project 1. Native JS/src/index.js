@@ -38,13 +38,13 @@ const renderModals = () => {
 
         prevButton.textContent = '<';
         prevButton.addEventListener('click', (event) => {
-            const currentOpenedModalIndex = modals
+            const currentOpenedModalIndex = MODALS
                 .findIndex((item) => item.type === state.openedModalType);
 
             if (currentOpenedModalIndex === 0) {
-                state.openedModalType = modals[modals.length - 1].type;
+                state.openedModalType = MODALS[MODALS.length - 1].type;
             } else {
-                state.openedModalType = modals[currentOpenedModalIndex - 1].type;
+                state.openedModalType = MODALS[currentOpenedModalIndex - 1].type;
             }
 
             event.stopPropagation()
@@ -71,6 +71,13 @@ const renderModals = () => {
             event.stopPropagation()
         });
 
+        document.addEventListener("click", (event) => {
+            const withinBoundaries = event.composedPath().includes(app);
+            if ( ! withinBoundaries ) {
+                closeModal()
+            }
+        })
+
         modal.dataset.type = item.type
         modal.classList.add('modal')
         modal.textContent = item.text
@@ -83,11 +90,12 @@ const renderModals = () => {
     });
 };
 
-document.addEventListener('click', closeModal)
+// document.addEventListener('click', closeModal)
 
 
 renderButtons()
 renderModals()
+
 
 
 
