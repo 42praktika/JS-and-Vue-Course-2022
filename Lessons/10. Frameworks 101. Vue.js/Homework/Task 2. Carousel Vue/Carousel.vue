@@ -2,7 +2,7 @@
     <!--Начало-->
   <div class="carousel">
     <div class="carousel-inner" >
-      <div v-for="(image, index) in images" v-if="activeItem === index" class="carousel-item active">
+      <div v-for="(image, index) in images" v-if="activeItem === index" class="carousel-item active" >
         <img :src="image" class="d-block w-100">
       </div>
     </div>
