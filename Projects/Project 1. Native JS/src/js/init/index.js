@@ -1,6 +1,12 @@
 import {BUTTONS, MODALS, MODALS_TYPES} from "../const";
-import state from "../state";
+import state, {catState, factsState} from "../state";
 import {closeModal, findOpenedModalIndex} from "../helpers";
+import {
+    setCatDataState,
+    setCatLoaderState,
+    setFactDataState,
+    setFactLoaderState, setMealDataState, setMealLoaderState
+} from "../controller/controller";
 
 export const renderButtons = () => {
     const buttonsContainer = document.querySelector('.buttons-container');
@@ -92,8 +98,16 @@ export const renderModalWindows = () => {
                 const img = document.createElement('img');
                 img.className = 'modal-window__cat-img';
                 img.alt = 'Cat';
-                img.src = 'img/cat_default.jpg';
+                img.src = catState.defaultData;
                 modalWindow.append(img);
+
+                img.addEventListener('click', () => {
+                    setCatLoaderState(true);
+                    setCatDataState();
+                    img.onload = () => {
+                        setCatLoaderState(false);
+                    }
+                })
                 break;
 
             case MODALS_TYPES.NUMBERS_FACTS:
@@ -101,19 +115,26 @@ export const renderModalWindows = () => {
                 factContainer.className = 'modal-window__text-container__fact';
                 const fact = document.createElement('p');
                 fact.className = 'fact';
-                fact.textContent = '42 is the answer to the Ultimate Question of Life, the Universe, and Everything.';
-                const catInputField = document.createElement('input');
-                catInputField.className = 'modal-window__input';
-                catInputField.type = 'text';
-                catInputField.placeholder = 'Enter your number';
+                fact.textContent = factsState.defaultData;
+                const inputField = document.createElement('input');
+                inputField.className = 'modal-window__input';
+                inputField.type = 'text';
+                inputField.placeholder = 'Enter your number';
                 const button = document.createElement('button');
                 button.className = 'modal-window__show-button';
                 button.textContent = 'Show the fact';
 
                 factContainer.append(fact);
                 modalWindow.append(factContainer);
-                modalWindow.append(catInputField);
+                modalWindow.append(inputField);
                 modalWindow.append(button);
+
+                button.addEventListener('click', () => {
+                    const number = inputField.value !== '' ? inputField.value : '42';
+                    setFactLoaderState(true);
+                    setFactDataState(number);
+                    setFactLoaderState(false);
+                });
                 break;
 
             case MODALS_TYPES.MEAL:
@@ -137,6 +158,14 @@ export const renderModalWindows = () => {
                 modalWindow.append(mealInputField);
                 modalWindow.append(mealButton);
                 modalWindow.append(carousel);
+
+                mealButton.addEventListener('click', () => {
+                    if (mealInputField.value !== '') {
+                        setMealLoaderState(true);
+                        setMealDataState(mealInputField.value, carousel);
+                        setMealLoaderState(false);
+                    }
+                })
         }
     });
 }

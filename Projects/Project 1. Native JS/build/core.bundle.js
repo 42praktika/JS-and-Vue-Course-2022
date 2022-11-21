@@ -187,6 +187,54 @@ const MODALS = [{
 
 /***/ }),
 
+/***/ "./src/js/controller/controller.js":
+/*!*****************************************!*\
+  !*** ./src/js/controller/controller.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "setCatDataState": () => (/* binding */ setCatDataState),
+/* harmony export */   "setCatLoaderState": () => (/* binding */ setCatLoaderState),
+/* harmony export */   "setFactDataState": () => (/* binding */ setFactDataState),
+/* harmony export */   "setFactLoaderState": () => (/* binding */ setFactLoaderState),
+/* harmony export */   "setMealDataState": () => (/* binding */ setMealDataState),
+/* harmony export */   "setMealLoaderState": () => (/* binding */ setMealLoaderState)
+/* harmony export */ });
+/* harmony import */ var _api_catsApi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api/catsApi */ "./src/js/api/catsApi.js");
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../state */ "./src/js/state/index.js");
+/* harmony import */ var _api_numbersApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../api/numbersApi */ "./src/js/api/numbersApi.js");
+/* harmony import */ var _api_mealApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../api/mealApi */ "./src/js/api/mealApi.js");
+
+
+
+
+const setCatLoaderState = loaderState => {
+  _state__WEBPACK_IMPORTED_MODULE_1__.catState.isLoading = loaderState;
+};
+const setCatDataState = () => {
+  (0,_api_catsApi__WEBPACK_IMPORTED_MODULE_0__.getCatPromise)().then(response => {
+    _state__WEBPACK_IMPORTED_MODULE_1__.catState.data = response;
+  });
+};
+const setFactLoaderState = loaderState => {
+  _state__WEBPACK_IMPORTED_MODULE_1__.factsState.isLoading = loaderState;
+};
+const setFactDataState = number => {
+  (0,_api_numbersApi__WEBPACK_IMPORTED_MODULE_2__.getFactPromise)(number).then(response => {
+    _state__WEBPACK_IMPORTED_MODULE_1__.factsState.data = response;
+  });
+};
+const setMealLoaderState = loaderState => {
+  _state__WEBPACK_IMPORTED_MODULE_1__.mealState.isLoading = loaderState;
+};
+const setMealDataState = meal => {
+  (0,_api_mealApi__WEBPACK_IMPORTED_MODULE_3__.getMealPromise)(meal).then(arrayOfMeal => _state__WEBPACK_IMPORTED_MODULE_1__.mealState.data = arrayOfMeal);
+};
+
+/***/ }),
+
 /***/ "./src/js/helpers/index.js":
 /*!*********************************!*\
   !*** ./src/js/helpers/index.js ***!
@@ -225,6 +273,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../const */ "./src/js/const/index.js");
 /* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../state */ "./src/js/state/index.js");
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers */ "./src/js/helpers/index.js");
+/* harmony import */ var _controller_controller__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../controller/controller */ "./src/js/controller/controller.js");
+
 
 
 
@@ -302,8 +352,16 @@ const renderModalWindows = () => {
         const img = document.createElement('img');
         img.className = 'modal-window__cat-img';
         img.alt = 'Cat';
-        img.src = 'img/cat_default.jpg';
+        img.src = _state__WEBPACK_IMPORTED_MODULE_1__.catState.defaultData;
         modalWindow.append(img);
+        img.addEventListener('click', () => {
+          (0,_controller_controller__WEBPACK_IMPORTED_MODULE_3__.setCatLoaderState)(true);
+          (0,_controller_controller__WEBPACK_IMPORTED_MODULE_3__.setCatDataState)();
+
+          img.onload = () => {
+            (0,_controller_controller__WEBPACK_IMPORTED_MODULE_3__.setCatLoaderState)(false);
+          };
+        });
         break;
 
       case _const__WEBPACK_IMPORTED_MODULE_0__.MODALS_TYPES.NUMBERS_FACTS:
@@ -311,18 +369,24 @@ const renderModalWindows = () => {
         factContainer.className = 'modal-window__text-container__fact';
         const fact = document.createElement('p');
         fact.className = 'fact';
-        fact.textContent = '42 is the answer to the Ultimate Question of Life, the Universe, and Everything.';
-        const catInputField = document.createElement('input');
-        catInputField.className = 'modal-window__input';
-        catInputField.type = 'text';
-        catInputField.placeholder = 'Enter your number';
+        fact.textContent = _state__WEBPACK_IMPORTED_MODULE_1__.factsState.defaultData;
+        const inputField = document.createElement('input');
+        inputField.className = 'modal-window__input';
+        inputField.type = 'text';
+        inputField.placeholder = 'Enter your number';
         const button = document.createElement('button');
         button.className = 'modal-window__show-button';
         button.textContent = 'Show the fact';
         factContainer.append(fact);
         modalWindow.append(factContainer);
-        modalWindow.append(catInputField);
+        modalWindow.append(inputField);
         modalWindow.append(button);
+        button.addEventListener('click', () => {
+          const number = inputField.value !== '' ? inputField.value : '42';
+          (0,_controller_controller__WEBPACK_IMPORTED_MODULE_3__.setFactLoaderState)(true);
+          (0,_controller_controller__WEBPACK_IMPORTED_MODULE_3__.setFactDataState)(number);
+          (0,_controller_controller__WEBPACK_IMPORTED_MODULE_3__.setFactLoaderState)(false);
+        });
         break;
 
       case _const__WEBPACK_IMPORTED_MODULE_0__.MODALS_TYPES.MEAL:
@@ -345,6 +409,13 @@ const renderModalWindows = () => {
         modalWindow.append(mealInputField);
         modalWindow.append(mealButton);
         modalWindow.append(carousel);
+        mealButton.addEventListener('click', () => {
+          if (mealInputField.value !== '') {
+            (0,_controller_controller__WEBPACK_IMPORTED_MODULE_3__.setMealLoaderState)(true);
+            (0,_controller_controller__WEBPACK_IMPORTED_MODULE_3__.setMealDataState)(mealInputField.value, carousel);
+            (0,_controller_controller__WEBPACK_IMPORTED_MODULE_3__.setMealLoaderState)(false);
+          }
+        });
     }
   });
 };
@@ -359,13 +430,30 @@ const renderModalWindows = () => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "catState": () => (/* binding */ catState),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "factsState": () => (/* binding */ factsState),
+/* harmony export */   "mealState": () => (/* binding */ mealState)
 /* harmony export */ });
 /* harmony import */ var _const_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../const/index */ "./src/js/const/index.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   openedModal: _const_index__WEBPACK_IMPORTED_MODULE_0__.MODALS_TYPES.NONE
 });
+const factsState = {
+  data: null,
+  isLoading: false,
+  defaultData: '42 is the answer to the Ultimate Question of Life, the Universe, and Everything.'
+};
+const catState = {
+  data: null,
+  isLoading: false,
+  defaultData: 'img/cat_default.jpg'
+};
+const mealState = {
+  data: null,
+  isLoading: false
+};
 
 /***/ }),
 
@@ -380,13 +468,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var melanke_watchjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(melanke_watchjs__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../state */ "./src/js/state/index.js");
 /* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../const */ "./src/js/const/index.js");
-/* harmony import */ var _api_catsApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../api/catsApi */ "./src/js/api/catsApi.js");
-/* harmony import */ var _api_numbersApi__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../api/numbersApi */ "./src/js/api/numbersApi.js");
-/* harmony import */ var _api_mealApi__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../api/mealApi */ "./src/js/api/mealApi.js");
-/* harmony import */ var _carousel_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../carousel/main */ "./src/js/carousel/main.js");
-
-
-
+/* harmony import */ var _carousel_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../carousel/main */ "./src/js/carousel/main.js");
 
 
 
@@ -402,68 +484,87 @@ watch(_state__WEBPACK_IMPORTED_MODULE_1__["default"], 'openedModal', () => {
     const openedModalWindow = document.querySelector(`.modal-window[data-type="${_state__WEBPACK_IMPORTED_MODULE_1__["default"].openedModal}"]`);
     openedModalWindow.style.display = 'block';
   }
+});
+watch(_state__WEBPACK_IMPORTED_MODULE_1__.factsState, 'isLoading', () => {
+  const fact = document.querySelector('.fact');
+  const showButton = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.NUMBERS_FACTS}"] .modal-window__show-button`);
+  const inputField = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.NUMBERS_FACTS}"] .modal-window__input`);
+  const loader = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.NUMBERS_FACTS}"] .loader`);
 
-  switch (_state__WEBPACK_IMPORTED_MODULE_1__["default"].openedModal) {
-    case _const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.CATS:
-      const img = document.querySelector('.modal-window__cat-img');
-      const loader = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.CATS}"] .loader`);
-      img.addEventListener('click', () => {
-        img.style.display = 'none';
-        loader.style.display = 'block';
-        (0,_api_catsApi__WEBPACK_IMPORTED_MODULE_3__.getCatPromise)().then(response => {
-          img.src = response;
-        });
+  if (_state__WEBPACK_IMPORTED_MODULE_1__.factsState.isLoading) {
+    fact.style.display = 'none';
+    showButton.style.display = 'none';
+    inputField.style.display = 'none';
+    loader.style.display = 'block';
+  } else {
+    loader.style.display = 'none';
+    fact.style.display = 'block';
+    showButton.style.display = 'block';
+    inputField.style.display = 'block';
+  }
+});
+watch(_state__WEBPACK_IMPORTED_MODULE_1__.catState, 'isLoading', () => {
+  const img = document.querySelector('.modal-window__cat-img');
+  const loader = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.CATS}"] .loader`);
 
-        img.onload = () => {
-          loader.style.display = 'none';
-          img.style.display = 'block';
-        };
-      });
-      break;
+  if (_state__WEBPACK_IMPORTED_MODULE_1__.catState.isLoading) {
+    img.style.display = 'none';
+    loader.style.display = 'block';
+  } else {
+    loader.style.display = 'none';
+    img.style.display = 'block';
+  }
+});
+watch(_state__WEBPACK_IMPORTED_MODULE_1__.mealState, 'isLoading', () => {
+  const mealInputField = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.MEAL}"] .modal-window__input`);
+  const mealLoader = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.MEAL}"] .loader`);
+  const mealShowButton = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.MEAL}"] .modal-window__show-button`);
+  const instruction = document.querySelector('.food-instruction');
 
-    case _const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.NUMBERS_FACTS:
-      const showButton = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.NUMBERS_FACTS}"] .modal-window__show-button`);
-      const fact = document.querySelector('.fact');
-      const inputField = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.NUMBERS_FACTS}"] .modal-window__input`);
-      const factLoader = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.NUMBERS_FACTS}"] .loader`);
-      showButton.addEventListener('click', () => {
-        fact.style.display = 'none';
-        showButton.style.display = 'none';
-        inputField.style.display = 'none';
-        factLoader.style.display = 'block';
-        const number = inputField.value !== '' ? inputField.value : '42';
-        (0,_api_numbersApi__WEBPACK_IMPORTED_MODULE_4__.getFactPromise)(number).then(response => {
-          fact.textContent = response;
-        });
-        factLoader.style.display = 'none';
-        fact.style.display = 'block';
-        showButton.style.display = 'block';
-        inputField.style.display = 'block';
-      });
-      break;
+  if (_state__WEBPACK_IMPORTED_MODULE_1__.mealState.isLoading) {
+    mealShowButton.style.display = 'none';
+    mealInputField.style.display = 'none';
+    instruction.style.display = 'none';
+    mealLoader.style.display = 'block';
+  } else {
+    mealLoader.style.display = 'none';
+    instruction.style.display = 'block';
+    mealShowButton.style.display = 'block';
+    mealInputField.style.display = 'block';
+  }
+});
+watch(_state__WEBPACK_IMPORTED_MODULE_1__.factsState, 'data', () => {
+  const fact = document.querySelector('.fact');
 
-    case _const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.MEAL:
-      let carousel = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.MEAL}"] .carousel-container`);
-      const mealInputField = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.MEAL}"] .modal-window__input`);
-      const mealLoader = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.MEAL}"] .loader`);
-      const mealShowButton = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.MEAL}"] .modal-window__show-button`);
-      const instruction = document.querySelector('.food-instruction');
-      mealShowButton.addEventListener('click', () => {
-        if (mealInputField.value !== '') {
-          mealShowButton.style.display = 'none';
-          mealInputField.style.display = 'none';
-          instruction.style.display = 'none';
-          mealLoader.style.display = 'block';
-          (0,_api_mealApi__WEBPACK_IMPORTED_MODULE_5__.getMealPromise)(mealInputField.value).then(arrayOfMeal => {
-            (0,_carousel_main__WEBPACK_IMPORTED_MODULE_6__.openCarousel)(arrayOfMeal, carousel);
-          });
-          mealLoader.style.display = 'none';
-          instruction.style.display = 'block';
-          mealShowButton.style.display = 'block';
-          mealInputField.style.display = 'block';
-        }
-      });
-      break;
+  if (_state__WEBPACK_IMPORTED_MODULE_1__.factsState.data !== null) {
+    fact.textContent = _state__WEBPACK_IMPORTED_MODULE_1__.factsState.data;
+  } else {
+    fact.textContent = _state__WEBPACK_IMPORTED_MODULE_1__.factsState.defaultData;
+  }
+});
+watch(_state__WEBPACK_IMPORTED_MODULE_1__.catState, 'data', () => {
+  const img = document.querySelector('.modal-window__cat-img');
+
+  if (_state__WEBPACK_IMPORTED_MODULE_1__.catState.data !== null) {
+    img.src = _state__WEBPACK_IMPORTED_MODULE_1__.catState.data;
+  } else {
+    img.src = _state__WEBPACK_IMPORTED_MODULE_1__.catState.defaultData;
+  }
+});
+watch(_state__WEBPACK_IMPORTED_MODULE_1__.catState, 'data', () => {
+  const img = document.querySelector('.modal-window__cat-img');
+
+  if (_state__WEBPACK_IMPORTED_MODULE_1__.catState.data !== null) {
+    img.src = _state__WEBPACK_IMPORTED_MODULE_1__.catState.data;
+  } else {
+    img.src = _state__WEBPACK_IMPORTED_MODULE_1__.catState.defaultData;
+  }
+});
+watch(_state__WEBPACK_IMPORTED_MODULE_1__.mealState, 'data', () => {
+  let carousel = document.querySelector(`.modal-window[data-type="${_const__WEBPACK_IMPORTED_MODULE_2__.MODALS_TYPES.MEAL}"] .carousel-container`);
+
+  if (_state__WEBPACK_IMPORTED_MODULE_1__.mealState.data !== null) {
+    (0,_carousel_main__WEBPACK_IMPORTED_MODULE_3__.openCarousel)(_state__WEBPACK_IMPORTED_MODULE_1__.mealState.data, carousel);
   }
 });
 
