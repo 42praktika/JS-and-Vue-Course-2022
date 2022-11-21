@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <title>Computed</title>
+        <style>
+            .button {
+                border-radius: 10px;
+                font-weight: bold;
+                cursor: pointer;
+                padding: 11px 18px;
+                border: none;
+            }
+
+            .button--error {
+                background: #ff6161;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div class="container">
+                <button
+                    :class="buttonClasses"
+                    @click="revertError"
+                >
+                    Кнопка
+                </button>
+                <span>{{ currentName }}</span>
+                <input
+                    type="text"
+                    v-model="currentName"
+                >
+            </div>
+        </div>
+
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        name: 'Kimi',
+                        number: 42,
+                        isErrorEnable: true,
+                    };
+                },
+                methods: {
+                    revertError() {
+                        this.name = this.name + ' plus this.name';
+                        this.isErrorEnable = !this.isErrorEnable;
+                    },
+                },
+                computed: {
+                    buttonClasses() {
+                        return [ 'button', this.isErrorEnable ? 'button--error' : '' ];
+                    },
+                    currentName: {
+                        get() {
+                            return this.name;
+                        },
+                        set(value) {
+                            this.name = value;
+                            console.log(value);
+                        },
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
