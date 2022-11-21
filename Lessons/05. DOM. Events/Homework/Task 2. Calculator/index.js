@@ -21,7 +21,7 @@ const ADDITIONAL_BUTTONS = [{
 
 const setCalculator = () => {
     // Начало
-  
+   
     // Конец
 };
 

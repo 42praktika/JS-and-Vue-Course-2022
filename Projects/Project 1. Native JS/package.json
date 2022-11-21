@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "-": "^0.0.1",
-    "html-webpack-plugin": "^5.5.0"
+    "html-webpack-plugin": "^5.5.0",
+    "melanke-watchjs": "^1.5.2"
   }
 }
