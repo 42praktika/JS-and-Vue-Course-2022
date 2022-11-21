@@ -1,65 +1,88 @@
-const openModalButtons = document.querySelectorAll('[data-modal-target]');
-const closeModalButtons = document.querySelectorAll('[data-close-button]');
-const nextModalButtons = document.querySelectorAll('[data-next-button]');
-const overlay = document.getElementById('overlay');
+import './styles/index.css';
+import { BUTTONS, MODALS, MODALS_TYPES } from "./js/const";
+import state from "./js/state";
+import './js/watchers';
 
-let value = '';
-
-openModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = document.querySelector(button.dataset.modalTarget);
-        value = button.dataset.modalTarget;
-        openModal(modal);
-    })
-})
-
-overlay.addEventListener('click', () => {
-    const modals = document.querySelectorAll('.modal.active');
-    modals.forEach(modal => {
-        closeModal(modal);
-    })
-})
-
-nextModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        let newModalText = '';
-        const modal = document.querySelector(value);
-        console.log(value)
-        if (value === '#modal1') {
-            newModalText = '#modal2';
-            value = newModalText;
-        } else if (value === '#modal2') {
-            newModalText = '#modal3';
-            value = newModalText;
-        } else if (value === '#modal3') {
-            newModalText = '#modal1';
-            value = newModalText;
-        }
-        const newModal = document.querySelector(newModalText);
-        nextModal(modal, newModal);
-    })
-})
-
-closeModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = button.closest('.modal');
-        closeModal(modal);
-    })
-})
-
-function openModal(modal) {
-    if (modal == null) return
-    modal.classList.add('active');
-    overlay.classList.add('active');
+const closeModal = () => {
+    state.openedModalType = MODALS_TYPES.NONE;
 }
 
-function closeModal(modal) {
-    if (modal == null) return
-    modal.classList.remove('active');
-    overlay.classList.remove('active');
-}
+const renderButtons = () => {
+    const buttonsContainer = document.querySelector('.buttons-container');
 
-function nextModal(modal, newModal) {
-    closeModal(modal);
-    openModal(newModal);
-}
+    BUTTONS.forEach((item) => {
+        const button = document.createElement('button');
+
+        button.textContent = item.text;
+        button.dataset.type = item.type;
+
+        button.addEventListener('click', (event) => {
+            state.openedModalType = item.type;
+
+            event.stopPropagation();
+        });
+
+        buttonsContainer.append(button);
+    })
+};
+
+const renderModals = () => {
+    const app = document.querySelector('.app');
+
+    MODALS.forEach((item) => {
+        const modal = document.createElement('div');
+        const prevButton = document.createElement('button');
+        const nextButton = document.createElement('button');
+        const closeButton = document.createElement('button');
+
+        prevButton.textContent = 'Назад';
+        prevButton.addEventListener('click', (event) => {
+            const currentOpenedModalIndex = MODALS
+                .findIndex((item) => item.type === state.openedModalType);
+
+            if (currentOpenedModalIndex === 0) {
+                state.openedModalType = MODALS[MODALS.length - 1].type;
+            } else {
+                state.openedModalType = MODALS[currentOpenedModalIndex - 1].type;
+            }
+
+            event.stopPropagation();
+        });
+
+        nextButton.textContent = 'Вперед';
+        nextButton.addEventListener('click', (event) => {
+            const currentOpenedModalIndex = MODALS
+                .findIndex((item) => item.type === state.openedModalType);
+
+            if (currentOpenedModalIndex === MODALS.length - 1) {
+                state.openedModalType = MODALS[0].type;
+            } else {
+                state.openedModalType = MODALS[currentOpenedModalIndex + 1].type;
+            }
+
+            event.stopPropagation();
+        });
+
+        closeButton.textContent = 'Закрыть';
+        closeButton.addEventListener('click', (event) => {
+            closeModal();
+
+            event.stopPropagation();
+        });
+
+        modal.dataset.type = item.type;
+        modal.classList.add('modal');
+        modal.textContent = item.text;
+
+        modal.append(prevButton);
+        modal.append(nextButton);
+        modal.append(closeButton);
+
+        app.append(modal);
+    });
+};
+
+document.addEventListener('click', closeModal);
+
+renderButtons();
+renderModals();
