@@ -1,7 +1,26 @@
 body {
     background-image: url('../src/background.png');
 }
+.img-cat {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    right: 110px;
+    bottom: 30px;
 
+}
+.btn-cats {
+    position: absolute;
+    left: 80px;
+    color: red;
+    padding: 20px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 30px;
+    top: 240px;
+}
 .button {
     position: relative;
     color: red;
@@ -48,10 +67,12 @@ body {
     background-color: white;
     color: black;
     max-width: 800px;
-    padding: 100px;
+    padding: 200px;
     position: relative;
 }
 .modal__title {
+    position: relative;
+    bottom: 150px;
     font-size: 40px;
     margin: 0px 0px 30px 0px;
 }
@@ -73,7 +94,7 @@ body {
 }
 .modal__prev {
     position: absolute;
-    right: 350px;
+    right: 89%;
     top: -5px;
     font-size: 50px;
     color: black;

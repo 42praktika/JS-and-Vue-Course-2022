@@ -37,7 +37,7 @@ export const renderModals = () => {
 
         const modalTittle = document.createElement('div');
         modalTittle.classList.add('modal__title')
-        modalTittle.textContent = item.text;
+        modalTittle.innerHTML = item.text;
 
         const modalNextElement = document.createElement('a');
         modalNextElement.classList.add('modal__next');
@@ -92,6 +92,7 @@ export const renderModals = () => {
         app.append(modal);
     })
 }
+
 const closeModal = () => {
     state.openedModalType = MODALS_TYPES.NONE;
 }
