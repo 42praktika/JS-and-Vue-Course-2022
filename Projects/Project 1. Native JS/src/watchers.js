@@ -2,8 +2,8 @@ import WatchJS from 'melanke-watchjs';
 
 const { watch } = WatchJS;
 
-const watchState = (state) => {
-    watch(state, () => {
+export const watchState = (state) => {
+    watch(state, 'currentWindow', () => {
         const modals = document.querySelectorAll('.modal');
         state.currentWindow.style.display = 'block';
         for (let i = 0; i < modals.length; i++) {
@@ -12,18 +12,26 @@ const watchState = (state) => {
             }
         }
     });
-
-    watch(state, () => {
-        document.getElementById('imgBreakingBad').setAttribute('src', state.currentPicture);
-    });
-
-    watch(state, () => {
-        document.querySelector('.QuestionH3').textContent = `Question: ${state.Question}`;
-        document.querySelector('.AnswerH3').textContent = `Answer: ${state.Answer}`;
-    });
-
-    watch(state, () => {
-        document.querySelector('.Phrase').textContent = state.currentPhrase;
-    });
 };
-export default watchState;
+
+export const watchStateCurrentPicture=(stateCurrentPicture)=>{
+    watch(stateCurrentPicture,'currentPicture',()=>{
+        document.getElementById('imgBreakingBad').setAttribute('src', stateCurrentPicture.currentPicture);
+    })
+}
+
+export const watchStateQuestion=(stateQuestion)=>{
+    watch(stateQuestion,'question',()=>{
+        document.querySelector('.QuestionH3').textContent = `Question: ${stateQuestion.question}`
+    })
+}
+export const watchStateAnswer=(stateAnswer)=>{
+    watch(stateAnswer,'answer',()=>{
+        document.querySelector('.AnswerH3').textContent = `Answer: ${stateAnswer.answer}`;
+    })
+}
+export const watchStatePharse=(stateCurrentPhrase)=>{
+    watch(stateCurrentPhrase,'currentPhrase',()=>{
+        document.querySelector('.Phrase').textContent = stateCurrentPhrase.currentPhrase;
+    })
+}

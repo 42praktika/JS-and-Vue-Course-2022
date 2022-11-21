@@ -25,7 +25,7 @@ const init = () => {
     const buttonThird = document.createElement('button');
     buttonThird.textContent = 'Фраза';
     buttonThird.classList.add('button', 'button--widget');
-    buttonThird.dataset.type = 'Third';
+    buttonThird.dataset.type = 'Фраза';
 
     mainButtons.append(buttonBreakingBad, buttonRiddles, buttonThird);
 
@@ -56,58 +56,32 @@ const init = () => {
     currentImgBreakingBad.append(img);
 
     const optionHeisenberg = document.createElement('option');
-    optionHeisenberg.value = 'Heisenberg';
-    optionHeisenberg.textContent = 'Heisenberg';
-
     const optionPinkman = document.createElement('option');
-    optionPinkman.value = 'Pinkman';
-    optionPinkman.textContent = 'Pinkman';
-
     const optionSkyler = document.createElement('option');
-    optionSkyler.value = 'Skyler';
-    optionSkyler.textContent = 'Skyler';
-
     const optionWalterJr = document.createElement('option');
-    optionWalterJr.value = 'WalterJr';
-    optionWalterJr.textContent = 'Walter Jr';
-
     const optionHenry = document.createElement('option');
-    optionHenry.value = 'Henry';
-    optionHenry.textContent = 'Henry';
-
     const optionMarie = document.createElement('option');
-    optionMarie.value = 'Marie';
-    optionMarie.textContent = 'Marie';
-
     const optionMike = document.createElement('option');
-    optionMike.value = 'Mike';
-    optionMike.textContent = 'Mike';
-
     const optionSaul = document.createElement('option');
-    optionSaul.value = 'Saul';
-    optionSaul.textContent = 'Saul (Better Call Saul)';
-
     const optionGustavo = document.createElement('option');
-    optionGustavo.value = 'Gustavo';
-    optionGustavo.textContent = 'Gustavo';
-
     const optionHector = document.createElement('option');
-    optionHector.value = 'Hector';
-    optionHector.textContent = 'DING DING DING!!!';
-
     const optionCrazy8 = document.createElement('option');
-    optionCrazy8.value = 'Crazy 8';
-    optionCrazy8.textContent = 'Crazy 8';
-
     const optionTuco = document.createElement('option');
-    optionTuco.value = 'Tuco';
-    optionTuco.textContent = 'Tuco';
 
+    let indexBreakingBad=-1;
+    const arrayValuesAndTextContent=['Heisenberg','Pinkman','Skyler','WalterJr','Henry','Marie','Mike','Saul','Gustavo','Hector','Crazy 8','Tuco']
     const arraySelectBreakingBad = [optionHeisenberg, optionPinkman, optionSkyler, optionWalterJr, optionHenry, optionMarie, optionMike, optionSaul, optionGustavo, optionHector, optionCrazy8,optionTuco];
     arraySelectBreakingBad.forEach((element) => {
+        indexBreakingBad++
         selectBreakingBad.append(element);
         element.className = 'optionBreakingBad';
+        element.textContent=arrayValuesAndTextContent[indexBreakingBad]
+        element.value=arrayValuesAndTextContent[indexBreakingBad]
     });
+
+
+
+
 
     const modalRiddles = document.createElement('div');
     modalRiddles.classList.add('modal', 'Riddles');
@@ -142,26 +116,20 @@ const init = () => {
     divClassSelectRiddles.append(selectRiddles);
 
     const optionQuestion1 = document.createElement('option');
-    optionQuestion1.value = 'question1';
-    optionQuestion1.textContent = 'question1';
-
     const optionQuestion2 = document.createElement('option');
-    optionQuestion2.value = 'question2';
-    optionQuestion2.textContent = 'question2';
-
     const optionQuestion3 = document.createElement('option');
-    optionQuestion3.value = 'question3';
-    optionQuestion3.textContent = 'question3';
 
+    let indexRiddles=-1
+    const arraySelectRiddlesTextContenAndValues=['question1','question2','question3']
     const arraySelectRiddles = [optionQuestion1, optionQuestion2, optionQuestion3];
     arraySelectRiddles.forEach((element) => {
+        indexRiddles++
         selectRiddles.append(element);
         element.className = 'optionRiddlesQuestion';
+        element.textContent=arraySelectRiddlesTextContenAndValues[indexRiddles]
+        element.value=arraySelectRiddlesTextContenAndValues[indexRiddles]
     });
 
-    /*const h3Riddles = document.createElement('h3');
-    h3Riddles.textContent = 'Загадки';
-    modalRiddles.append(h3Riddles);*/
 
     const modalPhrase = document.createElement('div');
     modalPhrase.classList.add('modal', 'Third');
@@ -173,7 +141,7 @@ const init = () => {
     h3Default.className='h3Default'
     const h3Phrase = document.createElement('h3');
     h3Phrase.className = 'Phrase';
-    h3Phrase.textContent='Фразы';
+    h3Phrase.textContent='Нажмите на кнопку чтобы поменять на фразу';
     const buttonAddPhrase = document.createElement('button');
     buttonAddPhrase.textContent = 'Поменять фразу';
     buttonAddPhrase.className = 'AddPhrase';
