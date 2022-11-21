@@ -5,7 +5,7 @@
             <div v-for="(image, index) in images"
                  v-if="activeImage === index"
                  class="carousel-item active">
-                <img :src="image" class="d-block w-100" alt="error">
+                <img :src="image" class="d-block w-100">
             </div>
         </div>
 
