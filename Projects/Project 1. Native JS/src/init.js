@@ -146,5 +146,16 @@ const init = () => {
     buttonAddPhrase.textContent = 'Поменять фразу';
     buttonAddPhrase.className = 'AddPhrase';
     modalPhrase.append(h3Default,h3Phrase, buttonAddPhrase);
+
+
+    const divMask = document.createElement('div')
+    divMask.className = 'mask'
+    appClass.append(divMask)
+    const divLoader = document.createElement('div')
+    divLoader.className = 'loader'
+    divMask.append(divLoader)
+
+
+
 };
 export default init;

@@ -35,3 +35,4 @@ export const watchStatePharse=(stateCurrentPhrase)=>{
         document.querySelector('.Phrase').textContent = stateCurrentPhrase.currentPhrase;
     })
 }
+

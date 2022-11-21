@@ -1,6 +1,10 @@
-import { watchState, watchStateCurrentPicture,watchStateQuestion,watchStateAnswer, watchStatePharse } from './watchers.js';
-
-
+import {
+    watchState,
+    watchStateCurrentPicture,
+    watchStateQuestion,
+    watchStateAnswer,
+    watchStatePharse
+} from './watchers.js';
 
 
 const URL_BREAKING_BAD = 'https://breakingbadapi.com/api/characters';
@@ -9,22 +13,23 @@ const URL_PHRASE = 'https://favqs.com/api/qotd';
 
 const app = () => {
 
-    const stateWindow={
+    const stateWindow = {
         currentWindow: null,
     }
-    const stateQuestion={
+    const stateQuestion = {
         question: ''
     }
-    const stateAnswer={
+    const stateAnswer = {
         answer: ''
     }
-    const stateCurrentPicture={
-        currentPicture:
+    const stateCurrentPicture = {
+        currentPicture: null
     }
-    const stateCurrentPhrase={
+    const stateCurrentPhrase = {
         currentPhrase: '',
     }
 
+    const appClass = document.querySelector('.app');
     const mainButtons = document.querySelectorAll('.button');
     const buttonGlobalCLOSE = document.querySelector('.CLOSE');
     const buttonGlobalNext = document.querySelector('.NEXT');
@@ -32,10 +37,34 @@ const app = () => {
     const optionRiddlesQuestions = document.querySelectorAll('.optionRiddlesQuestion');
     const buttonShowAnswer = document.querySelector('.ShowAnswer');
     const buttonAddAnotherPhrase = document.querySelector('.AddPhrase');
+    const mask=document.querySelector('.mask')
+
+    const LoadingLoader=()=>{
+        appClass.append(mask)
+        window.addEventListener('load',()=>{
+            mask.classList.add('hide');
+        })
+    }
+
+    const RemoveLoader=()=>{
+        setTimeout(()=>{
+            mask.remove();
+        },0)
+    }
+
+    const AddLoader=()=>{
+        appClass.append(mask)
+    }
+
+    mask.remove()
+
+
+
 
     for (let i = 0; i < mainButtons.length; i++) {
         mainButtons[i].addEventListener('click', () => {
             stateWindow.currentWindow = document.querySelectorAll('.modal')[i];
+            RemoveLoader();
         });
     }
 
@@ -57,16 +86,22 @@ const app = () => {
         } else {
             stateWindow.currentWindow = stateWindow.currentWindow.nextSibling;
         }
+        RemoveLoader()
     });
 
     for (let i = 0; i < optionsBreakingBad.length; i++) {
         optionsBreakingBad[i].addEventListener('click', async () => {
             try {
+                LoadingLoader();
                 const response = await fetch(URL_BREAKING_BAD);
                 const responseData = await response.json();
                 stateCurrentPicture.currentPicture = responseData[i].img;
+                AddLoader();
             } catch (error) {
                 alert(error);
+            }
+            finally {
+                RemoveLoader();
             }
         });
     }
@@ -74,6 +109,7 @@ const app = () => {
     for (let i = 0; i < optionRiddlesQuestions.length; i++) {
         optionRiddlesQuestions[i].addEventListener('click', async () => {
             try {
+                LoadingLoader();
                 const response = await fetch(URL_RIDDLES);
                 const responseData = await response.json();
                 stateQuestion.question = responseData[i].question;
@@ -81,19 +117,28 @@ const app = () => {
                 buttonShowAnswer.addEventListener('click', () => {
                     stateAnswer.answer = responseData[i].answer;
                 });
+                AddLoader()
             } catch (error) {
                 alert(error);
+            }
+            finally {
+                RemoveLoader()
             }
         });
     }
 
     buttonAddAnotherPhrase.addEventListener('click', async () => {
         try {
+            LoadingLoader();
             const response = await fetch(URL_PHRASE);
             const responseData = await response.json();
             stateCurrentPhrase.currentPhrase = responseData.quote.body;
+            AddLoader();
         } catch (error) {
             alert(error);
+        }
+        finally {
+            RemoveLoader()
         }
     });
     watchState(stateWindow)
@@ -104,3 +149,5 @@ const app = () => {
 
 };
 export default app;
+
+
