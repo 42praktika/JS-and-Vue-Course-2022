@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <style>
+            #app {
+                margin: 40px;
+                display: flex;
+                align-items: center;
+            }
+        </style>
+        <title>Templates</title>
+    </head>
+    <body>
+        <div id="app">
+            <section>
+                <h2>Заголовок</h2>
+                <template v-if="isTextVisible">
+                    <span>
+                        Какой-то текст под заголовком
+                    </span>
+                </template>
+            </section>
+        </div>
+
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        isTextVisible: true,
+                    };
+                },
+            });
+        </script>
+    </body>
+</html>
