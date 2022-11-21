@@ -9,7 +9,7 @@ describe('06.c.1 updateProgress', () => {
         '                <div\n' +
         '                    class="progress-bar progress-bar-striped progress-bar-animated bg-info"\n' +
         '                    role="progressbar"\n' +
-        '                    style="width: 0"\n' +
+        '                    styles="width: 0"\n' +
         '                ></div>\n' +
         '            </div>\n' +
         '            <button class="button-increase">\n' +

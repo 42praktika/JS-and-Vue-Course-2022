@@ -1,65 +1,105 @@
-const openModalButtons = document.querySelectorAll('[data-modal-target]');
-const closeModalButtons = document.querySelectorAll('[data-close-button]');
-const nextModalButtons = document.querySelectorAll('[data-next-button]');
-const overlay = document.getElementById('overlay');
+import { BUTTONS } from "./js/const/ButtonConst";
+import { MODALS } from "./js/const/ModalConst";
+import { MODAL_APIS } from "./js/const/ApiConst";
+import ModalState from "./js/state/ModalState";
+import './js/watchers/ModalWatcher';
+import './index.css';
+import { getCatAPI } from './js/api/CatApi';
+import { getDayOffAPI } from "./js/api/DayOffApi";
 
-let value = '';
+const closeModal = () => {
+    ModalState.openedModalApi = MODAL_APIS.NONE;
+};
 
-openModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = document.querySelector(button.dataset.modalTarget);
-        value = button.dataset.modalTarget;
-        openModal(modal);
-    })
-})
+const renderButtons = () => {
+    const buttonContainer = document.querySelector('.button__container');
 
-overlay.addEventListener('click', () => {
-    const modals = document.querySelectorAll('.modal.active');
-    modals.forEach(modal => {
-        closeModal(modal);
-    })
-})
+    BUTTONS.forEach((elem) => {
+        const button = document.createElement('button');
 
-nextModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        let newModalText = '';
-        const modal = document.querySelector(value);
-        console.log(value)
-        if (value === '#modal1') {
-            newModalText = '#modal2';
-            value = newModalText;
-        } else if (value === '#modal2') {
-            newModalText = '#modal3';
-            value = newModalText;
-        } else if (value === '#modal3') {
-            newModalText = '#modal1';
-            value = newModalText;
+        button.classList.add('btn');
+        button.textContent = elem.text;
+        button.dataset.type = elem.api;
+
+        button.addEventListener('click', (event) => {
+            ModalState.openedModalApi = elem.api;
+
+            renderAPI();
+
+            event.stopPropagation();
+        });
+
+        buttonContainer.append(button);
+    });
+};
+
+const renderModals = () => {
+    const main = document.querySelector('.main');
+
+    MODALS.forEach((elem) => {
+        const modal = document.createElement('div');
+
+        const closeButton = document.createElement('button');
+        const prevButton = document.createElement('button');
+        const nextButton = document.createElement('button');
+
+        nextButton.textContent = '>';
+        nextButton.classList.add('modal-btn');
+        prevButton.textContent = '<';
+        prevButton.classList.add('modal-btn');
+        closeButton.textContent = 'X';
+        closeButton.classList.add('modal-btn');
+
+        prevButton.addEventListener('click', (event) => {
+            const currentOpenedModalIndex = MODALS
+                .findIndex((elem) => elem.api === ModalState.openedModalApi);
+
+            if (currentOpenedModalIndex === 0) {
+                ModalState.openedModalApi = MODALS[MODALS.length - 1].api;
+            } else {
+                ModalState.openedModalApi = MODALS[currentOpenedModalIndex - 1].api;
             }
-        const newModal = document.querySelector(newModalText);
-        nextModal(modal, newModal);
-    })
-})
 
-closeModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = button.closest('.modal');
-        closeModal(modal);
-    })
-})
+            event.stopPropagation();
+        });
 
-function openModal(modal) {
-    if (modal == null) return
-    modal.classList.add('active');
-    overlay.classList.add('active');
-}
+        nextButton.addEventListener('click', (event) => {
+            const currentOpenedModalIndex = MODALS
+                .findIndex((elem) => elem.api === ModalState.openedModalApi);
 
-function closeModal(modal) {
-    if (modal == null) return
-    modal.classList.remove('active');
-    overlay.classList.remove('active');
-}
+            if (currentOpenedModalIndex === MODALS.length - 1) {
+                ModalState.openedModalApi = MODALS[0].api;
+            } else {
+                ModalState.openedModalApi = MODALS[currentOpenedModalIndex + 1].api;
+            }
 
-function nextModal(modal, newModal) {
-    closeModal(modal);
-    openModal(newModal);
-}
+            event.stopPropagation();
+        });
+
+        closeButton.addEventListener('click', (event) => {
+            closeModal();
+
+            event.stopPropagation();
+        });
+
+        modal.textContent = elem.text;
+        modal.dataset.type = elem.api;
+        modal.classList.add('modal');
+
+        modal.append(prevButton, closeButton, nextButton);
+
+        main.append(modal);
+    });
+
+};
+
+const renderAPI = () => {
+    if (ModalState.openedModalApi === MODAL_APIS.CAT_API) {
+        getCatAPI();
+    } else if (ModalState.openedModalApi === MODAL_APIS.DAY_OFF_API) {
+        getDayOffAPI();
+    }
+};
+
+renderButtons();
+renderModals();
