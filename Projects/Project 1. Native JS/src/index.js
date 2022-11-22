@@ -1,14 +1,17 @@
 import './index.html';
 import '../styles/style.css';
-import {renderButtons, renderModals} from "../js/initDom/initDomElements";
-import {randomCatsModalApi, fetchHandler,clickOfCat} from "../api/modal1";
+import {renderButtons, renderModals, initModalsForApi,loader} from "../js/initDom/initDomElements";
+import {runModalsApi} from "../api/modalRealisation";
 
+const runApplication = () => {
+    renderButtons();
+    renderModals();
+    initModalsForApi();
+    runModalsApi();
+    loader();
 
-renderButtons();
-renderModals();
-randomCatsModalApi();
-fetchHandler();
-clickOfCat();
+}
+runApplication();
 
 
 

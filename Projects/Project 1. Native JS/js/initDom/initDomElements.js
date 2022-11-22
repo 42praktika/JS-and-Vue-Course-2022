@@ -37,7 +37,7 @@ export const renderModals = () => {
 
         const modalTittle = document.createElement('div');
         modalTittle.classList.add('modal__title')
-        modalTittle.innerHTML = item.text;
+        modalTittle.textContent = item.text;
 
         const modalNextElement = document.createElement('a');
         modalNextElement.classList.add('modal__next');
@@ -95,6 +95,22 @@ export const renderModals = () => {
 
 const closeModal = () => {
     state.openedModalType = MODALS_TYPES.NONE;
+}
+
+export const initModalsForApi = () => {
+    const modalContent = document.querySelectorAll('.modal__content');
+    const imgOfDog = document.createElement('img');
+    const button = document.createElement('button');
+    button.classList.add('btn-dogs');
+    button.textContent = 'Получить собаку!';
+    imgOfDog.classList.add('img-dog');
+    modalContent[0].append(imgOfDog,button);
+}
+export const loader = () => {
+    const divLoader = document.createElement('div')
+    const app = document.querySelector('.app');
+    divLoader.classList.add('loader');
+    app.append(divLoader);
 }
 
 document.addEventListener('click', (event) => {

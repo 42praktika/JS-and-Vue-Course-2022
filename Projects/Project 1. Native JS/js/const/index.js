@@ -1,13 +1,13 @@
 export const MODALS_TYPES = {
     NONE: 'none',
-    CATS: 'first',
+    DOGS: 'first',
     SECOND: 'second',
     THIRD: 'third',
 }
 export const BUTTONS = [
     {
         text: 'Кнопка 1',
-        type: MODALS_TYPES.CATS,
+        type: MODALS_TYPES.DOGS,
     },
     {
         text: 'Кнопка 2',
@@ -20,8 +20,8 @@ export const BUTTONS = [
 ]
 export const MODALS = [
     {
-        text: 'Получите рандомного кота',
-        type: MODALS_TYPES.CATS,
+        text: 'Получите рандомную собаку',
+        type: MODALS_TYPES.DOGS,
     },
     {
         text: 'Второе окно',

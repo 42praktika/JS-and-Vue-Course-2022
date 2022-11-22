@@ -1,17 +1,17 @@
 body {
     background-image: url('../src/background.png');
 }
-.img-cat {
+.img-dog {
     position: absolute;
-    width: 350px;
+    width: 550px;
     height: 350px;
-    right: 110px;
-    bottom: 30px;
+    right: 20px;
+    bottom: 20px;
 
 }
-.btn-cats {
+.btn-dogs {
     position: absolute;
-    left: 80px;
+    left: 30px;
     color: red;
     padding: 20px 30px;
     text-align: center;
@@ -104,4 +104,19 @@ body {
     opacity: 1;
     visibility: visible;
     transition: visibility 0s 0s, opacity 0.25s;
+}
+.loader {
+    margin: auto;
+    width: 75px;
+    height: 75px;
+    border:10px solid rgba(13, 71, 161, 0.6);
+    border-radius: 50%;
+    border-left-color:#0D47A1;
+    animation: loader 1.3s linear infinite;
+    visibility: hidden;
+}
+@keyframes loader {
+    100% {
+        transform: rotate(360deg);
+    }
 }
