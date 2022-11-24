@@ -10,7 +10,7 @@
         <div class="satellite__speed">
             <h3>Требуемая скорость спутника:</h3>
             <!--Начало-->
-            <div>{{ speed }} м/с</div>
+            <div> {{ speed }} м/с</div>
             <!--Конец-->
             <img src="https://mediasat.info/wp-content/uploads/2015/06/sat-orbit.jpg"/>
         </div>
@@ -24,7 +24,7 @@ export default {
 
     data() {
       return {
-        radius: '',
+        radius: 0,
         speed: '',
         massOfEarth: 6 * Math.pow(10, 24),
         gravity: 6.67 * Math.pow(10, -11)
