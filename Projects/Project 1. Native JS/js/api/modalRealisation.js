@@ -15,12 +15,22 @@ import {
 import {URL_DOGS, RickAndMortyURL, GET_API_INFO} from "./URL";
 
 export const runModalsApi = () => {
+    const loader = document.querySelector('#loader');
+
+    const displayLoading = () => {
+        loader.classList.add('display');
+    }
+    const hideLoading = () => {
+        loader.classList.remove('display');
+    }
     const button = document.querySelector('.btn-dogs');
     button.addEventListener('click', async () => {
         try {
+            displayLoading();
             const response = await fetch(URL_DOGS);
             const data = await response.json();
             stateImage.imageDogs = data.message;
+            hideLoading();
         } catch (error) {
             console.log(error);
         }

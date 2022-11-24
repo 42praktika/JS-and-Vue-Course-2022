@@ -1,8 +1,8 @@
 export const MODALS_TYPES = {
     NONE: 'none',
     DOGS: 'first',
-    SECOND: 'second',
-    THIRD: 'third',
+    RickAndMorty: 'second',
+    GET_IP: 'third',
 }
 export const BUTTONS = [
     {
@@ -11,11 +11,11 @@ export const BUTTONS = [
     },
     {
         text: 'Кнопка 2',
-        type: MODALS_TYPES.SECOND,
+        type: MODALS_TYPES.RickAndMorty,
     },
     {
         text: 'Кнопка 3',
-        type: MODALS_TYPES.THIRD,
+        type: MODALS_TYPES.GET_IP,
     }
 ]
 export const MODALS = [
@@ -24,13 +24,23 @@ export const MODALS = [
         type: MODALS_TYPES.DOGS,
     },
     {
-        text: 'Второе окно',
-        type: MODALS_TYPES.SECOND,
+        text: 'Персонажи из "Рик и Морти"',
+        type: MODALS_TYPES.RickAndMorty,
     },
     {
-        text: 'Третье окно',
-        type: MODALS_TYPES.THIRD,
+        text: 'Введите ip и получите данные',
+        type: MODALS_TYPES.GET_IP,
     }
+]
+
+export const ARRAY_RICKANDMORTY = [
+    'Rick Sanchez',
+    'Morty Smith',
+    'Summer Smith',
+    'Beth Smith',
+    'Jerry Smith',
+    'Abadango Cluster Princess',
+    'Abradolf Lincler'
 ]
 
 

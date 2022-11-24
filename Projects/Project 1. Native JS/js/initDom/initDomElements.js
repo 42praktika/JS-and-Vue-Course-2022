@@ -1,6 +1,6 @@
-import {BUTTONS, MODALS, MODALS_TYPES} from "../const";
+import {BUTTONS, MODALS, MODALS_TYPES,ARRAY_RICKANDMORTY} from "../const";
 import '../watchers';
-import state from "../state";
+import state, {stateInfoRickAndMorty, stateGetApiInfo} from "../state";
 
 export const renderButtons = () => {
     const buttonsContainer = document.querySelector('.buttons-container');
@@ -100,17 +100,61 @@ const closeModal = () => {
 export const initModalsForApi = () => {
     const modalContent = document.querySelectorAll('.modal__content');
     const imgOfDog = document.createElement('img');
+    imgOfDog.src = 'https://img1.fonwall.ru/o/it/animals-snow-winter-dog.jpeg'
     const button = document.createElement('button');
     button.classList.add('btn-dogs');
     button.textContent = 'Получить собаку!';
     imgOfDog.classList.add('img-dog');
     modalContent[0].append(imgOfDog,button);
-}
-export const loader = () => {
-    const divLoader = document.createElement('div')
-    const app = document.querySelector('.app');
-    divLoader.classList.add('loader');
-    app.append(divLoader);
+
+    const selectElement = document.createElement('select');
+    const divSelectElement = document.createElement('div');
+    const divInfoElement = document.createElement('div');
+
+    divInfoElement.classList.add('information-RickAndMorty');
+    for (let item in stateInfoRickAndMorty) {
+        const divElementInfo = document.createElement('div');
+        divElementInfo.classList.add(stateInfoRickAndMorty[item])
+        divInfoElement.append(divElementInfo);
+    }
+    const divImg = document.createElement('div');
+    divImg.classList.add('img-div');
+    const imgRickAndMorty = document.createElement('img');
+    imgRickAndMorty.src = 'https://rickandmortyapi.com/api/character/avatar/1.jpeg';
+    imgRickAndMorty.classList.add('img-RickAndMorty');
+    divImg.append(imgRickAndMorty);
+    divSelectElement.classList.add('div-select')
+    modalContent[1].append(divSelectElement,divImg,divInfoElement);
+    selectElement.classList.add('select-RickAndMorty');
+    divSelectElement.append(selectElement);
+
+    ARRAY_RICKANDMORTY.forEach((item, index) => {
+        const optionElement = document.createElement('option');
+        optionElement.classList.add('option-RickAndMorty');
+        optionElement.value = index;
+        optionElement.textContent = item;
+        selectElement.append(optionElement);
+    })
+
+    const divGetApiElement = document.createElement('div');
+    divGetApiElement.classList.add('div-apiInfo');
+    for (const item in stateGetApiInfo) {
+        const divApiInfo = document.createElement('div');
+        divApiInfo.classList.add(stateGetApiInfo[item])
+        divGetApiElement.append(divApiInfo);
+    }
+    const inputElement = document.createElement('input');
+    const buttonElement = document.createElement('button');
+    inputElement.classList.add('input-api');
+    buttonElement.classList.add('button-api');
+    inputElement.setAttribute('placeholder', '178.205.201.250');
+    buttonElement.textContent = 'Получить данные!'
+    modalContent[2].append(inputElement, buttonElement, divGetApiElement);
+
+    const loader = document.createElement('div');
+    loader.setAttribute('id', 'loader');
+
+    modalContent[0].append(loader);
 }
 
 document.addEventListener('click', (event) => {

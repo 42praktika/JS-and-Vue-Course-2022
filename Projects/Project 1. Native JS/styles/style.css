@@ -1,5 +1,5 @@
 body {
-    background-image: url('../src/background.png');
+    background-image: url('../src/background/background.png');
 }
 .img-dog {
     position: absolute;
@@ -7,7 +7,132 @@ body {
     height: 350px;
     right: 20px;
     bottom: 20px;
+}
+.div-apiInfo {
+    position: absolute;
+    color: #1B1B1B;
+    font-size: 25px;
+    right: 34%;
+    background-color: #D9D7DD;
+    border-width: 5px 5px 5px 5px;
+}
+.button-api {
+    position: absolute;
+    right: 15%;
+    top: 23%;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 20px;
+    padding: 15px 30px;
+    overflow: hidden;
+    border: 2px solid;
+    border-bottom-width: 4px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: rgba(30, 255, 188, 1);
+    background: rgba(255, 255, 255, 1);
+    transition: color .3s, background .5s;
+}
+.button-api:hover {
+    animation: stripes .75s infinite linear;
+    background: linear-gradient(45deg, rgba(30, 255, 188, 1) 25%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 50%, rgba(30, 255, 188, 1) 50%, rgba(30, 255, 188, 1) 75%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1));
+    background-size: 10px 10px;
+    color: #FF50E5
+}
+@keyframes stripes {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 0;
+    }
+}
+.input-api {
+    position: absolute;
+    top: 25%;
+    left:20%;
+    width: 300px;
+    height: 40px;
+    padding:10px;
+    border:2px solid #ccc;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+.input-api:focus {
+    border-color:whitesmoke;
+}
 
+.input-api {
+    padding:5px 15px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+.information-RickAndMorty {
+    position: absolute;
+    top: 40%;
+    left: 1px;
+    height: 280px;
+    background: linear-gradient(-45deg, #FEE864, #F5965E);
+    color: #f4f4f4;
+    font-size: 150%;
+    text-shadow: -1px -1px white, 1px 1px gray, 2px 2px #7a7a7a, 3px 3px #757575, 4px 4px #707070, 5px 5px #6b6b6b, 6px 6px #666666, 7px 7px #616161, 8px 8px #5c5c5c, 9px 9px #575757, 10px 10px #525252, 11px 11px #4d4d4d, 18px 18px 30px rgba(0, 0, 0, .4), 18px 18px 10px rgba(0, 0, 0, .4);
+}
+.div-select {
+    position: relative;
+    right: 240px;
+}
+.select-RickAndMorty {
+    position: relative;
+    bottom: 120px;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 700;
+    display: block;
+    color: #444;
+    line-height: 1.3;
+    padding: .6em 1.4em .5em .8em; width: 100%;
+    max-width: 62%;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    border-radius: .5em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+}
+.select-RickAndMorty::-ms-expand { display: none; }
+.select-RickAndMorty:hover { border-color: #888; }
+.select-RickAndMorty:focus { border-color: #aaa;
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222;
+    outline: none;
+}
+.select-RickAndMorty option { font-weight:normal; }
+*[dir="rtl"] .select-RickAndMorty, :root:lang(ar) .select-RickAndMorty, :root:lang(iw) .select-RickAndMorty {
+    background-position: left .7em top 50%, 0 0;
+    padding: .6em .8em .5em 1.4em;
+}
+.img-RickAndMorty {
+    position: absolute;
+    width: 550px;
+    height: 350px;
+    right: 20px;
+    bottom: 20px;
+}
+.select-RickAndMorty {
+    position: absolute;
+    left: 50px;
 }
 .btn-dogs {
     position: absolute;
@@ -19,7 +144,7 @@ body {
     display: inline-block;
     font-size: 16px;
     margin-left: 30px;
-    top: 240px;
+    top: 200px;
 }
 .button {
     position: relative;
@@ -105,7 +230,10 @@ body {
     visibility: visible;
     transition: visibility 0s 0s, opacity 0.25s;
 }
-.loader {
+#loader {
+    position: absolute;
+    bottom: 20%;
+    left: 12%;
     margin: auto;
     width: 75px;
     height: 75px;
@@ -114,6 +242,9 @@ body {
     border-left-color:#0D47A1;
     animation: loader 1.3s linear infinite;
     visibility: hidden;
+}
+#loader.display {
+    visibility: visible;
 }
 @keyframes loader {
     100% {
