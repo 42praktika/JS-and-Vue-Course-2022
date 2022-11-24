@@ -12,7 +12,7 @@
         <div class="satellite__speed">
             <h3>Требуемая скорость спутника:</h3>
             <div>
-                {{ speed }} м/c
+                {{ speed }} м/с
             </div>
             <img src="https://mediasat.info/wp-content/uploads/2015/06/sat-orbit.jpg"/>
         </div>
