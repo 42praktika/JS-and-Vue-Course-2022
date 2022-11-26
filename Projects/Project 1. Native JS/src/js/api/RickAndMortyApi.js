@@ -6,6 +6,7 @@ export const getRickAndMortyAPI = () => {
     const modal__container = document.querySelector('.modal__container');
     const activeWindow = document.createElement('div');
     activeWindow.className = 'activeWindow';
+    activeWindow.classList.add('apiWindow');
     const div = document.createElement('div');
     const img = document.createElement('img');
     const ul = document.createElement('ul');

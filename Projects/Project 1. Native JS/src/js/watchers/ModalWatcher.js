@@ -8,7 +8,6 @@ watch(ModalState, 'openedModalApi', () => {
     const allModals = document.querySelectorAll('.modal');
 
     allModals.forEach((elem) => {
-        //elem.style.display = 'none';
         elem.classList.remove('active');
     });
 
@@ -16,6 +15,5 @@ watch(ModalState, 'openedModalApi', () => {
         const modal = document.querySelector(`.modal[data-type="${ModalState.openedModalApi}"]`);
 
         modal.classList.add('active');
-        //modal.style.display = 'block';
     }
 });

@@ -3,6 +3,7 @@ export const getDayOffAPI = () => {
     const activeWindow = document.createElement('div');
     const input = document.createElement('input');
     activeWindow.className = 'activeWindow';
+    activeWindow.classList.add('apiWindow');
     input.classList.add('input');
     input.placeholder = 'Enter date: YYYYMMDD';
 

@@ -3,10 +3,11 @@ import { MODALS } from "./js/const/ModalConst";
 import { MODAL_APIS } from "./js/const/ApiConst";
 import ModalState from "./js/state/ModalState";
 import './js/watchers/ModalWatcher';
-import './index.css';
+import './style/index.css';
 import { getCatAPI } from './js/api/CatApi';
 import { getDayOffAPI } from "./js/api/DayOffApi";
 import { getRickAndMortyAPI } from "./js/api/RickAndMortyApi";
+import { changeActive } from "./js/watchers/ApiWatcher";
 
 const closeModal = () => {
     ModalState.openedModalApi = MODAL_APIS.NONE;
@@ -18,14 +19,14 @@ const renderButtons = () => {
     BUTTONS.forEach((elem) => {
         const button = document.createElement('button');
 
-        button.classList.add('btn');
+        button.classList.add('button-Main');
         button.textContent = elem.text;
         button.dataset.type = elem.api;
 
         button.addEventListener('click', (event) => {
             ModalState.openedModalApi = elem.api;
 
-            renderAPI();
+            setLoading();
 
             event.stopPropagation();
         });
@@ -45,11 +46,11 @@ const renderModals = () => {
         const nextButton = document.createElement('button');
 
         nextButton.textContent = '>';
-        nextButton.classList.add('modal-btn');
+        nextButton.classList.add('modalButton');
         prevButton.textContent = '<';
-        prevButton.classList.add('modal-btn');
+        prevButton.classList.add('modalButton');
         closeButton.textContent = 'X';
-        closeButton.classList.add('modal-btn');
+        closeButton.classList.add('modalButton');
 
         prevButton.addEventListener('click', (event) => {
             const currentOpenedModalIndex = MODALS
@@ -61,7 +62,7 @@ const renderModals = () => {
                 ModalState.openedModalApi = MODALS[currentOpenedModalIndex - 1].api;
             }
 
-            renderAPI();
+            setLoading();
 
             event.stopPropagation();
         });
@@ -76,7 +77,7 @@ const renderModals = () => {
                 ModalState.openedModalApi = MODALS[currentOpenedModalIndex + 1].api;
             }
 
-            renderAPI()
+            setLoading();
 
             event.stopPropagation();
         });
@@ -120,6 +121,34 @@ const renderAPI = () => {
         getRickAndMortyAPI();
     }
 };
+
+const renderLoadingScreen = () => {
+    const main = document.querySelector('.modal__container');
+    const div = document.createElement('div');
+    div.classList.add('loadingWindow');
+
+    const span = document.createElement('span');
+    span.textContent = 'Loading';
+    span.classList.add('loadingSpan');
+
+    div.append(span);
+    main.append(div);
+};
+
+const removeLoadingScreen = () => {
+    const main = document.querySelector('.modal__container');
+    const div = document.querySelector('.loadingWindow');
+
+    main.removeChild(div);
+}
+
+const setLoading = () => {
+
+    renderAPI();
+    renderLoadingScreen();
+    setTimeout(changeActive, 3000);
+    setTimeout(removeLoadingScreen, 2999);
+}
 
 renderButtons();
 renderModals();

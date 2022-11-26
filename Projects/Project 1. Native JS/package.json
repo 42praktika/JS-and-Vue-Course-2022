@@ -24,6 +24,7 @@
   "dependencies": {
     "bootstrap": "^5.2.2",
     "melanke-watchjs": "^1.5.2",
+    "node-sass": "^8.0.0",
     "style-loader": "^3.3.1"
   }
 }
