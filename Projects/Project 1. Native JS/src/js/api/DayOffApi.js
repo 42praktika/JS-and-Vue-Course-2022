@@ -1,16 +1,19 @@
 export const getDayOffAPI = () => {
-    const main = document.querySelector('.main');
+    const modal__container = document.querySelector('.modal__container');
+    const activeWindow = document.createElement('div');
     const input = document.createElement('input');
+    activeWindow.className = 'activeWindow';
     input.classList.add('input');
     input.placeholder = 'Enter date: YYYYMMDD';
 
-    main.append(input);
+    activeWindow.append(input);
+    modal__container.append(activeWindow);
 
     const alertText = document.createElement('span');
     alertText.textContent = 'Enter a date in the range from 2017 to 2025';
     alertText.classList.add('alertInput');
 
-    main.append(alertText);
+    activeWindow.append(alertText);
 
     let result = '';
 
@@ -18,7 +21,7 @@ export const getDayOffAPI = () => {
     submitButton.textContent = 'Enter';
     submitButton.classList.add('submitBtn');
 
-    main.append(submitButton);
+    activeWindow.append(submitButton);
 
     submitButton.addEventListener('click', () => {
         const span = document.createElement('span');
@@ -26,7 +29,7 @@ export const getDayOffAPI = () => {
 
         const url = `https://isdayoff.ru/${spanText}`;
 
-        main.append(span);
+        activeWindow.append(span);
 
         fetch(url)
             .then((resp) => resp.json())
@@ -53,6 +56,6 @@ export const getDayOffAPI = () => {
             div.textContent = 'This day is a holiday';
         } else throw new Error('smth went wrong');
 
-        main.append(div);
+        activeWindow.append(div);
     };
 };

@@ -7,6 +7,13 @@
     height: 90px;
     display: flex;
 }
+.modal__container {
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    top: 50%;
+    left: 50%;
+    display: flex;
+}
 .main {
     background-color: plum;
     position: absolute;
@@ -26,6 +33,9 @@
     width: 800px;
     height: 500px;
     display: none;
+}
+.active {
+    display: block;
 }
 .normDiv {
     position: absolute;

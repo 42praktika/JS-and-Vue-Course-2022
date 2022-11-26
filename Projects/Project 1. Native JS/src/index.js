@@ -35,7 +35,7 @@ const renderButtons = () => {
 };
 
 const renderModals = () => {
-    const main = document.querySelector('.main');
+    const main = document.querySelector('.modal__container-in');
 
     MODALS.forEach((elem) => {
         const modal = document.createElement('div');
@@ -61,6 +61,8 @@ const renderModals = () => {
                 ModalState.openedModalApi = MODALS[currentOpenedModalIndex - 1].api;
             }
 
+            renderAPI();
+
             event.stopPropagation();
         });
 
@@ -74,11 +76,15 @@ const renderModals = () => {
                 ModalState.openedModalApi = MODALS[currentOpenedModalIndex + 1].api;
             }
 
+            renderAPI()
+
             event.stopPropagation();
         });
 
         closeButton.addEventListener('click', (event) => {
             closeModal();
+
+            removeAPI()
 
             event.stopPropagation();
         });
@@ -94,14 +100,25 @@ const renderModals = () => {
 
 };
 
+const removeAPI = () => {
+    const modal__container = document.querySelector('.modal__container');
+    const activeWindow = document.querySelector('.activeWindow');
+
+    if (modal__container.childElementCount > 1) {
+        modal__container.removeChild(activeWindow);
+    }
+};
+
 const renderAPI = () => {
+    removeAPI();
+
     if (ModalState.openedModalApi === MODAL_APIS.CAT_API) {
         getCatAPI();
     } else if (ModalState.openedModalApi === MODAL_APIS.DAY_OFF_API) {
         getDayOffAPI();
     } else if (ModalState.openedModalApi === MODAL_APIS.IQA_API) {
         getRickAndMortyAPI();
-    } else throw new Error('smth went wrong');
+    }
 };
 
 renderButtons();

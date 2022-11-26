@@ -8,12 +8,14 @@ watch(ModalState, 'openedModalApi', () => {
     const allModals = document.querySelectorAll('.modal');
 
     allModals.forEach((elem) => {
-        elem.style.display = 'none';
+        //elem.style.display = 'none';
+        elem.classList.remove('active');
     });
 
     if (ModalState.openedModalApi !== MODAL_APIS.NONE) {
         const modal = document.querySelector(`.modal[data-type="${ModalState.openedModalApi}"]`);
 
-        modal.style.display = 'block';
+        modal.classList.add('active');
+        //modal.style.display = 'block';
     }
 });

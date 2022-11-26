@@ -3,7 +3,9 @@ export const getRickAndMortyAPI = () => {
     let randomNumber = Math.floor(Math.random() * 43) + 1;
     const url = `https://rickandmortyapi.com/api/character/?page=${randomNumber}`;
 
-    const main = document.querySelector('.main');
+    const modal__container = document.querySelector('.modal__container');
+    const activeWindow = document.createElement('div');
+    activeWindow.className = 'activeWindow';
     const div = document.createElement('div');
     const img = document.createElement('img');
     const ul = document.createElement('ul');
@@ -34,5 +36,6 @@ export const getRickAndMortyAPI = () => {
             throw new Error('smth went wrong');
         });
 
-    main.append(div);
+    activeWindow.append(div);
+    modal__container.append(activeWindow);
 };
