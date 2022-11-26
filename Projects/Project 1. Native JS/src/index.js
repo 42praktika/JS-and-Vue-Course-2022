@@ -6,6 +6,7 @@ import './js/watchers/ModalWatcher';
 import './index.css';
 import { getCatAPI } from './js/api/CatApi';
 import { getDayOffAPI } from "./js/api/DayOffApi";
+import { getRickAndMortyAPI } from "./js/api/RickAndMortyApi";
 
 const closeModal = () => {
     ModalState.openedModalApi = MODAL_APIS.NONE;
@@ -98,7 +99,9 @@ const renderAPI = () => {
         getCatAPI();
     } else if (ModalState.openedModalApi === MODAL_APIS.DAY_OFF_API) {
         getDayOffAPI();
-    }
+    } else if (ModalState.openedModalApi === MODAL_APIS.IQA_API) {
+        getRickAndMortyAPI();
+    } else throw new Error('smth went wrong');
 };
 
 renderButtons();

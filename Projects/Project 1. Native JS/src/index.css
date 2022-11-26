@@ -27,6 +27,14 @@
     height: 500px;
     display: none;
 }
+.normDiv {
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 350px;
+}
 .btn {
     background-color: gray;
     text-align: center;
@@ -82,4 +90,10 @@
     height: 250px;
     border-radius: 10px;
     border: 1px solid black;
+}
+.alertInput {
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    top: 25%;
+    left: 49%;
 }
