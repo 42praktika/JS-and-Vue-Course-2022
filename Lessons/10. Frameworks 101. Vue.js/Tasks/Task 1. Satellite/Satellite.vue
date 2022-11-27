@@ -4,18 +4,15 @@
             <span>Радиус орбиты спутника:</span>
             <!--Начало-->
             <input type="text" class="form-control" v-model="text" >
-            <span>
-              km
-            </span>
+            <span>км</span>
             <!--Конец-->
         </div>
         <div class="satellite__speed">
             <h3>Требуемая скорость спутника:</h3>
-            <!--Начало-->
-                <div>
-                  {{ speed }} м/с
-                </div>
-            <!--Конец-->
+            <div>
+
+                {{ speed }} м/с
+            </div>
             <img src="https://mediasat.info/wp-content/uploads/2015/06/sat-orbit.jpg"/>
         </div>
     </div>

@@ -1,17 +1,43 @@
 <template>
     <div class="time-killer">
         <!--Начало-->
+        <TimeElement
+            class="times-container__item"
+            :times-items="timesItems"
+        />
+        <button
+            type="button"
+            class="btn btn-warning"
+            @click="onAddTime"
+        >
+            Добавить время!
+        </button>
 
         <!--Конец-->
     </div>
 </template>
 
 <script>
+import TimeElement from "./TimeElement";
 export default {
     name: 'TimeKiller',
-    // Начало
+    components: {TimeElement},
+    data () {
+        return {
+            timesItems: [
+                { id:0, text:'Fri Oct 1 2049 16:06:28 GMT+0300 (Moscow Standard Time)' },
+            ],
+            maxIndex: 0,
 
-    // Конец
+        };
+    },
+    methods: {
+        onAddTime () {
+          this.maxIndex += 1;
+          this.timesItems.push({ id: this.maxIndex, text: 'Fri Oct 1 2049 16:06:28 GMT+0300 (Moscow Standard Time)' });
+        }
+    }
+
 };
 </script>
 
