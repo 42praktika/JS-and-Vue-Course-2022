@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <style>
+            #app {
+                margin: 40px;
+                display: flex;
+                align-items: center;
+            }
+        </style>
+        <title>Refs</title>
+    </head>
+    <body>
+        <div id="app">
+            <div class="container">
+                <div ref="description">
+                    Описание страницы
+                </div>
+                <user-block ref="userBlock"></user-block>
+            </div>
+        </div>
+
+        <script>
+            Vue.component('user-block', {
+                template: '<div>User Block</div>',
+                data() {
+                    return {
+                        blockData: 'some data',
+                    };
+                },
+                methods: {
+                    updateUser() {
+                        alert('updateUser works!');
+                    },
+                },
+            });
+
+            const app = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        count: 0,
+                    };
+                },
+                mounted() {
+                    const descriptionHeight = this.$refs.description.offsetHeight;
+                    alert(descriptionHeight);
+
+                    this.$refs.userBlock.updateUser();
+                },
+            });
+        </script>
+    </body>
+</html>

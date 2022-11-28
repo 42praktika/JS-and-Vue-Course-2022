@@ -1,0 +1,1663 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div
+  class="quotes"
+>
+  <h3>
+    Введите текст для поиск по нему цитат
+  </h3>
+   
+  <input
+    class="form-control form-control-lg"
+    placeholder="Жизнь"
+    type="text"
+  />
+   
+  <div
+    class="quotes__container"
+  >
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Настойчивость очень важна. Вы не должны сдаваться, если только не вынуждены сдаться."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Илон Маск
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Проблемы — это спрятанные решения."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Павел Дуров
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Если вы не желаете слышать критику, пожалуйста, не делайте ничего нового."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Джефф Безос
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Если вы предпринимаете только те действия, результат которых известен вам заранее, долго ваш бизнес не протянет."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Джефф Безос
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "В мире, который меняется очень быстро, единственная стратегия, которая гарантированно провальна — не рисковать"
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Марк Цукерберг
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    " Если бы я мог прожить жизнь заново, я был бы сантехником."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Альберт Эйнштейн
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Ты не несешь ответственности за то, чего ждут от тебя другие люди. Если от тебя ждут слишком многого, то это их ошибка, а не твоя вина."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Ричард Фейнман
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Если вы ученый, квантовый физик и не можете в двух словах объяснить пятилетнему ребенку, чем вы занимаетесь, — вы шарлатан"
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Ричард Фейнман
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Мне всегда нравилось преуспевать в том, что у меня никак не должно было получиться."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Ричард Фейнман
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "В жизни нет ничего, чего стоило бы бояться, есть только то, что нужно понять."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Мария Кюри-Склодовская
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Мне кажется, каждый призван заниматься одним делом на Земле."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Жан-Поль Бельмондо
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Важно помнить: всякий раз, когда ты покупаешь что-то, ты на сто процентов поддерживаешь политику той компании, которая произвела эту вещь."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Леонардо Ди Каприо
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Деньги — странная вещь. Люди, которые не имеют их, сильно к ним стремятся. Люди, которые их имеют, имеют также много проблем."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Айртон Сенна
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Никто из нас не хотел быть бас-гитаристом. В нашем представлении это был толстый парень, который играл где-то сзади."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Пол Маккартни
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Я всё время что-то пишу. Потому что я помешан на мысли, что мы должны стать ещё лучше."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Крис Мартин
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "С тех пор прошло 80 лет и я по-прежнему задаю себе этот же вопрос. Что же такое электричество?), но не в состоянии ответить на него."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Никола Тесла
+                
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`12.h.1 MyDirective 12.h.1.3 text 'оч' 1`] = `
+<div
+  class="quotes"
+>
+  <h3>
+    Введите текст для поиск по нему цитат
+  </h3>
+   
+  <input
+    class="form-control form-control-lg"
+    placeholder="Жизнь"
+    type="text"
+  />
+   
+  <div
+    class="quotes__container"
+  >
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Настойчивость 
+        <span>
+          оч
+        </span>
+        ень важна. Вы не должны сдаваться, если только не вынуждены сдаться."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Илон Маск
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Проблемы — это спрятанные решения."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Павел Дуров
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Если вы не желаете слышать критику, пожалуйста, не делайте ничего нового."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Джефф Безос
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Если вы предпринимаете только те действия, результат которых известен вам заранее, долго ваш бизнес не протянет."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Джефф Безос
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "В мире, который меняется 
+        <span>
+          оч
+        </span>
+        ень быстро, единственная стратегия, которая гарантированно провальна — не рисковать"
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Марк Цукерберг
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    " Если бы я мог прожить жизнь заново, я был бы сантехником."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Альберт Эйнштейн
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Ты не несешь ответственности за то, чего ждут от тебя другие люди. Если от тебя ждут слишком многого, то это их ошибка, а не твоя вина."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Ричард Фейнман
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Если вы ученый, квантовый физик и не можете в двух словах объяснить пятилетнему ребенку, чем вы занимаетесь, — вы шарлатан"
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Ричард Фейнман
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Мне всегда нравилось преуспевать в том, что у меня никак не должно было получиться."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Ричард Фейнман
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "В жизни нет ничего, чего стоило бы бояться, есть только то, что нужно понять."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Мария Кюри-Склодовская
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Мне кажется, каждый призван заниматься одним делом на Земле."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Жан-Поль Бельмондо
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Важно помнить: всякий раз, когда ты покупаешь что-то, ты на сто процентов поддерживаешь политику той компании, которая произвела эту вещь."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Леонардо Ди Каприо
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Деньги — странная вещь. Люди, которые не имеют их, сильно к ним стремятся. Люди, которые их имеют, имеют также много проблем."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Айртон Сенна
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Никто из нас не хотел быть бас-гитаристом. В нашем представлении это был толстый парень, который играл где-то сзади."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Пол Маккартни
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Я всё время что-то пишу. Потому что я помешан на мысли, что мы должны стать ещё лучше."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Крис Мартин
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "С тех пор прошло 80 лет и я по-прежнему задаю себе этот же вопрос. Что же такое электричество?), но не в состоянии ответить на него."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Никола Тесла
+                
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`12.h.1 MyDirective 12.h.1.4 text 'нет результатов' 1`] = `
+<div
+  class="quotes"
+>
+  <h3>
+    Введите текст для поиск по нему цитат
+  </h3>
+   
+  <input
+    class="form-control form-control-lg"
+    placeholder="Жизнь"
+    type="text"
+  />
+   
+  <div
+    class="quotes__container"
+  >
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Настойчивость очень важна. Вы не должны сдаваться, если только не вынуждены сдаться."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Илон Маск
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Проблемы — это спрятанные решения."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Павел Дуров
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Если вы не желаете слышать критику, пожалуйста, не делайте ничего нового."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Джефф Безос
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Если вы предпринимаете только те действия, результат которых известен вам заранее, долго ваш бизнес не протянет."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Джефф Безос
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "В мире, который меняется очень быстро, единственная стратегия, которая гарантированно провальна — не рисковать"
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Марк Цукерберг
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    " Если бы я мог прожить жизнь заново, я был бы сантехником."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Альберт Эйнштейн
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Ты не несешь ответственности за то, чего ждут от тебя другие люди. Если от тебя ждут слишком многого, то это их ошибка, а не твоя вина."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Ричард Фейнман
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Если вы ученый, квантовый физик и не можете в двух словах объяснить пятилетнему ребенку, чем вы занимаетесь, — вы шарлатан"
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Ричард Фейнман
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Мне всегда нравилось преуспевать в том, что у меня никак не должно было получиться."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Ричард Фейнман
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "В жизни нет ничего, чего стоило бы бояться, есть только то, что нужно понять."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Мария Кюри-Склодовская
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Мне кажется, каждый призван заниматься одним делом на Земле."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Жан-Поль Бельмондо
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Важно помнить: всякий раз, когда ты покупаешь что-то, ты на сто процентов поддерживаешь политику той компании, которая произвела эту вещь."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Леонардо Ди Каприо
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Деньги — странная вещь. Люди, которые не имеют их, сильно к ним стремятся. Люди, которые их имеют, имеют также много проблем."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Айртон Сенна
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Никто из нас не хотел быть бас-гитаристом. В нашем представлении это был толстый парень, который играл где-то сзади."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Пол Маккартни
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Я всё время что-то пишу. Потому что я помешан на мысли, что мы должны стать ещё лучше."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Крис Мартин
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "С тех пор прошло 80 лет и я по-прежнему задаю себе этот же вопрос. Что же такое электричество?), но не в состоянии ответить на него."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Никола Тесла
+                
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`12.h.1 MyDirective 12.h.1.5 text 'а' 1`] = `
+<div
+  class="quotes"
+>
+  <h3>
+    Введите текст для поиск по нему цитат
+  </h3>
+   
+  <input
+    class="form-control form-control-lg"
+    placeholder="Жизнь"
+    type="text"
+  />
+   
+  <div
+    class="quotes__container"
+  >
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Н
+        <span>
+          а
+        </span>
+        стойчивость очень в
+        <span>
+          а
+        </span>
+        жн
+        <span>
+          а
+        </span>
+        . Вы не должны сд
+        <span>
+          а
+        </span>
+        в
+        <span>
+          а
+        </span>
+        ться, если только не вынуждены сд
+        <span>
+          а
+        </span>
+        ться."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Илон Маск
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Проблемы — это спрят
+        <span>
+          а
+        </span>
+        нные решения."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Павел Дуров
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Если вы не жел
+        <span>
+          а
+        </span>
+        ете слыш
+        <span>
+          а
+        </span>
+        ть критику, пож
+        <span>
+          а
+        </span>
+        луйст
+        <span>
+          а
+        </span>
+        , не дел
+        <span>
+          а
+        </span>
+        йте ничего нового."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Джефф Безос
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Если вы предприним
+        <span>
+          а
+        </span>
+        ете только те действия, результ
+        <span>
+          а
+        </span>
+        т которых известен в
+        <span>
+          а
+        </span>
+        м з
+        <span>
+          а
+        </span>
+        р
+        <span>
+          а
+        </span>
+        нее, долго в
+        <span>
+          а
+        </span>
+        ш бизнес не протянет."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Джефф Безос
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "В мире, который меняется очень быстро, единственн
+        <span>
+          а
+        </span>
+        я стр
+        <span>
+          а
+        </span>
+        тегия, котор
+        <span>
+          а
+        </span>
+        я г
+        <span>
+          а
+        </span>
+        р
+        <span>
+          а
+        </span>
+        нтиров
+        <span>
+          а
+        </span>
+        нно пров
+        <span>
+          а
+        </span>
+        льн
+        <span>
+          а
+        </span>
+         — не рисков
+        <span>
+          а
+        </span>
+        ть"
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Марк Цукерберг
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    " Если бы я мог прожить жизнь з
+        <span>
+          а
+        </span>
+        ново, я был бы с
+        <span>
+          а
+        </span>
+        нтехником."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Альберт Эйнштейн
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Ты не несешь ответственности з
+        <span>
+          а
+        </span>
+         то, чего ждут от тебя другие люди. Если от тебя ждут слишком многого, то это их ошибк
+        <span>
+          а
+        </span>
+        , 
+        <span>
+          а
+        </span>
+         не твоя вин
+        <span>
+          а
+        </span>
+        ."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Ричард Фейнман
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Если вы ученый, кв
+        <span>
+          а
+        </span>
+        нтовый физик и не можете в двух слов
+        <span>
+          а
+        </span>
+        х объяснить пятилетнему ребенку, чем вы з
+        <span>
+          а
+        </span>
+        ним
+        <span>
+          а
+        </span>
+        етесь, — вы ш
+        <span>
+          а
+        </span>
+        рл
+        <span>
+          а
+        </span>
+        т
+        <span>
+          а
+        </span>
+        н"
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Ричард Фейнман
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Мне всегд
+        <span>
+          а
+        </span>
+         нр
+        <span>
+          а
+        </span>
+        вилось преуспев
+        <span>
+          а
+        </span>
+        ть в том, что у меня ник
+        <span>
+          а
+        </span>
+        к не должно было получиться."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Ричард Фейнман
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style="display: none;"
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "В жизни нет ничего, чего стоило бы бояться, есть только то, что нужно понять."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Мария Кюри-Склодовская
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Мне к
+        <span>
+          а
+        </span>
+        жется, к
+        <span>
+          а
+        </span>
+        ждый призв
+        <span>
+          а
+        </span>
+        н з
+        <span>
+          а
+        </span>
+        ним
+        <span>
+          а
+        </span>
+        ться одним делом н
+        <span>
+          а
+        </span>
+         Земле."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Жан-Поль Бельмондо
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "В
+        <span>
+          а
+        </span>
+        жно помнить: всякий р
+        <span>
+          а
+        </span>
+        з, когд
+        <span>
+          а
+        </span>
+         ты покуп
+        <span>
+          а
+        </span>
+        ешь что-то, ты н
+        <span>
+          а
+        </span>
+         сто процентов поддержив
+        <span>
+          а
+        </span>
+        ешь политику той комп
+        <span>
+          а
+        </span>
+        нии, котор
+        <span>
+          а
+        </span>
+        я произвел
+        <span>
+          а
+        </span>
+         эту вещь."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Леонардо Ди Каприо
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Деньги — стр
+        <span>
+          а
+        </span>
+        нн
+        <span>
+          а
+        </span>
+        я вещь. Люди, которые не имеют их, сильно к ним стремятся. Люди, которые их имеют, имеют т
+        <span>
+          а
+        </span>
+        кже много проблем."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Айртон Сенна
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Никто из н
+        <span>
+          а
+        </span>
+        с не хотел быть б
+        <span>
+          а
+        </span>
+        с-гит
+        <span>
+          а
+        </span>
+        ристом. В н
+        <span>
+          а
+        </span>
+        шем предст
+        <span>
+          а
+        </span>
+        влении это был толстый п
+        <span>
+          а
+        </span>
+        рень, который игр
+        <span>
+          а
+        </span>
+        л где-то сз
+        <span>
+          а
+        </span>
+        ди."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Пол Маккартни
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "Я всё время что-то пишу. Потому что я помеш
+        <span>
+          а
+        </span>
+        н н
+        <span>
+          а
+        </span>
+         мысли, что мы должны ст
+        <span>
+          а
+        </span>
+        ть ещё лучше."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Крис Мартин
+                
+      </div>
+    </div>
+    <div
+      class="quotes__quote-block"
+      style=""
+    >
+      <div
+        class="quotes__quote-text"
+      >
+        
+                    "С тех пор прошло 80 лет и я по-прежнему з
+        <span>
+          а
+        </span>
+        д
+        <span>
+          а
+        </span>
+        ю себе этот же вопрос. Что же т
+        <span>
+          а
+        </span>
+        кое электричество?), но не в состоянии ответить н
+        <span>
+          а
+        </span>
+         него."
+                
+      </div>
+       
+      <div
+        class="quotes__quote-author"
+      >
+        
+                    (c) Никола Тесла
+                
+      </div>
+    </div>
+  </div>
+</div>
+`;
