@@ -2,7 +2,10 @@
     <div class="time-killer">
         <!--Начало-->
         <button type="button" class="btn btn-warning" @click="appendDate">Добавить время!</button>
-        <TimeElement :dates="dates"></TimeElement>
+        <TimeElement
+            :dates="dates"
+            @remove="deleteTimeElement">
+        </TimeElement>
         <!--Конец-->
     </div>
 </template>
@@ -22,11 +25,14 @@ export default {
       };
     },
     methods: {
-      appendDate() {
+        appendDate() {
         const date = new Date();
         this.dates.push(date);
         this.dates = this.dates.slice();
-      }
+        },
+        deleteTimeElement(index) {
+            this.dates.splice(index, 1);
+        }
     }
     // Конец
 };

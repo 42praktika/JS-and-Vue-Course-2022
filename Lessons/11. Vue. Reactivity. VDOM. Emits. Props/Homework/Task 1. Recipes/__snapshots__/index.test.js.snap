@@ -3,7 +3,221 @@
 exports[` 1`] = `
 <div
   class="recipes"
-/>
+>
+  <div
+    class="recipe-form"
+  >
+    <h3>
+      
+        Создать новый рецепт
+    
+    </h3>
+     
+    <div
+      class="recipe-form__block"
+    >
+      <label
+        class="form-label"
+      >
+        
+            Название нового рецепта
+        
+      </label>
+       
+      <input
+        class="form-control recipe-form__name"
+        type="text"
+      />
+    </div>
+     
+    <div
+      class="recipe-form__block"
+    >
+      <label
+        class="form-label"
+      >
+        
+            Ингредиенты
+        
+      </label>
+       
+      <textarea
+        class="form-control recipe-form__ingredients"
+      />
+    </div>
+     
+    <div
+      class="recipe-form__block"
+    >
+      <label
+        class="form-label"
+      >
+        
+            Последовательность действий
+        
+      </label>
+       
+      <textarea
+        class="form-control recipe-form__recipe-text"
+      />
+    </div>
+     
+    <div
+      class="recipe-form__block"
+    >
+      <label
+        class="form-label"
+      >
+        
+            Время приготовления
+        
+      </label>
+       
+      <select
+        class="form-select recipe-form__cook-time"
+      >
+        <option
+          value="1"
+        >
+          
+                5 минут
+            
+        </option>
+        <option
+          value="2"
+        >
+          
+                10 минут
+            
+        </option>
+        <option
+          value="3"
+        >
+          
+                15 минут
+            
+        </option>
+        <option
+          value="4"
+        >
+          
+                20 минут
+            
+        </option>
+        <option
+          value="5"
+        >
+          
+                30 минут
+            
+        </option>
+        <option
+          value="6"
+        >
+          
+                40 минут
+            
+        </option>
+        <option
+          value="7"
+        >
+          
+                50 минут
+            
+        </option>
+        <option
+          value="8"
+        >
+          
+                1 час
+            
+        </option>
+        <option
+          value="9"
+        >
+          
+                1,5 часа
+            
+        </option>
+        <option
+          value="10"
+        >
+          
+                2 часа
+            
+        </option>
+        <option
+          value="11"
+        >
+          
+                2,5 часа
+            
+        </option>
+        <option
+          value="12"
+        >
+          
+                3 часа
+            
+        </option>
+        <option
+          value="13"
+        >
+          
+                Бесконечность
+            
+        </option>
+      </select>
+    </div>
+     
+    <div
+      class="recipe-form__block"
+    >
+      <input
+        class="form-check-input"
+        type="checkbox"
+      />
+       
+      <label
+        class="form-check-label"
+      >
+        
+            Вегетарианское блюдо
+        
+      </label>
+    </div>
+     
+    <div
+      class="recipe-form__block"
+    >
+      <button
+        class="btn btn-dark recipe-form__add-button"
+      >
+        
+            Добавить рецепт
+        
+      </button>
+    </div>
+  </div>
+   
+  <div
+    class="recipe-container"
+  >
+    <h3>
+      
+        Мои рецепты
+    
+    </h3>
+     
+    <div
+      class="recipe-container__no-recipes"
+    >
+      
+        Рецептов нет
+    
+    </div>
+  </div>
+</div>
 `;
 
 exports[`11.h.1 Recipes 11.h.1.3 add first recipe 1`] = `

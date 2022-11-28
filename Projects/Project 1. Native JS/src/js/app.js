@@ -39,7 +39,7 @@ const app = () => {
         else if (event.target === closeButton || canClose(modalWindow, event.target)) {
             state.status = 'closed';
         }
-    })
+    });
 
     watchState(state);
 }
