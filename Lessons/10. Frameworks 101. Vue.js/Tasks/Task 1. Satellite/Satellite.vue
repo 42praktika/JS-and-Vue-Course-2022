@@ -2,13 +2,13 @@
     <div class="satellite">
         <div class="satellite__radius">
             <span>Радиус орбиты спутника:</span>
-            <input type="text" class="form-control" @input="getAnswer()" v-model="inputCurrentData">
+            <input type="text" class="form-control" @input="getAnswer()" v-model="currentRadius">
             <span>км</span>
         </div>
         <div class="satellite__speed">
             <h3>Требуемая скорость спутника:</h3>
             <div>
-                {{ outputCurrentData }}
+                {{ outputCurrentData }} м/с
             </div>
             <img src="https://mediasat.info/wp-content/uploads/2015/06/sat-orbit.jpg"/>
         </div>
@@ -20,13 +20,15 @@ export default {
     name: 'Satellite',
     data() {
       return {
-        inputCurrentData: '',
-        outputCurrentData: ''
+        currentRadius: 0,
+        outputCurrentData: 0,
+        G: 6.67 * Math.pow(10, -11),
+        M: 6 * Math.pow(10, 24),
       }
     },
     methods: {
       getAnswer() {
-        this.outputCurrentData = (Math.sqrt((6 * Math.pow(10, 24) * 6.67 * Math.pow(10, -11)) / Number(this.inputCurrentData))).toFixed(0) + " м/с";
+        this.outputCurrentData = Math.round(Math.sqrt(this.G * (this.M / this.currentRadius / 1000)) / 1000);
       }
     }
 
