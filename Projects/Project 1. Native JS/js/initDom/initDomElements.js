@@ -100,7 +100,6 @@ const closeModal = () => {
 export const initModalsForApi = () => {
     const modalContent = document.querySelectorAll('.modal__content');
     const imgOfDog = document.createElement('img');
-    imgOfDog.src = 'https://img1.fonwall.ru/o/it/animals-snow-winter-dog.jpeg'
     const button = document.createElement('button');
     button.classList.add('btn-dogs');
     button.textContent = 'Получить собаку!';
@@ -112,21 +111,28 @@ export const initModalsForApi = () => {
     const divInfoElement = document.createElement('div');
 
     divInfoElement.classList.add('information-RickAndMorty');
-    for (let item in stateInfoRickAndMorty) {
+    for (let item in stateInfoRickAndMorty.data) {
         const divElementInfo = document.createElement('div');
-        divElementInfo.classList.add(stateInfoRickAndMorty[item])
+        divElementInfo.classList.add(stateInfoRickAndMorty.data[item])
         divInfoElement.append(divElementInfo);
     }
     const divImg = document.createElement('div');
     divImg.classList.add('img-div');
     const imgRickAndMorty = document.createElement('img');
-    imgRickAndMorty.src = 'https://rickandmortyapi.com/api/character/avatar/1.jpeg';
     imgRickAndMorty.classList.add('img-RickAndMorty');
     divImg.append(imgRickAndMorty);
     divSelectElement.classList.add('div-select')
     modalContent[1].append(divSelectElement,divImg,divInfoElement);
     selectElement.classList.add('select-RickAndMorty');
     divSelectElement.append(selectElement);
+
+    const optionElementDefault = document.createElement('option');
+    optionElementDefault.classList.add('option-RickAndMorty');
+    optionElementDefault.value = -1;
+    optionElementDefault.textContent = 'Выберите персонажа';
+    optionElementDefault.setAttribute('disabled','disabled');
+    optionElementDefault.setAttribute('selected','true');
+    selectElement.append(optionElementDefault);
 
     ARRAY_RICKANDMORTY.forEach((item, index) => {
         const optionElement = document.createElement('option');
@@ -138,9 +144,9 @@ export const initModalsForApi = () => {
 
     const divGetApiElement = document.createElement('div');
     divGetApiElement.classList.add('div-apiInfo');
-    for (const item in stateGetApiInfo) {
+    for (const item in stateGetApiInfo.data) {
         const divApiInfo = document.createElement('div');
-        divApiInfo.classList.add(stateGetApiInfo[item])
+        divApiInfo.classList.add(item)
         divGetApiElement.append(divApiInfo);
     }
     const inputElement = document.createElement('input');

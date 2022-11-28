@@ -6,15 +6,15 @@ export const MODALS_TYPES = {
 }
 export const BUTTONS = [
     {
-        text: 'Кнопка 1',
+        text: 'Собаки',
         type: MODALS_TYPES.DOGS,
     },
     {
-        text: 'Кнопка 2',
+        text: 'Рик и Морти',
         type: MODALS_TYPES.RickAndMorty,
     },
     {
-        text: 'Кнопка 3',
+        text: 'Get IP',
         type: MODALS_TYPES.GET_IP,
     }
 ]

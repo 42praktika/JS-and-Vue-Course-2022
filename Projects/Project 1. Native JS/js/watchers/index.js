@@ -1,5 +1,5 @@
 import WatchJS from 'melanke-watchjs';
-import state, {stateGetApiInfo} from "../state";
+import state, {stateGetApiInfo, stateInfoRickAndMorty, stateImageDogs} from "../state";
 import {MODALS_TYPES} from "../const";
 
 const watch = WatchJS.watch;
@@ -14,61 +14,38 @@ watch(state, 'openedModalType', () => {
         modal.classList.add('modal__active');
     }
 });
-export const watchStateOfImage = (stateImage) => {
-    watch(stateImage,'imageDogs',() => {
+export const watchStateOfImage = () => {
+    watch(stateImageDogs,'imageDogs',() => {
         document.querySelector('.img-dog').
-        setAttribute('src', stateImage.imageDogs);
+        setAttribute('src', stateImageDogs.imageDogs);
     })
 }
-export const watchStateOfRickAndMorty = (stateImage) => {
-    watch(stateImage, 'imageRickAndMorty', () => {
+export const watchStateOfRickAndMorty = () => {
+    watch(stateInfoRickAndMorty, 'url', () => {
         document.querySelector('.img-RickAndMorty')
-            .setAttribute('src', stateImage.imageRickAndMorty);
-    })
-}
-export const watchStateOfInformationName = (stateInfoRickAndMorty) => {
-    watch(stateInfoRickAndMorty, 'name', () => {
-        document.querySelector('.name').textContent = `name: ${stateInfoRickAndMorty.name}`;
-    })
-}
-export const watchStateOfInformationStatus = (stateInfoRickAndMorty) => {
-    watch(stateInfoRickAndMorty, 'status', () => {
-        document.querySelector('.status').textContent = `status: ${stateInfoRickAndMorty.status}`;
-    })
-}
-export const watchStateOfInformationSpecies = (stateInfoRickAndMorty) => {
-    watch(stateInfoRickAndMorty, 'species', () => {
-        document.querySelector('.species').textContent = `species: ${stateInfoRickAndMorty.species}`;
-    })
-}
-export const watchStateOfInformationGender = (stateInfoRickAndMorty) => {
-    watch(stateInfoRickAndMorty, 'gender', () => {
-        document.querySelector('.gender').textContent = `gender: ${stateInfoRickAndMorty.gender}`;
+            .setAttribute('src', stateInfoRickAndMorty.url.imageRickAndMorty);
     })
 }
 
-export const watchStateOfApiInfoCity = (stateGetApiInfo) => {
-    watch(stateGetApiInfo, 'city', () => {
-        document.querySelector('.city').textContent = `Город: ${stateGetApiInfo.city}`;
+export const watchStateOfInformationRickAndMorty = () => {
+    watch(stateInfoRickAndMorty, 'data', () => {
+        document.querySelector('.gender').textContent = `gender: ${stateInfoRickAndMorty.data.gender}`;
+        document.querySelector('.species').textContent = `species: ${stateInfoRickAndMorty.data.species}`;
+        document.querySelector('.status').textContent = `status: ${stateInfoRickAndMorty.data.status}`;
+        document.querySelector('.name').textContent = `name: ${stateInfoRickAndMorty.data.name}`;
     })
 }
-export const watchStateOfApiInfoRegion = (stateGetApiInfo) => {
-    watch(stateGetApiInfo, 'region', () => {
-        document.querySelector('.region').textContent = `Регион: ${stateGetApiInfo.region}`;
-    })
-}
-export const watchStateOfApiInfoCountry = (stateGetApiInfo) => {
-    watch(stateGetApiInfo, 'country', () => {
-        document.querySelector('.country').textContent = `Страна: ${stateGetApiInfo.country}`;
-    })
-}
-export const watchStateOfApiInfoTimeZone = (stateGetApiInfo) => {
-    watch(stateGetApiInfo, 'timezone', () => {
-        document.querySelector('.timezone').textContent = `Часовой пояс: ${stateGetApiInfo.timezone}`;
-    })
-}
-export const watchStateOfApiInfoContinent = (stateGetApiInfo) => {
-    watch(stateGetApiInfo, 'continent', () => {
-        document.querySelector('.continent').textContent = `Континент: ${stateGetApiInfo.continent}`;
+
+export const watchStateOfApiInfo = () => {
+    watch(stateGetApiInfo, 'data', () => {
+        if (stateGetApiInfo.data === null) {
+            alert('Неправильно введен ip!');
+        } else {
+            document.querySelector('.continent').textContent = `Континент: ${stateGetApiInfo.data.continent}`;
+            document.querySelector('.city').textContent = `Город: ${stateGetApiInfo.data.city}`;
+            document.querySelector('.region').textContent = `Регион: ${stateGetApiInfo.data.region}`;
+            document.querySelector('.country').textContent = `Страна: ${stateGetApiInfo.data.country}`;
+            document.querySelector('.timezone').textContent = `Часовой пояс: ${stateGetApiInfo.data.timezone}`;
+        }
     })
 }

@@ -1,16 +1,9 @@
-import {stateImage, stateInfoRickAndMorty, stateGetApiInfo} from "../state";
+import {stateInfoRickAndMorty, stateGetApiInfo, stateImageDogs} from "../state";
 import {
     watchStateOfImage,
-    watchStateOfInformationName,
     watchStateOfRickAndMorty,
-    watchStateOfInformationGender,
-    watchStateOfInformationSpecies,
-    watchStateOfInformationStatus,
-    watchStateOfApiInfoTimeZone,
-    watchStateOfApiInfoCity,
-    watchStateOfApiInfoContinent,
-    watchStateOfApiInfoCountry,
-    watchStateOfApiInfoRegion
+    watchStateOfApiInfo,
+    watchStateOfInformationRickAndMorty,
 } from "../watchers";
 import {URL_DOGS, RickAndMortyURL, GET_API_INFO} from "./URL";
 
@@ -29,7 +22,7 @@ export const runModalsApi = () => {
             displayLoading();
             const response = await fetch(URL_DOGS);
             const data = await response.json();
-            stateImage.imageDogs = data.message;
+            stateImageDogs.imageDogs = data.message;
             hideLoading();
         } catch (error) {
             console.log(error);
@@ -42,11 +35,11 @@ export const runModalsApi = () => {
             let targetValue = event.target.value;
             const response = await fetch(RickAndMortyURL);
             const data = await response.json();
-            stateImage.imageRickAndMorty = data.results[targetValue].image;
-            stateInfoRickAndMorty.name = data.results[targetValue].name;
-            stateInfoRickAndMorty.status = data.results[targetValue].status;
-            stateInfoRickAndMorty.species = data.results[targetValue].species;
-            stateInfoRickAndMorty.gender = data.results[targetValue].gender;
+            stateInfoRickAndMorty.url.imageRickAndMorty = data.results[targetValue].image;
+            stateInfoRickAndMorty.data.name = data.results[targetValue].name;
+            stateInfoRickAndMorty.data.status = data.results[targetValue].status;
+            stateInfoRickAndMorty.data.species = data.results[targetValue].species;
+            stateInfoRickAndMorty.data.gender = data.results[targetValue].gender;
         } catch (error) {
             console.log(error);
         }
@@ -59,29 +52,24 @@ export const runModalsApi = () => {
             const inputValue = inputElement.value;
             const response = await fetch(GET_API_INFO + inputValue);
             const data = await response.json();
-            stateGetApiInfo.city = data.city;
-            stateGetApiInfo.country = data.country;
-            stateGetApiInfo.region = data.region;
-            stateGetApiInfo.continent = data.continent;
-            stateGetApiInfo.timezone = data.timezone.id;
+            stateGetApiInfo.data = {
+                city: data.city,
+                country: data.country,
+                region: data.region,
+                continent: data.continent,
+                timezone: data.timezone.id,
+            }
         } catch (error) {
-            alert('Неправильно введен ip!');
+            stateGetApiInfo.data = null;
             console.log(error);
         }
     })
 
 
-    watchStateOfImage(stateImage);
-    watchStateOfRickAndMorty(stateImage);
-    watchStateOfInformationName(stateInfoRickAndMorty);
-    watchStateOfInformationSpecies(stateInfoRickAndMorty);
-    watchStateOfInformationStatus(stateInfoRickAndMorty);
-    watchStateOfInformationGender(stateInfoRickAndMorty);
-    watchStateOfApiInfoCountry(stateGetApiInfo);
-    watchStateOfApiInfoRegion(stateGetApiInfo);
-    watchStateOfApiInfoTimeZone(stateGetApiInfo);
-    watchStateOfApiInfoCity(stateGetApiInfo);
-    watchStateOfApiInfoContinent(stateGetApiInfo);
+    watchStateOfImage();
+    watchStateOfRickAndMorty();
+    watchStateOfInformationRickAndMorty();
+    watchStateOfApiInfo();
 }
 
 
