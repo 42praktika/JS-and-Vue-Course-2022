@@ -1,16 +1,41 @@
 <template>
     <div class="recipes">
         <!--Начало-->
-
+        <NewRecipeForm
+            @addRecipe="addRecipe"
+        />
+        <RecipesContainer
+            :recipes="recipes"
+            @removeRecipe="onRemoveRecipe"
+        />
         <!--Конец-->
     </div>
 </template>
 
 <script>
+import NewRecipeForm from "./components/NewRecipeForm.vue";
+import RecipesContainer from "./components/RecipesContainer.vue";
+
 export default {
     name: 'Recipes',
     // Начало
-
+    components: {
+        RecipesContainer,
+        NewRecipeForm,
+    },
+    data() {
+        return {
+            recipes: [],
+        }
+    },
+    methods: {
+        addRecipe(data) {
+            this.recipes.push(data);
+        },
+        onRemoveRecipe(index) {
+            this.recipes.splice(index, 1)
+        }
+    },
     // Конец
 };
 </script>
