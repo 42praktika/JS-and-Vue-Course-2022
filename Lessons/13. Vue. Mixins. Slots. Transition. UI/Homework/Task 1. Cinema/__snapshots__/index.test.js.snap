@@ -1,0 +1,722 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`13.h.1 Cinema 13.h.1.2 Cinema.vue works correct 1`] = `
+<div
+  class="cinema"
+>
+  <h2>
+    Режиссеры
+  </h2>
+   
+  <div
+    class="cinema__elements"
+  >
+    <div
+      class="card-block"
+    >
+      <div
+        class="card-block__image"
+      >
+        <img
+          src="./assets/directors/nolan.jpg"
+        />
+      </div>
+       
+      <div
+        class="card-block__info"
+      >
+        <div
+          class="director__info-name"
+        >
+          
+            Кристофер Нолан
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Возраст:
+            
+          </span>
+          
+            51
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Место рождения:
+            
+          </span>
+          
+            Лондон, Великобритания
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Фильмы:
+            
+          </span>
+          
+            Интерстеллар, Начало, Помни, Престиж
+        
+        </div>
+      </div>
+    </div>
+    <div
+      class="card-block"
+    >
+      <div
+        class="card-block__image"
+      >
+        <img
+          src="./assets/directors/deltoro.jpg"
+        />
+      </div>
+       
+      <div
+        class="card-block__info"
+      >
+        <div
+          class="director__info-name"
+        >
+          
+            Гильермо дель Торо
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Возраст:
+            
+          </span>
+          
+            57
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Место рождения:
+            
+          </span>
+          
+            Гвадалахара, Мексика
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Фильмы:
+            
+          </span>
+          
+            Мутанты, Форма воды, Тихоокеанский рубеж
+        
+        </div>
+      </div>
+    </div>
+    <div
+      class="card-block"
+    >
+      <div
+        class="card-block__image"
+      >
+        <img
+          src="./assets/directors/tarantino.jpg"
+        />
+      </div>
+       
+      <div
+        class="card-block__info"
+      >
+        <div
+          class="director__info-name"
+        >
+          
+            Квентин Тарантино
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Возраст:
+            
+          </span>
+          
+            58
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Место рождения:
+            
+          </span>
+          
+            Теннесси, США
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Фильмы:
+            
+          </span>
+          
+            Криминальное чтиво, Однажды в Голливуде
+        
+        </div>
+      </div>
+    </div>
+    <div
+      class="card-block"
+    >
+      <div
+        class="card-block__image"
+      >
+        <img
+          src="./assets/directors/skorseze.jpg"
+        />
+      </div>
+       
+      <div
+        class="card-block__info"
+      >
+        <div
+          class="director__info-name"
+        >
+          
+            Мартин Скорсезе
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Возраст:
+            
+          </span>
+          
+            79
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Место рождения:
+            
+          </span>
+          
+            Нью-Йорк, США
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Фильмы:
+            
+          </span>
+          
+            Волк с Уолл-стрит, Славные парни, Ирландец
+        
+        </div>
+      </div>
+    </div>
+    <div
+      class="card-block"
+    >
+      <div
+        class="card-block__image"
+      >
+        <img
+          src="./assets/directors/hayao-miyazakis.jpg"
+        />
+      </div>
+       
+      <div
+        class="card-block__info"
+      >
+        <div
+          class="director__info-name"
+        >
+          
+            Хаяо Миядзаки
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Возраст:
+            
+          </span>
+          
+            80
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Место рождения:
+            
+          </span>
+          
+            Токио, Япония
+        
+        </div>
+         
+        <div>
+          <span
+            class="director__title"
+          >
+            
+                Фильмы:
+            
+          </span>
+          
+            Унесенные призраками, Ходячий замок
+        
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <h2>
+    Фильмы
+  </h2>
+   
+  <div
+    class="cinema__elements"
+  >
+    <div
+      class="card-block"
+    >
+      <div
+        class="card-block__image"
+      >
+        <img
+          src="./assets/movies/interstellar.jpg"
+        />
+      </div>
+       
+      <div
+        class="card-block__info"
+      >
+        <div
+          class="movie__info-name"
+        >
+          
+            Интерстеллар
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Год:
+            
+          </span>
+          
+            2014
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Режиссер:
+            
+          </span>
+          
+            Кристофер Нолан
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Жанр:
+            
+          </span>
+          
+            фантастика, драма, приключения
+        
+        </div>
+      </div>
+    </div>
+    <div
+      class="card-block"
+    >
+      <div
+        class="card-block__image"
+      >
+        <img
+          src="./assets/movies/songofthesea.jpg"
+        />
+      </div>
+       
+      <div
+        class="card-block__info"
+      >
+        <div
+          class="movie__info-name"
+        >
+          
+            Песнь моря
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Год:
+            
+          </span>
+          
+            2014
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Режиссер:
+            
+          </span>
+          
+            Томм Мур
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Жанр:
+            
+          </span>
+          
+            фантастика, мультипликация
+        
+        </div>
+      </div>
+    </div>
+    <div
+      class="card-block"
+    >
+      <div
+        class="card-block__image"
+      >
+        <img
+          src="./assets/movies/lost-in-translation.jpg"
+        />
+      </div>
+       
+      <div
+        class="card-block__info"
+      >
+        <div
+          class="movie__info-name"
+        >
+          
+            Трудности перевода
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Год:
+            
+          </span>
+          
+            2003
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Режиссер:
+            
+          </span>
+          
+            София Коппола
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Жанр:
+            
+          </span>
+          
+            драма, мелодрама
+        
+        </div>
+      </div>
+    </div>
+    <div
+      class="card-block"
+    >
+      <div
+        class="card-block__image"
+      >
+        <img
+          src="./assets/movies/truman-show.jpg"
+        />
+      </div>
+       
+      <div
+        class="card-block__info"
+      >
+        <div
+          class="movie__info-name"
+        >
+          
+            Шоу Трумана
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Год:
+            
+          </span>
+          
+            1998
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Режиссер:
+            
+          </span>
+          
+            Питер Уир
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Жанр:
+            
+          </span>
+          
+            драма, комедия
+        
+        </div>
+      </div>
+    </div>
+    <div
+      class="card-block"
+    >
+      <div
+        class="card-block__image"
+      >
+        <img
+          src="./assets/movies/totoro.jpg"
+        />
+      </div>
+       
+      <div
+        class="card-block__info"
+      >
+        <div
+          class="movie__info-name"
+        >
+          
+            Мой сосед Тоторо
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Год:
+            
+          </span>
+          
+            1988
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Режиссер:
+            
+          </span>
+          
+            Хаяо Миядзаки
+        
+        </div>
+         
+        <div>
+          <span
+            class="movie__title"
+          >
+            
+                Жанр:
+            
+          </span>
+          
+            аниме, мультфильм, фэнтези, приключения, семейный
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`13.h.1 Cinema 13.h.1.3 CardBlock.vue works correct 1`] = `
+<div
+  class="card-block"
+>
+  <div
+    class="card-block__image"
+  />
+   
+  <div
+    class="card-block__info"
+  />
+</div>
+`;
+
+exports[`13.h.1 Cinema 13.h.1.4 DirectorCard.vue works correct 1`] = `
+<div
+  class="card-block"
+>
+  <div
+    class="card-block__image"
+  >
+    <img />
+  </div>
+   
+  <div
+    class="card-block__info"
+  >
+    <div
+      class="director__info-name"
+    >
+      
+            
+        
+    </div>
+     
+    <div>
+      <span
+        class="director__title"
+      >
+        
+                Возраст:
+            
+      </span>
+      
+            
+        
+    </div>
+     
+    <div>
+      <span
+        class="director__title"
+      >
+        
+                Место рождения:
+            
+      </span>
+      
+            
+        
+    </div>
+     
+    <div>
+      <span
+        class="director__title"
+      >
+        
+                Фильмы:
+            
+      </span>
+      
+            
+        
+    </div>
+  </div>
+</div>
+`;
