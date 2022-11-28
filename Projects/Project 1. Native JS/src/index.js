@@ -1,60 +1,92 @@
-// import moduleTransformations from "@babel/preset-env/lib/module-transformations";
+import {buttons, modalWindows, modals} from "./js/consts.js";
+import state from './js/state.js';
+import './js/watchers/watcher.js';
+import { yesOrNow } from "./js/yes-or-no.js";
+import { genshinRegions } from "./js/genshin-regions.js";
+import { kanyeQuotes } from "./js/kanye-quotes.js";
 
-const module = () => {
+const renderButtons = () => {
+    const buttonsContainer = document.getElementById('buttons');
 
-    const arrBtns = [document.getElementById('btn-one'), 
-    document.getElementById('btn-two'),
-    document.getElementById('btn-three')]
+    modals.forEach(element => {
+        const button = document.createElement('button');
+        button.textContent = element.text;
+        button.dataset.type = element.type;
 
-    const modalWindow = document.querySelector('.modal-window');
-    const close = document.querySelector('.close');
-    const elementIncarousel = document.querySelector('.element-in-carousel');
-    let counterOfCurrEl = 0;
-    
-    arrBtns.forEach(function(button) {
         button.addEventListener('click', (event) => {
-            modalWindow.classList.add('show');
-            if (button == arrBtns[0]){
-                counterOfCurrEl = 1;
-                writeStupidText(counterOfCurrEl);
-            }
-            else if (button == arrBtns[1]){
-                counterOfCurrEl = 2;
-                writeStupidText(counterOfCurrEl);
+            state.openedModalType = element.type;
+        })
+
+        buttonsContainer.append(button);
+    })
+};
+
+const closeModal = () => {
+    state.openedModalType = modalWindows.none;
+}
+
+const renderModals = () => {
+    const app = document.querySelector('.placeholder');
+
+    modals.forEach((window) => {
+        const modal = document.createElement('div');
+        const prevButton = document.createElement('button');
+        const nextButton = document.createElement('button');
+        const closeButton = document.createElement('button');
+
+        const content = document.createElement('div');
+        content.classList = 'modal-content';
+
+        prevButton.textContent = '<';
+        prevButton.addEventListener('click', (event) => {
+            const currentOpenedModalIndex = modals
+                .findIndex((window) => window.type === state.openedModalType);
+
+            if(currentOpenedModalIndex === 0){
+                state.openedModalType = modals[modals.length - 1].type;
             }
             else{
-                counterOfCurrEl = 3;
-                writeStupidText(counterOfCurrEl);
+                state.openedModalType = modals[currentOpenedModalIndex - 1].type;
             }
+            event.stopPropagation();
+        })
+
+        nextButton.textContent = '>';
+        nextButton.addEventListener('click', (event) => {
+            const currentOpenedModalIndex = modals
+                .findIndex((window) => window.type === state.openedModalType);
+
+            if (currentOpenedModalIndex === modals.length - 1) {
+                state.openedModalType = modals[0].type;
+            } else {
+                state.openedModalType = modals[currentOpenedModalIndex + 1].type;
+            }
+
+            event.stopPropagation();
         });
-    })
 
-    const writeStupidText = (counterOfCurrEl) => { 
-        elementInCarousel.textContent = ' ';
-        elementInCarousel.append('i didnt add anything yet(' + counterOfCurrEl);
-    }
+        closeButton.textContent = 'X';
+        closeButton.addEventListener('click', (event) => {
+            closeModal();
 
-    close.addEventListener('click', (event) => {
-        modalWindow.classList.remove('show');
-    })
+            event.stopPropagation();
+        });
 
-    const elementInCarousel = document.querySelector('.element-in-carousel');
-    const buttonPrev = document.querySelector('.carousel-control-prev');
-    const buttonNext = document.querySelector('.carousel-control-next');
+        modal.dataset.type = window.type;
+        modal.classList.add('modal');
+        modal.append(prevButton);
+        modal.append(closeButton);
+        modal.append(nextButton);
+        modal.append(content);
 
-    buttonPrev.addEventListener('click', (event) => {
-        if(counterOfCurrEl == 1) { counterOfCurrEl = 4;}
-        counterOfCurrEl -= 1
-        writeStupidText(counterOfCurrEl);
-    })
-
-    buttonNext.addEventListener('click', (event) => {
-        if(counterOfCurrEl == 3) { counterOfCurrEl = 0;}
-        counterOfCurrEl += 1
-        writeStupidText(counterOfCurrEl);
-    })
-
+        app.append(modal);
+    });
 }
 
 
-export default module;
+
+renderButtons();
+renderModals();
+yesOrNow();
+genshinRegions();
+kanyeQuotes();
