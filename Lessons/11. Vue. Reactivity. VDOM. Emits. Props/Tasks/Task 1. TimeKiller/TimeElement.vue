@@ -2,9 +2,10 @@
     <div class="times-container">
       <!--Начало-->
         <div
+            class="times-container__item"
             v-for="(item, index) in timesItems"
             :key="item.id"
-            @click="$emit('remove', index)"
+            @mouseover="$emit('mouseover', index)"
         >
             {{ item.text }}
         </div>
@@ -17,14 +18,13 @@
 <script>
 export default {
     name: "TimeElement",
-    <!--Начало-->
     props: {
         timesItems: {
-          type: Array,
-          default: () => [],
+            type: Array,
+            default: () => [],
         },
     },
-  <!--Конец-->
+
 }
 </script>
 
