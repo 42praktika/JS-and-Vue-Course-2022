@@ -36,5 +36,21 @@ closeButtons.forEach(element => element.addEventListener('click', event => {
     modalWindows.currentIndex = 0;
 }))
 
+const getButton = document.querySelector('.get-info');
+getButton.addEventListener('click', event => {
+    fetch('https://anime-facts-rest-api.herokuapp.com/api/v1', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+    })
+        .then((response) => response.json())       // обработка результата запрос
+        .catch((error) => {                     // обработка ошибок
+            console.error(error);
+        });
+
+})
+
 watchState(modalWindows);
 

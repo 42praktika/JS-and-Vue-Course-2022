@@ -13,45 +13,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 var WatchJS = {
-  noMore: false,
-  // use WatchJS.suspend(obj) instead
-  useDirtyCheck: false,
-  // use only dirty checking to track changes.
-  preserveExistingSetters: false
-},
-    lengthsubjects = [];
+    noMore: false,
+    // use WatchJS.suspend(obj) instead
+    useDirtyCheck: false,
+    // use only dirty checking to track changes.
+    preserveExistingSetters: false
+  },
+  lengthsubjects = [];
 var dirtyChecklist = [];
 var pendingChanges = []; // used coalesce changes from defineProperty and __defineSetter__
 
 var supportDefineProperty = false;
-
 try {
   supportDefineProperty = Object.defineProperty && Object.defineProperty({}, 'x', {});
-} catch (ex) {
-  /* not supported */
+} catch (ex) {/* not supported */
 }
-
 var isFunction = function (functionToCheck) {
   var getType = {};
   return functionToCheck && getType.toString.call(functionToCheck) == '[object Function]';
 };
-
 var isInt = function (x) {
   return x % 1 === 0;
 };
-
 var isArray = function (obj) {
   return Object.prototype.toString.call(obj) === '[object Array]';
 };
-
 var isObject = function (obj) {
   return {}.toString.apply(obj) === '[object Object]';
 };
-
 var getObjDiff = function (a, b) {
   var aplus = [],
-      bplus = [];
-
+    bplus = [];
   if (!(typeof a == "string") && !(typeof b == "string")) {
     if (isArray(a) && b) {
       for (var i = 0; i < a.length; i++) {
@@ -66,7 +58,6 @@ var getObjDiff = function (a, b) {
         }
       }
     }
-
     if (isArray(b) && a) {
       for (var j = 0; j < b.length; j++) {
         if (a[j] === undefined) bplus.push(j);
@@ -81,36 +72,28 @@ var getObjDiff = function (a, b) {
       }
     }
   }
-
   return {
     added: aplus,
     removed: bplus
   };
 };
-
 var clone = function (obj) {
   if (null == obj || "object" != typeof obj) {
     return obj;
   }
-
   var copy = obj.constructor();
-
   for (var attr in obj) {
     copy[attr] = obj[attr];
   }
-
   return copy;
 };
-
 var getExistingSetter = function (obj, propName) {
   if (WatchJS.preserveExistingSetters) {
     var existing = Object.getOwnPropertyDescriptor(obj, propName);
     return existing.set;
   }
-
   return undefined;
 };
-
 var defineGetAndSet = function (obj, propName, getter, setter) {
   try {
     var existingSetter = getExistingSetter(obj, propName);
@@ -118,7 +101,6 @@ var defineGetAndSet = function (obj, propName, getter, setter) {
       get: getter,
       set: function (value) {
         setter.call(this, value, true); // coalesce changes
-
         if (existingSetter) {
           existingSetter(value);
         }
@@ -129,12 +111,12 @@ var defineGetAndSet = function (obj, propName, getter, setter) {
   } catch (e1) {
     try {
       Object.prototype.__defineGetter__.call(obj, propName, getter);
-
       Object.prototype.__defineSetter__.call(obj, propName, function (value) {
         setter.call(this, value, true); // coalesce changes
       });
     } catch (e2) {
-      observeDirtyChanges(obj, propName, setter); //throw new Error("watchJS error: browser not supported :/")
+      observeDirtyChanges(obj, propName, setter);
+      //throw new Error("watchJS error: browser not supported :/")
     }
   }
 };
@@ -151,7 +133,6 @@ var defineProp = function (obj, propName, value) {
     obj[propName] = value;
   }
 };
-
 var observeDirtyChanges = function (obj, propName, setter) {
   dirtyChecklist[dirtyChecklist.length] = {
     prop: propName,
@@ -160,7 +141,6 @@ var observeDirtyChanges = function (obj, propName, setter) {
     callback: setter
   };
 };
-
 var watch = function () {
   if (isFunction(arguments[1])) {
     watchAll.apply(this, arguments);
@@ -170,16 +150,13 @@ var watch = function () {
     watchOne.apply(this, arguments);
   }
 };
-
 var watchAll = function (obj, watcher, level, addNRemove) {
   if (typeof obj == "string" || !(obj instanceof Object) && !isArray(obj)) {
     //accepts only objects and array (not string)
     return;
   }
-
   if (isArray(obj)) {
     defineWatcher(obj, "__watchall__", watcher, level); // watch all changes on the array
-
     if (level === undefined || level > 0) {
       for (var prop = 0; prop < obj.length; prop++) {
         // watch objects in array
@@ -188,14 +165,12 @@ var watchAll = function (obj, watcher, level, addNRemove) {
     }
   } else {
     var prop,
-        props = [];
-
+      props = [];
     for (prop in obj) {
       //for each attribute if obj is an object
       if (prop == "$val" || !supportDefineProperty && prop === 'watchers') {
         continue;
       }
-
       if (Object.prototype.hasOwnProperty.call(obj, prop)) {
         props.push(prop); //put in the props
       }
@@ -208,31 +183,26 @@ var watchAll = function (obj, watcher, level, addNRemove) {
     pushToLengthSubjects(obj, "$$watchlengthsubjectroot", watcher, level);
   }
 };
-
 var watchMany = function (obj, props, watcher, level, addNRemove) {
   if (typeof obj == "string" || !(obj instanceof Object) && !isArray(obj)) {
     //accepts only objects and array (not string)
     return;
   }
-
   for (var i = 0; i < props.length; i++) {
     //watch each property
     var prop = props[i];
     watchOne(obj, prop, watcher, level, addNRemove);
   }
 };
-
 var watchOne = function (obj, prop, watcher, level, addNRemove) {
   if (typeof obj == "string" || !(obj instanceof Object) && !isArray(obj)) {
     //accepts only objects and array (not string)
     return;
   }
-
   if (isFunction(obj[prop])) {
     //dont watch if it is a function
     return;
   }
-
   if (obj[prop] != null && (level === undefined || level > 0)) {
     watchAll(obj[prop], watcher, level !== undefined ? level - 1 : level); //recursively
     // watch all
@@ -241,12 +211,10 @@ var watchOne = function (obj, prop, watcher, level, addNRemove) {
   }
 
   defineWatcher(obj, prop, watcher, level);
-
   if (addNRemove && (level === undefined || level > 0)) {
     pushToLengthSubjects(obj, prop, watcher, level);
   }
 };
-
 var unwatch = function () {
   if (isFunction(arguments[1])) {
     unwatchAll.apply(this, arguments);
@@ -256,16 +224,13 @@ var unwatch = function () {
     unwatchOne.apply(this, arguments);
   }
 };
-
 var unwatchAll = function (obj, watcher) {
   if (obj instanceof String || !(obj instanceof Object) && !isArray(obj)) {
     //accepts only objects and array (not string)
     return;
   }
-
   if (isArray(obj)) {
     var props = ['__watchall__'];
-
     for (var prop = 0; prop < obj.length; prop++) {
       //for each item if obj is an array
       props.push(prop); //put in the props
@@ -275,7 +240,6 @@ var unwatchAll = function (obj, watcher) {
   } else {
     var unwatchPropsInObject = function (obj2) {
       var props = [];
-
       for (var prop2 in obj2) {
         //for each attribute if obj is an object
         if (obj2.hasOwnProperty(prop2)) {
@@ -293,7 +257,6 @@ var unwatchAll = function (obj, watcher) {
     unwatchPropsInObject(obj);
   }
 };
-
 var unwatchMany = function (obj, props, watcher) {
   for (var prop2 in props) {
     //watch each attribute of "props" if is an object
@@ -302,98 +265,87 @@ var unwatchMany = function (obj, props, watcher) {
     }
   }
 };
-
 var timeouts = [],
-    timerID = null;
-
+  timerID = null;
 function clearTimerID() {
   timerID = null;
-
   for (var i = 0; i < timeouts.length; i++) {
     timeouts[i]();
   }
-
   timeouts.length = 0;
 }
-
 var getTimerID = function () {
   if (!timerID) {
     timerID = setTimeout(clearTimerID);
   }
-
   return timerID;
 };
-
 var registerTimeout = function (fn) {
   // register function to be called on timeout
   if (timerID == null) getTimerID();
   timeouts[timeouts.length] = fn;
-}; // Track changes made to an array, object or an object's property
+};
+
+// Track changes made to an array, object or an object's property
 // and invoke callback with a single change object containing type, value, oldvalue and array
 // splices Syntax:  trackChange(obj, callback, recursive, addNRemove) trackChange(obj, prop,
 // callback, recursive, addNRemove)
-
-
 var trackChange = function () {
   var fn = isFunction(arguments[2]) ? trackProperty : trackObject;
   fn.apply(this, arguments);
-}; // track changes made to an object and invoke callback with a single change object containing
+};
+
+// track changes made to an object and invoke callback with a single change object containing
 // type, value and array splices
-
-
 var trackObject = function (obj, callback, recursive, addNRemove) {
   var change = null,
-      lastTimerID = -1;
+    lastTimerID = -1;
   var isArr = isArray(obj);
-
   var level,
-      fn = function (prop, action, newValue, oldValue) {
-    var timerID = getTimerID();
-
-    if (lastTimerID !== timerID) {
-      // check if timer has changed since last update
-      lastTimerID = timerID;
-      change = {
-        type: 'update'
-      };
-      change['value'] = obj;
-      change['splices'] = null;
-      registerTimeout(function () {
-        callback.call(this, change);
-        change = null;
-      });
-    } // create splices for array changes
-
-
-    if (isArr && obj === this && change !== null) {
-      if (action === 'pop' || action === 'shift') {
-        newValue = [];
-        oldValue = [oldValue];
-      } else if (action === 'push' || action === 'unshift') {
-        newValue = [newValue];
-        oldValue = [];
-      } else if (action !== 'splice') {
-        return; // return here - for reverse and sort operations we don't need to
-        // return splices. a simple update will do
+    fn = function (prop, action, newValue, oldValue) {
+      var timerID = getTimerID();
+      if (lastTimerID !== timerID) {
+        // check if timer has changed since last update
+        lastTimerID = timerID;
+        change = {
+          type: 'update'
+        };
+        change['value'] = obj;
+        change['splices'] = null;
+        registerTimeout(function () {
+          callback.call(this, change);
+          change = null;
+        });
       }
+      // create splices for array changes
+      if (isArr && obj === this && change !== null) {
+        if (action === 'pop' || action === 'shift') {
+          newValue = [];
+          oldValue = [oldValue];
+        } else if (action === 'push' || action === 'unshift') {
+          newValue = [newValue];
+          oldValue = [];
+        } else if (action !== 'splice') {
+          return; // return here - for reverse and sort operations we don't need to
+          // return splices. a simple update will do
+        }
 
-      if (!change.splices) change.splices = [];
-      change.splices[change.splices.length] = {
-        index: prop,
-        deleteCount: oldValue ? oldValue.length : 0,
-        addedCount: newValue ? newValue.length : 0,
-        added: newValue,
-        deleted: oldValue
-      };
-    }
-  };
-
+        if (!change.splices) change.splices = [];
+        change.splices[change.splices.length] = {
+          index: prop,
+          deleteCount: oldValue ? oldValue.length : 0,
+          addedCount: newValue ? newValue.length : 0,
+          added: newValue,
+          deleted: oldValue
+        };
+      }
+    };
   level = recursive == true ? undefined : 0;
   watchAll(obj, fn, level, addNRemove);
-}; // track changes made to the property of an object and invoke callback with a single change
+};
+
+// track changes made to the property of an object and invoke callback with a single change
 // object containing type, value, oldvalue and splices
-
-
 var trackProperty = function (obj, prop, callback, recursive, addNRemove) {
   if (obj && prop) {
     watchOne(obj, prop, function (prop, action, newvalue, oldvalue) {
@@ -402,45 +354,35 @@ var trackProperty = function (obj, prop, callback, recursive, addNRemove) {
       };
       change['value'] = newvalue;
       change['oldvalue'] = oldvalue;
-
       if (recursive && isObject(newvalue) || isArray(newvalue)) {
         trackObject(newvalue, callback, recursive, addNRemove);
       }
-
       callback.call(this, change);
     }, 0);
-
     if (recursive && isObject(obj[prop]) || isArray(obj[prop])) {
       trackObject(obj[prop], callback, recursive, addNRemove);
     }
   }
 };
-
 var defineWatcher = function (obj, prop, watcher, level) {
   var newWatcher = false;
   var isArr = isArray(obj);
-
   if (!obj.watchers) {
     defineProp(obj, "watchers", {});
-
     if (isArr) {
       // watch array functions
       watchFunctions(obj, function (index, action, newValue, oldValue) {
         addPendingChange(obj, index, action, newValue, oldValue);
-
         if (level !== 0 && newValue && (isObject(newValue) || isArray(newValue))) {
           var i,
-              n,
-              ln,
-              wAll,
-              watchList = obj.watchers[prop];
-
+            n,
+            ln,
+            wAll,
+            watchList = obj.watchers[prop];
           if (wAll = obj.watchers['__watchall__']) {
             watchList = watchList ? watchList.concat(wAll) : wAll;
           }
-
           ln = watchList ? watchList.length : 0;
-
           for (i = 0; i < ln; i++) {
             if (action !== 'splice') {
               watchAll(newValue, watchList[i], level === undefined ? level : level - 1);
@@ -455,47 +397,40 @@ var defineWatcher = function (obj, prop, watcher, level) {
       });
     }
   }
-
   if (!obj.watchers[prop]) {
     obj.watchers[prop] = [];
     if (!isArr) newWatcher = true;
   }
-
   for (var i = 0; i < obj.watchers[prop].length; i++) {
     if (obj.watchers[prop][i] === watcher) {
       return;
     }
   }
-
   obj.watchers[prop].push(watcher); //add the new watcher to the watchers array
 
   if (newWatcher) {
     var val = obj[prop];
-
     var getter = function () {
       return val;
     };
-
     var setter = function (newval, delayWatcher) {
       var oldval = val;
       val = newval;
-
       if (level !== 0 && obj[prop] && (isObject(obj[prop]) || isArray(obj[prop])) && !obj[prop].watchers) {
         // watch sub properties
         var i,
-            ln = obj.watchers[prop].length;
-
+          ln = obj.watchers[prop].length;
         for (i = 0; i < ln; i++) {
           watchAll(obj[prop], obj.watchers[prop][i], level === undefined ? level : level - 1);
         }
-      } //watchFunctions(obj, prop);
+      }
 
+      //watchFunctions(obj, prop);
 
       if (isSuspended(obj, prop)) {
         resume(obj, prop);
         return;
       }
-
       if (!WatchJS.noMore) {
         // this does not work with Object.observe
         //if (JSON.stringify(oldval) !== JSON.stringify(newval)) {
@@ -503,19 +438,16 @@ var defineWatcher = function (obj, prop, watcher, level) {
           oldval = oldval.valueOf();
           newval = newval.valueOf();
         }
-
         if (oldval !== newval) {
           if (!delayWatcher) {
             callWatchers(obj, prop, "set", newval, oldval);
           } else {
             addPendingChange(obj, prop, "set", newval, oldval);
           }
-
           WatchJS.noMore = false;
         }
       }
     };
-
     if (WatchJS.useDirtyCheck) {
       observeDirtyChanges(obj, prop, setter);
     } else {
@@ -523,19 +455,15 @@ var defineWatcher = function (obj, prop, watcher, level) {
     }
   }
 };
-
 var callWatchers = function (obj, prop, action, newval, oldval) {
   if (prop !== undefined) {
     var ln,
-        wl,
-        watchList = obj.watchers[prop];
-
+      wl,
+      watchList = obj.watchers[prop];
     if (wl = obj.watchers['__watchall__']) {
       watchList = watchList ? watchList.concat(wl) : wl;
     }
-
     ln = watchList ? watchList.length : 0;
-
     for (var wr = 0; wr < ln; wr++) {
       watchList[wr].call(obj, prop, action, newval, oldval);
     }
@@ -548,31 +476,25 @@ var callWatchers = function (obj, prop, action, newval, oldval) {
     }
   }
 };
-
 var methodNames = ['pop', 'push', 'reverse', 'shift', 'sort', 'slice', 'unshift', 'splice'];
-
 var defineArrayMethodWatcher = function (obj, original, methodName, callback) {
   defineProp(obj, methodName, function () {
     var index = 0;
-    var i, newValue, oldValue, response; // get values before splicing array
-
+    var i, newValue, oldValue, response;
+    // get values before splicing array
     if (methodName === 'splice') {
       var start = arguments[0];
       var end = start + arguments[1];
       oldValue = obj.slice(start, end);
       newValue = [];
-
       for (i = 2; i < arguments.length; i++) {
         newValue[i - 2] = arguments[i];
       }
-
       index = start;
     } else {
       newValue = arguments.length > 0 ? arguments[0] : undefined;
     }
-
     response = original.apply(obj, arguments);
-
     if (methodName !== 'slice') {
       if (methodName === 'pop') {
         oldValue = response;
@@ -584,25 +506,20 @@ var defineArrayMethodWatcher = function (obj, original, methodName, callback) {
       } else if (methodName !== 'unshift' && newValue === undefined) {
         newValue = response;
       }
-
       callback.call(obj, index, methodName, newValue, oldValue);
     }
-
     return response;
   });
 };
-
 var watchFunctions = function (obj, callback) {
   if (!isFunction(callback) || !obj || obj instanceof String || !isArray(obj)) {
     return;
   }
-
   for (var i = methodNames.length, methodName; i--;) {
     methodName = methodNames[i];
     defineArrayMethodWatcher(obj, obj[methodName], methodName, callback);
   }
 };
-
 var unwatchOne = function (obj, prop, watcher) {
   if (prop) {
     if (obj.watchers && obj.watchers[prop]) {
@@ -611,7 +528,6 @@ var unwatchOne = function (obj, prop, watcher) {
       } else {
         for (var i = 0; i < obj.watchers[prop].length; i++) {
           var w = obj.watchers[prop][i];
-
           if (w == watcher) {
             obj.watchers[prop].splice(i, 1);
           }
@@ -621,33 +537,29 @@ var unwatchOne = function (obj, prop, watcher) {
   } else {
     delete obj.watchers;
   }
-
   removeFromLengthSubjects(obj, prop, watcher);
   removeFromDirtyChecklist(obj, prop);
-}; // suspend watchers until next update cycle
+};
 
-
+// suspend watchers until next update cycle
 var suspend = function (obj, prop) {
   if (obj.watchers) {
     var name = '__wjs_suspend__' + (prop !== undefined ? prop : '');
     obj.watchers[name] = true;
   }
 };
-
 var isSuspended = function (obj, prop) {
   return obj.watchers && (obj.watchers['__wjs_suspend__'] || obj.watchers['__wjs_suspend__' + prop]);
-}; // resumes preivously suspended watchers
+};
 
-
+// resumes preivously suspended watchers
 var resume = function (obj, prop) {
   registerTimeout(function () {
     delete obj.watchers['__wjs_suspend__'];
     delete obj.watchers['__wjs_suspend__' + prop];
   });
 };
-
 var pendingTimerID = null;
-
 var addPendingChange = function (obj, prop, mode, newval, oldval) {
   pendingChanges[pendingChanges.length] = {
     obj: obj,
@@ -656,70 +568,56 @@ var addPendingChange = function (obj, prop, mode, newval, oldval) {
     newval: newval,
     oldval: oldval
   };
-
   if (pendingTimerID === null) {
     pendingTimerID = setTimeout(applyPendingChanges);
   }
 };
-
 var applyPendingChanges = function () {
   // apply pending changes
   var change = null;
   pendingTimerID = null;
-
   for (var i = 0; i < pendingChanges.length; i++) {
     change = pendingChanges[i];
     callWatchers(change.obj, change.prop, change.mode, change.newval, change.oldval);
   }
-
   if (change) {
     pendingChanges = [];
     change = null;
   }
 };
-
 var loop = function () {
   // check for new or deleted props
   for (var i = 0; i < lengthsubjects.length; i++) {
     var subj = lengthsubjects[i];
-
     if (subj.prop === "$$watchlengthsubjectroot") {
       var difference = getObjDiff(subj.obj, subj.actual);
-
       if (difference.added.length || difference.removed.length) {
         if (difference.added.length) {
           watchMany(subj.obj, difference.added, subj.watcher, subj.level - 1, true);
         }
-
         subj.watcher.call(subj.obj, "root", "differentattr", difference, subj.actual);
       }
-
       subj.actual = clone(subj.obj);
     } else {
       var difference = getObjDiff(subj.obj[subj.prop], subj.actual);
-
       if (difference.added.length || difference.removed.length) {
         if (difference.added.length) {
           for (var j = 0; j < subj.obj.watchers[subj.prop].length; j++) {
             watchMany(subj.obj[subj.prop], difference.added, subj.obj.watchers[subj.prop][j], subj.level - 1, true);
           }
         }
-
         callWatchers(subj.obj, subj.prop, "differentattr", difference, subj.actual);
       }
-
       subj.actual = clone(subj.obj[subj.prop]);
     }
-  } // start dirty check
+  }
 
-
+  // start dirty check
   var n, value;
-
   if (dirtyChecklist.length > 0) {
     for (var i = 0; i < dirtyChecklist.length; i++) {
       n = dirtyChecklist[i];
       value = n.object[n.prop];
-
       if (!compareValues(n.orig, value)) {
         n.orig = clone(value);
         n.callback(value);
@@ -727,40 +625,32 @@ var loop = function () {
     }
   }
 };
-
 var compareValues = function (a, b) {
   var i,
-      state = true;
-
+    state = true;
   if (a !== b) {
     if (isObject(a)) {
       for (i in a) {
         if (!supportDefineProperty && i === 'watchers') continue;
-
         if (a[i] !== b[i]) {
           state = false;
           break;
         }
-
         ;
       }
     } else {
       state = false;
     }
   }
-
   return state;
 };
-
 var pushToLengthSubjects = function (obj, prop, watcher, level) {
   var actual;
-
   if (prop === "$$watchlengthsubjectroot") {
     actual = clone(obj);
   } else {
     actual = clone(obj[prop]);
   }
-
   lengthsubjects.push({
     obj: obj,
     prop: prop,
@@ -769,11 +659,9 @@ var pushToLengthSubjects = function (obj, prop, watcher, level) {
     level: level
   });
 };
-
 var removeFromLengthSubjects = function (obj, prop, watcher) {
   for (var i = 0; i < lengthsubjects.length; i++) {
     var subj = lengthsubjects[i];
-
     if (subj.obj == obj) {
       if (!prop || subj.prop == prop) {
         if (!watcher || subj.watcher == watcher) {
@@ -788,28 +676,23 @@ var removeFromLengthSubjects = function (obj, prop, watcher) {
     }
   }
 };
-
 var removeFromDirtyChecklist = function (obj, prop) {
   var notInUse;
-
   for (var i = 0; i < dirtyChecklist.length; i++) {
     var n = dirtyChecklist[i];
     var watchers = n.object.watchers;
     notInUse = n.object == obj && (!prop || n.prop == prop) && watchers && (!prop || !watchers[prop] || watchers[prop].length == 0);
-
     if (notInUse) {
       // we use the same syntax as in removeFromLengthSubjects
       dirtyChecklist.splice(i--, 1);
     }
   }
 };
-
 setInterval(loop, 50);
 WatchJS.watch = watch;
 WatchJS.unwatch = unwatch;
 WatchJS.callWatchers = callWatchers;
 WatchJS.suspend = suspend; // suspend watchers
-
 WatchJS.onChange = trackChange; // track changes made to object or  it's property and return a
 // single change object
 
@@ -832,14 +715,12 @@ __webpack_require__.r(__webpack_exports__);
 const {
   watch
 } = _helpers_melanke_watchjs__WEBPACK_IMPORTED_MODULE_0__["default"];
-
 const watchState = modalWindows => {
   watch(modalWindows, 'currentIndex', () => {
     modalWindows.list[modalWindows.currentIndex].style.display = 'flex';
     modalWindows.list[modalWindows.prevIndex].style.display = 'none';
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (watchState);
 
 /***/ })
@@ -917,25 +798,21 @@ const modalWindows = {
   prevIndex: 0,
   list: [buttons, ...document.querySelectorAll('.modal')]
 };
-
 const currentToPrevIndex = () => {
   //чтобы не повторяться, присваивание текущего предыдущему индексу
   modalWindows.prevIndex = modalWindows.currentIndex;
 };
-
 buttons.addEventListener('click', event => {
   //кнопки в главном модуле
   modalWindows.prevIndex = 0;
   modalWindows.currentIndex = [...buttons.children].indexOf(event.target) + 1;
 });
 const prevButtons = document.querySelectorAll('.button-prev'); //все кнопки возврата
-
 prevButtons.forEach(element => element.addEventListener('click', event => {
   currentToPrevIndex();
   modalWindows.currentIndex = (modalWindows.prevIndex - 4) % 3 + 3;
 }));
 const nextButtons = document.querySelectorAll('.button-next'); //все кнопки следующего
-
 nextButtons.forEach(element => element.addEventListener('click', event => {
   currentToPrevIndex();
   modalWindows.currentIndex = modalWindows.prevIndex % 3 + 1;
@@ -945,6 +822,20 @@ closeButtons.forEach(element => element.addEventListener('click', event => {
   currentToPrevIndex();
   modalWindows.currentIndex = 0;
 }));
+const getButton = document.querySelector('.get-info');
+getButton.addEventListener('click', event => {
+  fetch('https://anime-facts-rest-api.herokuapp.com/api/v1', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest'
+    }
+  }).then(response => response.json()).then(a => console.log(a)) // обработка результата запрос
+  .catch(error => {
+    // обработка ошибок
+    console.error(error);
+  });
+});
 (0,_watcher_js__WEBPACK_IMPORTED_MODULE_0__["default"])(modalWindows);
 })();
 
