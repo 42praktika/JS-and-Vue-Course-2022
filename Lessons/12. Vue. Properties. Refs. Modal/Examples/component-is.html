@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <style>
+            #app {
+                margin: 40px;
+            }
+
+            #app div {
+                margin-bottom: 10px;
+
+            }
+        </style>
+        <title>Component IS</title>
+    </head>
+    <body>
+        <div id="app">
+            <component :is="isMobile ? 'MobileButton' : 'CommonButton'"></component>
+            <button
+                class="btn btn-primary"
+                @click="showFilter"
+            >
+                Изменить компонент
+            </button>
+        </div>
+
+        <script>
+            const CommonButton = Vue.extend({
+                template: '<div>CommonButton</div>',
+            });
+
+            const MobileButton = Vue.extend({
+                template: '<div>MobileButton</div>',
+            });
+
+            const app = new Vue({
+                el: '#app',
+                components: {
+                    CommonButton,
+                    MobileButton,
+                },
+                data() {
+                    return {
+                        theme: 'common',
+                    };
+                },
+                computed: {
+                    isMobile() {
+                        return this.theme === 'mobile';
+                    },
+                },
+                methods: {
+                    showFilter() {
+                        this.theme = this.theme === 'mobile' ? 'common' : 'mobile';
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>

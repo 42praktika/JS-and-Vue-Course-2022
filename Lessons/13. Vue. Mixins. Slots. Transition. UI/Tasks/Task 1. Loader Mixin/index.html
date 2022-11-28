@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Task 1. Loader Mixin</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="./index.css"
+        >
+    </head>
+    <body>
+        <script
+            type="module"
+            src="./loaderMixin.js"
+        ></script>
+        <div id="app">
+            <div class="container">
+                <button
+                    class="btn btn-warning btn--start-loading"
+                    @click="startLoading"
+                >
+                    Запустить загрузку
+                </button>
+                <button
+                    class="btn btn-warning btn--finish-loading"
+                    @click="finishLoading"
+                >
+                    Завершить загрузку
+                </button>
+            </div>
+        </div>
+        <script type="module">
+            import loaderMixin from './loaderMixin.js';
+
+            const app = new Vue({
+                el: '#app',
+                mixins: [ loaderMixin ],
+                methods: {
+                    startLoading() {
+                        this.setLoading(true);
+                    },
+                    finishLoading() {
+                        this.setLoading(false);
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
