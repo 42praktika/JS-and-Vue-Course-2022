@@ -1,28 +1,48 @@
 <template>
-    <div class="time-killer">
-        <!--Начало-->
+     <div class = "time-killer">
+          <button
+              type = "button"
+              class = "btn btn-warning"
+              @click = "addTime">
+            Добавить время!
+          </button>
+          <TimeElement
+              :dates = "dates"
+              @remove = "onRemoveDate"/>
+     </div>
 
-        <!--Конец-->
-    </div>
 </template>
 
 <script>
-export default {
-    name: 'TimeKiller',
-    // Начало
+import TimeElement from "./TimeElement.vue";
 
-    // Конец
+export default {
+  name: "TimeElement",
+  components: {
+       TimeElement
+   },
+  data() {
+    return {
+      dates: []
+    };
+  },
+  methods: {
+    addTime() {
+      const newData = new Date;
+      this.dates.push(newData);
+      this.dates = this.dates.slice();
+    }
+  }
 };
 </script>
 
 <style>
-.time-killer {
-    margin: 100px;
-    display: flex;
-}
-
-.time-killer > button {
-    margin-right: 20px;
-    align-self: baseline;
-}
+      .time-killer {
+        margin: 100px;
+        display: flex;
+      }
+      .time-killer > button {
+        margin-right: 20px;
+        align-self: baseline;
+      }
 </style>
