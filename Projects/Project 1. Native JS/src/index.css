@@ -1,10 +1,80 @@
+.app {
+    background: #242582;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 .modal {
     position: absolute;
     transform: translate3d(-50%, -50%, 0);
     top: 50%;
     left: 50%;
+    width: 800px;
+    height: 600px;
+    border: 1px solid #000;
+    border-radius: 30px;
+    display: none;
+    background-color: white;
+}
+.buttonModal {
+    background: #7476d9;
+    margin: 2px;
+
+}
+.buttons-container {
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 285px;
+}
+.mainButtons {
+    color: black;
+    background-color: #ff2d5d;
+    font-size: 20px;
+    height: 75px;
+    width: 120px;
+    margin: 20px;
+    border-radius: 20px;
+}
+.secondDiv {
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    top: 30%;
+    left: 30%;
     width: 500px;
     height: 300px;
     border: 1px solid #000;
+}
+.window {
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    top: 51%;
+    left: 50%;
+    width: 800px;
+    height: 570px;
+    display: grid;
+}
+.windowUp {
+    width: 800px;
+    height: 40px;
+}
+.windowDown {
+    width: 800px;
+    height: 530px;
+}
+.image {
+    width: 800px;
+    height: 500px;
+    border-radius: 30px;
+}
+.apiNone {
     display: none;
+}
+.apiActive {
+    display: block;
 }

@@ -1,4 +1,4 @@
-import WatchJS from 'melankeya-watchjs';
+import WatchJS from 'melanke-watchjs';
 import state from '../state';
 import { MODALS_TYPES } from "../const";
 

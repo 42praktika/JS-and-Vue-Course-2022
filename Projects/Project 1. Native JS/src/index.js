@@ -1,7 +1,10 @@
-import './styles/index.css';
+import './index.css';
 import { BUTTONS, MODALS, MODALS_TYPES } from "./js/const";
 import state from "./js/state";
 import './js/watchers';
+import { getFact } from "./js/api/firstAPI";
+import { getWhatToDo } from "./js/api/secondAPI";
+import { getImage } from "./js/api/thirdAPI";
 
 const closeModal = () => {
     state.openedModalType = MODALS_TYPES.NONE;
@@ -13,11 +16,14 @@ const renderButtons = () => {
     BUTTONS.forEach((item) => {
         const button = document.createElement('button');
 
+        button.classList.add('mainButtons');
         button.textContent = item.text;
         button.dataset.type = item.type;
 
         button.addEventListener('click', (event) => {
             state.openedModalType = item.type;
+
+            renderAPI();
 
             event.stopPropagation();
         });
@@ -46,6 +52,8 @@ const renderModals = () => {
                 state.openedModalType = MODALS[currentOpenedModalIndex - 1].type;
             }
 
+            renderAPI()
+
             event.stopPropagation();
         });
 
@@ -60,6 +68,8 @@ const renderModals = () => {
                 state.openedModalType = MODALS[currentOpenedModalIndex + 1].type;
             }
 
+            renderAPI()
+
             event.stopPropagation();
         });
 
@@ -67,22 +77,49 @@ const renderModals = () => {
         closeButton.addEventListener('click', (event) => {
             closeModal();
 
+            hideAPI();
+
             event.stopPropagation();
         });
 
         modal.dataset.type = item.type;
         modal.classList.add('modal');
-        modal.textContent = item.text;
 
         modal.append(prevButton);
         modal.append(nextButton);
         modal.append(closeButton);
 
+        prevButton.classList.add('buttonModal');
+        nextButton.classList.add('buttonModal');
+        closeButton.classList.add('buttonModal');
+
         app.append(modal);
     });
 };
 
-document.addEventListener('click', closeModal);
+const hideAPI = () => {
+    const allAPI = document.querySelectorAll('.window');
+    allAPI.forEach((item) => {
+        item.classList.add('apiNone');
+
+        if (item.classList.contains('apiActive')) {
+            item.classList.remove('apiActive');
+        }
+    });
+};
+
+const renderAPI = () => {
+    hideAPI();
+
+    if (state.openedModalType === MODALS_TYPES.FIRST) {
+        getFact();
+    } else if (state.openedModalType === MODALS_TYPES.SECOND) {
+        getWhatToDo();
+    } else if (state.openedModalType === MODALS_TYPES.THIRD) {
+        getImage();
+    }
+};
+
 
 renderButtons();
 renderModals();
