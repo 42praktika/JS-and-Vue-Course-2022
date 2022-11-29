@@ -8,7 +8,7 @@
             Добавить время!
         </button>
         <TimeElement :times="times"
-                     @delete="deleteTime"
+                     @deleteTime="deleteTime"
         />
     </div>
 </template>

@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         deleteTime(id) {
-            this.$emit('delete', id);
+            this.$emit('deleteTime', id);
         }
     }
 }

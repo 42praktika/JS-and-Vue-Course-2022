@@ -1,17 +1,43 @@
 <template>
     <div class="recipes">
-        <!--Начало-->
-
-        <!--Конец-->
+        <NewRecipeForm @addRecipe="addRecipe"/>
+        <RecipesContainer :recipes="recipes"
+                          @deleteRecipe="deleteRecipe"
+        />
     </div>
 </template>
 
 <script>
+import {v4 as uuid} from 'uuid';
+import NewRecipeForm from "./components/NewRecipeForm.vue";
+import RecipesContainer from "./components/RecipesContainer.vue";
+
 export default {
     name: 'Recipes',
-    // Начало
-
-    // Конец
+    components: {RecipesContainer, NewRecipeForm},
+    data() {
+        return {
+            recipes: [],
+            recipeTimes: ['5 минут', '10 минут', '15 минут', '20 минут', '30 минут', '40 минут', '50 минут', '1 час',
+                '1,5 часа', '2 часа', '2,5 часа', '3 часа', 'Бесконечность']
+        }
+    },
+    methods: {
+        deleteRecipe(id) {
+            this.recipes = this.recipes.filter(recipe => recipe.id !== id);
+        },
+        addRecipe(recipeInfo) {
+            this.recipes.push(
+                {
+                    id: uuid(),
+                    name: recipeInfo.name,
+                    isVegan: recipeInfo.isVegan ? 'Да' : 'Нет',
+                    cookingTime: this.recipeTimes[Number(recipeInfo.cookingTime) - 1],
+                    ingredients: recipeInfo.ingredients
+                }
+            )
+        }
+    }
 };
 </script>
 
