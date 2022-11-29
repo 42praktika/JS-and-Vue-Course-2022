@@ -1,17 +1,21 @@
 <template>
     <div class="recipes">
-        <!--Начало-->
-
-        <!--Конец-->
+      <NewRecipeForm :listOfRecipes="listOfRecipes"></NewRecipeForm>
+      <RecipesContainer :listOfRecipes="listOfRecipes"></RecipesContainer>
     </div>
 </template>
 
 <script>
+import RecipesContainer from "./components/RecipesContainer.vue";
+import NewRecipeForm from "./components/NewRecipeForm.vue";
 export default {
     name: 'Recipes',
-    // Начало
-
-    // Конец
+    components: {NewRecipeForm, RecipesContainer},
+    data() {
+      return {
+        listOfRecipes: [],
+      };
+    },
 };
 </script>
 
