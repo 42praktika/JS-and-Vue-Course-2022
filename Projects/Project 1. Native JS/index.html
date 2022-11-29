@@ -2,45 +2,211 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Project</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+            rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+            crossorigin="anonymous"
+    >
     <link
             rel="stylesheet"
             type="text/css"
             href="./index.css"
     >
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script>
+    <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+    >
+    <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+    >
+    <link
+            href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;700&family=PT+Sans&display=swap"
+            rel="stylesheet"
+    >
 </head>
 <body>
-    <div class="app">
-        <div class="buttons">
-            <button class="button button--widget" data-type="modal-1">Modal 1</button>
-            <button class="button button--widget" data-type="modal-2">Modal 2</button>
-            <button class="button button--widget" data-type="modal-3">Modal 3</button>
+<script>bubbly();</script>
+<div class="app">
+    <div class="buttons">
+        <button type="button" class="btn btn-light btn--widget" data-type="modal-1">Cutie Cats</button>
+        <button type="button" class="btn btn-light btn--widget" data-type="modal-2">Rick&Morty</button>
+        <button type="button" class="btn btn-light btn--widget" data-type="modal-3">Sunrise</button>
+    </div>
+    <div class="modal modal-1" style="display: none">
+        <h2 class="modal__title">Cutie Cats</h2>
+        <div class="navigation">
+            <img
+                    class="navigation__element navigation__element--back"
+                    data-type="back"
+                    src="assets/icons/arrow.svg"
+                    width="30"
+                    height="30"
+            >
+            <img
+                    class="navigation__element navigation__element--next"
+                    data-type="next"
+                    src="assets/icons/arrow.svg"
+                    width="30"
+                    height="30"
+            >
+            <img
+                    class="navigation__element navigation__element--close"
+                    data-type="close"
+                    src="assets/icons/close.svg"
+                    width="30"
+                    height="30"
+            >
         </div>
-        <div class="modal modal-1" style="display: none">
-            <h1>Modal window 1</h1>
-            <div class="modal__navigation">
-                <a href="#" class="navigation__element navigation__element--back" data-type="back">Back</a>
-                <a href="#" class="navigation__element navigation__element--next" data-type="next">Next</a>
-                <a href="#" class="navigation__element navigation__element--close" data-type="close">Close</a>
+        <div class="modal__main modal__main--CATS">
+            <div class="modal__settings">
+                <div class="image-type-menu">
+                    <div class="image-type-menu__option image-type-menu__option--image">
+                        <input type="radio" name="imageTypeRadio" id="imageTypeChoiceImage" checked>
+                        <label for="imageChoice">PNG</label>
+                    </div>
+                    <div class="image-type-menu__option image-type-menu__option--gif">
+                        <input type="radio" name="imageTypeRadio" id="imageTypeChoiceGIF">
+                        <label for="gifChoice">GIF</label>
+                    </div>
+                </div>
+                <input class="image-text-input" type="text"/>
+                <div class="select-menu">
+                    <h4>Фильтр:</h4>
+                    <select class="select filter-selector">
+                        <option>Без фильтров</option>
+                        <option>Блюр</option>
+                        <option>Моно</option>
+                        <option>Сепия</option>
+                        <option>Негатив</option>
+                        <option>Рисунок</option>
+                        <option>Пиксель</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary btn-submit btn-submit--CATS">Дай Кота!!!</button>
             </div>
+            <img src="..." class="cat-image" alt="Упс, здесь должна была быть картинка">
+            <p class="cat-fact">Какой-то факт</p>
         </div>
-        <div class="modal modal-2" style="display: none">
-            <h1>Modal window 2</h1>
-            <div class="modal__navigation">
-                <a href="#" class="navigation__element navigation__element--back" data-type="back">Back</a>
-                <a href="#" class="navigation__element navigation__element--next" data-type="next">Next</a>
-                <a href="#" class="navigation__element navigation__element--close" data-type="close">Close</a>
-            </div>
-        </div>
-        <div class="modal modal-3" style="display: none">
-            <h1>Modal window 3</h1>
-            <div class="modal__navigation">
-                <a href="#" class="navigation__element navigation__element--back" data-type="back">Back</a>
-                <a href="#" class="navigation__element navigation__element--next" data-type="next">Next</a>
-                <a href="#" class="navigation__element navigation__element--close" data-type="close">Close</a>
-            </div>
+        <div class="spinner-border text-dark loading-spinner loading-spinner--CATS" role="status">
+            <span class="visually-hidden">Loading...</span>
         </div>
     </div>
-    <script src="js/build/core.bundle.js"></script>
+    <div class="modal modal-2" style="display: none">
+        <h2 class="modal__title">Rick&Morty Characters</h2>
+        <div class="navigation">
+            <img
+                    class="navigation__element navigation__element--back"
+                    data-type="back"
+                    src="assets/icons/arrow.svg"
+                    width="30"
+                    height="30"
+            >
+            <img
+                    class="navigation__element navigation__element--next"
+                    data-type="next"
+                    src="assets/icons/arrow.svg"
+                    width="30"
+                    height="30"
+            >
+            <img
+                    class="navigation__element navigation__element--close"
+                    data-type="close"
+                    src="assets/icons/close.svg"
+                    width="30"
+                    height="30"
+            >
+        </div>
+        <div class="modal__main modal__main--RandM">
+            <div class="modal__settings">
+                <div class="select-menu">
+                    <h4>Статус:</h4>
+                    <select class="select status-selector">
+                        <option>Все</option>
+                        <option>Жив</option>
+                        <option>Мёртв</option>
+                        <option>Неизвестно</option>
+                    </select>
+                </div>
+                <div class="select-menu">
+                    <h4>Пол:</h4>
+                    <select class="select gender-selector">
+                        <option>Все</option>
+                        <option>Мужчина</option>
+                        <option>Женщина</option>
+                        <option>Без гендера</option>
+                        <option>Неизвестно</option>
+                    </select>
+                </div>
+            </div>
+            <div class="characters">
+
+            </div>
+        </div>
+        <div class="spinner-border text-dark loading-spinner loading-spinner--RandM" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div class="modal modal-3" style="display: none">
+        <h2 class="modal__title">Sunrise</h2>
+        <div class="navigation">
+            <img
+                    class="navigation__element navigation__element--back"
+                    data-type="back"
+                    src="assets/icons/arrow.svg"
+                    width="30"
+                    height="30"
+            >
+            <img
+                    class="navigation__element navigation__element--next"
+                    data-type="next"
+                    src="assets/icons/arrow.svg"
+                    width="30"
+                    height="30"
+            >
+            <img
+                    class="navigation__element navigation__element--close"
+                    data-type="close"
+                    src="assets/icons/close.svg"
+                    width="30"
+                    height="30"
+            >
+        </div>
+        <div class="modal__main modal__main--SUNRISE">
+            <div class="modal__settings">
+                <div class="input-container input-container--latitude">
+                    <span>Широта: </span>
+                    <input type="text" class="input latitude-input">
+                </div>
+                <div class="input-container input-container--longitude">
+                    <span>Долгота: </span>
+                    <input type="text" class="input longitude-input">
+                </div>
+                <div class="input-container input-container--date">
+                    <span>Дата: </span>
+                    <input type="date" class="input date-input">
+                </div>
+                <button type="button" class="btn btn-primary btn-submit btn-submit--SUNRISE">Когда?</button>
+            </div>
+            <div class="SUNRISE-information">
+                <span class="SUNRISE-information__element SUNRISE-information__element__sunrise"></span>
+                <span class="SUNRISE-information__element SUNRISE-information__element__sunset"></span>
+            </div>
+        </div>
+
+        <div class="spinner-border text-dark loading-spinner loading-spinner--SUNRISE" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
+<script src="js/build/core.bundle.js"></script>
 </body>
 </html>
