@@ -90,7 +90,6 @@ const renderModals = () => {
             event.stopPropagation();
         });
 
-        modal.textContent = elem.text;
         modal.dataset.type = elem.api;
         modal.classList.add('modal');
 
@@ -117,7 +116,7 @@ const renderAPI = () => {
         getCatAPI();
     } else if (ModalState.openedModalApi === MODAL_APIS.DAY_OFF_API) {
         getDayOffAPI();
-    } else if (ModalState.openedModalApi === MODAL_APIS.IQA_API) {
+    } else if (ModalState.openedModalApi === MODAL_APIS.RAM_API) {
         getRickAndMortyAPI();
     }
 };

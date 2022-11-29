@@ -1,4 +1,4 @@
-.main {
+.main { /* Main element */
     background: url('../style/images/mainBackground.png');
     background-size: cover;
     position: absolute;
@@ -7,7 +7,7 @@
     width: 100%;
     height: 100%;
 }
-.button__container {
+.button__container { /* Container for main buttons on screen */
     position: absolute;
     transform: translate3d(-50%, -50%, 0);
     top: 50%;
@@ -16,7 +16,7 @@
     height: 90px;
     display: flex;
 }
-.button-Main {
+.button-Main { /* buttons on main screen */
     background: url('../style/images/mainButton.png');
     text-align: center;
     color: white;
@@ -27,14 +27,14 @@
     margin: 20px;
     cursor: pointer;
 }
-.modal__container {
+.modal__container { /* Container for modal windows */
     position: absolute;
     transform: translate3d(-50%, -50%, 0);
     top: 50%;
     left: 50%;
     display: flex;
 }
-.modal {
+.modal { /* modal window */
     position: absolute;
     transform: translate3d(-50%, -50%, 0);
     top: 50%;
@@ -43,18 +43,19 @@
     background: url('../style/images/modal.png');
     width: 800px;
     height: 500px;
-    display: none;
+    display: none; /* if == NONE -> modal is hidden */
+    text-align: center;
 }
-.active {
+.active { /* class for activating modal | if != NONE -> modal is open */
     display: block;
 }
-.apiWindow {
+.apiWindow { /* class for activating api, needs for loading screen (hide) */
     display: none;
 }
-.apiWindowActive {
+.apiWindowActive { /* class for activating api (open) */
     display: flex;
 }
-.loadingWindow {
+.loadingWindow { /* loading window div */
     position: absolute;
     transform: translate3d(-50%, -50%, 0);
     top: 50%;
@@ -63,23 +64,22 @@
     height: 100px;
     display: flex;
 }
-.loadingSpan {
+.loadingSpan { /* "Loading" text */
     color: white;
     font-size: 50px;
 }
-
-
-
-.normDiv {
+.rickAndMortyWindow { /* div for RAMApi, makes 2 columns */
     position: absolute;
     transform: translate3d(-50%, -50%, 0);
     top: 50%;
     left: 50%;
     width: 600px;
     height: 350px;
+    color: white;
+    font-size: 20px;
+    column-count: 2;
 }
-
-.modalButton {
+.modalButton { /* buttons on modal screen: previous, close, next */
     background-color: #48315b;
     text-align: center;
     color: white;
@@ -87,10 +87,10 @@
     width: 20px;
     height: 20px;
     border-radius: 5px;
-    margin: 2px;
+    margin: auto;
     cursor: pointer;
 }
-.catAPI {
+.catAPI { /* div for image in CatApi */
     position: absolute;
     transform: translate3d(-50%, -50%, 0);
     top: 50%;
@@ -98,11 +98,28 @@
     width: 600px;
     height: 300px;
 }
+.windowMainDiv { /* main div for modal window, where  */
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 460px;
+    grid-template-rows: 1rem 9rem;
+}
+.windowMainArticleDiv { /* article in modal window */
+    color: white;
+    text-align: center;
+}
+.windowMainBodyDiv { /* all content in modal window */
+    color: white;
+}
+
 .input {
     position: absolute;
     transform: translate3d(-50%, -50%, 0);
     top: 30%;
-    left: 45%;
+    left: 40%;
     width: 200px;
     height: 20px;
 }
@@ -110,23 +127,14 @@
     position: absolute;
     transform: translate3d(-50%, -50%, 0);
     top: 30%;
-    left: 60%;
+    left: 67%;
     width: 60px;
     height: 20px;
 }
-.smallWindow {
+.dayOffApi {
+    display: block;
     position: absolute;
     transform: translate3d(-50%, -50%, 0);
-    top: 60%;
+    top: 50%;
     left: 50%;
-    width: 300px;
-    height: 250px;
-    border-radius: 10px;
-    border: 1px solid black;
-}
-.alertInput {
-    position: absolute;
-    transform: translate3d(-50%, -50%, 0);
-    top: 25%;
-    left: 49%;
 }
