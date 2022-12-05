@@ -3,22 +3,24 @@
         <div class="sun-container__block sun-container__block--sun">
             <h3>Нажми на солнце</h3>
             <div class="sun-container__img">
-                <!--Начало-->
-                <img src="/Lessons/12. Vue. Properties. Refs. Modal/Tasks/Task 1. SizeOfSun/assets/sun.svg"
+                <img src="/Lessons/12.%20Vue.%20Properties.%20Refs.%20Modal/Tasks/Task 1. SizeOfSun/assets/sun.svg"
                      class="sun-container__the-sun"
                      @click="lookToTheFuture"
                      ref="sun"
                      :style="{'width': widthSunPicture + 'px'}"
-                >
-                <!--Конец-->
+                />
             </div>
         </div>
         <div class="sun-container__block">
             <!--Начало-->
             <h3>Год:</h3>
-            <span>{{ year }}</span>
+            <span>
+                {{ year }}
+            </span>
             <h3>Диаметр солнца:</h3>
-            <span>{{ diameter }} км</span>
+            <span>
+                {{ diameter }} км
+            </span>
             <!--Конец-->
         </div>
     </div>
