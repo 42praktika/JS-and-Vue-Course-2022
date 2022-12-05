@@ -2,17 +2,28 @@
     <div class="sun-container">
         <div class="sun-container__block sun-container__block--sun">
             <h3>Нажми на солнце</h3>
-            <div class="sun-container__img">
+            <div class="sun-container__img"/>
                 <!--Начало-->
-
+                <img
+                     ref="width"
+                     :src="imgSrc"
+                     class="sun-container__the-sun"
+                     style="width: 450px"
+                     @click = "changeWidth(); changeDiameter(); changeYear();"
+                />
                 <!--Конец-->
-            </div>
         </div>
-        <div class="sun-container__block">
+        <div class="sun-container__block"/>
             <!--Начало-->
-
+            <h3>Год:</h3>
+            <span>
+                {{ year }}
+            </span>
+            <h3>Диаметр солнца:</h3>
+            <span>
+                {{ diameter }} км
+            </span>
             <!--Конец-->
-        </div>
     </div>
 </template>
 
@@ -24,13 +35,22 @@ export default {
         return {
             diameter: 1392700,
             year: 2021,
-            // Начало
-
-            // Конец
+            imgSrc: '/Lessons/12. Vue. Properties. Refs. Modal/Tasks/Task 1. SizeOfSun/assets/sun.svg',
         };
     },
     // Начало
-
+    methods: {
+        changeWidth () {
+            let valueWidth = this.$refs.width.offsetWidth;
+            this.$refs.width.style.width = Math.round(valueWidth * 0.95) + "px";
+        },
+        changeYear () {
+            this.year = this.year + 500000;
+        },
+        changeDiameter () {
+            this.diameter = Math.round(this.diameter * 0.95);
+        },
+    },
     // Конец
 };
 </script>
