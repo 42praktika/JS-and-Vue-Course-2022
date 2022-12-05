@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <script src="https://unpkg.com/vuex@2.0.0"></script>
+        <title>Vuex Namespaced Modules</title>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script>
+            const errandsModule = {
+                state: () => {
+                    errands: [];
+                },
+                actions: {
+                    addErrandAction({ commit }, payload) {
+                        commit('addErrand', payload);
+                    },
+                },
+                mutations: {
+                    addErrand(state, text) {
+                        state.errands.push(text);
+                    },
+                },
+                getters: {
+                    someGetter() {
+                    },
+                },
+                namespaced: true,
+            };
+
+            const usersModule = {
+                state: () => {
+                    users: [];
+                },
+                actions: {
+                    addUserAction({ commit }, payload) {
+                        commit('addUser', payload);
+                    },
+                },
+                mutations: {
+                    addUser(state, text) {
+                        state.users.push(text);
+                    },
+                },
+                namespaced: true,
+            };
+
+            const store = new Vuex.Store({
+                actions: {},
+                mutations: {},
+                modules: {
+                    errands: errandsModule,
+                    users: usersModule,
+                },
+            });
+
+            const app = new Vue({
+                el: '#app',
+                store,
+                methods: {
+                    getStoreElements() {
+                        // someAction из errandsModule
+                        this.$store.dispatch('errandsModule/someAction');
+                        // someMutation из errandsModule
+                        this.$store.commit('errandsModule/someMutation');
+                        // someGetter из errandsModule
+                        this.$store.getters['errandsModule/someGetter'];
+                    },
+
+                    ...Vuex.mapActions([
+                        'errandsModule/someAction', // использовать как this['errandsModule/someAction']()
+                    ]),
+                },
+                computed: {
+                    ...mapState({
+                        errands: state => state.errandsModule.errands,
+                    }),
+                    ...mapGetters([
+                        'errandsModule/someGetter', // использовать как this['errandsModule/someGetter']
+                    ])
+                },
+
+                // Более удобное выделение данных с помощью `map`-функций
+                // computed: {
+                //     ...mapState('errandsModule', {
+                //         errands: state => state.errands,
+                //     }),
+                //     ...mapGetters('errandsModule', [
+                //         'someGetter',
+                //     ])
+                // },
+                // methods: {
+                //     ...mapActions('errandsModule', [
+                //         'someAction',
+                //     ])
+                // }
+            });
+        </script>
+    </body>
+</html>
