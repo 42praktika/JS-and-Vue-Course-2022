@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <script src="https://unpkg.com/vuex@2.0.0"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <style>
+            #app {
+                margin: 60px;
+                display: flex;
+            }
+
+            #app > div {
+                margin-right: 20px;
+            }
+
+            .app__buttons {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .form-control {
+                width: 300px;
+                margin-bottom: 20px;
+            }
+
+            .btn {
+                margin-bottom: 20px;
+            }
+
+            .alert {
+                width: 300px;
+            }
+        </style>
+        <title>Getters. Map-helpers</title>
+    </head>
+    <body>
+        <div id="app">
+            <div>
+                Имя
+                <input
+                    class="form-control"
+                    v-model="name"
+                />
+                Фамилия
+                <input
+                    class="form-control"
+                    v-model="surname"
+                />
+                Возраст
+                <input
+                    class="form-control"
+                    v-model="age"
+                />
+                <div class="app__buttons">
+                    <button
+                        @click="onAddUser"
+                        class="btn btn-success"
+                    >
+                        Добавить пользователя
+                    </button>
+                    <button
+                        @click="onOlderThen30"
+                        class="btn btn-success"
+                    >
+                        Пользователи старше 30
+                    </button>
+                    <button
+                        @click="onUsersByAge"
+                        class="btn btn-success"
+                    >
+                        Пользователи возраста...
+                    </button>
+                </div>
+            </div>
+            <div>
+                <div
+                    v-for="(item, index) in users"
+                    class="alert alert-success"
+                >
+                    {{ item.name }} {{ item.surname }}. Age: {{ item.age }}
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const store = new Vuex.Store({
+                state: {
+                    users: [
+                        { name: 'Felippe', surname: 'Massa', age: 40 },
+                        { name: 'Fernando', surname: 'Alonso', age: 40 },
+                        { name: 'Max', surname: 'Verstappen', age: 24 },
+                        { name: 'Mick', surname: 'Schumacher', age: 22 },
+                        { name: 'Lando', surname: 'Norris', age: 22 },
+                        { name: 'George', surname: 'Russell', age: 23 },
+                    ],
+                },
+                actions: {
+                    addUser({ commit }, payload) {
+                        commit('addUser', payload);
+                    },
+                },
+                mutations: {
+                    addUser(state, newUser) {
+                        state.users.push(newUser);
+                    },
+                },
+                getters: {
+                    getUserOlderThen30: (state) => state.users.filter(({ age }) => age > 30),
+                    getUsersByAge:
+                        (state) => (currentAge) => state.users.filter(({ age }) => age === currentAge),
+                },
+            });
+
+            const app = new Vue({
+                el: '#app',
+                store,
+                data() {
+                    return {
+                        name: '',
+                        surname: '',
+                        age: '',
+                    };
+                },
+                methods: {
+                    ...Vuex.mapActions([ 'addUser' ]),
+                    onAddUser() {
+                        this.addUser({ ...this.$data });
+                        this.name = '';
+                        this.surname = '';
+                        this.age = '';
+                    },
+                    onOlderThen30() {
+                        const olderThen30Users = this.getUserOlderThen30;
+                        const text = this.getUsersText(olderThen30Users);
+                        alert(text);
+                    },
+                    onUsersByAge() {
+                        const usersByAge = this.getUsersByAge(Number(this.age));
+                        const text = this.getUsersText(usersByAge);
+                        alert(text);
+                    },
+                    getUsersText(users) {
+                        return users.map((user) => Object.values(user).join(' ')).join('. ');
+                    },
+                },
+                computed: {
+                    ...Vuex.mapState([ 'users' ]),
+                    ...Vuex.mapGetters([ 'getUserOlderThen30', 'getUsersByAge' ]),
+                },
+            });
+        </script>
+    </body>
+</html>
