@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <style>
+            #app {
+                margin: 40px;
+            }
+
+            #app div {
+                margin-bottom: 10px;
+                text-decoration: underline;
+            }
+        </style>
+        <title>V-if V-for</title>
+    </head>
+    <body>
+        <div id="app">
+            <div
+                v-for="student in students"
+                v-if="student.hasProject"
+            >
+                {{ student.name }}
+            </div>
+
+<!--            <div>-->
+<!--                <span-->
+<!--                    v-for="student in students"-->
+<!--                    v-if="showStudents"-->
+<!--                >-->
+<!--                    {{ student.name }}-->
+<!--                </span>-->
+<!--            </div>-->
+            
+<!--            Заменяем на -->
+<!--            <div v-if="showStudents">-->
+<!--                <span v-for="student in students">-->
+<!--                    {{ student.name }}-->
+<!--                </span>-->
+<!--            </div>-->
+        </div>
+
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        students: [
+                            { name: 'Rodger', hasProject: true },
+                            { name: 'Rafael', hasProject: false },
+                            { name: 'Novak', hasProject: false },
+                            { name: 'Andy', hasProject: true },
+                        ],
+                    };
+                },
+                computed: {
+                    currentStudents() {
+                        return this.students.filter(({ hasProject }) => hasProject);
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <style>
+            #app {
+                margin: 40px;
+                display: flex;
+                align-items: center;
+            }
+        </style>
+        <title>Watch</title>
+    </head>
+    <body>
+        <div id="app">
+            <button
+                @click="count += 1"
+                class="btn btn-primary btn-lg"
+            >
+                Count = {{ count }}
+            </button>
+        </div>
+
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        count: 0,
+                    };
+                },
+                watch: {
+                    count: function (newCount, oldCount) {
+                        const isCountMoreThenTen = newCount > 10;
+                        console.log('newCount = ', newCount);
+                        console.log('oldCount = ', oldCount);
+                        if (isCountMoreThenTen) {
+                            alert('Число больше 10');
+                        }
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
