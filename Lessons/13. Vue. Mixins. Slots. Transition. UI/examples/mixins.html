@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <style>
+            #app {
+                margin: 60px;
+            }
+        </style>
+        <title>Mixins</title>
+    </head>
+    <body>
+        <div id="app">
+            <button
+                @click="showErrors(errors)"
+                class="btn btn-warning"
+            >
+                Вызвать миксин!
+            </button>
+        </div>
+
+        <script>
+            const errorsMixin = {
+                methods: {
+                    showErrors(errors) {
+                        const errorsText = 'Внимание! ' + errors.join('. ');
+                        alert(errorsText);
+                    },
+                },
+            };
+            const app = new Vue({
+                el: '#app',
+                mixins: [ errorsMixin ],
+                data() {
+                    return {
+                        errors: [ 'Пароль неверный', 'Телефон неверный', 'Вообще все неверно, парень..' ],
+                    };
+                },
+            });
+        </script>
+    </body>
+</html>
