@@ -31,10 +31,9 @@ export default {
     return {
       diameter: 1392700,
       year: 2021,
-      widthSunImage: 450,
+      widthSunImage: 450
     };
   },
-
   methods: {
     newSun() {
       this.year += 500000;
@@ -43,7 +42,6 @@ export default {
       this.widthSunImage = widthSun * 0.95;
     }
   }
-
 };
 </script>
 
