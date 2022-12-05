@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <script src="https://unpkg.com/vuex@2.0.0"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+            crossorigin="anonymous"
+        >
+        <style>
+            #app {
+                margin: 60px;
+            }
+
+            .form-control {
+                width: 300px;
+                margin-bottom: 20px;
+            }
+
+            .btn {
+                margin-bottom: 20px;
+            }
+
+            .alert {
+                width: 300px;
+            }
+        </style>
+        <title>Mutation Plugins</title>
+    </head>
+    <body>
+        <div id="app">
+            <input
+                class="form-control"
+                v-model="newText"
+            />
+            <button
+                @click="addText"
+                class="btn btn-warning"
+            >
+                Добавить
+            </button>
+            <div
+                v-for="item in items"
+                class="alert alert-info"
+            >
+                {{ item }}
+            </div>
+        </div>
+
+        <script>
+            const watchManoolsPlugin = (store) => {
+                store.subscribe((mutation, state) => {
+                    console.log('mutation', mutation);
+                    if (mutation.type === 'addItem') {
+                        alert('Манул добавлен!');
+                    }
+                });
+            };
+
+            const store = new Vuex.Store({
+                state: {
+                    items: [ 'Один манул', 'Два манула' ],
+                },
+                actions: {
+                    addItemAction(context, payload) {
+                        context.commit('addItem', payload);
+                    },
+                },
+                mutations: {
+                    addItem(state, text) {
+                        state.items.push(text);
+                    },
+                },
+                plugins: [ watchManoolsPlugin ],
+            });
+
+            const app = new Vue({
+                el: '#app',
+                store,
+                data() {
+                    return {
+                        newText: '',
+                    };
+                },
+                methods: {
+                    addText() {
+                        this.$store.dispatch('addItemAction', this.newText);
+                        this.newText = '';
+                    },
+                },
+                computed: {
+                    items() {
+                        return this.$store.state.items;
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
