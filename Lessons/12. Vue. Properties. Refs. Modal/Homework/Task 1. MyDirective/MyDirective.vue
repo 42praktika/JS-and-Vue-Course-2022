@@ -21,7 +21,17 @@
 export default {
     name: 'MyDirective',
     // Начало
+    directives: {
+      replace: {
+        inserted: (element, binding) => {
+          if (element.innerText.includes(binding.name)) {
+            const arrayOfQuote = element.innerText.split(`${binding.name}`);
+            const span = document.createElement('span');
 
+          }
+        }
+      }
+    },
     // Конец
     methods: {
         getVisibility(text) {

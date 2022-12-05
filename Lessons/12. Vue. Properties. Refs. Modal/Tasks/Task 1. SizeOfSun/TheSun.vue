@@ -4,14 +4,26 @@
             <h3>Нажми на солнце</h3>
             <div class="sun-container__img">
                 <!--Начало-->
-
+              <img src="/Lessons/12.%20Vue.%20Properties.%20Refs.%20Modal/Tasks/Task%201.%20SizeOfSun/assets/sun.svg"
+              ref="imgSun"
+              class="sun-container__the-sun"
+              :style="changeSize"
+              @click="changeStats"
+              >
                 <!--Конец-->
             </div>
         </div>
         <div class="sun-container__block">
             <!--Начало-->
-
-            <!--Конец-->
+          <h3>Год:</h3>
+          <span>
+            {{ year }}
+          </span>
+          <h3>Диаметр солнца:</h3>
+          <span>
+            {{ diameter }} км
+          </span>
+          <!--Конец-->
         </div>
     </div>
 </template>
@@ -25,12 +37,25 @@ export default {
             diameter: 1392700,
             year: 2021,
             // Начало
-
+            size: 450,
             // Конец
         };
     },
     // Начало
-
+  methods: {
+    changeStats() {
+      this.size = Math.ceil(this.size * 0.95)
+      this.year += 500000
+      this.diameter = Math.ceil(this.diameter * 0.95)
+    }
+  },
+  computed: {
+      changeSize() {
+        return {
+          width: `${this.size}px`
+        }
+      }
+  }
     // Конец
 };
 </script>
