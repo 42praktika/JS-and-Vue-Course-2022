@@ -47,7 +47,7 @@ export default {
     props: {
         iconType: {
             type: String,
-            default: 'happy',
+            default: 'surprised',
         }
     },
     computed: {
