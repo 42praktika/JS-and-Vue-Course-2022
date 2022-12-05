@@ -1,7 +1,7 @@
 import {watchCharactersState} from './watchers.js';
 
 
-const startModal2 = () => {
+const startModalRickAndMorty = () => {
     const charactersModalState = {
         isLoading: false,
         characters: [],
@@ -11,7 +11,7 @@ const startModal2 = () => {
 
     addListeners(charactersModalState);
     watchCharactersState(charactersModalState);
-}
+};
 
 const addListeners = (state) => {
     const statusSelector = document.querySelector('.status-selector');
@@ -22,7 +22,6 @@ const addListeners = (state) => {
     statusSelector.addEventListener('change', () => {
         state.isLoading = true;
         state.status = statuses[statusSelector.selectedIndex];
-        state.gender = genders[genderSelector.selectedIndex];
         let request = `https://rickandmortyapi.com/api/character/?gender=${state.gender}&status=${state.status}`;
 
         fetch(request)
@@ -36,7 +35,6 @@ const addListeners = (state) => {
     genderSelector.addEventListener('change', () => {
         state.isLoading = true;
         state.gender = genders[genderSelector.selectedIndex];
-        state.status = statuses[statusSelector.selectedIndex];
         let request = `https://rickandmortyapi.com/api/character/?gender=${state.gender}&status=${state.status}`;
 
         fetch(request)
@@ -46,6 +44,6 @@ const addListeners = (state) => {
                 state.isLoading = false;
             });
     });
-}
+};
 
-export default startModal2
+export default startModalRickAndMorty

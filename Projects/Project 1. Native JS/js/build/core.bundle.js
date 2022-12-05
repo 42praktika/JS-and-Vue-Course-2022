@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./js/Modal1.js":
-/*!**********************!*\
-  !*** ./js/Modal1.js ***!
-  \**********************/
+/***/ "./js/ModalCats.js":
+/*!*************************!*\
+  !*** ./js/ModalCats.js ***!
+  \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -18,12 +18,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const startModal1 = () => {
+const startModalCats = () => {
   const catsModalState = {
     imageURL: '',
     fact: '',
     isLoading: false
   };
+  addListeners(catsModalState);
+  (0,_watchers_js__WEBPACK_IMPORTED_MODULE_0__.watchCatsState)(catsModalState);
+};
+
+const addListeners = state => {
   const radioPNG = document.getElementsByName('imageTypeRadio')[0];
   const imageTextInput = document.querySelector('.image-text-input');
   const filterSelector = document.querySelector('.filter-selector');
@@ -31,11 +36,11 @@ const startModal1 = () => {
   imageTextInput.value = '';
   const imageFilters = ['', 'blur', 'mono', 'sepia', 'negative', 'paint', 'pixel'];
   submitButton.addEventListener('click', () => {
-    catsModalState.isLoading = true;
+    state.isLoading = true;
     let imageType = radioPNG.checked ? 'PNG' : 'GIF';
     let imageText = imageTextInput.value;
     let filter = imageFilters[filterSelector.selectedIndex];
-    let imageRequest = '';
+    let imageRequest;
     let promises = [];
 
     if (imageText === '') {
@@ -44,21 +49,20 @@ const startModal1 = () => {
       imageRequest = imageType === 'PNG' ? `https://cataas.com/cat/says/${imageText}?filter=${filter}&json=true` : `https://cataas.com/cat/gif/says/${imageText}?filter=${filter}&json=true`;
     }
 
-    promises.push(axios__WEBPACK_IMPORTED_MODULE_1___default().get('https://meowfacts.herokuapp.com/?lang=rus').then(response => catsModalState.fact = response.data.data[0]));
-    promises.push(axios__WEBPACK_IMPORTED_MODULE_1___default().get(imageRequest).then(response => catsModalState.imageURL = 'https://cataas.com' + response.data.url));
-    Promise.all(promises).then(() => catsModalState.isLoading = false);
+    promises.push(axios__WEBPACK_IMPORTED_MODULE_1___default().get('https://meowfacts.herokuapp.com/?lang=rus').then(response => state.fact = response.data.data[0]));
+    promises.push(axios__WEBPACK_IMPORTED_MODULE_1___default().get(imageRequest).then(response => state.imageURL = 'https://cataas.com' + response.data.url));
+    Promise.all(promises).then(() => state.isLoading = false);
   });
-  (0,_watchers_js__WEBPACK_IMPORTED_MODULE_0__.watchCatsState)(catsModalState);
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (startModal1);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (startModalCats);
 
 /***/ }),
 
-/***/ "./js/Modal2.js":
-/*!**********************!*\
-  !*** ./js/Modal2.js ***!
-  \**********************/
+/***/ "./js/ModalRickAndMorty.js":
+/*!*********************************!*\
+  !*** ./js/ModalRickAndMorty.js ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -69,7 +73,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _watchers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./watchers.js */ "./js/watchers.js");
 
 
-const startModal2 = () => {
+const startModalRickAndMorty = () => {
   const charactersModalState = {
     isLoading: false,
     characters: [],
@@ -88,7 +92,6 @@ const addListeners = state => {
   statusSelector.addEventListener('change', () => {
     state.isLoading = true;
     state.status = statuses[statusSelector.selectedIndex];
-    state.gender = genders[genderSelector.selectedIndex];
     let request = `https://rickandmortyapi.com/api/character/?gender=${state.gender}&status=${state.status}`;
     fetch(request).then(response => response.json()).then(data => {
       state.characters = data.results;
@@ -98,7 +101,6 @@ const addListeners = state => {
   genderSelector.addEventListener('change', () => {
     state.isLoading = true;
     state.gender = genders[genderSelector.selectedIndex];
-    state.status = statuses[statusSelector.selectedIndex];
     let request = `https://rickandmortyapi.com/api/character/?gender=${state.gender}&status=${state.status}`;
     fetch(request).then(response => response.json()).then(data => {
       state.characters = data.results;
@@ -107,14 +109,14 @@ const addListeners = state => {
   });
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (startModal2);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (startModalRickAndMorty);
 
 /***/ }),
 
-/***/ "./js/Modal3.js":
-/*!**********************!*\
-  !*** ./js/Modal3.js ***!
-  \**********************/
+/***/ "./js/ModalSunrise.js":
+/*!****************************!*\
+  !*** ./js/ModalSunrise.js ***!
+  \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -125,30 +127,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _watchers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./watchers.js */ "./js/watchers.js");
 
 
-const startModal3 = () => {
+const startModalSunrise = () => {
   const sunriseState = {
     isLoading: false,
     sunrise: '',
     sunset: ''
   };
+  addListeners(sunriseState);
+  (0,_watchers_js__WEBPACK_IMPORTED_MODULE_0__.watchSunriseState)(sunriseState);
+};
+
+const addListeners = state => {
   const submitButton = document.querySelector('.btn-submit--SUNRISE');
   const latitudeInput = document.querySelector('.latitude-input');
   const longitudeInput = document.querySelector('.longitude-input');
   const dateInput = document.querySelector('.date-input');
   submitButton.addEventListener('click', () => {
-    sunriseState.isLoading = true;
+    state.isLoading = true;
     let request = `https://api.sunrise-sunset.org/json?lat=${latitudeInput.value}&lng=
                         ${longitudeInput.value}&date=${dateInput.value}`;
     fetch(request).then(response => response.json()).then(data => {
-      sunriseState.sunrise = data.results.sunrise;
-      sunriseState.sunset = data.results.sunset;
-      sunriseState.isLoading = false;
+      state.sunrise = data.results.sunrise;
+      state.sunset = data.results.sunset;
+      state.isLoading = false;
     });
   });
-  (0,_watchers_js__WEBPACK_IMPORTED_MODULE_0__.watchSunriseState)(sunriseState);
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (startModal3);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (startModalSunrise);
 
 /***/ }),
 
@@ -161,29 +167,24 @@ const startModal3 = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "MODAL_WINDOWS": () => (/* binding */ MODAL_WINDOWS),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "navigationButtonsTypes": () => (/* binding */ navigationButtonsTypes)
 /* harmony export */ });
-/* harmony import */ var _Modal1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Modal1 */ "./js/Modal1.js");
-/* harmony import */ var _Modal2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Modal2 */ "./js/Modal2.js");
-/* harmony import */ var _Modal3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Modal3 */ "./js/Modal3.js");
-
-
-
 const MODAL_WINDOWS = {
-  'modal-1': {
-    domElement: document.querySelector('.modal-1'),
-    function: _Modal1__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  'modal-2': {
-    domElement: document.querySelector('.modal-2'),
-    function: _Modal2__WEBPACK_IMPORTED_MODULE_1__["default"]
-  },
-  'modal-3': {
-    domElement: document.querySelector('.modal-3'),
-    function: _Modal3__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }
+  'CATS': '.modal-cats',
+  'RICKANDMORTY': '.modal-RickAndMorty',
+  'SUNRISE': '.modal-sunrise'
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MODAL_WINDOWS);
+const navigationButtonsTypes = {
+  close: 'close',
+  next: 'next',
+  back: 'back'
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  MODAL_WINDOWS,
+  navigationButtonsTypes
+});
 
 /***/ }),
 
@@ -204,20 +205,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var melanke_watchjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! melanke-watchjs */ "../../node_modules/melanke-watchjs/src/watch.js");
 /* harmony import */ var melanke_watchjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(melanke_watchjs__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _consts_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/consts.js */ "./js/consts.js");
+/* harmony import */ var _ModalCats__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/ModalCats */ "./js/ModalCats.js");
+/* harmony import */ var _ModalRickAndMorty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/ModalRickAndMorty */ "./js/ModalRickAndMorty.js");
+/* harmony import */ var _ModalSunrise__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/ModalSunrise */ "./js/ModalSunrise.js");
+
+
+
 
 
 const {
   watch
 } = (melanke_watchjs__WEBPACK_IMPORTED_MODULE_0___default());
+const modalsKeys = Object.keys(_consts_js__WEBPACK_IMPORTED_MODULE_1__.MODAL_WINDOWS);
 
 const watchAppState = appState => {
-  watch(appState, 'openedModalName', () => {
-    if (appState.openedModalName !== '') {
-      _consts_js__WEBPACK_IMPORTED_MODULE_1__["default"][appState.previousModalName].domElement.style.display = 'none';
-      _consts_js__WEBPACK_IMPORTED_MODULE_1__["default"][appState.openedModalName].domElement.style.display = 'block';
-      _consts_js__WEBPACK_IMPORTED_MODULE_1__["default"][appState.openedModalName].function();
+  watch(appState, 'openedModalIndex', () => {
+    if (appState.openedModalIndex !== -1) {
+      modalsKeys.forEach(key => {
+        const closedModal = document.querySelector(_consts_js__WEBPACK_IMPORTED_MODULE_1__.MODAL_WINDOWS[key]);
+        closedModal.style.display = 'none';
+      });
+      const openedModalElement = document.querySelector(_consts_js__WEBPACK_IMPORTED_MODULE_1__.MODAL_WINDOWS[modalsKeys[appState.openedModalIndex]]);
+      openedModalElement.style.display = 'block';
+
+      switch (appState.openedModalIndex) {
+        case 0:
+          (0,_ModalCats__WEBPACK_IMPORTED_MODULE_2__["default"])();
+          break;
+
+        case 1:
+          (0,_ModalRickAndMorty__WEBPACK_IMPORTED_MODULE_3__["default"])();
+          break;
+
+        case 2:
+          (0,_ModalSunrise__WEBPACK_IMPORTED_MODULE_4__["default"])();
+          break;
+      }
     } else {
-      _consts_js__WEBPACK_IMPORTED_MODULE_1__["default"][appState.previousModalName].domElement.style.display = 'none';
+      modalsKeys.forEach(key => {
+        const closedModal = document.querySelector(_consts_js__WEBPACK_IMPORTED_MODULE_1__.MODAL_WINDOWS[key]);
+        closedModal.style.display = 'none';
+      });
     }
   });
 };
@@ -245,7 +273,7 @@ const watchCatsState = catsState => {
 const watchCharactersState = charactersState => {
   watch(charactersState, 'isLoading', () => {
     const charactersElement = document.querySelector('.characters');
-    const loadingSpinner = document.querySelector('.loading-spinner--RandM');
+    const loadingSpinner = document.querySelector('.loading-spinner--RickAndMorty');
     const characterTags = ['status', 'gender', 'species'];
 
     if (charactersState.isLoading) {
@@ -3591,37 +3619,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const startApp = () => {
   const appState = {
-    openedModalName: '',
-    previousModalName: 'modal-1'
+    openedModalIndex: -1
   }; // Обработчик на кнопки открытия окон
 
-  const modalsKeys = Object.keys(_consts_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+  const modalsKeys = Object.keys(_consts_js__WEBPACK_IMPORTED_MODULE_0__.MODAL_WINDOWS);
   const buttonsContainer = document.querySelector('div.buttons');
   buttonsContainer.addEventListener('click', event => {
-    if (modalsKeys.indexOf(event.target.dataset.type) !== -1) {
-      appState.openedModalName = event.target.dataset.type;
-    }
+    appState.openedModalIndex = modalsKeys.indexOf(event.target.dataset.type);
   }); // Обработчик на кнопки навигации
 
   const navigationButtons = document.querySelectorAll('.navigation__element');
   navigationButtons.forEach(button => {
     button.addEventListener('click', event => {
-      let currentModalIndex = modalsKeys.indexOf(appState.openedModalName);
-      appState.previousModalName = appState.openedModalName;
-
       switch (event.target.dataset.type) {
-        case 'close':
-          appState.openedModalName = '';
+        case _consts_js__WEBPACK_IMPORTED_MODULE_0__.navigationButtonsTypes.close:
+          appState.openedModalIndex = -1;
           break;
 
-        case 'next':
-          appState.openedModalName = currentModalIndex + 1 === modalsKeys.length ? modalsKeys[0] : modalsKeys[currentModalIndex + 1];
+        case _consts_js__WEBPACK_IMPORTED_MODULE_0__.navigationButtonsTypes.next:
+          appState.openedModalIndex = appState.openedModalIndex + 1 === modalsKeys.length ? 0 : appState.openedModalIndex + 1;
           break;
 
-        case 'back':
-          appState.openedModalName = currentModalIndex === 0 ? modalsKeys[modalsKeys.length - 1] : modalsKeys[currentModalIndex - 1];
+        case _consts_js__WEBPACK_IMPORTED_MODULE_0__.navigationButtonsTypes.back:
+          appState.openedModalIndex = appState.openedModalIndex === 0 ? modalsKeys.length - 1 : appState.openedModalIndex - 1;
           break;
       }
     });

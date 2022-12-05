@@ -1,16 +1,40 @@
 import WatchJS from 'melanke-watchjs';
-import MODAL_WINDOWS from '@/consts.js';
+import {MODAL_WINDOWS} from '@/consts.js';
+import startModalCats from "@/ModalCats";
+import startModalRickAndMorty from "@/ModalRickAndMorty";
+import startModalSunrise from "@/ModalSunrise";
 
 const {watch} = WatchJS;
 
+const modalsKeys = Object.keys(MODAL_WINDOWS);
+
 const watchAppState = (appState) => {
-    watch(appState, 'openedModalName', () => {
-        if (appState.openedModalName !== '') {
-            MODAL_WINDOWS[appState.previousModalName].domElement.style.display = 'none';
-            MODAL_WINDOWS[appState.openedModalName].domElement.style.display = 'block';
-            MODAL_WINDOWS[appState.openedModalName].function();
+    watch(appState, 'openedModalIndex', () => {
+        if (appState.openedModalIndex !== -1) {
+            modalsKeys.forEach(key => {
+                const closedModal = document.querySelector(MODAL_WINDOWS[key]);
+                closedModal.style.display = 'none'
+            });
+
+            const openedModalElement = document.querySelector(MODAL_WINDOWS[modalsKeys[appState.openedModalIndex]]);
+            openedModalElement.style.display = 'block';
+
+            switch (appState.openedModalIndex) {
+                case 0:
+                    startModalCats();
+                    break;
+                case 1:
+                    startModalRickAndMorty();
+                    break;
+                case 2:
+                    startModalSunrise();
+                    break;
+            }
         } else {
-            MODAL_WINDOWS[appState.previousModalName].domElement.style.display = 'none';
+            modalsKeys.forEach(key => {
+                const closedModal = document.querySelector(MODAL_WINDOWS[key]);
+                closedModal.style.display = 'none'
+            });
         }
     });
 };
@@ -38,7 +62,7 @@ const watchCatsState = (catsState) => {
 const watchCharactersState = (charactersState) => {
     watch(charactersState, 'isLoading', () => {
         const charactersElement = document.querySelector('.characters');
-        const loadingSpinner = document.querySelector('.loading-spinner--RandM');
+        const loadingSpinner = document.querySelector('.loading-spinner--RickAndMorty');
         const characterTags = ['status', 'gender', 'species'];
 
         if (charactersState.isLoading) {

@@ -37,11 +37,11 @@
 <script>bubbly();</script>
 <div class="app">
     <div class="buttons">
-        <button type="button" class="btn btn-light btn--widget" data-type="modal-1">Cutie Cats</button>
-        <button type="button" class="btn btn-light btn--widget" data-type="modal-2">Rick&Morty</button>
-        <button type="button" class="btn btn-light btn--widget" data-type="modal-3">Sunrise</button>
+        <button type="button" class="btn btn-light btn--widget" data-type="CATS">Cutie Cats</button>
+        <button type="button" class="btn btn-light btn--widget" data-type="RICKANDMORTY">Rick&Morty</button>
+        <button type="button" class="btn btn-light btn--widget" data-type="SUNRISE">Sunrise</button>
     </div>
-    <div class="modal modal-1" style="display: none">
+    <div class="modal modal-cats" style="display: none">
         <h2 class="modal__title">Cutie Cats</h2>
         <div class="navigation">
             <img
@@ -100,7 +100,7 @@
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
-    <div class="modal modal-2" style="display: none">
+    <div class="modal modal-RickAndMorty" style="display: none">
         <h2 class="modal__title">Rick&Morty Characters</h2>
         <div class="navigation">
             <img
@@ -125,7 +125,7 @@
                     height="30"
             >
         </div>
-        <div class="modal__main modal__main--RandM">
+        <div class="modal__main modal__main--RickAndMorty">
             <div class="modal__settings">
                 <div class="select-menu">
                     <h4>Статус:</h4>
@@ -151,11 +151,11 @@
 
             </div>
         </div>
-        <div class="spinner-border text-dark loading-spinner loading-spinner--RandM" role="status">
+        <div class="spinner-border text-dark loading-spinner loading-spinner--RickAndMorty" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
-    <div class="modal modal-3" style="display: none">
+    <div class="modal modal-sunrise" style="display: none">
         <h2 class="modal__title">Sunrise</h2>
         <div class="navigation">
             <img

@@ -1,20 +1,13 @@
-import startModal1 from "@/Modal1";
-import startModal2 from "@/Modal2";
-import startModal3 from "@/Modal3";
-
-const MODAL_WINDOWS = {
-    'modal-1': {
-        domElement: document.querySelector('.modal-1'),
-        function: startModal1
-    },
-    'modal-2': {
-        domElement: document.querySelector('.modal-2'),
-        function: startModal2
-    },
-    'modal-3': {
-        domElement: document.querySelector('.modal-3'),
-        function: startModal3
-    }
+export const MODAL_WINDOWS = {
+    'CATS': '.modal-cats',
+    'RICKANDMORTY': '.modal-RickAndMorty',
+    'SUNRISE': '.modal-sunrise'
 };
 
-export default MODAL_WINDOWS;
+export const navigationButtonsTypes = {
+    close: 'close',
+    next: 'next',
+    back: 'back'
+};
+
+export default {MODAL_WINDOWS, navigationButtonsTypes};
