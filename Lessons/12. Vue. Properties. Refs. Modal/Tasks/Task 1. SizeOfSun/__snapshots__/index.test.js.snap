@@ -10,15 +10,40 @@ exports[` 1`] = `
     <h3>
       Нажми на солнце
     </h3>
-     
+
     <div
       class="sun-container__img"
-    />
+    >
+      <img
+        class="sun-container__the-sun"
+        src="/Lessons/12.%20Vue.%20Properties.%20Refs.%20Modal/Tasks/Task 1. SizeOfSun/assets/sun.svg"
+      />
+    </div>
   </div>
-   
+
   <div
     class="sun-container__block"
-  />
+  >
+    <h3>
+      Год:
+    </h3>
+
+    <span>
+
+            2021
+
+    </span>
+
+    <h3>
+      Диаметр солнца:
+    </h3>
+
+    <span>
+
+            1392700 км
+
+    </span>
+  </div>
 </div>
 `;
 
@@ -32,39 +57,39 @@ exports[`12.c1 TheSun 12.c1.3 click on the sun once 1`] = `
     <h3>
       Нажми на солнце
     </h3>
-     
+
     <div
       class="sun-container__img"
     >
       <img
         class="sun-container__the-sun"
-        src="/Lessons/11. Vue. Properties. Refs. Modal/Tasks/Task 1. SizeOfSun/assets/sun.svg"
+        src="/Lessons/12.%20Vue.%20Properties.%20Refs.%20Modal/Tasks/Task 1. SizeOfSun/assets/sun.svg"
         style="width: 428px;"
       />
     </div>
   </div>
-   
+
   <div
     class="sun-container__block"
   >
     <h3>
       Год:
     </h3>
-     
+
     <span>
-      
+
             502021
-        
+
     </span>
-     
+
     <h3>
       Диаметр солнца:
     </h3>
-     
+
     <span>
-      
+
             1323065 км
-        
+
     </span>
   </div>
 </div>
@@ -80,39 +105,39 @@ exports[`12.c1 TheSun 12.c1.4 click on the two more times 1`] = `
     <h3>
       Нажми на солнце
     </h3>
-     
+
     <div
       class="sun-container__img"
     >
       <img
         class="sun-container__the-sun"
-        src="/Lessons/11. Vue. Properties. Refs. Modal/Tasks/Task 1. SizeOfSun/assets/sun.svg"
+        src="/Lessons/12.%20Vue.%20Properties.%20Refs.%20Modal/Tasks/Task 1. SizeOfSun/assets/sun.svg"
         style="width: 387px;"
       />
     </div>
   </div>
-   
+
   <div
     class="sun-container__block"
   >
     <h3>
       Год:
     </h3>
-     
+
     <span>
-      
+
             1502021
-        
+
     </span>
-     
+
     <h3>
       Диаметр солнца:
     </h3>
-     
+
     <span>
-      
+
             1194066 км
-        
+
     </span>
   </div>
 </div>
@@ -128,39 +153,39 @@ exports[`12.c1 TheSun 12.c1.5 click on the sun one more time 1`] = `
     <h3>
       Нажми на солнце
     </h3>
-     
+
     <div
       class="sun-container__img"
     >
       <img
         class="sun-container__the-sun"
-        src="/Lessons/11. Vue. Properties. Refs. Modal/Tasks/Task 1. SizeOfSun/assets/sun.svg"
+        src="/Lessons/12.%20Vue.%20Properties.%20Refs.%20Modal/Tasks/Task 1. SizeOfSun/assets/sun.svg"
         style="width: 368px;"
       />
     </div>
   </div>
-   
+
   <div
     class="sun-container__block"
   >
     <h3>
       Год:
     </h3>
-     
+
     <span>
-      
+
             2002021
-        
+
     </span>
-     
+
     <h3>
       Диаметр солнца:
     </h3>
-     
+
     <span>
-      
+
             1134363 км
-        
+
     </span>
   </div>
 </div>
