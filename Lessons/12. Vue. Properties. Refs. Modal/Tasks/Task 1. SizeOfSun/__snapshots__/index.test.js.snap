@@ -15,7 +15,7 @@ exports[` 1`] = `
       class="sun-container__img"
     />
   </div>
-   
+
   <div
     class="sun-container__block"
   />
@@ -32,7 +32,7 @@ exports[`12.c1 TheSun 12.c1.3 click on the sun once 1`] = `
     <h3>
       Нажми на солнце
     </h3>
-     
+
     <div
       class="sun-container__img"
     >
@@ -43,28 +43,28 @@ exports[`12.c1 TheSun 12.c1.3 click on the sun once 1`] = `
       />
     </div>
   </div>
-   
+
   <div
     class="sun-container__block"
   >
     <h3>
       Год:
     </h3>
-     
+
     <span>
-      
+
             502021
-        
+
     </span>
-     
+
     <h3>
       Диаметр солнца:
     </h3>
-     
+
     <span>
-      
+
             1323065 км
-        
+
     </span>
   </div>
 </div>
@@ -80,7 +80,7 @@ exports[`12.c1 TheSun 12.c1.4 click on the two more times 1`] = `
     <h3>
       Нажми на солнце
     </h3>
-     
+
     <div
       class="sun-container__img"
     >
@@ -91,28 +91,28 @@ exports[`12.c1 TheSun 12.c1.4 click on the two more times 1`] = `
       />
     </div>
   </div>
-   
+
   <div
     class="sun-container__block"
   >
     <h3>
       Год:
     </h3>
-     
+
     <span>
-      
+
             1502021
-        
+
     </span>
-     
+
     <h3>
       Диаметр солнца:
     </h3>
-     
+
     <span>
-      
+
             1194066 км
-        
+
     </span>
   </div>
 </div>
@@ -128,7 +128,7 @@ exports[`12.c1 TheSun 12.c1.5 click on the sun one more time 1`] = `
     <h3>
       Нажми на солнце
     </h3>
-     
+
     <div
       class="sun-container__img"
     >
@@ -139,28 +139,28 @@ exports[`12.c1 TheSun 12.c1.5 click on the sun one more time 1`] = `
       />
     </div>
   </div>
-   
+
   <div
     class="sun-container__block"
   >
     <h3>
       Год:
     </h3>
-     
+
     <span>
-      
+
             2002021
-        
+
     </span>
-     
+
     <h3>
       Диаметр солнца:
     </h3>
-     
+
     <span>
-      
+
             1134363 км
-        
+
     </span>
   </div>
 </div>
