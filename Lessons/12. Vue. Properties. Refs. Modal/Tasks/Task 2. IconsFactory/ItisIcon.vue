@@ -1,14 +1,40 @@
 <template>
-    <!--Начало-->
-
-    <!--Конец-->
+    <component :is="getIcon"/>
 </template>
 
 <script>
+
+
+import HappyIcon from "./icons/HappyIcon.vue";
+import AngryIcon from "./icons/AngryIcon.vue";
+import AnnoyedIcon from "./icons/AnnoyedIcon.vue";
+import EmbarrassedIcon from "./icons/EmbarrassedIcon.vue";
+import ExcitedIcon from "./icons/ExcitedIcon.vue";
+import FrustratedIcon from "./icons/FrustratedIcon.vue";
+import LonelyIcon from "./icons/LonelyIcon.vue";
+import LovedIcon from "./icons/LovedIcon.vue";
+import NervousIcon from "./icons/NervousIcon.vue";
+import NeutralIcon from "./icons/NeutralIcon.vue";
+import SadIcon from "./icons/SadIcon.vue";
+import ScaredIcon from "./icons/ScaredIcon.vue";
+import SickIcon from "./icons/SickIcon.vue";
+import StressedIcon from "./icons/StressedIcon.vue";
+import SurprisedIcon from "./icons/SurprisedIcon.vue";
+import TiredIcon from "./icons/TiredIcon.vue";
+
 export default {
     name: 'ItisIcon',
-    // Начало
-
-    // Конец
+    props: {
+        iconType: {
+            type: String,
+            required: true,
+        },
+    },
+    computed: {
+        getIcon() {
+            let type = String(this.iconType);
+            return () => import(`./icons/${type.slice(0, 1).toUpperCase() + type.slice(1, type.length)}Icon.vue`);
+        }
+    }
 };
 </script>
