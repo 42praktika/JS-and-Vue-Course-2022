@@ -1,14 +1,14 @@
 export const MODALS_TYPES = {
     NONE: 'none',
-    FIRST: 'first',
+    TRANSLATE: 'first',
     SECOND: 'second',
     THIRD: 'third',
 };
 
 export const BUTTONS  = [
     {
-        text: 'Первая кнопка',
-        type: MODALS_TYPES.FIRST,
+        text: 'Перевод',
+        type: MODALS_TYPES.TRANSLATE,
     },
     {
         text: 'Вторая кнопка',
@@ -22,8 +22,8 @@ export const BUTTONS  = [
 
 export const MODALS = [
     {
-        text: 'Первое окно',
-        type: MODALS_TYPES.FIRST,
+        text: 'Перевести',
+        type: MODALS_TYPES.TRANSLATE,
     },
     {
         text: 'Второе окно',
