@@ -1,4 +1,6 @@
-export const yesOrNow = () => {
+import { setBallData } from "./apis/setData.js";
+
+export const yesOrNo = () => {
     const content = document.querySelector('.modal-content');
 
     const container = document.createElement('div');
@@ -30,60 +32,13 @@ export const yesOrNow = () => {
     containerAnswer.append(triangle);
     containerAnswer.append(answerBall);
 
-    const API_ENDPOINT = 'https://yesno.wtf/api';
-    let isRequestInProgress = false;
+
     
     content.append(container);
     content.append(containerAnswer);
 
-    const setIsRequestInProgress = value => {
-        isRequestInProgress = value;
-    };
-    
-    const setDisableButtonState = isDisabling => {
-        if (isDisabling) {
-            buttonGet.setAttribute('disabled', 'disabled');
-        }
-        else {
-            buttonGet.removeAttribute('disabled');
-        }
-    };
-    
-    const cleanupResponse = () => {
-        setTimeout(() => {
-            answerBall.innerHTML = '';
-            input.value = '';
-            setIsRequestInProgress(false);
-            setDisableButtonState(false);
-        }, 3000);
-    };
-    
-    const showAnswer = answer => {
-        setTimeout(() => {
-            answerBall.innerHTML = `<p>${answer}</p>`;
-            containerAnswer.classList.remove('shake__ball');
-            cleanupResponse();
-        }, 1000);
-    };
-    
-    const fetchAnswer = () => {
-        setIsRequestInProgress(true);
-    
-        setDisableButtonState(true);
-        containerAnswer.classList.add('shake__ball');
-    
-        fetch(API_ENDPOINT)
-            .then(data => data.json())
-            .then(data => showAnswer(data.answer));
-    };
+    setBallData();
     
     
-    const getAnswer = () => {
-        if (isRequestInProgress) return;
-        if (!input.value) return alert('please write your question :)');
     
-        fetchAnswer();
-    };
-    
-    buttonGet.addEventListener('click', getAnswer);
 }

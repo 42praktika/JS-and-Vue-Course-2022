@@ -1,40 +1,23 @@
 export const modalWindows = {
     none: 'none',
-    first: 'YesOrNo',
-    second: 'GenshinCharacters',
-    third: 'KanyeQuote',
+    firstAnswerBall: 'YesOrNo',
+    secondGenshinRegions: 'GenshinCharacters',
+    thirdKanye: 'KanyeQuote',
 };
-
-export const buttons = [
-    { 
-        text: '',
-        type: modalWindows.first,
-    },
-
-    {
-        text: '',
-        type: modalWindows.second,
-    },
-
-    {
-        text: '',
-        type: modalWindows.third,
-    }
-];
 
 export const modals = [
     { 
         text: 'Magic ball',
-        type: modalWindows.first,
+        type: modalWindows.firstAnswerBall,
     },
 
     {
         text: 'Genshin characters',
-        type: modalWindows.second,
+        type: modalWindows.secondGenshinRegions,
     },
 
     {
         text: 'Random Kanye West quote',
-        type: modalWindows.third,
+        type: modalWindows.thirdKanye,
     }
 ]

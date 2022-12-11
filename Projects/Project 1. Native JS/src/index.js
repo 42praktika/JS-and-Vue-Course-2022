@@ -1,7 +1,7 @@
-import {buttons, modalWindows, modals} from "./js/consts.js";
+import {modalWindows, modals} from "./js/consts.js";
 import state from './js/state.js';
 import './js/watchers/watcher.js';
-import { yesOrNow } from "./js/yes-or-no.js";
+import { yesOrNo } from "./js/yes-or-no.js";
 import { genshinRegions } from "./js/genshin-regions.js";
 import { kanyeQuotes } from "./js/kanye-quotes.js";
 
@@ -13,7 +13,7 @@ const renderButtons = () => {
         button.textContent = element.text;
         button.dataset.type = element.type;
 
-        button.addEventListener('click', (event) => {
+        button.addEventListener('click', () => {
             state.openedModalType = element.type;
         })
 
@@ -87,6 +87,6 @@ const renderModals = () => {
 
 renderButtons();
 renderModals();
-yesOrNow();
+yesOrNo();
 genshinRegions();
 kanyeQuotes();
