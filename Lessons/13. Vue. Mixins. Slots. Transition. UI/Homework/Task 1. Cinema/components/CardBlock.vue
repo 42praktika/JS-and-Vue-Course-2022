@@ -1,7 +1,12 @@
 <template>
-    <!--Начало-->
-
-    <!--Конец-->
+  <div class="card-block">
+    <div class="card-block__image">
+        <slot name="image"></slot>
+    </div>
+    <div class="card-block__info">
+        <slot name="info"></slot>
+    </div>
+  </div>
 </template>
 
 <script>
