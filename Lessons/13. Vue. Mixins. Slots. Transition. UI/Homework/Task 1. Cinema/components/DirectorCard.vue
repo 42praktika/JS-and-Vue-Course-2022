@@ -8,21 +8,21 @@
                 {{ director.name }}
             </div>
             <div>
-                    <span class="director__title">
-                        Возраст:
-                    </span>
+                <span class="director__title">
+                    Возраст:
+                </span>
                 {{ director.age }}
             </div>
             <div>
-                    <span class="director__title">
-                        Место рождения:
-                    </span>
+                <span class="director__title">
+                    Место рождения:
+                </span>
                 {{ director.birthPlace }}
             </div>
             <div>
-                    <span class="director__title">
-                        Фильмы:
-                    </span>
+                <span class="director__title">
+                    Фильмы:
+                </span>
                 {{ director.movies }}
             </div>
         </template>
@@ -38,7 +38,7 @@ export default {
     props: {
         director: {
             type: Object,
-            required: true
+            required: true,
         },
     }
 };

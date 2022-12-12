@@ -8,21 +8,21 @@
                 {{ movie.name }}
             </div>
             <div>
-                    <span class="movie__title">
-                        Год:
-                    </span>
+                <span class="movie__title">
+                    Год:
+                </span>
                 {{ movie.year }}
             </div>
             <div>
-                    <span class="movie__title">
-                        Режиссер:
-                    </span>
+                <span class="movie__title">
+                    Режиссер:
+                </span>
                 {{ movie.director }}
             </div>
             <div>
-                    <span class="movie__title">
-                        Жанр:
-                    </span>
+                <span class="movie__title">
+                    Жанр:
+                </span>
                 {{ movie.genre }}
             </div>
         </template>
