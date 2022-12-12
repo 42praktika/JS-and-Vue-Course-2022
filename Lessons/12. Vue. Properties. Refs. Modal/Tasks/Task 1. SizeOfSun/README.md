@@ -22,7 +22,7 @@
     <div class="sun-container__block sun-container__block--sun">
         <h3>Нажми на солнце</h3>
         <div class="sun-container__img">
-            <img src="/Lessons/11. Vue. Properties. Refs. Modal/Tasks/Task 1. SizeOfSun/assets/sun.svg"
+            <img src="/Lessons/12.%20Vue.%20Properties.%20Refs.%20Modal/Tasks/Task 1. SizeOfSun/assets/sun.svg"
                 class="sun-container__the-sun"
                 style="width: 314px;"
             >

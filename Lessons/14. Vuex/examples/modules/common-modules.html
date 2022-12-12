@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <script src="https://unpkg.com/vuex@2.0.0"></script>
+        <title>Vuex Modules</title>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script>
+            // Определяем первый модуль
+            const errandsModule = {
+                state: () => {
+                    errands: [];
+                },
+                actions: {
+                    addErrandAction({ commit }, payload) {
+                        commit('addErrand', payload);
+                    },
+                },
+                mutations: {
+                    addErrand(state, text) {
+                        state.errands.push(text);
+                    },
+                },
+            };
+
+            // Определяем второй модуль
+            const usersModule = {
+                state: () => {
+                    users: [];
+                },
+                actions: {
+                    addUserAction({ commit }, payload) {
+                        commit('addUser', payload);
+                    },
+                },
+                mutations: {
+                    addUser(state, text) {
+                        state.users.push(text);
+                    },
+                },
+            };
+
+            const store = new Vuex.Store({
+                state: {
+                    items: [],
+                },
+                actions: {},
+                mutations: {},
+                // Добавляем модули в текущее хранилище
+                modules: {
+                    errands: errandsModule,
+                    users: usersModule,
+                },
+            });
+
+            const app = new Vue({
+                el: '#app',
+                store,
+                data() {
+                },
+                methods: {},
+                computed: {},
+            });
+        </script>
+    </body>
+</html>
