@@ -1,34 +1,45 @@
 const path = require('path');
 
-module.exports = (env, options) => {
-    const developmentMode = options.mode !== 'production';
-    return {
-        entry: './src/index.js',
-        output: {
-            path: path.resolve(__dirname, './dist'),
-            filename: 'main.js',
-        },
-        module: {
-            rules: [
-                {
-                    test: /\.js$/,
-                    loader: 'babel-loader',
-                    exclude: path.resolve(__dirname, './node_modules/'),
-                },
-                {
-                    test: /\.html$/i,
-                    loader: "html-loader",
-                },
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-                {
-                    test: /\.css$/,
-                    use: [
-                        'style-loader',
-                        'css-loader',
-                    ],
-                }
-            ],
-        },
-        devtool: developmentMode ? 'eval-source-map' : 'cheap-source-map',
-    };
-};
+let mode = 'development';
+
+if (process.env.NODE_ENV === 'production') {
+    mode = 'production';
+}
+
+const devMode = mode === "development";
+
+const target = devMode ? "web" : "browserslist";
+
+const devtool = devMode ? "source-map" : undefined;
+
+
+
+module.exports = {
+    mode,
+    target,
+    devtool,
+    entry: path.resolve(__dirname, "src", "index.js"),
+    output: {
+        path: path.resolve(__dirname, "dist"),
+        clean: true,
+        filename: "[name].[contenthash].js",
+    },
+    plugins: [new HtmlWebpackPlugin({
+        template: path.resolve(__dirname,"src","index.html")
+    }),
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.html$/i,
+                loader: "html-loader"
+            },
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            },
+        ]
+    }
+}

@@ -1,23 +1,42 @@
 {
-  "name": "project-1.-native-js",
+  "name": "project1",
   "version": "1.0.0",
-  "description": "Что из себя представляет Ваше приложение",
+  "description": "Native Js",
+  "main": "index.js",
   "scripts": {
-    "watch": "webpack -w --mode development",
-    "build": "webpack --mode production",
-    "start": "webpack serve"
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack server",
+    "build-dev": "webpack",
+    "build-prod": "webpack --node-env=production",
+    "clear": "rd/s /q dist"
   },
-  "author": "",
+  "keywords": [
+    "js",
+    "webpack",
+    "first"
+  ],
+  "author": "Askar",
   "license": "ISC",
   "devDependencies": {
+    "css-loader": "^6.7.1",
+    "eslint": "^8.22.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-html": "^7.1.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "prettier": "^2.7.1",
+    "style-loader": "^3.3.1",
     "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "css-loader": "^6.7.1",
-    "html-loader": "^4.2.0",
     "melanke-watchjs": "^1.5.2",
-    "style-loader": "^3.3.1"
+    "webpack-cli": "^4.10.0"
   }
 }
