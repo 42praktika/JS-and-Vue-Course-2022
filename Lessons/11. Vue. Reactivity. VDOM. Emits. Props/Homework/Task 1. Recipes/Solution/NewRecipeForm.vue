@@ -102,7 +102,6 @@ export default {
             const { name, recipeText, cookTimeValue, ingredients, isVegan } = this;
             const cookTimeText = this.getTimeOptionText(cookTimeValue);
 
-            this.maxId += 1;
             const newRecipe = {
                 name,
                 recipeText,
@@ -111,6 +110,7 @@ export default {
                 isVegan,
                 id: this.maxId,
             };
+            this.maxId += 1;
             this.$emit('add', newRecipe);
             this.clearFields();
         },
