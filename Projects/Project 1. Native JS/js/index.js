@@ -1,13 +1,12 @@
 import {MODAL_WINDOWS} from '@/consts.js';
 import {navigationButtonsTypes} from '@/consts.js'
-import {watchAppState} from './watchers.js';
-
+import {watchAppState, watchCatsState, watchCharactersState, watchSunriseState} from './watchers.js';
+import {appState, catsModalState, charactersModalState, sunriseState} from "@/state";
+import addCatsListeners from "@/ModalCats";
+import addRickAndMortyListeners from "@/ModalRickAndMorty";
+import addSunriseListeners from "@/ModalSunrise";
 
 const startApp = () => {
-    const appState = {
-        openedModalIndex: -1,
-    }
-
     // Обработчик на кнопки открытия окон
     const modalsKeys = Object.keys(MODAL_WINDOWS);
     const buttonsContainer = document.querySelector('div.buttons');
@@ -36,7 +35,14 @@ const startApp = () => {
     });
 
 
+    addSunriseListeners();
+    addRickAndMortyListeners();
+    addCatsListeners();
+
     watchAppState(appState);
+    watchCharactersState(charactersModalState);
+    watchCatsState(catsModalState);
+    watchSunriseState(sunriseState);
 };
 
 startApp();

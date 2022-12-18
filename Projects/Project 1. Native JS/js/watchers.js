@@ -1,8 +1,5 @@
 import WatchJS from 'melanke-watchjs';
 import {MODAL_WINDOWS} from '@/consts.js';
-import startModalCats from "@/ModalCats";
-import startModalRickAndMorty from "@/ModalRickAndMorty";
-import startModalSunrise from "@/ModalSunrise";
 
 const {watch} = WatchJS;
 
@@ -18,18 +15,6 @@ const watchAppState = (appState) => {
 
             const openedModalElement = document.querySelector(MODAL_WINDOWS[modalsKeys[appState.openedModalIndex]]);
             openedModalElement.style.display = 'block';
-
-            switch (appState.openedModalIndex) {
-                case 0:
-                    startModalCats();
-                    break;
-                case 1:
-                    startModalRickAndMorty();
-                    break;
-                case 2:
-                    startModalSunrise();
-                    break;
-            }
         } else {
             modalsKeys.forEach(key => {
                 const closedModal = document.querySelector(MODAL_WINDOWS[key]);

@@ -1,18 +1,7 @@
-import {watchSunriseState} from './watchers.js';
+import {sunriseState as state} from "@/state";
 
 
-const startModalSunrise = () => {
-    const sunriseState = {
-        isLoading: false,
-        sunrise: '',
-        sunset: ''
-    }
-
-    addListeners(sunriseState);
-    watchSunriseState(sunriseState);
-};
-
-const addListeners = (state) => {
+const addSunriseListeners = () => {
     const submitButton = document.querySelector('.btn-submit--SUNRISE');
     const latitudeInput = document.querySelector('.latitude-input');
     const longitudeInput = document.querySelector('.longitude-input');
@@ -34,4 +23,4 @@ const addListeners = (state) => {
     });
 };
 
-export default startModalSunrise
+export default addSunriseListeners

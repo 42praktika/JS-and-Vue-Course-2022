@@ -10,4 +10,6 @@ export const navigationButtonsTypes = {
     back: 'back'
 };
 
-export default {MODAL_WINDOWS, navigationButtonsTypes};
+export const characterStatuses = ['', 'alive', 'dead', 'unknown'];
+
+export const characterGenders = ['', 'male', 'female', 'genderless', 'unknown'];

@@ -1,18 +1,8 @@
-import {watchCatsState} from './watchers.js';
 import axios from "axios";
+import {catsModalState as state} from '@/state.js';
 
-const startModalCats = () => {
-    const catsModalState = {
-        imageURL: '',
-        fact: '',
-        isLoading: false
-    };
 
-    addListeners(catsModalState);
-    watchCatsState(catsModalState);
-}
-
-const addListeners = (state) => {
+const addCatsListeners = () => {
     const radioPNG = document.getElementsByName('imageTypeRadio')[0];
     const imageTextInput = document.querySelector('.image-text-input');
     const filterSelector = document.querySelector('.filter-selector');
@@ -47,4 +37,4 @@ const addListeners = (state) => {
     });
 }
 
-export default startModalCats
+export default addCatsListeners
