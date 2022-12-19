@@ -1,5 +1,7 @@
 const path = require('path');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const EncodingPlugin = require('webpack-encoding-plugin');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 let developmentMode;
@@ -7,11 +9,9 @@ module.exports = {
 
     mode: process.env.NODE_ENV || 'development',
 
-
     entry: {
-        'core': './js/index.js'
+        core: './js/index.js',
     },
-
 
     output: {
         path: path.resolve(__dirname, './js/build/'),
@@ -25,7 +25,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                exclude: path.resolve(__dirname, './node_modules/')
+                exclude: path.resolve(__dirname, './node_modules/'),
             },
 
             {
@@ -33,16 +33,15 @@ module.exports = {
                 use: [
                     'css-loader',
                     'style-loader',
-                ]
+                ],
             },
-        ]
+        ],
 
     },
 
-
     plugins: [
         new EncodingPlugin({
-            encoding: 'utf-8'
+            encoding: 'utf-8',
         }),
         new MomentLocalesPlugin({
             localesToKeep: ['ru'],
@@ -52,10 +51,9 @@ module.exports = {
     resolve: {
 
         alias: {
-            '@': path.resolve(__dirname, 'js/')
-        }
+            '@': path.resolve(__dirname, 'js/'),
+        },
     },
 
-
-    devtool: developmentMode ? 'eval-source-map' : 'cheap-source-map'
+    devtool: developmentMode ? 'eval-source-map' : 'cheap-source-map',
 };

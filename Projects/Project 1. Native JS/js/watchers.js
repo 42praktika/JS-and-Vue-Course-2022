@@ -1,24 +1,26 @@
 import WatchJS from 'melanke-watchjs';
-import {MODAL_WINDOWS} from '@/consts.js';
+import { MODAL_WINDOWS } from './consts';
 
-const {watch} = WatchJS;
+const { watch } = WatchJS;
 
 const modalsKeys = Object.keys(MODAL_WINDOWS);
 
 const watchAppState = (appState) => {
     watch(appState, 'openedModalIndex', () => {
         if (appState.openedModalIndex !== -1) {
-            modalsKeys.forEach(key => {
+            modalsKeys.forEach((key) => {
                 const closedModal = document.querySelector(MODAL_WINDOWS[key]);
-                closedModal.style.display = 'none'
+                closedModal.style.display = 'none';
             });
 
-            const openedModalElement = document.querySelector(MODAL_WINDOWS[modalsKeys[appState.openedModalIndex]]);
+            const openedModalElement = document.querySelector(
+                MODAL_WINDOWS[modalsKeys[appState.openedModalIndex]],
+            );
             openedModalElement.style.display = 'block';
         } else {
-            modalsKeys.forEach(key => {
+            modalsKeys.forEach((key) => {
                 const closedModal = document.querySelector(MODAL_WINDOWS[key]);
-                closedModal.style.display = 'none'
+                closedModal.style.display = 'none';
             });
         }
     });
@@ -55,7 +57,7 @@ const watchCharactersState = (charactersState) => {
         } else {
             charactersElement.innerHTML = '';
 
-            charactersState.characters.forEach(character => {
+            charactersState.characters.forEach((character) => {
                 const characterElement = document.createElement('div');
                 characterElement.className = 'character';
 
@@ -64,21 +66,21 @@ const watchCharactersState = (charactersState) => {
                 characterElement.append(title);
 
                 const image = document.createElement('img');
-                image.className = "character__img";
+                image.className = 'character__img';
                 image.src = character.image;
                 characterElement.append(image);
 
-                characterTags.forEach(tag => {
+                characterTags.forEach((tag) => {
                     const tagElement = document.createElement('div');
                     tagElement.className = `character__tag character__tag--${tag}`;
 
                     const type = document.createElement('span');
-                    type.className = "character__tag__type";
+                    type.className = 'character__tag__type';
                     type.textContent = tag;
                     tagElement.append(type);
 
                     const value = document.createElement('span');
-                    value.className = "character__tag__value";
+                    value.className = 'character__tag__value';
                     value.textContent = character[tag];
                     tagElement.append(value);
 
@@ -86,7 +88,6 @@ const watchCharactersState = (charactersState) => {
                 });
 
                 charactersElement.append(characterElement);
-
             });
 
             loadingSpinner.style.display = 'none';
@@ -103,12 +104,13 @@ const watchSunriseState = (sunriseState) => {
         if (sunriseState.isLoading) {
             loadingSpinner.style.display = 'block';
         } else {
-            sunriseElement.textContent = 'Sunrise: ' + sunriseState.sunrise;
-            sunsetElement.textContent = 'Sunset: ' + sunriseState.sunset;
+            sunriseElement.textContent = `Sunrise: ${sunriseState.sunrise}`;
+            sunsetElement.textContent = `Sunset: ${sunriseState.sunset}`;
             loadingSpinner.style.display = 'none';
         }
     });
 };
 
-
-export {watchAppState, watchCatsState, watchCharactersState, watchSunriseState};
+export {
+    watchAppState, watchCatsState, watchCharactersState, watchSunriseState,
+};

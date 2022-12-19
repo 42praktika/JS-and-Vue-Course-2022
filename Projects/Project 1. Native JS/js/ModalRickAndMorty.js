@@ -1,6 +1,17 @@
-import {charactersModalState as state} from "@/state";
-import {characterGenders as genders, characterStatuses as statuses} from "@/consts";
+import { charactersModalState as state } from './state';
+import { characterGenders as genders, characterStatuses as statuses } from './consts';
 
+const fetchToAPI = () => {
+    state.isLoading = true;
+
+    const request = `https://rickandmortyapi.com/api/character/?gender=${state.gender}&status=${state.status}`;
+    fetch(request)
+        .then((response) => response.json())
+        .then((data) => {
+            state.characters = data.results;
+            state.isLoading = false;
+        });
+};
 
 const addRickAndMortyListeners = () => {
     const statusSelector = document.querySelector('.status-selector');
@@ -17,16 +28,4 @@ const addRickAndMortyListeners = () => {
     });
 };
 
-const fetchToAPI = () => {
-    state.isLoading = true;
-
-    const request = `https://rickandmortyapi.com/api/character/?gender=${state.gender}&status=${state.status}`;
-    fetch(request)
-        .then(response => response.json())
-        .then(data => {
-            state.characters = data.results;
-            state.isLoading = false;
-        });
-}
-
-export default addRickAndMortyListeners
+export default addRickAndMortyListeners;

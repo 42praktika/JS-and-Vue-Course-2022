@@ -5,18 +5,18 @@ export const appState = {
 export const catsModalState = {
     imageURL: '',
     fact: '',
-    isLoading: false
+    isLoading: false,
 };
 
 export const charactersModalState = {
     isLoading: false,
     characters: [],
     status: '',
-    gender: ''
+    gender: '',
 };
 
 export const sunriseState = {
     isLoading: false,
     sunrise: '',
-    sunset: ''
-}
+    sunset: '',
+};

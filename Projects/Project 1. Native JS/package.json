@@ -1,10 +1,19 @@
 {
-  "name": "Project 1. Native JS",
+  "name": "project1",
   "version": "1.0.0",
   "dependencies": {
+    "axios": "^1.2.1",
+    "melanke-watchjs": "^1.5.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-plugin-import": "^2.24.2"
   },
   "scripts": {
     "watch": "webpack -w --mode development",
-    "build": "webpack -p --mode production"
+    "build": "webpack -p --mode production",
+    "lint": "eslint js",
+    "fix": "eslint js --fix"
   }
 }

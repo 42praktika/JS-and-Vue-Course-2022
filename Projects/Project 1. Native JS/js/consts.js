@@ -1,13 +1,13 @@
 export const MODAL_WINDOWS = {
-    'CATS': '.modal-cats',
-    'RICKANDMORTY': '.modal-RickAndMorty',
-    'SUNRISE': '.modal-sunrise'
+    CATS: '.modal-cats',
+    RICKANDMORTY: '.modal-RickAndMorty',
+    SUNRISE: '.modal-sunrise',
 };
 
 export const navigationButtonsTypes = {
     close: 'close',
     next: 'next',
-    back: 'back'
+    back: 'back',
 };
 
 export const characterStatuses = ['', 'alive', 'dead', 'unknown'];

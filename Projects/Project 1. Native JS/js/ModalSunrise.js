@@ -1,5 +1,4 @@
-import {sunriseState as state} from "@/state";
-
+import { sunriseState as state } from './state';
 
 const addSunriseListeners = () => {
     const submitButton = document.querySelector('.btn-submit--SUNRISE');
@@ -10,12 +9,12 @@ const addSunriseListeners = () => {
     submitButton.addEventListener('click', () => {
         state.isLoading = true;
 
-        let request = `https://api.sunrise-sunset.org/json?lat=${latitudeInput.value}&lng=
+        const request = `https://api.sunrise-sunset.org/json?lat=${latitudeInput.value}&lng=
                         ${longitudeInput.value}&date=${dateInput.value}`;
 
         fetch(request)
-            .then(response => response.json())
-            .then(data => {
+            .then((response) => response.json())
+            .then((data) => {
                 state.sunrise = data.results.sunrise;
                 state.sunset = data.results.sunset;
                 state.isLoading = false;
@@ -23,4 +22,4 @@ const addSunriseListeners = () => {
     });
 };
 
-export default addSunriseListeners
+export default addSunriseListeners;
