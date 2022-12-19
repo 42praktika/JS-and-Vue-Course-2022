@@ -48,7 +48,7 @@
             </label>
         </div>
         <div class="recipe-form__block">
-            <button class="btn btn-dark recipe-form__add-button" @click="addRecipe(recipeInfo)">
+            <button class="btn btn-dark recipe-form__add-button" @click="addRecipe()">
                 Добавить рецепт
             </button>
         </div>
@@ -56,6 +56,8 @@
 </template>
 
 <script>
+import {v4 as uuid} from "uuid";
+
 export default {
     name: 'NewRecipeForm',
     data() {
@@ -85,8 +87,24 @@ export default {
         };
     },
     methods: {
-        addRecipe(recipeInfo) {
-            this.$emit('addRecipe', recipeInfo);
+        addRecipe() {
+            const exportRecipeInfo = {
+                id: uuid(),
+                name: this.recipeInfo.name,
+                isVegan: this.recipeInfo.isVegan ? 'Да' : 'Нет',
+                cookingTime: this.timeOptions[this.recipeInfo.cookingTime - 1].text,
+                ingredients: this.recipeInfo.ingredients
+            }
+
+            this.$emit('addRecipe', exportRecipeInfo);
+
+            this.recipeInfo = {
+                name: '',
+                ingredients: '',
+                actions: '',
+                cookingTime: 1,
+                isVegan: false
+            };
         }
     }
 };
