@@ -1,47 +1,29 @@
 import watchState from './watchers.js';
+import { STATE as state, MODALS as modals } from './consts';
+import { updateData, setEventListeners } from './controller/widgetController';
 
-const canClose = (parent, child) => {
-    if (child === parent) {
-        return false
-    }
-    let node = child.parentNode;
-    while (node != null) {
-        if (node === parent) {
-            return false;
-        }
-        node = node.parentNode;
-    }
-    return true;
-}
+// eslint-disable-next-line max-len
+const getNextWindowIndex = () => (state.currentWindowIndex + 1 === modals.length ? 0 : state.currentWindowIndex + 1);
 
 const app = () => {
-    const state = {
-        status: 'closed',
-        currentWindow: null
-    };
-
-    const modalWindow = document.querySelector('.modal');
-    const buttons = Array.from(document.querySelectorAll('.button-widget'));
     const closeButton = document.querySelector('.close-button');
     const nextButton = document.querySelector('.next-button');
 
     document.body.addEventListener('click', (event) => {
-        if (buttons.includes(event.target)) {
-            state.status = 'loading';
-            state.currentWindow = document.querySelector(`.modal-container[data-type=${event.target.dataset.type}]`);
-        }
-        else if (event.target === nextButton) {
-            state.currentWindow = state.currentWindow.nextSibling;
-            if (state.currentWindow === null) {
-                state.currentWindow = document.querySelector('.modal-container');
-            }
-        }
-        else if (event.target === closeButton || canClose(modalWindow, event.target)) {
+        if (event.target.className === 'button-widget' && modals.find((item) => item.type === event.target.dataset.type)) {
+            // eslint-disable-next-line max-len
+            state.currentWindowIndex = modals.findIndex((item) => item.type === event.target.dataset.type);
+            updateData(state);
+        } else if (event.target === nextButton) {
+            state.currentWindowIndex = getNextWindowIndex();
+            updateData(state);
+        } else if (event.target === closeButton || !event.target.closest('.modal')) {
             state.status = 'closed';
         }
     });
 
+    setEventListeners();
     watchState(state);
-}
+};
 
 export default app;

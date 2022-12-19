@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     border: none;
+    font-family: 'Arial', sans-serif;
 }
 
 .app {
@@ -18,7 +19,6 @@
 }
 
 .button-widget {
-    font-family: 'Arial', sans-serif;
     font-size: 24px;
     font-weight: 500;
     border-radius: 20px;
@@ -43,6 +43,9 @@
     border-radius: 10px;
     position: absolute;
     padding: 20px;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .close-button {
@@ -113,5 +116,141 @@
 .modal-container {
     display: none;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 40px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loader {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 60px);
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    background-image: url('https://i.gifer.com/XOsX.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 8%;
+    display: none;
+}
+
+.random-dog__image {
+    max-height: 300px;
+    max-width: 100%;
+    margin-bottom: 40px;
+}
+
+.modal-button {
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #1f87ff;
+    color: #fff;
+    transition: 0.1s;
+}
+
+.modal-button:hover {
+    box-shadow: 0 4px 8px 0 rgba(34, 60, 80, 0.2);
+}
+
+.valorant-weapons__container {
+    width: 100%;
+    height: calc(100% - 20px);
+    display: flex;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.valorant-weapons__container > div {
+    flex-grow: 1;
+    width: 0;
+}
+
+.valorant-weapons__select {
+    font-weight: 500;
+    color: #3b3b3b;
+    outline: none;
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    width: 300px;
+    padding: 5px 0 5px 15px;
+    height: fit-content;
+    margin-top: 15px;
+    font-size: inherit;
+}
+
+.weapon-info {
+    padding: 24px;
+    width: 80%;
+    border-radius: 10px;
+    background-color: #505050;
+    margin: 0 auto;
+    max-height: 100%;
+    overflow-y: scroll;
+}
+
+.weapon-info::-webkit-scrollbar {
+    width: 0;
+}
+
+.weapon-info > img {
+    width: 100%;
+    background-color: #e7e7e7;
+    border-radius: 4px;
+}
+
+.info__item {
+    color: #ffffff;
+    margin-top: 12px;
+}
+
+.info__item:first-of-type {
+    margin-top: 30px;
+}
+
+.item__data {
+    color: #ff7f2a;
+}
+
+.modal-container[data-type='crypto-currency'] {
+    overflow-y: scroll;
+    justify-content: flex-start;
+}
+
+.modal-container[data-type='crypto-currency']::-webkit-scrollbar {
+    width: 0;
+}
+
+.crypto-currency__item {
+    border-radius: 10px;
+    background-color: #505050;
+    width: 100%;
+    padding: 24px 46px;
+    margin-bottom: 16px;
+    display: flex;
+    color: #e7e7e7;
+    justify-content: space-between;
+}
+
+.crypto-currency__item > *:not(:first-child) {
+    flex-basis: 16%;
+}
+
+.rank {
+    color: #fff93a;
+}
+
+.designation {
+    opacity: 0.7;
+}
+
+.red {
+    color: #ef1b05;
+}
+
+.green {
+    color: #14ee0d;
 }
