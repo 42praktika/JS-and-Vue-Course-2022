@@ -16,8 +16,13 @@
 </template>
 
 <script>
+import loaderMixin from '../loaderMixin.js';
+
 export default {
     name: 'TestComponent',
+    mixins: [
+        loaderMixin,
+    ],
     methods: {
         startLoading() {
             this.setLoading(true);
