@@ -1,5 +1,5 @@
 <template>
-
+    <HeadHunter />
 </template>
 
 <script>
