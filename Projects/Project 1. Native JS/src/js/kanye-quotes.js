@@ -1,4 +1,4 @@
-import { setKanyeData } from "./apis/setData.js";
+import { setKanyeData } from './apis/setData.js';
 
 export const kanyeQuotes = () => {
     const content = document.querySelectorAll('.modal-content');
@@ -17,4 +17,4 @@ export const kanyeQuotes = () => {
     container.append('');
 
     content[2].append(container);
-}
+};

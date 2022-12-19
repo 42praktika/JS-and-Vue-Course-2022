@@ -1,9 +1,9 @@
-import { modalWindows } from "./consts.js";
+import { modalWindows } from './consts.js';
 
 export default {
     openedModalType: modalWindows.none,
     data: null,
-}
+};
 
 export const BallState = {
     data: null,

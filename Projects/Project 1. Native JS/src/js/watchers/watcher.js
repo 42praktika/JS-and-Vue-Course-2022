@@ -1,11 +1,11 @@
 import WatchJS from './melanke-watcher.js';
-import state, { BallState, GenshinState, KanyeState } from '../state.js'
+import state, { BallState, GenshinState, KanyeState } from '../state.js';
 import { modalWindows } from '../consts.js';
 
 const watch = WatchJS.watch;
 
 watch(state, 'openedModalType', () => {
-    console.log("state has changed!");
+    console.log('state has changed!');
     const allModals = document.querySelectorAll('.modal');
 
     allModals.forEach((modal) => {
@@ -53,7 +53,7 @@ watch(BallState, 'data', () => {
             containerAnswer.classList.remove('shake__ball');
             cleanupResponse();
         }, 1000);
-    }
+    };
 
 
     const getAnswer = () => {
@@ -67,7 +67,7 @@ watch(BallState, 'data', () => {
     
     buttonGet.addEventListener('click', getAnswer);
 
-})
+});
 
 watch(GenshinState, 'data', () => {
 
@@ -80,7 +80,7 @@ watch(GenshinState, 'data', () => {
     info.innerHTML = '';
     thCell.innerHTML = '';
 
-    thCell.innerHTML = ("Name: " + GenshinState.data.name + ", Element: " + GenshinState.data.vision + ", Nation: " + GenshinState.data.nation);
+    thCell.innerHTML = ('Name: ' + GenshinState.data.name + ', Element: ' + GenshinState.data.vision + ', Nation: ' + GenshinState.data.nation);
     const urlImg = 'https://api.genshin.dev/characters/' + GenshinState.data.name.toLowerCase() + '/gacha-splash';
     let image = document.createElement('img');
     image.src = '';
@@ -100,4 +100,4 @@ watch(KanyeState, 'data', () => {
     const container = document.querySelector('.container');
     quotes.innerHTML = `<p>${KanyeState.data.quote}</p>` + '@Kanye West';
     container.append(quotes);
-})
+});

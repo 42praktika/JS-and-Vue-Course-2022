@@ -6,7 +6,7 @@ export const modalWindows = {
 };
 
 export const modals = [
-    { 
+    {
         text: 'Magic ball',
         type: modalWindows.firstAnswerBall,
     },
@@ -20,4 +20,4 @@ export const modals = [
         text: 'Random Kanye West quote',
         type: modalWindows.thirdKanye,
     }
-]
+];

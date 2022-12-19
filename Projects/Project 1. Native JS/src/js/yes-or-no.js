@@ -1,4 +1,4 @@
-import { setBallData } from "./apis/setData.js";
+import { setBallData } from './apis/setData.js';
 
 export const yesOrNo = () => {
     const content = document.querySelector('.modal-content');
@@ -7,7 +7,7 @@ export const yesOrNo = () => {
     container.classList = 'interaction-container';
     const input = document.createElement('input');
     input.classList = 'input';
-    input.type = 'text;'
+    input.type = 'text;';
     const divText = document.createElement('div');
     divText.classList = 'cell';
     divText.textContent = 'Ask your question';
@@ -32,13 +32,8 @@ export const yesOrNo = () => {
     containerAnswer.append(triangle);
     containerAnswer.append(answerBall);
 
-
-    
     content.append(container);
     content.append(containerAnswer);
 
     setBallData();
-    
-    
-    
-}
+};
