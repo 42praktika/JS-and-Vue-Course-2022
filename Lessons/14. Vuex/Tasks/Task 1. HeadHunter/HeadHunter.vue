@@ -1,9 +1,7 @@
 <template>
     <div class="head-hunter">
         <h2>Поиск вакансий</h2>
-        <!--Начало-->
-
-        <!--Конец-->
+        {{ test }}
     </div>
 </template>
 
@@ -14,9 +12,11 @@ import Vacancies from './components/Vacancies.vue';
 export default {
     name: 'HeadHunter',
     components: { SearchFilter, Vacancies },
-    // Начало
-
-    // Конец
+    computed: {
+        test() {
+            return this.$store.state.test
+        }
+    }
 };
 </script>
 

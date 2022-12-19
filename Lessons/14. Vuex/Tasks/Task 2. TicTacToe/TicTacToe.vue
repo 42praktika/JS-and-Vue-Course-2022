@@ -1,21 +1,56 @@
 <template>
     <div class="tic-tac-toe">
-        <!--Начало-->
-
-        <!--Конец-->
+        <div>
+            {{ field }}
+        </div>
+        <h4>Играет: Игрок 1</h4>
+<!--        <div class="tic-tac-toe__table">-->
+<!--            <div-->
+<!--                class="tic-tac-toe__row"-->
+<!--                v-for="row in field"-->
+<!--            >-->
+<!--                <div-->
+<!--                    class="tic-tac-toe__item"-->
+<!--                    v-for="cell in row"-->
+<!--                >-->
+<!--                    <Tic v-if="cell === 0"></Tic>-->
+<!--                    <Tac v-if="cell === 1"></Tac>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="tic-tac-toe__results">
+            <h3>Счет</h3>
+            <div>
+                <Tic></Tic>
+                Игрок 1: 0
+            </div>
+            <div>
+                <Tac></Tac>
+                Игрок 2: 0
+            </div>
+        </div>
+        <button class="btn btn-light btn-lg">
+            Начать раунд сначала
+        </button>
     </div>
 </template>
 
 <script>
+// import { createNamespacedHelpers } from "vuex";
 import Tic from './Icons/Tic.vue';
 import Tac from './Icons/Tac.vue';
+
+// const { mapState } = createNamespacedHelpers('');
+import { mapState } from 'vuex'
 
 export default {
     name: 'TicTacToe',
     components: { Tic, Tac },
-    // Начало
-
-    // Конец
+    computed: {
+        ...mapState({
+            field: state => state.fieldSize
+        })
+    }
 };
 </script>
 

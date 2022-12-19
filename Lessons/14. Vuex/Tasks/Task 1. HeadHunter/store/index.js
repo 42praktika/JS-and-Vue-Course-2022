@@ -1,9 +1,7 @@
 const baseUrl = 'https://api.hh.ru/vacancies';
 
 const state = {
-    // Начало
-
-    // Конец
+    test: 'werrw'
 };
 
 const mutations = {

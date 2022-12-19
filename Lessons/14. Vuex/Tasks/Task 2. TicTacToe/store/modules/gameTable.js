@@ -1,12 +1,25 @@
+import createDoubleArray from '../../consts/functions';
+
 export default {
     state: {
         fieldSize: 3,
-        // Начало
-
-        // Конец
+        // field: createDoubleArray(this.fieldSize, -1),
+        // field: [ [ 1, 0, -1 ], [ 1, 0, -1 ], [ 1, 0, -1 ] ],
+        field: [
+            {
+                id: 0,
+                name: 'sad'
+            }
+        ]
     },
-    // Начало
+    actions: {
 
-    // Конец
+    },
+    mutations: {
+
+    },
+    getters: {
+
+    },
     namespaced: true,
 };
