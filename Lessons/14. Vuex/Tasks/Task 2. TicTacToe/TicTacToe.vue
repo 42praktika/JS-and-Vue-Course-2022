@@ -1,18 +1,20 @@
 <template>
     <div class="tic-tac-toe">
-        <h4>Играет: Игрок 1</h4>
+        <h4>Играет: {{ currentPlayer }}</h4>
         <div class="tic-tac-toe__table">
             <div
                 class="tic-tac-toe__row"
-                v-for="row in field"
-
+                v-for="rowNum in fieldSize"
+                :key="rowNum"
             >
                 <div
                     class="tic-tac-toe__item"
-                    v-for="cell in row"
+                    v-for="(cell, index) in field[rowNum - 1]"
+                    :key="index"
+                    @click="doTurn(rowNum - 1, index)"
                 >
-                    <Tic v-if="cell === 0"></Tic>
-                    <Tac v-if="cell === 1"></Tac>
+                    <Tic v-if="field[rowNum - 1][index] === 0"></Tic>
+                    <Tac v-if="field[rowNum - 1][index] === 1"></Tac>
                 </div>
             </div>
         </div>
@@ -20,14 +22,17 @@
             <h3>Счет</h3>
             <div>
                 <Tic></Tic>
-                Игрок 1: 0
+                Игрок 1: {{ playerOnePoints }}
             </div>
             <div>
                 <Tac></Tac>
-                Игрок 2: 0
+                Игрок 2: {{ playerTwoPoints }}
             </div>
         </div>
-        <button class="btn btn-light btn-lg">
+        <button
+            class="btn btn-light btn-lg"
+            @click="resetField"
+        >
             Начать раунд сначала
         </button>
     </div>
@@ -38,20 +43,79 @@ import createDoubleArray from './consts/functions';
 import Tic from './Icons/Tic.vue';
 import Tac from './Icons/Tac.vue';
 
-import { mapState } from 'vuex'
+import {mapState} from 'vuex'
 
 export default {
     name: 'TicTacToe',
-    components: { Tic, Tac },
+    components: {Tic, Tac},
     computed: {
         ...mapState({
-            field: state => state.gameTableModules.field,
-            fieldSize: state => state.gameTableModules.fieldSize
-        })
+            fieldSize: state => state.gameTableModules.fieldSize,
+            currentPlayer: state => state.statisticsModules.players[state.statisticsModules.turn].name,
+            playerOnePoints: state => state.statisticsModules.players["0"].points,
+            playerTwoPoints: state => state.statisticsModules.players["1"].points,
+            turn: state => state.statisticsModules.turn
+        }),
+        field() {
+            return this.$store.state.gameTableModules.field;
+        },
+    },
+    methods: {
+        resetField() {
+            this.$store.dispatch('gameTableModules/setFieldAction', createDoubleArray(this.fieldSize, -1));
+        },
+        doTurn(row, cell) {
+            this.changeField(row, cell, this.turn);
+            this.$forceUpdate();
+            if (this.checkWin()) {
+                alert(`Игрок ${this.turn + 1} одержал победу`);
+                this.$store.state.statisticsModules.players[this.turn].points++;
+                this.resetField();
+                this.$store.state.statisticsModules.turn = 0;
+            } else {
+                if (this.$store.state.statisticsModules.turn === 0) {
+                    this.$store.state.statisticsModules.turn = 1;
+                } else {
+                    this.$store.state.statisticsModules.turn = 0;
+                }
+            }
+        },
+        changeField(row, cell, turn) {
+            this.$store.dispatch('gameTableModules/changeFieldAction', [row, cell, turn]);
+        },
+        checkWin() {
+            let field = this.field;
+            let win = false;
+            let diagonalWin1 = true;
+            let diagonalWin2 = true;
+            for (let i = 0; i < this.fieldSize; i++) {
+                let rowWin = true;
+                let columnWin = true;
+                for (let j = 1; j < this.fieldSize; j++) {
+                    if (field[i][j] !== field[i][j - 1] || field[i][j] === -1) {
+                        rowWin = false;
+                    }
+                    if (field[j][i] !== field[j - 1][i] || field[j][i] === -1) {
+                        columnWin = false;
+                    }
+                }
+                for (let k = 0; k < this.fieldSize; k++) {
+                    if (i === k && field[i][k] !== this.turn) {
+                        diagonalWin1 = false;
+                    }
+                    if (i === this.fieldSize - k - 1 && field[i][k] !== this.turn) {
+                        diagonalWin2 = false;
+                    }
+                }
+                win = rowWin || columnWin || win;
+            }
+            win = win || diagonalWin1 || diagonalWin2
+            return win;
+        }
     },
     mounted() {
-        this.$store.dispatch('gameTableModules/setFieldAction', createDoubleArray(this.fieldSize, -1));
-    }
+        this.resetField();
+    },
 };
 </script>
 
