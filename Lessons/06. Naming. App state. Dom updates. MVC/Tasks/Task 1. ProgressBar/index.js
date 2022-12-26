@@ -6,12 +6,9 @@ const updateProgress = (defaultNumber, delta) => {
     const decreaseButton = document.querySelector('button.button-decrease');
 
     increaseButton.addEventListener('click', (event) => {
-        if ((progressCount + delta) > 100)
-        {
+        if ((progressCount + delta) > 100) {
             progressCount = 100;
-        }
-        else
-        {
+        } else {
             progressCount += delta;
         }
 
@@ -19,12 +16,9 @@ const updateProgress = (defaultNumber, delta) => {
     })
 
     decreaseButton.addEventListener('click', (event) => {
-        if ((progressCount - delta) < 0)
-        {
+        if ((progressCount - delta) < 0) {
             progressCount = 0;
-        }
-        else
-        {
+        } else {
             progressCount -= delta;
         }
 

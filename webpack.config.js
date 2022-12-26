@@ -8,6 +8,8 @@ module.exports = (env, options) => {
     return {
         entry: {
             'vue-core': './vue/index.js',
+            'tic-tac-toe': './Lessons/14. Vuex/Tasks/Task 2. TicTacToe/index.js',
+            'head-hunter': './Lessons/14. Vuex/Tasks/Task 1. HeadHunter/index.js',
         },
         output: {
             path: path.resolve(__dirname, './vue/build/'),

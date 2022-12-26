@@ -8,7 +8,9 @@
         "test-watch": "jest --watch -t",
         "watch": "webpack -w --mode development",
         "build": "webpack --mode production",
-        "update": "git fetch origin main && git merge origin/main"
+        "update": "git fetch origin main && git merge origin/main",
+        "lint": "eslint src/js",
+        "fix": "eslint src/js --fix"
     },
     "devDependencies": {
         "@babel/plugin-transform-modules-commonjs": "^7.15.4",
@@ -19,6 +21,10 @@
         "babel-polyfill": "^6.26.0",
         "babel-preset-env": "^1.7.0",
         "css-loader": "^6.7.1",
+        "eslint": "^7.32.0",
+        "eslint-config-airbnb-base": "14.2.1",
+        "eslint-plugin-import": "^2.24.2",
+        "eslint-plugin-vue": "^9.7.0",
         "file-loader": "^6.2.0",
         "jest": "^27.0.0",
         "jest-cli": "^27.0.0",
@@ -27,6 +33,7 @@
         "jest-serializer-vue": "^2.0.2",
         "path": "^0.12.7",
         "sinon": "^14.0.0",
+        "style-loader": "^3.3.1",
         "vue-loader": "^15.8.3",
         "vue-style-loader": "^4.1.3",
         "vue-template-compiler": "^2.7.8",
@@ -37,11 +44,14 @@
     "dependencies": {
         "@babel/preset-env": "^7.18.9",
         "@testing-library/dom": "^8.19.0",
+        "@vue/cli": "^5.0.8",
         "@vue/test-utils": "^1.2.2",
+        "melanke-watchjs": "^1.5.2",
         "moment": "^2.29.4",
         "moment-locales-webpack-plugin": "^1.2.0",
-        "vue": "^2.6.11",
-        "vuex": "^3.6.2"
+        "uuid": "^9.0.0",
+        "vue": "^2.6.14",
+        "vuex": "^3.0.0"
     },
     "license": "ISC",
     "jest": {
