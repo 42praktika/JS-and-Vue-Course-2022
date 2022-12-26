@@ -1,23 +1,21 @@
 <template>
     <div class="tic-tac-toe">
-        <div>
-            {{ field }}
-        </div>
         <h4>Играет: Игрок 1</h4>
-<!--        <div class="tic-tac-toe__table">-->
-<!--            <div-->
-<!--                class="tic-tac-toe__row"-->
-<!--                v-for="row in field"-->
-<!--            >-->
-<!--                <div-->
-<!--                    class="tic-tac-toe__item"-->
-<!--                    v-for="cell in row"-->
-<!--                >-->
-<!--                    <Tic v-if="cell === 0"></Tic>-->
-<!--                    <Tac v-if="cell === 1"></Tac>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+        <div class="tic-tac-toe__table">
+            <div
+                class="tic-tac-toe__row"
+                v-for="row in field"
+
+            >
+                <div
+                    class="tic-tac-toe__item"
+                    v-for="cell in row"
+                >
+                    <Tic v-if="cell === 0"></Tic>
+                    <Tac v-if="cell === 1"></Tac>
+                </div>
+            </div>
+        </div>
         <div class="tic-tac-toe__results">
             <h3>Счет</h3>
             <div>
@@ -36,11 +34,10 @@
 </template>
 
 <script>
-// import { createNamespacedHelpers } from "vuex";
+import createDoubleArray from './consts/functions';
 import Tic from './Icons/Tic.vue';
 import Tac from './Icons/Tac.vue';
 
-// const { mapState } = createNamespacedHelpers('');
 import { mapState } from 'vuex'
 
 export default {
@@ -48,8 +45,12 @@ export default {
     components: { Tic, Tac },
     computed: {
         ...mapState({
-            field: state => state.fieldSize
+            field: state => state.gameTableModules.field,
+            fieldSize: state => state.gameTableModules.fieldSize
         })
+    },
+    mounted() {
+        this.$store.dispatch('gameTableModules/setFieldAction', createDoubleArray(this.fieldSize, -1));
     }
 };
 </script>
