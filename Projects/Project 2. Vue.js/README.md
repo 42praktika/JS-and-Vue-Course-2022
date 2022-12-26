@@ -3,4 +3,4 @@
 ### [Репозиторий](https://github.com/Hehpheh/JS-Course-Project-2-Zakirova.git)
 
 
-### [Деплой]()
+### [Деплой](js-course-project-2-zakirova-kbk43q65b-hehpheh.vercel.app)
