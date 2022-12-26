@@ -4,4 +4,4 @@
 
 ### [Репозиторий VUE 2](https://github.com/KipeTBest/JS-Course-Project-2-Petrovskiy)
 
-### [Деплой]()
+### [Деплой](https://js-course-project-2-petrovskiy.vercel.app/#/)
